@@ -1,0 +1,41 @@
+/* 找活动-周边活动、找活动-推荐活动 共用样式*/
+.hot_hd { background-color: #fff; }
+.hot_hd header { padding: 0 0.6rem; border-bottom: 1px solid #e8e8e8; line-height: 1.56rem; font-size: 0.6rem; }
+.hot_hd header .imgDiv { line-height: 1.56rem; padding-top: 0.52rem; }
+.hot_hd header .imgDiv img { width: 0.28rem; vertical-align: middle; }
+.hot_hd .content { padding-left: 0.6rem; }
+.hot_hd .content .item { padding: 0.6rem 0.6rem 0.6rem 0; border-bottom: 1px solid #e8e8e8; }
+.hot_hd .content .item .item_l { width: 4rem; height: 3.2rem; overflow: hidden; position: relative; }
+
+ span.actese {display: block;width:100%;height: 0.75rem;background-color: #0094ff;z-index: 2;position: absolute;top:61px; left:0px;text-align: center;line-height: 0.75rem;font-size: 0.213333rem;opacity: 0.8;
+
+}
+.hot_hd .content .item .item_l img{ display:block;width:4rem; height: 3.2rem; position: absolute;top:0;left:0;z-index:1;
+    border: 0 none;}
+.hot_hd .content .item .item_r { padding-left: 4.44rem; height: 3.2rem; position: relative; }
+.hot_hd .content .item .item_r h2 { font-size: 0.6rem; width: 100%; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+.hot_hd .content .item .item_r h6 { color: #2185cf; font-size: 0.48rem; padding: 0.3rem 0; line-height: 0.48rem; }
+.hot_hd .content .item .item_r .p01 { font-size: 0.48rem; }
+.hot_hd .content .item .item_r .p01 { padding-bottom: 0.16rem; line-height: 0.48rem; }
+/* .hot_hd .content .item .item_r .bottom_txt{ line-height: 24/@rtsize; height: 24/@rtsize; } */
+.hot_hd .content .item .item_r .p02 { width: 50%; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+.hot_hd .content .item .item_r .p02,
+.hot_hd .content .item .item_r span { font-size: 0.48rem; position: absolute; bottom: 0; }
+.hot_hd .content .item .item_r span { right: 0; }
+/* 找活动-周边活动、找活动-推荐活动 共用样式  end */
+
+/* 顶部下拉菜单选择 */
+.choose_box{position: relative;z-index: 200;}
+.choose_head{border-bottom:1px solid #ebebeb;background-color: #fff;}
+.choose_head.cur{border-color:#666;}
+.choose_box .choose_item{width:50%;height:1rem;line-height:1rem;padding:0.3rem 0;}
+.choose_box .choose_item .choose_item_con{border-right:1px solid #ebebeb;height:100%;text-align: center;}
+.choose_box .choose_item:last-child .choose_item_con{border-right:none;}
+.choose_box .choose_item .choose_txt{padding-right:0.9rem;font-size:0.56rem;color:#666;background:url(../../img/downArrow.png) no-repeat right center;background-size:0.48rem;}
+.choose_box .choose_item.cur .choose_txt{color:#2185cf;background-image: url(../../img/up.png);}
+.choose_box .choose_body{position: relative;}
+.choose_box .choose_body_list{padding-left:0.6rem;display: none;box-sizing:border-box;background-color: #fff;position: absolute;width:100%;}
+.choose_box .choose_option{line-height:1.6rem;height:1.6rem;font-size:0.56rem;border-bottom:1px solid #e2e2e2;color:#333;}
+.choose_box .choose_option:last-child{border-bottom:none;}
+/* 遮罩 */
+.dark_cover{position: fixed;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);z-index:-11;display: none;}

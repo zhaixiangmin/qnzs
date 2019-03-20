@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>重磅项目-项目动态</title>
+	 <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project_common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project_model1.css" />
+    
+    <link rel="stylesheet" type="text/css" href="../../public/custom/page.css" />
+    
+   <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+   <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+    <!--项目动态js--->
+    <script type="text/javascript" src="../../public/js/heavy_project/heavy_project_dynamic.js"></script>
+    <script type="text/javascript" src="../../public/custom/page.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    
+    <!--- 引入头部和尾部 ----->
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script> 
+    <!--  对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/heavy_project/common.js"></script>
+       <script src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        // 多行文字溢出隐藏
+        $('.introduce').dotdotdot();
+    });
+    </script>
+    <style type="text/css">
+    	.trends_box_l img {
+    		
+    		width: 220px;
+    		height: 127px;
+    	}
+    </style>
+</head>
+<body style="background:#eee;">
+    <!-- 头部 -->
+    <header class="header_box">
+        <div class="w1200 header_content clearfix">
+            <div class="logo fl"><a href="heavy_project_model1_index.html"></a></div>
+            <ul class="fl clearfix header_nav">
+					<li class="nav_li ">
+						<a id="project_main" href="heavy_project_model1_index.html?activityId="+activityId>首页</a>
+					</li>
+					<li class="nav_li">
+						<a id="project_detail" href="heavy_project_model1_detail.html">项目详情</a>
+					</li>
+					<li class="nav_li cur">
+						<a id="project_dynamic" href="heavy_project_model1_trends_dynamic.html">项目动态</a>
+					</li>
+					<li class="nav_li participator_work">
+						<a id="team" href="heavy_project_model1_team.html">参赛团队</a>
+					</li>
+				</ul>
+				<div class="fr header_box_r clearfix">
+					<a href="../../index.html" class="link homepage fl"></a>
+					<a href="javasrcpt:;" class="link login fl" id="head_login_img"></a>
+				</div>
+        </div>
+    </header>
+    <!-- banner -->
+    <div class="banner_box">
+        <div id="banner_center" class="banner_center w1200"></div>
+    </div>
+
+    <!-- 项目动态 -->
+    <div class="dynamic_box trends">
+        <div class="content w1200">
+            <h1 class="content_title ">项目动态</h1>
+            <div class="trends_box bgcWhite">
+                <ul class="trends_box bgcWhite ul" id="dynamicOul">
+                   
+                </ul>
+            </div>
+            <div class="pageNumBox">
+                <div class="page">
+                   <div id="pageContent">
+                <div class="list clearfix siteList">
+
+                </div>
+                <div class="notContent hide">
+                    <div class="error_wrap">囧~没有搜到相关信息哦</div>
+                </div>
+                <div class="page">
+                    <ul class="pageMenu clearfix">
+                        <li class="firstPage">首页</li>
+                        <li class="prevPage"> < 上一页 </li>
+                        <div class="pageObj ">
+
+                        </div>
+                        <li class="nextPage"> 下一页 > </li>
+                        <li class="lastPage">尾页</li>
+                        <li class="last" style="font-size: 14px;">
+                            共<span class="totalPage"></span>页，跳转至 <input type="number" class="keuInput" value="1">
+                            <button type="button" class="btnSure">确定</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 底部 -->
+    <footer class="conBgc01 colorfff font14">
+        <a href="javascript:;" class="disB font14 colorfff">触屏版</a>
+        <p>版权所有 copyright 2016 广东青年之声</p>
+        <p>粤ICP备10214402号-4</p>
+    </footer>
+    <!-- 站长统计 -->
+	<div style="display:none">
+	    <script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+	</div>
+</body>
+</html>
+<script>
+//  $('.topBlock').hide()  //隐藏顶部
+//  $('footer').hide()  //隐藏底部
+// 	setInterval(function(){
+// 		$('.topBlock').hide()  //隐藏顶部
+// 	    $('footer').hide()  //隐藏底部
+////   	   
+// 	},1)	
+     
+	//控制弹出窗
+	$('#head_login_img').click(function(){
+			//  获取当前登录者信息
+		obj.ajax('/commons/getSessionAccount',{},function(data){
+			
+			if(data.status =='OK'){
+				window.location.href = '../person_center/person_center.html'
+			}else{
+
+                $.alert('亲，请先登录')
+//		       	  $('#loginBtn').trigger("click");  //触发点击事件
+                var i =1;
+	            var  time = setInterval(function(){
+	            $('#loginBtn').click();
+		            if(i==1){
+		             	clearInterval(time);
+		            }
+			    },100)	
+				
+			}
+		})
+	})
+	
+	
+</script>

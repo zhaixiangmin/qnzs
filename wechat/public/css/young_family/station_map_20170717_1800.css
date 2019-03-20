@@ -1,0 +1,79 @@
+.toolbar{
+    padding: 0 10px;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    background-color: #1070b6;
+}
+
+/*返回图标*/
+.toolbar .combo .icon_left{
+    display: inline-block;
+    height: 50px;
+}
+.toolbar .combo .icon_left em{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: url(../../img/back_arrow.png) no-repeat center center;
+}
+
+/*服务类别*/
+.toolbar .combo .category_parent{
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    height: 30px;
+}
+.toolbar .combo .category_parent .category{
+    vertical-align: top;
+    padding-left: 10px;
+    height: 30px;
+    width: 5rem;
+    font-size: 0.48rem;
+    background: #fff url(../../img/down.png) no-repeat 95% center;
+}
+
+/*城市*/
+.toolbar .combo .city_parent{
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px 10px 10px 0;
+    height: 30px;
+}
+.toolbar .combo .city_parent .city{
+    vertical-align: top;
+    padding-left: 10px;
+    height: 30px;
+    width: 5rem;
+    font-size: 0.48rem;
+    background: #fff url(../../img/down.png) no-repeat 95% center;
+}
+
+/*地图*/
+#BMap_mask{
+    width: 100%;
+    height: 300px;
+}
+
+/*站点列表*/
+.station_parent .station li{
+    border-bottom: 1px solid #dfdfdf; padding: 10px; line-height: 27px;
+}
+.station_parent .station li.header{
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    background: #2185cf;
+}
+.station_parent .station li .station_fullName{
+    font-size: 18px; color: #333333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.station_parent .station li .station_categories{
+    font-size: 14px; color: #666; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.station_parent .station li .station_address{
+    font-size: 12px;color: #939393;
+}

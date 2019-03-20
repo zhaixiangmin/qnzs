@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+
+    <title>重磅项目</title>
+    <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/zbxm_index.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <!-- 分页   -->
+    <link rel="stylesheet" type="text/css" href="../../public/custom/page.css"/>
+   <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+    
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/heavy_project/page.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--- 引入头部和尾部 ----->
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/ajax/ajax.js"></script>
+    <!--  对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/custom/common.js"></script>
+    <script src="../../public/custom/page.js" type="text/javascript" charset="utf-8"></script>
+     <!--- 引入头部和尾部 end ----->
+      <!---- 一号通接入  ---->
+     <script>
+		var dynamicLoading = {
+		    js: function(path){
+				if(!path || path.length === 0){
+					throw new Error('argument "path" is required !');
+				}
+				var head = document.getElementsByTagName('head')[0];
+		        var script = document.createElement('script');
+		        script.src = path+"/browser/0110/crossdomain.js";
+		        script.type = 'text/javascript';
+		        head.appendChild(script);
+		    }
+		}
+		
+		dynamicLoading.js(bigDataUrl);
+	
+	</script>
+     
+
+</head>
+<body class="bodyPt96">
+   
+<!-- 公共头部 -->
+
+
+<!--<link rel="stylesheet" type="text/css" href="../../public/pcCss/common/stationNav.css" />-->
+
+
+
+
+
+<!-- banner -->
+
+<!-- banner -->
+  <div id="banBox" class="banBox newBanner" style="width:100%;min-width:1250px">
+            <div class="hd">
+                <ul>
+                <!-- <li class="on">1</li><li class="">2</li> -->
+                </ul>
+            </div>
+            <div class="bd" id="head-banner">
+                    <ul>
+		        		<!--<li><a href="//www.yuanmengjihua.com/"><img src="//wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/temp/image/20170713/20170713162132_95ban-02_1900.jpg"/></a></li>
+					
+		        		<li><a href="//www.izyz.org"><img src="//wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/qnzs/image/20170420/20170420192758_31WechatIMG42.png"/></a></li>
+					
+		        		<li><a href="#"><img src="//wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/temp/image/20170725/20170725104011_244青年之声4-new.jpg"/></a></li>-->
+					
+                    </ul>
+            </div>
+            
+		        <a class="prev change" href="javascript:void(0)"></a>
+			
+            <a class="next change" href="javascript:void(0)"></a>
+    </div>
+    <!--<script type="text/javascript">-->
+  	<!--jQuery(".banBox").slide({-->
+  		<!--titCell:".hd ul",-->
+  		<!--mainCell:".bd ul",-->
+  		<!--effect:"leftLoop",-->
+  		<!--autoPlay:true,-->
+  		<!--autoPage:true,-->
+  		<!--interTime:3000,-->
+          <!--delayTime:300,-->
+          <!--prevCell:".change.prev",-->
+          <!--nextCell:".change.next",-->
+          <!--trigger:"mouseover"-->
+  		<!--});-->
+    <!--</script>-->
+
+    <!-- 重磅项目列表 -->
+    <div class="zbxm w1200">
+            <ul class="zbxm_t">
+                <li class="fl font16 color000 list_b current " value="" onclick="getQuestionsByParams(this)">全部</li>
+                <li class="fl font16 color000 list_b " value="推荐" onclick="getQuestionsByParams(this)">推荐项目</li>
+                <li class="fl font16 color000 list_b " value="赛事" onclick="getQuestionsByParams(this)">赛事</li>
+                <li class="fl font16 color000 list_b " value="评选" onclick="getQuestionsByParams(this)">评选</li>
+                <li class="fl font16 color000  list_b" value="培训" onclick="getQuestionsByParams(this)">培训</li>
+                <li class="fl font16 color000  list_b" value="其他" onclick="getQuestionsByParams(this)">其他</li>
+            </ul>
+            <ol class="clearfix zbxm_b">
+                <li class="list_1">
+					<div id="activityList">
+						<!-- 此处动态加载活动列表 -->
+						<ul id="activityListHtmlStatic">
+	                    </ul>
+					</div>
+               </li>
+            </ol>
+         
+        <!--  查看更多    -->
+    	<div class="w1200 clearfix">
+    		<p class="seeMore" id="moreSee"></p>
+    	</div>
+    </div>
+    
+	
+    <!-- 翻页 -->
+        <div class="w1200 clearfix">           
+           <!--       页码指示  -->
+                <!--<div class="pageNumBox zbxm_page">
+                    <div class="pageNumCon clearfix">
+                        <span class="prevPage pagePrevNext fl">上一页</span>
+                        <div class="pageNum fl">
+                            <a href="javascript:;">1</a>
+                            <a href="javascript:;">2</a>
+                            <a href="javascript:;">3</a>
+                            <a href="javascript:;">4</a>
+                            <a href="javascript:;">5</a>
+                            <a href="javascript:;">6</a>
+                            <a href="javascript:;">7</a>
+                            <a href="javascript:;">8</a>
+                            <a href="javascript:;">...</a>
+                            <a href="javascript:;">100</a>
+                        </div>
+                        <span class="nextPage pagePrevNext fl">下一页</span>
+                    </div>
+                </div>          -->
+                
+                
+        </div> 
+    <!-- 站长统计 -->
+    <div style="display:none">
+		<script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+	</div>
+    
+<!-- 公共底部 -->
+
+
+	<div style="display:none">
+		<script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+	</div>
+	
+	<!-- 右浮窗：返回顶部 -->
+ 	<div class="fuchuang conBgc01">
+     	<div class="back colorfff font14"><span style="display: none;" id="retrue_top" class="font14">返回顶部</span></div>
+ 	</div>
+		<script type="text/javascript" src="../../public/vendor/super_slide/jquery.SuperSlide.2.1.1.js"></script>
+       <script type="text/javascript" src="../../public/js/heavy_project/heavy_main_list.js"></script>
+
+    <!-- 站长统计 -->
+	<div style="display:none">
+	    <script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+	</div>   
+</body>
+</html>

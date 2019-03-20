@@ -1,0 +1,38 @@
+body{padding-top:20px;}
+.fl{float: left;}
+.fr{float: right;}
+table{width:100%;border-collapse:collapse;}
+.transcripts_box{width:700px;background-color: #fff;margin:0 auto;}
+.transcripts_box .transcripts_page{height:1020px;background-repeat:no-repeat;background-size:100%;position: relative;}
+.transcripts_box .transcripts_page .bottom_page{text-align: center;color:#000;}
+/* .transcripts_box .transcripts_bg{position: absolute;z-index:1;width:700px;} */
+.transcripts_box .transcripts_page1{background-image: url(../../img/second_class/transcripts_bg.png);padding:0 96px;}
+.transcripts_box .transcripts_page2{background-image: url(../../img/second_class/transcripts_bg2.png);padding:40px 43px 0;position: relative;}
+.transcripts_box .transcripts_page1 .title_box{padding-top:106px;text-align: center;color:#000;margin-bottom:32px;}
+
+.transcripts_box .transcripts_page1 .title_box_part{display:inline-block;}
+.transcripts_box .transcripts_page1 .school_badge{margin-right:14px;}
+.transcripts_box .transcripts_page1 .title_box .badge{width:45px;margin:0 auto;}
+.transcripts_box .transcripts_page1 .title_box_part .badge_txt{font-size:14px;margin-top:5px;}
+
+.transcripts_box .transcripts_page1 .title_box .big_title{line-height:50px;height:50px;font-size: 30px;}
+.transcripts_box .transcripts_page1 .title_box .eng_title{line-height:30px;font-size: 16px;}
+.transcripts_box .transcripts_page1 .personal_info{margin-bottom:50px;}
+.transcripts_box .transcripts_page1 .personal_info_left .item{line-height:30px;height:30px;}
+.transcripts_box .transcripts_page1 .personal_info_left .item_left{color:#666;width:125px;padding-right:12px;}
+.transcripts_box .transcripts_page1 .personal_info_left .item_right{color:#000;font-size: 14px;}
+.transcripts_box .transcripts_page1 .personal_info_right{padding:8px 24px 0 0;text-align: center;}
+.transcripts_box .transcripts_page1 .personal_info_right .qr_code_box{width:96px;height:96px;margin:0 auto 3px;}
+.transcripts_box .transcripts_page1 .personal_info_right .qr_code{width:100%;height:100%;}
+.transcripts_box .transcripts_page1 .personal_info_right .txt{line-height:20px;color:#666;}
+.transcripts_box .transcripts_page1 .act_info_box{margin-bottom:45px;}
+.transcripts_box .transcripts_page1 .act_info_list th{font-size:14px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;line-height:33px;height:33px;}
+.transcripts_box .transcripts_page1 .act_info_list td{text-align: center;line-height:20px;height:33px;border-bottom:1px solid #eee;}
+.transcripts_box .transcripts_page1 .stamp{font-size:14px;color:#000;text-align:right;padding-right:136px;margin-bottom:35px;}
+
+.transcripts_box .transcripts_page2 .top_p{color:#999;line-height:12px;margin-bottom:12px;}
+.transcripts_box .transcripts_page2 .act_info_title{line-height:28px;height:28px;color:#000;}
+.transcripts_box .transcripts_page2 th{line-height:30px;height:30px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;}
+.transcripts_box .transcripts_page2 td{line-height:20px;height:30px;text-align: center;color:#666;}
+.transcripts_box .transcripts_page2 .stamp{position: absolute;font-size: 16px;right:174px;bottom:112px;line-height:16px;color:#000;}
+.transcripts_box .transcripts_page2 .bottom_page{position: absolute;left:50%;transform:translateX(-50%);bottom:20px;}

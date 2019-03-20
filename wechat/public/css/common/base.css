@@ -1,0 +1,132 @@
+/* 初始化CSS  重置浏览器样式*/
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img, input,header, nav, article, section,footer,span{ margin:0; padding:0; }
+a,input,button,textarea{text-decoration: none;outline:none;border:0 none;}
+h1,h2,h3,h4,h5,h6{font-weight: normal;}
+fieldset, img { border:0 none; } 
+img{display: block;-ms-interpolation-mode:bicubic;/*为了照顾ie图片缩放失真*/}
+em,i{font-style: normal;}
+ul, ol { list-style:none; }
+input { padding-top:0; padding-bottom:0;}
+select, input, textarea { font-size:14px; margin:0; }
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+select{
+   /* Firefox */
+ /* Safari 和 Chrome */
+border:0 none;
+}
+textarea { resize:none; }/*让文本域 盒子  不可调节大小**/
+body{ min-width:318px;color:#000;font-size:14px;font-family:"微软雅黑";background-color: #e8e8e8;}
+.clearfix:after{ content:""; height:0; line-height:0; display:block; visibility:hidden; clear:both; }
+.clearfix{zoom:1;} /*为了兼容低版本IE浏览器*/
+a{ color:#000; text-decoration:none; }
+/*img{width: 100%;}*/
+.askcont{height: 1.4rem;overflow: hidden;}
+.askcont p{padding: 0!important;}
+a:active{background-color: #999;}
+/*a:hover { color:#666; text-decoration:none; }*/
+/* 初始化CSS  重置浏览器样式*/
+
+#editor{
+    font-size: 16px;
+}
+#editor h1{
+    font-size: 2em;
+}
+#editor h2{
+    font-size: 1.5em;
+}
+#editor h3{
+    font-size: 1.17em;
+}
+/*h4是正常大小，不用重设*/
+/*#editor h4{*/
+/*font-size: 1em;*/
+/*}*/
+#editor h5{
+    font-size: 0.83em;
+}
+#editor h6{
+    font-size: 0.67em;;
+}
+#editor span{
+    float: none;
+}
+
+#editor b{
+    font-weight: bold;
+}
+#editor i{
+    font-style: italic;
+}
+#editor .w-e-toolbar div.w-e-menu:nth-child(12){display: none;}
+#editor .w-e-toolbar .w-e-menu i.w-e-icon-happy{display: none;}
+#editor a{
+    color: -webkit-link;
+    cursor: auto;
+    text-decoration: underline;
+}
+
+#editor ol {
+float: none;
+width: auto;
+list-style-type: decimal;
+padding: 0 20px;
+}
+#editor ol li {
+float: none;
+width: auto;
+line-height: normal;
+overflow: visible;
+list-style-type: decimal;
+list-style: decimal;
+padding: 0 20px;
+white-space: normal;
+}
+#editor ul {
+float: none;
+width: auto;
+list-style-type: disc;
+padding: 0 20px;
+}
+#editor ul li {
+float: none;
+width: auto;
+line-height: normal;
+overflow: visible;
+list-style-type: disc;
+list-style: disc;
+padding: 0 20px;
+white-space: normal;
+}
+#editor img{display: block;margin: 0 auto;}
+/*富文本框样式冲突-重设*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

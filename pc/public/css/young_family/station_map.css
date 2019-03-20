@@ -1,0 +1,60 @@
+.map_station{
+    position: relative;width: 100%;height: 550px;
+    /*position: relative;width: 100%;height: 90%;*/
+}
+/*地图区域*/
+.map_station #BMap_mask{
+    width: 100%;
+    height: 100%;
+}
+/*浮动框-分页*/
+.map_station .aside{
+    position: absolute; width: 225px; background: #fff; z-index: 100; top: 20px; left: 100px;
+}
+.map_station .aside .header{
+    height: 41px;
+}
+.map_station .aside .header .title{
+    display: inline-block;margin: 0 5px; padding: 0 10px; height: 38px; line-height: 42px; font-size: 14px; border-bottom: solid 3px #1796f9; color: #707070;
+}
+.map_station .aside .header  .icon_left{
+    display: inline-block; vertical-align: bottom; margin-left: 55px; width: 30px; height: 41px; background: url(../../img/bannerbtnl.png) no-repeat  8px 12px; cursor: pointer; background-size: 40%;
+}
+.map_station .aside .header  .icon_right{
+    display: inline-block; vertical-align: bottom; width: 30px; height: 41px; background: url(../../img/bannerbtnr.png) no-repeat  8px 12px; cursor: pointer; background-size: 40%;
+}
+
+/*下划线*/
+.map_station .aside .hr{
+    height: 1px;background: #ccc;
+}
+/*地点名称列表*/
+.map_station .aside .content{
+    padding: 10px;
+}
+.map_station .aside .content .item{
+    cursor: pointer; color: #51688a; font-size: 14px; line-height: 35px; height: 32px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+
+/*浮动框-全站*/
+.map_station .aside_allmap{
+    position: absolute; width: 225px; background: #fff; z-index: 100; top: 20px; left: 100px;
+}
+.map_station .aside_allmap .header{
+    height: 41px;
+}
+.map_station .aside_allmap .header .title{
+    display: inline-block;margin: 0 5px; padding: 0 10px; height: 38px; line-height: 42px; font-size: 14px; border-bottom: solid 3px #1796f9; color: #707070;
+}
+.map_station .aside_allmap .content{
+    height: 320px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.map_station .aside_allmap .content{
+    padding: 10px;
+}
+.map_station .aside_allmap .content .item{
+    cursor: pointer; color: #51688a; font-size: 14px; line-height: 35px; height: 32px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}

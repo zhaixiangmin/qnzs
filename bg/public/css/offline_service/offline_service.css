@@ -1,0 +1,116 @@
+/*数据筛选 -- 手风琴选中时，背景色不变色*/
+.accordion .accordion-header-selected{
+    background: #E0ECFF;
+}
+
+/*去除因为自定义easyui的弹出框位置，而出现的阴影块*/
+.window-shadow{
+    display: none !important;
+}
+
+/*线下服务申请管理 -- 查看，模态框的表格样式*/
+#fm_show table{
+    width: 100%;
+    border: 1px solid #6C90CE;
+    border-collapse: collapse;
+}
+#fm_show table tr{
+    width: 100%;
+}
+#fm_show table tr td{
+    padding: 5px;
+    border: 1px solid #6C90CE;
+}
+#fm_show table tr td:nth-of-type(1){
+    width: 20%;
+    text-align: right;
+}
+#fm_show table tr td:nth-of-type(2){
+    width: 80%;
+}
+
+#fm_show table tr td input{
+    width: 100%;
+    border: 0;
+}/*线下服务申请管理 -- 查看，模态框的表格样式*/
+
+
+/*线下服务申请管理 -- 审核，模态框的表格样式*/
+#fm_audit table{
+    width: 100%;
+    border: 1px solid #6C90CE;
+    border-collapse: collapse;
+}
+#fm_audit table tr{
+    width: 100%;
+}
+#fm_audit table tr td{
+    padding: 5px;
+    border: 1px solid #6C90CE;
+}
+#fm_audit table tr td:nth-of-type(1){
+    width: 20%;
+    text-align: right;
+}
+#fm_audit table tr td:nth-of-type(2){
+    width: 80%;
+}
+
+#fm_audit table tr td input{
+    width: 100%;
+    border: 0;
+}/*线下服务申请管理 -- 审核，模态框的表格样式*/
+
+
+/*!*线下服务申请管理 -- 审核，模态框的表格样式*!*/
+/*#fm_audit table{*/
+    /*width: 100%;*/
+    /*border: 1px solid #6C90CE;*/
+    /*border-collapse: collapse;*/
+/*}*/
+/*#fm_audit table tr{*/
+    /*width: 100%;*/
+/*}*/
+/*#fm_audit table tr td{*/
+    /*padding: 5px;*/
+    /*border: 1px solid #6C90CE;*/
+/*}*/
+/*#fm_audit table tr td:nth-of-type(1){*/
+    /*width: 20%;*/
+    /*text-align: right;*/
+/*}*/
+/*#fm_audit table tr td:nth-of-type(2){*/
+    /*width: 80%;*/
+/*}!*线下服务申请管理 -- 审核，模态框的表格样式*!*/
+
+/*线下服务申请管理 -- 完结，模态框的表格样式*/
+#fm_finish table{
+    width: 100%;
+    border: 1px solid #6C90CE;
+    border-collapse: collapse;
+}
+#fm_finish table tr{
+    width: 100%;
+}
+#fm_finish table tr td{
+    padding: 5px;
+    border: 1px solid #6C90CE;
+}
+#fm_finish table tr td:nth-of-type(1){
+    width: 20%;
+    text-align: right;
+}
+#fm_finish table tr td:nth-of-type(2){
+    width: 80%;
+}
+#fm_finish table tr td input, #fm_finish table tr td textarea{
+    width: 99%
+}
+#fm_finish table tr td input{
+    border: 0;
+}
+#fm_finish table tr td textarea#description_finish{
+    resize: none;
+    border: 0;
+    outline: none;
+}/*线下服务申请管理 -- 完结，模态框的表格样式*/

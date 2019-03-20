@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>活动评分</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/actScanSignIn.css" />
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--<script type="text/javascript" src="../../js/common.js"></script>-->
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+      <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/find_active/mark_org.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+</head>
+<!--<body id="orgMark" onload="loadData()">-->
+<body id="orgMark">
+    <!--<section class="headTxt bgcWhite mb20" id="orgInfo">
+        <div class="item clearfix">
+            <div class="left fl">
+                <img src="../../images/liulian.png">
+            </div>
+            <div class="right">
+                <h2 class="color000">中国共产主义河源职业技术学院青年之声</h2>
+                <p class="fz24 color999 short_name">简称：河职院青年之声</p>
+                <div class="follow_box clearfix fz24 color999">风景区</div>
+            </div>
+        </div>
+    </section>
+    <!-- 报名人信息 --
+    <a href="javascript:;" class="person_info bgcWhite disB color333 mb20" id="enrollInfo">
+        <div class="info_in clearfix">
+            <h1 class="title fl fz30">报名人信息</h1>
+            <span class="fr fz30">某某(132588989)</span>
+        </div>
+    </a>-->
+    <!-- 评价、评分 -->
+    <section class="mark_box">
+        <div class="mark_start_box clearfix">
+            <span class="fl fz24">点这里评分</span>
+            <ul class="fl start_list">
+                <li class="item fl"></li>
+                <li class="item fl"></li>
+                <li class="item fl"></li>
+                <li class="item fl"></li>
+                <li class="item fl"></li>
+            </ul>
+        </div>
+        <div class="wirte_box">
+            <textarea placeholder="请输入您的评价吧，您的反馈将会让我们做得更好！" id="remark"></textarea>
+        </div>
+        <div class="words_publish">
+            <div class="clearfix up color333">
+                <label for="anonymous" class="anonymous fl">
+                    <input type="checkbox" id="anonymous" />
+                    <span class="fz24">匿名(你的评价将被匿名)</span>
+                </label>
+            </div>
+            <input type="button" class="publish_btn bgc2185cf fz28 colorfff" value="发表" onclick="markActivityOrg()" />
+            <!--<input type="button" class="publish_btn bgc2185cf fz28 colorfff" value="发表" />-->
+        </div>
+    </section>
+</body>
+</html>
+<script>
+	/*星级评分-点击星星进行评分*/
+    $('.mark_box .start_list .item').click(function(event) {
+        var thisIdx=$(this).index();
+        $('.mark_box .start_list .item:lt('+(thisIdx+1)+')').addClass('cur');
+        $('.mark_box .start_list .item:gt('+thisIdx+')').removeClass('cur')
+    });
+</script>

@@ -1,0 +1,203 @@
+/* -----帮助详情 、详情结束公用 ----- --------*/
+.head_link{
+  width: 100%; background: #2185cf; padding: 0.4rem 0;
+}
+.head_link .head_box{
+  height: 0.72rem; line-height: 0.72rem; padding: 0 0.68rem;
+}
+.head_link .head_box a{
+  display: inline-block;
+}
+.head_link .head_box a.head_logo{
+  background: url(../../img/head_logo.png) no-repeat;
+  background-size: 2.8rem;
+  height: 0.72rem;
+  width: 3.4rem;
+  border-right: 1px solid #91b9d6;
+  text-align: center;
+}
+
+.head_link .head_box a.head_title{
+  font-size: 0.48rem;
+  width: 3.6rem;
+  text-align: center;
+  color: #fff;
+}
+
+/*banner样式*/
+#bannerBox{
+  position: relative;
+}
+#bannerBox .hd{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+#bannerBox .hd ul {
+  width: 100%;
+  text-align: center;
+}
+#bannerBox .hd ul li{
+  display: inline-block;
+  width: 0.5625rem;
+  height: 0.5625rem;
+  line-height: 0.5625rem;
+  background: #fff;
+  text-align: center;
+  margin: 0 0.075rem;
+  font-size: 0.45rem;
+}
+#bannerBox .hd ul li.on{
+  background: #f00;
+  color: #fff;
+}
+#bannerBox .bd ul li {
+  width: 100%;
+  height: 5.625rem;
+  line-height: 5.625rem;
+  text-align: center;
+  font-size: 0;
+}
+#bannerBox .bd ul li img {
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+#bannerBox .prev, #bannerBox .next{
+  position:absolute; left:3%; top:50%; margin-top:-0.9375rem; display:block; width:1.2rem; height:1.5rem; background:url(../../img/slider-arrow.png) -110px 5px no-repeat; filter:alpha(opacity=50);opacity:0.5;
+}
+#bannerBox .next{
+  left:auto; right:3%; background-position:8px 5px;
+}
+
+/*section.banner img{width: 100%;}*/
+section.headTxt{padding: 0.16rem 0.6rem;}
+section.headTxt p{width: 80%;line-height: 1rem;}
+section.headTxt .help_edit{
+  width:16%;border-left:1px solid #e8e8e8;padding-left: 0.4rem;margin-top: 0.2rem;height: 0.6rem;
+}
+
+section.headTxt .help_edit .report{
+  cursor: pointer;
+  padding-left: 0.6rem;
+  color: #333;
+  background: url(../../img/report.png) no-repeat left center;
+  background-size: 0.5rem 0.5rem;
+  margin-right: 0 !important;
+}
+
+/* ------求助 ------ -----*/
+section.help .item{border-bottom: 1px solid #e8e8e8;}
+section.help .item:last-child{border-bottom: none;}
+/*section.help .item .span01{padding-left: 1.12rem;background: url(../../img/help01.png) no-repeat left center;background-size: 0.6rem;}*/
+/*section.help .item:nth-of-type(2) .span01{background-image: url(../../img/help02.png);}*/
+
+/* -----求助详情 ----- -------*/
+section.help_detail{padding-top:0.28rem ;}
+section.help_detail h2{line-height: 1.24rem;padding-left: 1.72rem;background: url(../../img/help03.png) no-repeat 0.6rem center;background-size: 0.56rem;}
+section.ganyan h2{background-image: url(../../img/help05.png);}
+section.help_detail .txts{padding: 0.5rem 0.6rem;}
+section.help_detail .txts p{text-indent: 0.96rem;}
+
+/* ----处理进度----- ----- */
+.bz_jinzhan {
+  margin-bottom: 2rem;
+}
+.jinzhan {
+  width: 0.68rem;
+  height: 0.64rem;
+  background: url(../../img/jinzhan.png) no-repeat;
+  margin: 0.54rem 0.46rem 0 0;
+}
+.jinzhan_box {
+  background: #fff;
+  padding: 0 0 0 0.6rem;
+  border: 0.02rem solid #e2e2e2;
+  border-left: none;
+  border-right: none;
+  position: relative;
+  overflow: hidden;
+}
+.jinzhan_box .jinzhan_box_r {
+  padding-left: 0.6rem;
+}
+.jinzhan_box .jinzhan_box_r li {
+  border-bottom: 0.02rem solid #e2e2e2;
+  position: relative;
+  padding: 0.4rem 0.6rem 0.4rem 0;
+}
+.jinzhan_box .jinzhan_box_r li:last-child {
+  border-bottom: none;
+}
+.jinzhan_box .jinzhan_box_r li span {
+  font-size: 0.6rem;
+  color: #999;
+  line-height: 0.68rem;
+}
+.jinzhan_box .jinzhan_box_r li i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  display: inline-block;
+  position: absolute;
+  left: -0.7rem;
+  top: 0.68rem;
+  z-index: 100;
+}
+.jinzhan_box .jinzhan_box_r li i.current {
+  background: #2185cf;
+}
+.jinzhan_box .jinzhan_box_r li span.current {
+  color: #333;
+}
+.jinzhan_line {
+  width: 0.1rem;
+  border-right: 0.02rem solid #cccccc;
+  position: absolute;
+  top: 0.8rem;
+  left: 0.48rem;
+  bottom: 0.68rem;
+  z-index: 10;
+}
+/*响应式*/
+@media (min-width: 320px) and (max-width: 359px) {
+  /* 处理进展 */
+  .jinzhan_box .jinzhan_box_r li i {
+    width: 7px;
+    height: 7px;
+  }
+  .jinzhan_line {
+    left: 0.508rem;
+  }
+}
+@media (min-width: 360px) and (max-width: 639px) {
+  /* 处理进展 */
+  .jinzhan_box .jinzhan_box_r li i {
+    width: 8px;
+    height: 8px;
+  }
+  .jinzhan_line {
+    left: 0.508rem;
+  }
+}
+
+
+/* ---评论== ==== */
+section.comment .title{border-bottom: 1px solid #e8e8e8;}
+section.comment .title h6{font-size: 0.6rem;padding-left: 1.2rem;background: url(../../img/commentIcon.png) no-repeat left center;background-size: 0.64rem;}
+section.comment .title a{color:#2185cf;}
+section.comment .content{padding-left: 0.6rem;}
+section.comment .content .item{padding-right: 0.6rem;border-bottom: 1px solid #e2e2e2;}
+section.comment .content .item .left{padding: 0.6rem 0.48rem 0.6rem 0;}
+section.comment .content .item .left .imgDiv{width:2rem;height: 2rem;border-radius: 50%;overflow: hidden;}
+section.comment .content .item .left .imgDiv img{width: 100%;}
+section.comment .content .item .right{padding-left: 2.48rem;padding-top: 0.28rem;padding-bottom: 0.54rem;}
+section.comment .content .item .right .tit{font-size: 0.48rem;line-height: 1.04rem;height: 1.04rem;}
+section.comment .content .item .right .tit h6{font-size: 0.48rem;}
+section.comment .content .item .right .tit .name{color:#2185cf;}
+section.comment .content .item .right p{line-height: 0.68rem;font-size: 0.48rem;}
+
+a.helpTA{position: fixed; bottom: 0; width: 100%;text-align: center;line-height: 1.6rem;}

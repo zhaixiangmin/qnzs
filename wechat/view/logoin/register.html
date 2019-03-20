@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/register/register.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+    <script src="../../public/js/login-register/common/flexible.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+	 <!--对话框-->
+	<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+	<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+	<script src="../../public/js/ajax/ajax2.js"></script>
+	<script>
+		var dynamicLoading = {
+		    js: function(path){
+				if(!path || path.length === 0){
+					throw new Error('argument "path" is required !');
+				}
+				var head = document.getElementsByTagName('head')[0];
+		        var script = document.createElement('script');
+		        script.src = path+"/browser/0110/crossdomain.js";
+		        script.type = 'text/javascript';
+		        head.appendChild(script);
+		    }
+		}
+		
+		dynamicLoading.js(bigDataUrl);
+	
+	</script>
+    
+</head>
+<body class="login_register">
+    <header id="header">注册</header>
+    <section class="padding_com_one section_common">
+        <section class="input_common_box">
+            <div class="ipt"><input class="input1 input" id="mobile" type="text" placeholder="请输入手机号" /></div>
+            <div class="ipt ipt2"><input class="input2 input" id="imageVal"  type="text" placeholder="请输入图形验证码" maxlength="8" /><em class="checkCodeBox"><img id="imagesyanz" onclick="changeModel()" src="" alt=""></em></div>
+            <div class="ipt ipt3"><input class="input3 input" id="verification"  type="text" placeholder="请输入短信验证码" maxlength="8" /><em class="msgCode"   onclick="sendYanzhengCode()" >获取验证码</em></div>
+        </section>
+        <div class="submit_btn_box">
+            <div class="submit_btn">下一步</div>
+        </div>
+    </section>
+</body>
+</html>
+<script src="../../public/js/module/Utils.js"></script>
+<script  src="../../public/js/login-register/register.js"></script>
+<script type="text/javascript">
+    $(document).on('input propertychange', '.input', function(event) {
+        var input1 = $('.input1').val().trim().length;
+        var input2 = $('.input2').val().trim().length;
+        var input3 = $('.input3').val().trim().length;
+        if( input1!=0 && input2!=0 && input3!=0 ){
+            $('.submit_btn').addClass('sub');
+        }else{
+            $('.submit_btn').removeClass('sub');
+        }
+    });
+</script>

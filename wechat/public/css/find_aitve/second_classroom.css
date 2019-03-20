@@ -1,0 +1,39 @@
+/* ----------------------------第二课堂---------------------------- */
+/* 第二课堂的活动报名 */
+.common_item_box{padding:0 0.6rem;background-color: #fff;font-size:0.6rem;color:#333;line-height:1.6rem;height:1.6rem;}
+.common_item_box .left_title{width:36%;overflow: hidden;}
+.common_item_box .right{height: 1.6rem; line-height: 1.6rem;float: left; width: 63%;}
+.common_item_box .right_input{font-size:0.48rem;line-height:100%;height:100%;width:100%;}
+.note_box{height:auto;line-height:normal;}
+.note_box .left_title{display: block;padding-top:0.5rem;margin-bottom:0.2rem;}
+.note_box .textarea{height:7.2rem;width:100%;}
+.sec_title{padding-left:0.6rem;}
+.sec_title h1{padding-left:1.2rem;line-height:0.8rem;background-position:left center;background-repeat:no-repeat;background-image: url(../../img/xueshimao.png);background-size:0.8rem;}
+.kindly_reminder{padding:0.4rem 0.6rem;}
+.submit_btn{display: block;border-radius:0.6rem;line-height:1.6rem;text-align: center;}
+/* 第二课堂的活动报名 end */
+
+/* 第二课堂未有成绩单 */
+.no_report{padding-top:0.5rem;}
+.no_report .up_txt{min-height:21rem;}
+.no_report .link{text-decoration:underline;}
+.no_report .btn_box .item{width:50%;padding:0 0.3rem;box-sizing:border-box;}
+.no_report .btn_box .item .btn{display: block;font-size:0.68rem;color:#fff;background-color:#2185cf;line-height:1.6rem;height:1.6rem;border-radius:0.6rem;text-align: center;}
+/* 第二课堂未有成绩单 end */
+
+/* 第二课堂-已有成绩单 */
+.has_report .up_txt{padding-top:0.5rem;margin-bottom:0.6rem;}
+.has_report .up_txt .item{margin-bottom:0.6rem;color:#333;line-height:0.6rem;}
+.has_report .up_txt .item .left_title{font-size:0.6rem;}
+.has_report .up_txt .item .right{font-size:0.48rem;padding-left:1.8rem;}
+.has_report .school_year{line-height:normal;}
+.has_report .school_year .left_title{line-height:1rem;}
+.has_report .school_year .select{width:7.5rem;box-sizing:border-box;height:1rem;line-height:1rem;border:1px solid #999;padding-left:0.6rem;background:url(../../img/downArrow.png) no-repeat 6.5rem center;background-size:0.48rem;font-size:0.48rem;}
+.has_report .table{font-size:0.4rem;width:100%;text-align: center;border-collapse:collapse;}
+.has_report .table th{font-weight: normal;color:#fff;background-color: #2185cf;height:1rem;border:1px solid #d6d6d6;}
+.has_report .table td{border:1px solid #d6d6d6;height:1.6rem;}
+.has_report .table_bottom{background-color: #2185cf;border:1px solid #d6d6d6;padding:0.5rem 0;text-align: center;border-top:0;}
+.has_report .table_bottom .one{font-size:0.48rem;margin-bottom:0.2rem;}
+.has_report .table_bottom .two{font-size:0.56rem;}
+#transcript{display: block; width: 4rem;height: 1.4rem;line-height: 1.4rem;text-align: center;background-color: #0094FF; font-size:0.6rem;color: white;cursor: pointer;margin: 0.266666rem 9.666666rem; border-radius: 8px;}
+/* 第二课堂-已有成绩单 */

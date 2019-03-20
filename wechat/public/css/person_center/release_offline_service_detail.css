@@ -1,0 +1,224 @@
+/* --------------顶部图片文字-----
+----------------------------- */
+.headTxt {
+  padding-left: 0.6rem;
+}
+.headTxt .item {
+  padding: 0.6rem 0.6rem 0.6rem 0;
+  border-bottom: 1px solid #e2e2e2;
+}
+.headTxt .item .left {
+  width: 4rem;
+  height: 4rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.headTxt .item .left img {
+  width: 100%;
+  height: 100%;
+}
+.headTxt .item .right {
+  padding-left: 4.48rem;
+}
+.headTxt .item .right h2 {
+  font-size: 0.6rem;
+  line-height: 0.68rem;
+}
+.headTxt .item .right .score {
+  padding-top: 0.6rem;
+  height: 0.48rem;
+  line-height: 0.48rem;
+}
+.headTxt .item .right .score ul li {
+  width: 0.46rem;
+  height: 0.44rem;
+  margin-right: 0.1rem;
+  background: url(../../img/star_2.png) no-repeat;
+  background-size: 100%;
+}
+.headTxt .item .right .score ul li.cur {
+  background-image: url(../../img/star_1.png);
+}
+.headTxt .item .right .score .fenshu {
+  color: #ff8814;
+  font-size: 0.48rem;
+  padding-left: 0.24rem;
+}
+.headTxt .item .right .score .commented {
+  font-size: 0.48rem;
+  padding-left: 0.4rem;
+}
+.headTxt .item .right .score .help_edit{
+  height: 0.6rem;
+}
+.headTxt .item .right .score .help_edit .report{
+  cursor: pointer;
+  padding-left: 0.6rem;
+  color: #333;
+  background: url(../../img/report.png) no-repeat left center;
+  background-size: 0.5rem 0.5rem;
+  margin-right: 0 !important;
+}
+/* ---------------------------关注人数----------------------------
+=------------------------------ */
+section.yugao {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0.3rem 0.4rem;
+  margin-bottom: 0.4rem;
+}
+section.yugao a {
+  padding: 0.18rem 0.52rem;
+  background-color: #2185cf;
+  color: #fff;
+  border-radius: 0.1rem;
+  font-size: 0.48rem;
+}
+section.yugao span {
+  line-height: 0.96rem;
+  font-size: 0.52rem;
+}
+/* -----------------<!-- 地址、联系等等 -->---
+ ------------------- */
+.lianxi .divout {
+  border-top: 1px solid #e8e8e8;
+}
+.lianxi .divout.phoneAndAddress {
+  margin-bottom: 0.4rem;
+}
+.lianxi .divout .divin,
+a.divin {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0.48rem 0.6rem;
+  display: block;
+}
+.lianxi .divout .divin p,
+a.divin p {
+  font-size: 0.6rem;
+  padding-left: 0.64rem;
+}
+.lianxi .divout .divin .arrow,
+section.holder .title .imgDiv,
+a.divin .arrow {
+  width: 0.28rem;
+  padding-top: 0.2rem;
+}
+.lianxi .divout .divin .arrow img,
+a.divin .arrow img {
+  width: 100%;
+}
+.lianxi .divout.phoneAndAddress .time .imgDiv,
+a.divin .imgDiv {
+  padding-top: 0.06rem;
+}
+.lianxi .divout.phoneAndAddress .phone .imgDiv {
+  padding-top: 0.14rem;
+}
+.lianxi .divout.phoneAndAddress img,
+a.divin .imgDiv img {
+  width: 0.6rem;
+}
+.lianxi .divout.phoneAndAddress .phone02 .imgDiv {
+  width: 0.56rem;
+  height: 0.6rem;
+  padding-top: 0.08rem;
+}
+.lianxi .divout.phoneAndAddress .phone02 .imgDiv img {
+  width: 100%;
+}
+.lianxi .divout.phoneAndAddress .phone02 .arrow {
+  width: 0.28rem;
+  background: url(../../img/next.png) no-repeat right center;
+  background-size: 100%;
+  height: 0.6rem;
+}
+/* --------站点标签 --------------
+---------------------------------*/
+section.siteTag h2 {
+  line-height: 1.56rem;
+  border-bottom: 1px solid #e8e8e8;
+}
+section.siteTag .content {
+  padding: 0.6rem 0.4rem;
+}
+section.siteTag .content li {
+  width: 33.3%;
+}
+section.siteTag .content li a {
+  display: block;
+  padding: 0.2rem 0.2rem;
+}
+section.siteTag .content li a div {
+  width: 100%;
+  line-height: 1.36rem;
+  text-align: center;
+  border-radius: 0.2rem;
+  background-color: #8ed84c;
+}
+section.siteTag .content li a div {
+  background: #fff;
+  color: #333;
+  border: 1px solid #333;
+}
+
+section.siteTag .content li.cur a div {
+  background: #8ed84c;
+}
+
+/*section.siteTag .content li:nth-of-type(3n+2) a div {*/
+  /*background-color: #fc6d6d;*/
+/*}*/
+/*section.siteTag .content li:nth-of-type(3n+3) a div {*/
+  /*background-color: #fca12b;*/
+/*}*/
+/* ----------------此乃长长的文字@#￥%TYU ---------------
+----------------------------- */
+.act_introduction {
+  margin-bottom: 0.8rem;
+}
+.act_introduction .content {
+  padding: 0.4rem 0.6rem 0.48rem;
+  border-bottom: 1px solid #e8e8e8;
+}
+.act_introduction .content p {
+  line-height: 0.8rem;
+  font-size: 0.48rem;
+  text-indent: 0.96rem;
+}
+/* -=-------我要预约 -------
+-------*/
+.I_want_to_ask {
+  padding: 0 0.6rem;
+  margin-bottom: 1.2rem;
+}
+.I_want_to_ask a {
+  display: block;
+  text-align: center;
+  line-height: 1.6rem;
+  color: #fff;
+  font-size: 0.68rem;
+  background-color: #2185cf;
+  border-radius: 0.1rem;
+}
+
+
+.evaluateBox .form_evaluate{
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+/*对话框*/
+.evaluateBox section.talk{padding: 0.3rem 0.6rem 0;margin-bottom: 4rem;}
+.evaluateBox section.talk textarea{border:1px solid #eee;width: 100%;box-sizing: border-box;height: 8rem;background: url(../../img/pinglunIcon.png) no-repeat 0.4rem 0.4rem;background-size: 0.54rem;padding-left: 1.4rem;padding-top: 0.4rem;}
+.evaluateBox section.talk textarea.focus{padding:0.4rem;background:transparent;}
+
+/* 评分 */
+.evaluateBox section.pf{padding: 0 0.3rem;}
+.evaluateBox section.pf .tit{padding: 0 0.3rem;border-bottom: 1px solid #eee;line-height: 1.4rem;}
+.evaluateBox section.pf .myScoreBox{border-bottom: 1px solid #eee;padding: 1rem 0.3rem;}
+.evaluateBox section.pf .myScoreBox ul li{float: left;width: 20%;}
+.evaluateBox section.pf .myScoreBox ul li span{padding: 0 0.2rem;display: block;}
+.evaluateBox section.pf .myScoreBox ul li span em{width: 80%;height:1.84rem;background: url(../../img/scoreStar02.png) no-repeat;background-size: 100%;display: block;margin: 0 auto;}
+.evaluateBox section.pf .myScoreBox ul li span em.cur{background-image: url(../../img/scoreStarCur.png);}
+
+/* 发表按钮〃 */
+/*a.appearNow{height: 2rem;line-height: 2rem;text-align: center;background-color: #4694c5;position: fixed;width:100%;left: 0;bottom: 0;}*/

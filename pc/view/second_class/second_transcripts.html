@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>第二课堂成绩单</title>
+     <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    
+    <link rel="stylesheet" type="text/css" href="../../public/css/second_class/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/second_class/transcripts.css" />
+     <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+   
+    
+	<script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+	 <script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+	<script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+	<!--对话框-->
+	<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+	<!--分页插件 js-->
+	<script type="text/javascript" src="../../public/custom/page.js"></script>
+	<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+	<script type="text/javascript" src="../../public/custom/qnzsPcCommon.js"></script>
+	<script type="text/javascript" src="../../public/js/second_class/transcript.js"></script>
+</head>
+<style type="text/css">
+	.right{width: 80px; 
+    height: 30px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 30px;
+    background: orange;
+    color:white;
+    
+    }
+</style>
+<body>
+	<div class="right"><a href="javascript:window.print();">打印</a></div>
+	<!-- <div align="right"><a id="printDiv">打印1</a></div> -->
+    <div class="transcripts_box" id="myPrintArea">
+        <div class="transcripts_page transcripts_page1">
+            <!-- 
+            <div class="title_box">
+                <h1 class="big_title">第二课堂成绩单</h1>
+                <p class="eng_title">Second class transcripts</p>
+            </div> 
+            -->
+            <div class="title_box">
+                <div class="school_badge title_box_part">
+                    <div class="badge_box"><img src="../../public/img/second_class/schoolBadge.png" class="badge" alt="" /></div>
+                    <p class="badge_txt">中山大学</p>
+                </div>
+                <div class="title_box_r title_box_part">
+                    <h1 class="big_title">第二课堂成绩单</h1>
+                    <p class="eng_title">Second class transcripts</p>
+                </div>
+            </div>
+            <div class="personal_info clearfix">
+                <ul class="personal_info_left fl">
+                    <li class="item clearfix">
+                        <span class="item_left fl">姓名/Name</span>
+                        <span class="item_right fl">王大锤</span>
+                    </li>
+                    <li class="item clearfix">
+                        <span class="item_left fl">学号/Student Number</span>
+                        <span class="item_right fl">011112</span>
+                    </li>
+                    <li class="item clearfix">
+                        <span class="item_left fl">学校/School</span>
+                        <span class="item_right fl">中山大学</span>
+                    </li>
+                    <li class="item clearfix">
+                        <span class="item_left fl">院系/Department</span>
+                        <span class="item_right fl">南方学院</span>
+                    </li>
+                    <li class="item clearfix">
+                        <span class="item_left fl">总学时/Total Hours</span>
+                        <span class="item_right fl">356学时</span>
+                    </li>
+                </ul>
+                <div class="personal_info_right fr">
+                    <div class="qr_code_box"><img src="../../public/img/second_class/qr_code.jpg" class="qr_code" /></div>
+                    <p class="txt">扫码参与第二课堂活动</p>
+                    <p class="txt">证书编号：000000000000000</p>
+                </div>
+            </div>
+            <div class="act_info_box">
+                <table class="act_info_list">
+                    <tr>
+                        <th>活动时间</th>
+                        <th>活动名称</th>
+                        <th>类型</th>
+                        <th>学时(h)</th>
+                    </tr>
+                    <tr>
+                        <td>2017-8-8</td>
+                        <td>摄影活动</td>
+                        <td>艺术创新</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2017-8-8</td>
+                        <td>摄影活动</td>
+                        <td>艺术创新</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2017-8-8</td>
+                        <td>摄影活动</td>
+                        <td>艺术创新</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2017-8-8</td>
+                        <td>摄影活动</td>
+                        <td>艺术创新</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2017-8-8</td>
+                        <td>摄影活动</td>
+                        <td>艺术创新</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2017-8-8</td>
+                        <td>摄影活动</td>
+                        <td>艺术创新</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2017-8-8</td>
+                        <td>摄影活动</td>
+                        <td>艺术创新</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2017-8-8</td>
+                        <td>摄影活动</td>
+                        <td>艺术创新</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2017-8-8</td>
+                        <td>摄影活动</td>
+                        <td>艺术创新</td>
+                        <td>3</td>
+                    </tr>
+                </table>
+            </div>
+            <p class="stamp">盖章认证：</p>
+            <p class="bottom_page">1/2</p>
+        </div>
+        
+        <!-- <div class="transcripts_page transcripts_page2">
+            <p class="top_p">接上页</p>
+            <div class="act_info_box">
+                <div class="act_info_title clearfix">
+                    <span class="fl">证书编号：00000000</span>
+                    <span class="fr">姓名：王大锤</span>
+                </div>
+                <table class="act_info_list">
+                    <tr>
+                        <th>活动时间</th>
+                        <th>活动名称</th>
+                        <th>类型</th>
+                        <th>学时(h)</th>
+                    </tr>
+                    <tr>
+                        <td>2017-8-8</td>
+                        <td>摄影活动</td>
+                        <td>艺术创新</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2017-8-8</td>
+                        <td>摄影活动</td>
+                        <td>艺术创新</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2017-8-8</td>
+                        <td>摄影活动</td>
+                        <td>艺术创新</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2017-8-8</td>
+                        <td>摄影活动</td>
+                        <td>艺术创新</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2017-8-8</td>
+                        <td>摄影活动</td>
+                        <td>艺术创新</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2017-8-8</td>
+                        <td>摄影活动</td>
+                        <td>艺术创新</td>
+                        <td>3</td>
+                    </tr>
+                </table>
+            </div>
+            <p class="stamp">盖章认证：</p>
+            <p class="bottom_page">1/2</p>
+        </div> -->
+    </div>
+    </div>
+</body>
+</html>

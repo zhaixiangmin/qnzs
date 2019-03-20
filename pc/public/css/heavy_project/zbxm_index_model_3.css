@@ -1,0 +1,185 @@
+/* --------------------------首页模板三的样式 --------------------------*/
+body{background-color: #fff;}
+.page_head .con_head{padding-top:12px;margin-bottom:27px;}
+.page_head .con_head .link{width:26px;height:17px;background-repeat:no-repeat;background-position:center top;}
+.page_head .con_head .homepage{background-image: url(../../img/zbxm_index3_homepage.png);}
+.page_head .con_head .login{background-image: url(../../img/zbxm_index3_login.png);margin-left:12px;}
+.page_head .con_body{padding-bottom:20px;}
+.page_head .nav .nav_li{float: left;margin-right:122px;line-height:30px;height:30px;}
+.page_head .nav .nav_li a{display: block;font-size:18px;color:#212121;}
+.page_head .nav .nav_li:hover a,
+.page_head .nav .nav_li.cur a{color:#ff2349;}
+/* banner */
+.big_banner{height:640px; background-size: cover;}
+/* 各板块共用 */
+.sections .content_title_box{padding:80px 30px 0;height:26px;line-height:26px;margin-bottom:30px;}
+.sections .content_title_box .content_title{padding-left:36px;font-size:24px;color:#24324f;background-position:left center;background-repeat:no-repeat;font-weight: bold;}
+.sections .content_title_box .more_btn{width:60px;font-size:14px;color:#333;background-repeat:no-repeat;background-position: right center;}
+/* 项目动态 */
+.project_dynamic{height:310px;position: relative;}
+.project_dynamic .content{position:absolute;left:50%;margin-left:-600px;top:-120px;}
+.project_dynamic .content_title_box{padding:15px 30px;background-color: #333;margin-bottom:0;}
+.project_dynamic .content_title_box .content_title{color:#fff;background-image: url(../../img/zbxm_index3_dy_icon.png);}
+.project_dynamic .content_title_box .more_btn{color:#fff;background-image: url(../../img/zbxm_index3_more.png);}
+.project_dynamic .content_body{height:290px;border-bottom:1px solid #c5c5c5;background-color: #fff;}
+.project_dynamic .content_body_con{padding:60px 30px 0;}
+.project_dynamic .content_body_con .body_l{width:535px;}
+.project_dynamic .content_body_con .body_l_pic{width:160px;height:170px;overflow: hidden;}
+.project_dynamic .content_body_con .body_l_pic .pic{width:100%;height:100%;}
+.project_dynamic .content_body_con .body_r_news{padding-left:190px;height:170px;position: relative;}
+.project_dynamic .content_body_con .body_r_news .r_news_title{display: block;padding-left:16px;font-size:18px;color:#333;background:url(../../img/zbxm_index3_dot.png) no-repeat left center;line-height:18px;margin-bottom:12px;}
+.project_dynamic .content_body_con .body_r_news .r_news_text{font-size:14px;color:#858585;line-height:24px;}
+.project_dynamic .content_body_con .body_r_news .more_btn{position: absolute;right:0;bottom:0;font-size:14px;color:#666;width:50px;}
+.project_dynamic .body_r_news .more_btn em{border-width:5px;border-color:transparent transparent transparent #666;border-style:solid;position: absolute;right:-5px;top:50%;margin-top:-4px;}
+.project_dynamic .content_body_con .body_r{width:544px;}
+.project_dynamic .content_body_con .body_r_list .item{margin-bottom:18px;}
+.project_dynamic .content_body_con .body_r_list .item_con{display: block;line-height:14px;height:14px;color:#858585;font-size:14px;padding-left:17px;background:url(../../img/zbxm_index3_dot.png) no-repeat left center;}
+.project_dynamic .content_body_con .body_r_list .item_con_l{width:80%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.project_dynamic .content_body_con .body_r .info_roll{border-radius:4px;height:41px;background:url(../../img/roll_list.png) repeat-x;}
+.project_dynamic .content_body_con .body_r .info_roll_list .item{padding-top:6px;}
+.project_dynamic .content_body_con .body_r .info_roll_list .item_con{padding-left:18px;line-height:30px;}
+.project_dynamic .content_body_con .body_r .user_pic_box{width:30px;height:30px;overflow: hidden;border-radius:50%;}
+.project_dynamic .content_body_con .body_r .user_pic{width:100%;height:100%;}
+.project_dynamic .content_body_con .body_r .user_name{font-size:14px;color:#f72449;margin-left:20px;margin-right:10px;}
+.project_dynamic .content_body_con .body_r .user_do{color:#666;}
+/* 活动介绍 */
+.act_introduction.sections{background-color: #ededed;}
+.act_introduction.sections .content_title_box .more_btn{background-image: url(../../img/zbxm_index3_more2.png);}
+.act_introduction.sections .introduction_text{color:#666;line-height:24px;font-size:14px;padding:0 30px;}
+.act_introduction.sections .content_title{background-image: url(../../img/act_intro.png);}
+.act_introduction.sections .sign_up_box{padding:10px 30px 60px;}
+.act_introduction.sections .sign_up{width:120px;height:40px;line-height:40px;color:#fff;background-color: #f8274b;font-size:16px;text-align: center;border-radius:4px;}
+/* 报名要求 */
+.sign_up_requirement .content_title{background-image: url(../../img/sign_up_re.png);}
+.sign_up_requirement .content{text-align: center;font-size:0;}
+.sign_up_requirement .requirement_list{display:inline-block;}
+.sign_up_requirement .item{float: left;width:222px;height:192px;border:1px solid #c5c5c5;margin-right:20px;background-repeat:no-repeat;background-position:78px 30px;border-radius:2px;}
+.sign_up_requirement .item:last-child{margin-right:0;}
+.sign_up_requirement .item_con{padding-top:46px;}
+.requirement_list_img{
+	
+	margin-left: 82px;
+}
+.sign_up_requirement .item_con_txt{
+	padding:0 20px;
+	line-height:24px;
+	font-size:14px;
+	color:#666;
+	text-align: center;
+    width: 184px;
+    height: 51px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+	}
+/* 评选流程 */
+.selection_process .content_title{background-image: url(../../img/zbxm_index3_sel_pro.png);}
+.selection_process .process_list_box{min-height:280px;background:url(../../img/pxlc_big_bg.png) no-repeat center 88px;padding-left:44px;padding-right:26px;}
+.selection_process .process_list_box .item{float: left;margin-right:7px;text-align: center;}
+.selection_process .process_list_box .step_date{color:#f82449;font-size:14px;display: block;margin-bottom:12px;}
+.selection_process .process_list_box .step_date .date_year{margin-right:18px;}
+.selection_process .process_list_box .dot_line_bg{background-repeat:no-repeat;background-position:center top;height:56px;}
+.selection_process .process_list_box .dot_line_up{background-image: url(../../img/pxlc_up_dotline.png);}
+.selection_process .process_list_box .dot_line_down{background-image: url(../../img/pxlc_down_dotline.png);}
+.selection_process .process_list_box .process_title{line-height:58px;height:58px;font-weight: bold;color:#fff;font-size:24px;margin:2px 0;}
+.selection_process .process_list_box .process_text{margin-top:10px;padding:0 33px;font-size:14px;color:#666;line-height:24px;}
+/* 参赛团队 */
+.competition_team .content_title{background-image: url(../../img/zbxm_index3_team.png);}
+.competition_team .select_work{padding:0 30px;}
+.competition_team .select_work_l>*{font-size:18px;color:#c2c2c2;font-weight: bold;margin-right:28px;cursor:pointer;}
+.competition_team .select_work .select_title{padding-bottom:6px;border-bottom:2px solid transparent;}
+.competition_team .select_work .select_title.cur{color:#333;border-color:#f82449;}
+.competition_team .select_work .select{float: left;width:65px;padding-left:10px;margin-right:18px;background:url(../../img/selectArrow2.png) no-repeat right 7px;}
+.competition_team .select_work .select option{font-size:14px;}
+.competition_team .select_work_r>*{line-height:28px;height:28px;background-color: #eee;border:1px solid #c5c5c5;}
+.competition_team .select_work_r .search{padding-left:10px;width:160px;border-radius:4px 0 0 4px;border-right:none;}
+.competition_team .select_work_r .search_btn{width:30px;border-radius:0 4px 4px 0;border-left:none;cursor:pointer;background:#eee url(../../img/secSeaIcon.png) no-repeat center center;background-size:12px;}
+.competition_team .team_list_box{width:1230px;margin:0 auto;}
+.competition_team .team_list{height:740px;}
+.competition_team .team_list .item{margin:0 15px 30px;}
+.competition_team .item_con .pic_box{width:380px;height:260px;overflow: hidden;}
+.competition_team .item_con .pic{width:100%;height:100%;}
+.competition_team .item_con .item_con_down{height:80px;background-color: #595959;padding:0 20px;font-size:14px;color:#fff;}
+.competition_team .item_con_down .con_down_l{padding-top:16px;}
+.competition_team .item_con_down .txt{line-height:24px;}
+.competition_team .item_con_down .txt_1{width:200px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.competition_team .item_con_down .con_down_r{padding-top:25px;}
+.competition_team .item_con_down .vote_num{width:130px;height:30px;line-height:30px;border-radius:4px;text-align: center;background-color: #f8274b;display: block;}
+.competition_team .item_con_down .vote_num.end{background-color: #9f9f9f;}
+/* 联系我们 */
+.contact_us_box .content_title{background-image: url(../../img/phone_2.png);}
+.contact_us_box .contact_phone{padding:0 30px;font-weight: bold;color:#333;font-size:18px;line-height:18px;}
+/* 赞助商 以及 合作伙伴 */
+.support_box .content_title{background-image: url(../../img/zanzhu.png);}
+.partner_box .content_title{background-image: url(../../img/partner.png);}
+.support_box .item,.partner_box .item{float: left;margin-right:30px;}
+.support_box .item:last-child,.partner_box .item:last-child{margin-right:0;}
+.partner_box .partner_list{height:150px;}
+/* 右侧悬浮导航 */
+.body_r_nav{position: fixed;right:0;top:280px;z-index:999;}
+.body_r_nav .item{margin-bottom:4px;}
+.body_r_nav .item_con{display: block;padding-left:24px;width:136px;border-radius:4px;height:40px;line-height:40px;font-size:16px;color:#fff;background:#9f9f9f url(../../img/more.png) no-repeat 127px center;}
+.body_r_nav .item.mb20{margin-bottom:20px;}
+.body_r_nav .item.cur .item_con{background-color: #f8274b;}
+
+
+/* 重磅项目三--项目详情页 */
+.dynamic_box {margin-top:35px;}
+.dynamic_box .content .content_title{color:#24324f;margin-left: 20px;background-image: url(../../img/act_intro.png);background-position:left center;    padding-left:36px;}
+.requirement_box .content .content_title {background-image: url(../../img/sign_up_re.png);}
+.pingxuan .content .content_title { background-image:url(../../img/zbxm_index3_sel_pro.png);}
+.dynamic_box.pingxuan{margin-bottom:30px;}
+
+/* 重磅项目三--项目动态页 */
+/* 项目动态 */
+.xm_dongtai{margin-top:50px;}
+.xm_dongtai .content .xm_dongtai_l{width:708px;}
+.xm_dongtai .content .xm_dongtai_r{width:430px;}
+.xm_dongtai .content .xm_dongtai_l .content_title,.xm_dongtai .content .xm_dongtai_r .content_title{font-size: 24px;color:#24324f; padding-left:36px; font-weight: bold;background:url(../../img/zbxm_index3_sel_pro.png) left center no-repeat;margin-bottom:40px;}
+.xm_dongtai .content .xm_dongtai_l .body_l{margin-bottom:10px;}
+.xm_dongtai .content .xm_dongtai_l .body_l .body_l_list li{padding-left:40px;}
+.xm_dongtai .content .xm_dongtai_l .body_l .body_l_list li em,.xm_dongtai .content .xm_dongtai_r .body_r_news .r_news_title em{width:6px;height:6px;border-radius:50%;background:#24324f;display:inline-block;margin:9px 10px 0 0;}
+.xm_dongtai .content .xm_dongtai_l .body_l .body_l_list li em{}
+.xm_dongtai .content .xm_dongtai_l .body_l .body_l_list li p{width:650px;color:#858585;line-height:24px;margin-bottom:25px;}
+.xm_dongtai .content .xm_dongtai_l .body_l .body_l_list li p:hover{color:#333;}
+.xm_dongtai .content .xm_dongtai_l .body_l .body_l_list li p .zhuti{width:530px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.pageNumBox .pageNumCon .pageNum a.cur { background-color: #f8274b; color: #fff; border-color: #f8274b; }
+/* 热门推荐 */
+.xm_dongtai .content .xm_dongtai_r .content_title{background-image:url(../../img/zbxm_index3_tj_pro.png);}
+.xm_dongtai .content .xm_dongtai_r .body_r_pic{margin-right:30px;}
+.xm_dongtai .content .xm_dongtai_r .body_r_news{width:226px;}
+.xm_dongtai .content .xm_dongtai_r .r_news_text{color:#858585;line-height:24px;margin-top:12px;}
+.xm_dongtai .content .xm_dongtai_r .body_r_news .more_btn{position:relative;padding-right: 12px;margin-top:8px;}
+.xm_dongtai .content .xm_dongtai_r .body_r_news .more_btn em{border-width: 5px; border-color: transparent transparent transparent #666; border-style: solid; position: absolute; right: -5px; top: 50%; margin-top: -4px; }
+
+
+.introduce{
+    display: block;
+    position: relative;
+/*     width:122px; */
+    height:140px;
+    font-size: 14px;
+    line-height: 20px;
+    word-break: break-all;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+    -webkit-text-overflow:ellipsis;
+    -moz-text-overflow:ellipsis;
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp:6; /** 显示的行数 **/
+    overflow: hidden; /** 隐藏超出的内容 **/
+}
+
+/* 重磅项目三--项目动态-详情页 */
+.DT_detail{width:1170px;color:#f8274b;margin:40px auto 0;padding-left:30px;}
+.DT_detail_box {width:594px;margin:30px auto 0;}
+.DT_detail_box h3{font-size:24px;margin-bottom:20px;}
+.DT_detail_box h3,.DT_detail_box p{text-align:left;}
+.DT_detail_box .DT_detail_img{width:594px;height:408px;margin:30px 0;}
+.DT_detail_nr{padding-bottom:35px;}
+.DT_detail_nr p{line-height:24px;}
+.DT_detail_nr .nr_explain{margin:12px 0 37px;}
+.DT_detail_nr .nr{margin-bottom:60px;}

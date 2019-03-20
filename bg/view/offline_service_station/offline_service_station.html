@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>广东青年之声后台理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/vendor/webuploader/webuploader.css"/>
+    <link rel="stylesheet" href="../../public/vendor/webuploader/webupload_main.css"/>
+    <link rel="stylesheet" href="../../public/css/offline_service_station/offline_service_station.css">
+    <link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+
+    <!--百度地图-->
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=ggGhWZ8zW5mGMOYCohgWNRER5m76Hxfz"></script>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jqueryQrCode/jquery.qrcode.min.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script>
+    <script src="../../public/js/common/contabs.js"></script> <!--主界面的左侧选项卡事件-->
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script src="../../public/js/module/OfflineServiceStationApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/vendor/webuploader/webuploader.js"></script>
+    <!--<script src="../../public/vendor/webuploader/upload.js"></script>-->
+    <!--<script src="../../public/js/offline_service_station/upload.js"></script>-->
+    <script src="../../public/js/offline_service_station/my_uploader.js"></script>
+    <script src="../../public/js/offline_service_station/offline_service_station.js"></script>
+    <script type="text/javascript" src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+    <script  src="../../public/js/ajax/ajax2.js"></script>
+</head>
+
+<body>
+<!--二维码-->
+<div style="position: fixed; width: 100%; height: 100%; text-align: center; z-index: 1; background: rgba(51, 51, 51, 0.8);display: none;" id="QrCode">
+    <div id="QrCode_content">
+        <div class="title" style="line-height: 40px;font-size: 18px;color: #fff;" id="title"></div>
+        <div id="qrcode1"></div>
+        <div style="color: #fff;font-size: 14px;">
+            <div style="display: inline-block; padding: 10px 60px; border-radius: 99px; background: #000; margin-top: 10px;">
+                <p style="margin: 0;">请使用微信扫描二维码</p>
+                <p style="margin: 0;">扫码签到</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--手风琴-->
+<div class="easyui-accordion">
+    <div title="数据筛选"  style="overflow:auto;padding:10px;">
+        <form id="df" method="post">
+            <table>
+                <tr>
+                    <th align="right"><label for="keyword">关键词:</label></th>
+                    <td><input id="keyword"></td>
+                    <td>&nbsp;&nbsp;</td>
+                    <th><label for="district">所属地区:</label></th>
+                    <td><input id="district" class="easyui-combobox" name="district" editable="false"></td>
+                    <td>&nbsp;&nbsp;</td>
+                    <th><label for="audit">审核状态:</label></th>
+                    <!--<td><input id="audit" class="easyui-combobox" name="dept"></td>-->
+                    <td>
+                        <select class="easyui-combobox" id="audit" editable="false" style="width: 173px">
+                            <option value="" selected>全部</option>
+                            <option value="0">待审核</option>
+                            <option value="1">已通过</option>
+                            <option value="2">不通过</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="start_time">开始时间:</label></th>
+                    <td><input id="start_time" type="text" class="easyui-datetimebox" editable="false"></td>
+                    <td>&nbsp;&nbsp;</td>
+                    <th><label for="end_time">结束时间:</label></th>
+                    <td><input id="end_time" type="text" class="easyui-datetimebox" editable="false"></td>
+                    <td>&nbsp;&nbsp;</td>
+                    <th><label for="display">显示状态:</label></th>
+                    <!--<td><input id="display" class="easyui-combobox" name="dept"></td>-->
+                    <td>
+                        <select class="easyui-combobox" id="display" editable="false" style="width: 173px">
+                            <option value="" selected>全部</option>
+                            <option value="0">正常</option>
+                            <option value="1">禁用</option>
+                        </select>
+                    </td>
+                    <td>&nbsp;&nbsp;</td>
+                    <td><a href="#" class="easyui-linkbutton" iconCls="icon-search" id="check">查询</a></td>
+                    <td>&nbsp;&nbsp;</td>
+                    <td><a href="#" class="easyui-linkbutton" iconCls="icon-reload" id="clear">清空</a></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<!--站点管理-->
+<table class="easyui-datagrid" id="offline_service_station"></table>
+
+<!--查看 -- 模态窗口-->
+<div id="window_stationshow" class="easyui-window mywindow" title="站点详情" data-options="modal: true, closed: true" style="width: 500px;height: 400px;padding: 10px;">
+    <form id="fm_stationshow">
+        <table>
+            <tr>
+                <td>站点全称：</td>
+                <td><input class="easyui-textbox" type="text" name="fullName" readonly></td>
+            </tr>
+            <tr>
+                <td>站点简称：</td>
+                <td><input class="easyui-textbox" type="text" name="shortName" readonly></td>
+            </tr>
+            <tr>
+                <td>站点管理员：</td>
+                <td><input class="easyui-textbox" type="text" name="organizationName" readonly></td>
+            </tr>
+            <tr>
+                <td>承载人数：</td>
+                <td><input class="easyui-textbox" type="text" name="capacity" readonly></td>
+            </tr>
+            <tr>
+                <td>站点积分：</td>
+                <td><input class="easyui-textbox" type="text" name="totalscore" readonly></td>
+            </tr>
+            <tr>
+                <td>服务群体：</td>
+                <td><input class="easyui-textbox" type="text" name="serviceGroup" readonly></td>
+            </tr>
+            <tr>
+                <td>服务时间：</td>
+                <td><input class="easyui-textbox" type="text" name="serviceTime" readonly></td>
+            </tr>
+            <!--??-->
+            <!--<tr>-->
+                <!--<td>服务类别：</td>-->
+                <!--<td><input class="easyui-textbox" type="text" name="serviceContent" readonly></td>-->
+            <!--</tr>-->
+            <!--组织合并到地区了-->
+            <!--<tr>-->
+                <!--<td>所属组织：</td>-->
+                <!--<td><input class="easyui-textbox" type="text" name="" readonly></td>-->
+            <!--</tr>-->
+            <!--不用显示-->
+            <!--<tr>-->
+                <!--<td>所属区域：</td>-->
+                <!--<td><input class="easyui-textbox" type="text" name="district" readonly></td>-->
+            <!--</tr>-->
+            <tr>
+                <td>详细地址：</td>
+                <td><input class="easyui-textbox" type="text" name="address" readonly></td>
+            </tr>
+            <tr>
+                <td>简要介绍：</td>
+                <td><input class="easyui-textbox" type="text" name="serviceContent" readonly></td>
+            </tr>
+            <tr>
+                <td>站点坐标：</td>
+                <td><input class="easyui-textbox" type="text" name="coordinate" readonly></td>
+            </tr>
+            <tr>
+                <td>添加时间：</td>
+                <td><input class="easyui-textbox" type="text" name="addTime" readonly></td>
+            </tr>
+            <tr>
+                <td>是否禁用：</td>
+                <td><input class="easyui-textbox" type="text" name="disabled" readonly></td>
+            </tr>
+            <tr>
+                <td>审核状态：</td>
+                <td><input class="easyui-textbox" type="text" name="status" readonly></td>
+            </tr>
+            <tr>
+                <td>审核意见：</td>
+                <td><input class="easyui-textbox" type="text" name="advise" readonly></td>
+            </tr>
+            <tr>
+                <td>快捷服务：</td>
+                <td class="supplies_td" >
+                    <!--<div class="supplies"><input class="easyui-textbox easyui-validatebox supplies_add" type="text" name="supplies"><i class="icon_delete" title="删除快捷服务">-</i><i class="icon_add" title="新增快捷服务">+</i></div>-->
+                    <!--<div class="supplies"><input class="easyui-textbox easyui-validatebox supplies_add" type="text" name="address"><i class="icon_add" title="新增快捷服务">+</i><i class="icon_delete" title="删除快捷服务">-</i></div>-->
+                    <!--<div class="supplies"><input class="easyui-textbox easyui-validatebox supplies_add" type="text" name="address"><i class="icon_add" title="新增快捷服务">+</i><i class="icon_delete" title="删除快捷服务">-</i></div>-->
+                    <!--<div class="supplies"><input class="easyui-textbox easyui-validatebox supplies_add" type="text" name="address"><i class="icon_add" title="新增快捷服务">+</i><i class="icon_delete" title="删除快捷服务">-</i></div>-->
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!--新添加图片-->
+<div id="imgUrl" style="display: none;"></div>
+
+<!--新增 -- 对话框-->
+<div class="easyui-dialog" title="新增站点" id="dialog_stationadd" style="width: 500px;height: 400px;">
+
+    <form id="fm_stationsadd">
+        <table>
+            <tr style="width: 300px !important;">
+                <td style="width: 100px !important;">站点全称：</td>
+                <!--<td><input id="fullName_add" class="easyui-textbox easyui-validatebox" type="text" name="fullName" required="true"></td>-->
+                <td style="width: 150px !important;"><input id="fullName_add" class="easyui-textbox easyui-validatebox" type="text" name="fullName" data-options="required: true" ></td>
+            </tr>
+            <tr>
+                <td>站点简称：</td>
+                <td><input id="shortName_add" class="easyui-textbox" type="text" name="shortName"></td>
+            </tr>
+            <tr>
+                <td>服务人数：</td>
+                <td><input id="capacity_add" class="easyui-textbox easyui-validatebox" type="number" name="capacity" required="true"></td>
+            </tr>
+            <tr>
+                <td>服务群体：</td>
+                <td><input id="serviceGroup_add" class="easyui-textbox easyui-validatebox" type="text" name="serviceGroup" required="true"></td>
+            </tr>
+            <tr>
+                <td>服务时间：</td>
+                <td><input id="serviceTime_add" class="easyui-textbox easyui-validatebox" type="text" name="serviceTime" required="true"></td>
+                <!--<td><input id="serviceTime_add"  name="serviceTime" type="text" class="easyui-datetimebox" editable="false" style="width: 380px;"></td>-->
+            </tr>
+            <!--combobox 验证 不需添加 easyui-validatebox-->
+            <tr>
+                <td>服务类别：</td>
+                <td><input id="staCategories_add" class="easyui-combobox" name="staCategories" required="true"  editable="false" style="width: 200px;"></td>
+            </tr>
+            <tr>
+                <td>简要介绍：</td>
+                <td><input id="serviceContent_add" class="easyui-textbox easyui-validatebox" type="text" name="serviceContent" required="true"></td>
+            </tr>
+            <tr>
+                <td>站点坐标：</td>
+                <td>
+                    <input id="coordinate_add" class="easyui-textbox easyui-validatebox" type="text" name="coordinate" style="width: 200px;" required="true">
+                    <a id="coordinateIcon_add" class="easyui-linkbutton">获取坐标</a>
+                </td>
+            </tr>
+            <tr>
+                <td>详细地址：</td>
+                <td><input id="address_add" class="easyui-textbox easyui-validatebox" type="text" name="address" required="true"></td>
+                <!--<td><input id="address_add" class="easyui-textbox easyui-validatebox" type="text" name="address" data-options="require: true"></td>-->
+            </tr>
+            <!--<tr>-->
+                <!--<td>上传照片：</td>-->
+                <!--<td>-->
+                    <!--<input id="photo_add" class="text" type="file" name="photo" style="display: none">-->
+                    <!--<a style="position: relative; top: 6px;"><img src="" alt="照片展示区" width="200" id="showphoto_add"></a>-->
+                    <!--<a class="easyui-linkbutton" onclick="$('#photo_add').click()">上传图片</a>-->
+                <!--</td>-->
+            <!--</tr>-->
+            <tr>
+                <td>是否禁用：</td>
+                <td>
+                    <label for="disabled_0" style="font-size: 16px;"><input type="radio" value="0" name="disabled" id="disabled_0">正常</label>
+                    <label for="disabled_1" style="font-size: 16px;"><input type="radio" value="1" name="disabled" id="disabled_1">禁用</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>快捷服务：</td>
+                <td class="supplies_td" id="supplies_td">
+                    <!--<div class="supplies"><input class="easyui-textbox easyui-validatebox supplies_add" type="text" name="address"><i class="icon_add" title="新增快捷服务">+</i><i class="icon_delete" title="删除快捷服务">-</i></div>-->
+                </td>
+            </tr>
+
+        </table>
+
+        <!--已上传图片-->
+        <div id="staSceneries"></div>
+
+        <div id="wrapper">
+            <div id="container">
+
+                <!--头部，相册选择和格式选择-->
+                <div id="uploader">
+                    <!--队列-->
+                    <div class="queueList">
+                        <div id="dndArea" class="placeholder">
+                            <div id="filePicker"></div>
+                            <p>或将照片拖到这里，单次最多可选5张</p>
+                        </div>
+                    </div>
+                    <!--状态栏-->
+                    <div class="statusBar" style="display: none;">
+                        <div class="progress">
+                            <span class="text">0%</span>
+                            <span class="percentage"></span>
+                        </div>
+                        <div class="info"></div>
+                        <div class="btns">
+                            <div id="filePicker2"></div>
+                            <div class="uploadBtn">开始上传</div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+<!--新增 -- 获取地图坐标-->
+<div id="window_map" class="easyui-window" title="获取坐标" data-options="closed: true, maximized: true" style="width:500px;height:200px;padding:10px;">
+<!--<div id="window_map" class="easyui-window" title="获取坐标" data-options="maximized: true">-->
+    <div class="easyui-layout" fit="true">
+        <div data-options="region:'north',border:false" style="height:80px;padding:22px 0 22px 40px;">
+            <input id="word_map" type="text" placeholder="请输入关键词" style="width:480px;height: 29px;"><a
+                id="search_map"
+                style="display: inline-block;vertical-align: bottom;width: 100px;height: 35px;line-height: 35px;text-align: center;font-size: 16px;color: #fff;cursor: pointer;background: #1086D7;">
+            立即搜索
+        </a><span style="display: inline-block;margin-left: 20px;height: 35px;line-height: 35px;text-align: center;font-size: 16px;">当前坐标点：</span>
+            <input id="coordinate_map" type="text" placeholder="" style="width:170px;height: 29px;" readonly>
+            <input id="address_map" type="text" placeholder="" style="width:250px;height: 29px;" readonly>
+
+            <a
+                id="submit_map"
+                style="display: inline-block;vertical-align: bottom;width: 100px;height: 35px;line-height: 35px;text-align: center;font-size: 16px;color: #fff;cursor: pointer;background: #1086D7;">
+            确定
+        </a>
+        </div>
+        <div data-options="region:'west',split:true,title:'服务点'" style="width:200px;padding-top:10px;">
+            <div id="r_result">
+                <h6 style="margin: 0;">功能简介：</h6>
+                <p style="margin: 8px 5px;line-height: 20px;">1、支持地图精准/模糊查询；</p>
+                <p style="margin: 8px 5px;line-height: 20px;">2、支持POI点坐标显示、确定；</p>
+
+                <h6 style="margin: 20px 0 0 0;">使用说明：</h6>
+                <p style="margin: 8px 5px;line-height: 20px;">1、获取坐标并确定：</p>
+                <!--<p style="margin: 8px 10px;line-height: 20px;">1）、在搜索框中搜索关键词后， 左侧列表中会有该点的坐标，点击该条信息对应地图上的点；</p>-->
+                <p style="margin: 8px 10px;line-height: 20px;">在地图上用鼠标左键单击地图，就能将该点坐标显示在地图右上角“当前坐标点”右侧的输入框中,然后点击“确定”按钮，该点坐标就被自动填写到“站点坐标”栏中。</p>
+            </div>
+        </div>
+        <!--<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">east region</div>-->
+        <!--<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>-->
+        <div data-options="region:'center',title:'Center'">
+            <div id="allmap" style="width: 100%;height: 100%;"></div>
+        </div>
+    </div>
+</div>
+
+<!--审核 -- 对话框-->
+<div class="easyui-dialog" title="审核站点" id="dialog_stationaudit" data-options="modal: true, closed: true" style="width: 500px;height: 400px;">
+
+    <form id="fm_stationaudit" >
+        <table>
+            <tr>
+                <td>是否通过：</td>
+                <td>
+                    <label for="audit_1" style="font-size: 16px;"><input type="radio" value="1" name="audit" id="audit_1">是</label>
+                    <label for="audit_2" style="font-size: 16px;"><input type="radio" value="2" name="audit" id="audit_2">否</label>
+                </td>
+            </tr>
+            <tr>
+                <td>审批意见：</td>
+                <!--<td><input id="advise_status" class="easyui-textbox" type="text" name="advise"></td>-->
+                <td><textarea id="advise_audit" rows="3"></textarea></td>
+                <!--<td><input class="easyui-textbox" name="message" data-options="multiline:true" style="height:60px" onkeydown="if(event.keyCode==13)return false;"></td>-->
+            </tr>
+        </table>
+    </form>
+
+</div>
+
+<!--服务查询 -- 对话框-->
+<div class="easyui-dialog" title="服务查询结果列表" id="dialog_servicequery" data-options="modal: true, closed: true" style="width: 1000px;height: 470px;">
+    <table class="easyui-datagrid" id="servicequery"></table>
+</div>
+<!---  添加组织运营者  ----->
+
+
+<div class="modal fade" id="look-childs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width:100%;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+			&times;
+		</button>
+				<h3 class="modal-title" id="myModalLabel">
+			更换站点管理员
+		</h3>
+			</div>
+			<div class="modal-body">
+				<!---->
+				<!--数据过滤strat-->
+				<div class="datafilter">
+					<div class="search">
+						<form id="form2" method="post" class=".form-inline" style="width: 1200px;">
+							<div class="form-group sz_height">
+	
+								<label class="col-sm-1">关键词</label>
+								<div class="col-sm-2">
+									<input type="text" class="form-control" id="keyWord">
+								</div>
+								<label class="col-sm-1">类型</label>
+								<div class="col-sm-2">
+									<select class="form-control" id="selet_org_type">
+										<option value="">请选择</option>
+										<!--<option value="1">系统管理</option>-->
+										<option value="2">团委组织</option>
+										<option value="3">服务站点</option>
+										<option value="4">青年文明号</option>
+										<option value="5">学生社团</option>
+										<option value="6">社会组织</option>
+										<option value="7">合作机构</option>
+									</select>
+								</div>
+								
+								<div class="col-sm-6">
+									<button type="button" class="btn btn-warning btn-sm" id="areaBtn">
+					                    <span class="glyphicon glyphicon-search"></span>查询</button>
+									 <button type="button" class="btn btn-info btn-sm" id="clearBtn">
+					                    <span class="glyphicon glyphicon-refresh"></span>清空</button>
+				
+								</div>
+								<br /><br />
+	
+							</div>
+							
+						</form>
+					</div>
+				</div>
+				<!--数据过滤end-->
+                <!--列表展示start-->
+				<table id="mytb" style="width:1200px;height:500px; display: block;">
+				</table>
+			    <!--列表展示end-->
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-warning btn-sm" id="add_org_Btn">
+			      <span class="glyphicon glyphicon-search"></span>确定</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+		        </button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div><!-- 添加组织运营者 end -->
+		
+
+
+</body>
+</html>

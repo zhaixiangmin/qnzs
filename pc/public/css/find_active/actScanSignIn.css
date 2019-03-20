@@ -1,0 +1,25 @@
+/* 扫码签到 */
+.headTxt { padding-left: 0.6rem;}
+.headTxt .item { padding: 0.6rem 0.6rem 0.6rem 0;}
+.headTxt .item .left { width: 4rem; height: 3.2rem; overflow: hidden; }
+.headTxt .item .left img { width: 4.92rem; }
+.headTxt .item .right { padding-left: 4.48rem; }
+.headTxt .item .right h2 { font-size: 0.6rem; line-height: 0.68rem;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.headTxt .short_name{margin:0.4rem 0 0.2rem;}
+.headTxt .follow_btn{line-height:1rem;text-align: center;padding:0 0.8rem;border-radius:3px;}
+/* 报名人信息 */
+.person_info{padding:0.6rem;}
+.person_info .info_in{padding-right:0.8rem;background:url(../../img/next.png) no-repeat right center;background-size:0.28rem;}
+.sure_sign_in{padding-top:2rem;}
+.sure_sign_in .sign_in_btn{width:4rem;text-align: center;margin:0 auto;line-height:1.4rem;border-radius:0.2rem;}
+
+.mark_box{padding:0 0.3rem;}
+.mark_box .mark_start_box{margin:1rem 0;padding-left:1rem;line-height:1.2rem;}
+.mark_box .start_list{margin-left:0.5rem;}
+.mark_box .start_list .item{width:1.2rem;height:1.1rem;background:url(../../img/scoreStar.png) no-repeat;background-size:100%;margin-right:0.5rem;}
+.mark_box .start_list .item.cur{background-image: url(../../img/scoreStarCur.png);}
+.mark_box .wirte_box{padding:0 0.5rem 0.8rem;border-bottom:1px solid #e8e8e8;}
+.mark_box .wirte_box textarea{width:100%;box-sizing:border-box;border:1px solid #c7c7c7;height:4rem;padding:0.2rem;font-size:0.52rem;}
+.mark_box .words_publish{padding:0.8rem 0.5rem 0;}
+.mark_box .words_publish .anonymous{margin-right:1rem;}
+.mark_box .words_publish .publish_btn{width:4rem;line-height:1.2rem;border-radius:4px;text-align: center;margin:1rem auto 0;display: block;}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>找咨询-名人问吧-提问</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/webupload_main.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/find_consult_famousAsk.css" />
+    <script type="text/javascript" src="../../public/js/common/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+     <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+<script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    
+    <!-- <script type="text/javascript" src="../../public/vendor/webuploader/webuploader.js"></script>
+    <script type="text/javascript" src="../../public/vendor/webuploader/upload.js"></script> -->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FindConsultApi.js"></script>
+    <script src="../../public/js/find_consult/find_consult_famousAsk.js"></script>
+    <script type="text/javascript" src="../../public/vendor/webuploader/webuploader.js"></script>
+    <script type="text/javascript" src="../../public/vendor/webuploader/upload.js"></script>
+    <!--公共底部-->
+    <!--<script type="text/javascript" src="../../public/custom/common.js"></script>-->
+    <script>
+    !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <style rel="stylesheet">
+        #uploader .statusBar{height: 75px;}
+        .btns{padding-top: 4px!important;}
+    </style>
+</head>
+<body>
+    <section class="qzxq_qiuzhu">
+        <ul class="qzxq_qiuzhu_t">
+            <ol class="qzxq_qiuzhu_b askQchooseOL">
+                <li  id="choose2" class="clearfix bor_t" >
+                    <h6 class="fl  color333">话题分类</h6>
+                    <!--<span class="fr color999" id="quesCategory">所有</span>-->
+                    <select id="quesCategory" class="color999 fenlei_box border01">
+                        <!--<option value="">所有</option>-->
+                        <!--<option value="">广州</option>-->
+                    </select>
+                </li>
+            </ol>
+        </ul>       
+    </section>
+    <section class="writeQuestion bgcWhite borderBotPub">
+        <h2 class="color000">您的话题</h2>
+        <textarea placeholder="(5-49字)例如：我是篮球教练李雷，关于篮球的问题，问我吧" maxlength="49" id="quesTitle"></textarea>
+    </section>
+    <section id="isSchool" class="explain bgcWhite borderTopPub borderBotPub">
+        <div class="clearfix"><h2 class="fl color000">话题说明</h2><em class="fl color000">：</em></div>
+        <textarea placeholder="请输入话题说明" id="quesContent"></textarea>
+    </section>
+    <div id="wrapper">
+        <div id="container">
+            <div id="uploader">
+                <div class="queueList">
+                    <div id="dndArea" class="placeholder">
+                        <div id="filePicker"></div>
+                        <p>或将照片拖到这里，单次最多可选8张</p>
+                    </div>
+                </div>
+                <div class="statusBar" style="display:none;">
+                    <div class="progress">
+                        <span class="text">0%</span>
+                        <span class="percentage"></span>
+                    </div><div class="info"></div>
+                    <div class="btns" style="padding-top:4px;">
+                        <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="imgUrl" style="display: none;"></div>
+    <section class="btns clearfix">
+        <a href="javascript:;" class="right disB" id="submitQuestion">确定</a>
+    </section>
+        <!-- 弹窗 -->
+    <div class="darkBg"></div>
+    <div class="askQuestionBottom">
+            <!-- 所属类别 -->
+        <ul class="askQuestionUL" id="quesCategoryList">
+
+        </ul>
+    </div>
+</body>
+</html>

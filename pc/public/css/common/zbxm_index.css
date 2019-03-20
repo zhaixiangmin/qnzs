@@ -1,0 +1,29 @@
+
+.contentBigBox{padding-top: 60px;}
+.contentBigBox .leftBox .titListBox{width: 100%;margin-left: -1px;}
+.contentBigBox .leftBox .titList{padding: 20px 0 20px 32px;}
+.contentBigBox .leftBox .titList .listBox{padding: 8px 0;line-height: 26px;}
+.contentBigBox .leftBox .titList .listBox .spanTit{padding-right: 14px;}
+.contentBigBox .leftBox .titList .listBox .listDiv a{float: left;padding: 0 12px;line-height: 26px;border-radius: 13px;margin: 0 3px;color:#000;}
+.contentBigBox .leftBox .titList .listBox .listDiv a:hover{background-color: #2185cf;color:#fff;}
+.contentBigBox .leftBox .titList .listBox .listDiv a.cur{background-color: #2185cf;color: #fff;}
+
+/* 閲嶇椤圭洰鍒楄〃 */
+.zbxm{margin-top:60px !important;margin-bottom:30px !important;min-height: 250px;}
+.zbxm .zbxm_t{height:30px;}
+.zbxm .zbxm_t li{width:85px;height:30px;border-radius:4px;text-align: center;line-height:30px;cursor:pointer;}
+.zbxm .zbxm_t li.current{background:#2185cf;color:#fff;}
+.zbxm .zbxm_b{margin-top:30px;}
+.zbxm .zbxm_b li .zbxm_box{width:546px;padding:20px 20px;margin:0 20px 20px 0;}
+.zbxm .zbxm_b li .zbxm_box .xm_pic{width:547px;height:234px;overflow: hidden;padding:5px 0 10px;}
+.zbxm .zbxm_b li .zbxm_box:nth-child(2n){margin-right:0;}
+.zbxm .zbxm_b li .zbxm_box .xm_mes{margin-top:15px;width:545px;}
+.zbxm .zbxm_b li .zbxm_box .xm_mes h4{width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.zbxm .zbxm_b li .zbxm_box .xm_mes .xm_style{color:#17c0ff;margin-right:15px;}
+.zbxm .zbxm_b li .zbxm_box .xm_mes .xm_state .state_l{width:18px;height:18px;line-height:18px;border-radius:2px;text-align: center;display:inline-block;background:#1795ff;margin:2px 10px 0 0;}
+.zbxm .zbxm_b .list_2,.zbxm .zbxm_b .list_3{display:none;}
+
+.zbxm_page{margin-top:-20px;}
+
+/* 查看更多 */
+.seeMore{font-size:16px;line-height:18px;color:#333;margin:0 auto;text-align: center;padding: 20px 0;}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>广东青年之声后台理</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+		<link href="../../public/css/common/style.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" />
+
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+		<script src="../../public/vendor/easyui/jquery.min.js"></script>
+		<script src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+
+		<!--<script src="js/request-ajax/ajax.js"></script>-->
+		<script src="../../public/custom/dialog.js"></script>
+		<script src="../../public/js/module/Qnzs.js"></script>
+
+		<script type="text/javascript" src="../../public/js/common/common.js">
+		</script>
+		<script src="../../public/js/module/PeresoneleMeneApi.js">
+		</script>
+		<!-- <script src="../../public/js/module/Utils.js"></script>-->
+		<script type="text/javascript" src="../../public/js/find_active/PeresoneleMent.js">
+		</script>
+
+	</head>
+
+	<body>
+
+		<div class="col-sm-12">
+			<!--数据过滤strat-->
+			<div class="datafilter">
+				<div class="search">
+					<form id="" method="post">
+						<div class="form-group sz_height">
+							<label class="col-sm-1">姓名:</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="student_name">
+							</div>
+							<label class="col-sm-1">学号:</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="student_number">
+							</div>
+							<label class="col-sm-1">状态:</label>
+							<div class="col-sm-2">
+								<select class="form-control" id="condition">
+									<option value="">请选择</option>
+									<option value="0">待审核</option>
+									<option value="1">已通过</option>
+									<option value="2">不通过</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group sz_height">
+							<label class="col-sm-1">所属学校:</label>
+							<div class="col-sm-2">
+								<select class="form-control" id="Schoolpment" class="Schoolpment" onchange="getCoell('+item.did+')">
+									<option value="">请选择</option>
+								</select>
+							</div>
+							<label class="col-sm-1">所属院系:</label>
+							<div class="col-sm-2">
+								<select class="form-control" id="department" class="departments">
+									<option value="">请选择</option>
+								</select>
+							</div>
+							<div class="col-sm-2">
+								<button type="button" class="btn btn-warning btn-sm" id="classy_actit"><span class="glyphicon glyphicon-search"></span>查询</button>
+								<button type="button" class="btn btn-info btn-sm" id="btn_empty"><span class="glyphicon glyphicon-refresh"></span>清空</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!--数据过滤end-->
+
+			<div class="border clearfix">
+				<ul class="nav navbar-nav" id="toolbar">
+					<li onclick="modification(0)"><a href="#"><span class="glyphicon glyphicon-ok" data-toggle="modal">认定活动成绩</span></a></li>
+					<li onclick="updateredact(1)"><a href="#shop"><span class="glyphicon glyphicon-share" data-toggle="modal">导出  (每页最多导出500条，超过500请翻页)</span></a></li>
+
+				</ul>
+			</div>
+
+			<!--列表展示start-->
+			<div class="table_menu_list">
+				<table id="personnele_model">
+
+				</table>
+
+			</div>
+			<!--列表展示end-->
+		</div>
+
+		<!--审核-->
+		<div class="modal fade" id="user-editor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+					
+                            认定活动成绩      
+
+				</h4>
+					</div>
+					<div class="modal-body">
+						<form method="get" class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-sm-2">是否有效</label>
+								<div class="col-sm-4 signTimes">
+
+									<input type="radio" value="1" name='rd'>是&nbsp;&nbsp; &nbsp;
+									<input type="radio" value="0" name='rd'>否
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-2">认定意见</label>
+
+								<div class="col-sm-4">
+									<textarea style="width:300px;height: 200px;" id="steudent_text">
+
+									</textarea>
+
+								</div>
+
+							</div>
+
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary" id="btn_editor">
+							确定
+						</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+
+		<!--审核end-->
+
+		<script src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+		<script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script>
+		<script src="../../public/js/common/contabs.js"></script>
+	</body>
+
+</html>

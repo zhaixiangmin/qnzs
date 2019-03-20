@@ -1,0 +1,60 @@
+.proPersonalIntro{background:url(../../img/wzzBg.jpg) no-repeat center top;background-size: cover;}
+
+/*.answered .pageNumBox .pageNumCon{top:0;}*/
+/*.answered .pageNumBox{height: 86px;}*/
+
+#concern:focus{
+    outline: none;
+}
+
+.div04 .style{margin-top:5px;}
+.div04 p span{height:25px;line-height:25px;padding:0 10px;border-radius:4px;text-align: center;margin-right:10px;margin-top: 10px;}
+.box_round{width:220px !important;height:220px !important;border-radius:50%;overflow: hidden;}
+/* �������б� */
+.content_no{padding-top:0 !important;}
+/*案例*/
+.anli_box{margin-bottom:20px;}
+.anli_box .anli_list{width:545px;height:80px;padding:20px;margin:0 20px 20px 0;position:relative;}
+.anli_box .anli_list:nth-child(2n){margin-right:0;}
+.anli_box .anli_list .anli_l{width:80px;height:80px;border-radius:50%;overflow: hidden;margin-right:20px;}
+.anli_box .anli_list .anli_r{width:445px;}
+.anli_r .mes{margin:15px 0;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+/*.anli_box .anli_list .anli_r .pinglun{font-weight:bold;}*/
+.anli_time{position:absolute;right:20px;top:20px;}
+
+/*活动*/
+.activity_box .activity_list{position: relative;display: inline-block;padding: 20px; width: 545px;height: 120px;background: #fff;}
+.activity_box .activity_list:nth-of-type(odd){ margin: 0 20px 20px 0; }
+.activity_box .activity_list .activity_l{position: absolute;width: 120px;height: 120px;overflow: hidden;}
+.activity_box .activity_list .activity_r{padding-left: 140px;}
+.activity_box .activity_list .activity_r .create_org_name{height: 40px;overflow: hidden;}
+.activity_box .activity_list .activity_r .type{margin: 5px 0;}
+.activity_box .activity_list .activity_r .activity_time{margin: 5px 0; height: 21px; line-height: 21px;}
+.activity_box .activity_list .activity_r .activity_bottom{position: relative}
+.activity_box .activity_list .activity_r .address{height: 20px; line-height: 20px;}
+.activity_box .activity_list .activity_r .actStatus{position: absolute;right: 0;bottom: 0;padding: 2px 5px;color: #fff;background: #2185cf;border-radius: 5px;}
+
+
+/* 预约服务弹窗 */
+.list_tanchuang .service_t{width:800px;height: 40px;line-height: 40px;padding: 0 20px 0 30px;}
+.list_tanchuang .service_t .delete{width: 10px;height: 10px;background: url(../../img/delete.png) no-repeat;margin-top: 15px;cursor: pointer;}
+.list_tanchuang .service_box_t{width:545px;height:80px;padding:20px 20px;background:#eee;}
+.list_tanchuang .service_box_t .head{width:80px;height:80px;border-radius:50%;overflow: hidden;margin-right:20px;}
+.list_tanchuang .service_box_t .head img{width:100%;height:100%;}
+.list_tanchuang .service_box_b{height:425px;padding:30px 40px;border-bottom:1px solid #ddd;}
+
+
+.service_box_b .miaoshu textarea{width:450px;height:78px;padding:12px 0 0 15px;}
+.publicBox{margin-bottom:15px;}
+.publicBox .leftTitle{margin-right:40px;line-height:35px;}
+.publicBox .rightWrite{border:1px solid #ddd;}
+.publicBox .questionTitle,.publicBox .select{line-height:36px;height:36px;}
+.publicBox .questionTitle{width:400px;padding-left:10px;}
+.publicBox .select{background:url(../../img/down.png) no-repeat 116px center;width:140px;padding-left:10px;}
+.serviceBottomBtns{text-align: center;}
+.serviceBottomBtns .btnsBox{display:inline-block;padding:15px 0;}
+.serviceBottomBtns .btn{font-size:14px;width:100px;line-height:35px;height:35px;border-radius:3px;cursor:pointer;}
+.serviceBottomBtns .btn.apply{background-color: #3ebb2b;color:#fff;margin-right:100px;}
+
+.report_btn{padding:24px 0;}
+.report_btn .report_inner{padding-left:15px;line-height:16px;background:url(../../img/reportBg.png) no-repeat left center;float: left;cursor:pointer;}

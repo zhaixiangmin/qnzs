@@ -1,0 +1,53 @@
+/* 个人中心的资料修改 */
+.info_common_box .container{padding:30px 60px;}
+.info_common_box .top_title{font-size:16px;line-height:30px;margin-bottom:30px;}
+.info_common_box .common_item_box,
+.revise_popup .container_body .common_box{margin-bottom:12px;}
+.info_common_box .common_item_box:last-child{margin-bottom:0;}
+.info_common_box .common_item_box .left_title,
+.revise_popup .container_body .common_box .left_title{width:80px;line-height:35px;height:35px;font-size:14px;}
+.info_common_box .common_item_box .right_box,
+.revise_popup .container_body .common_box .right_box{padding-left:80px;}
+.info_common_box .common_item_box .right_input,
+.revise_popup .container_body .common_box .right_input{border:1px solid #ccc;width:270px;transition:border-color 0.5s;}
+.info_common_box .common_item_box .right_input:focus{border-color:#2185cf;}
+.info_common_box .common_item_box .right_txt,
+.revise_popup .container_body .common_box .right_txt,
+.revise_btn{line-height:33px;height:33px;padding:0 10px;}
+.revise_btn{cursor:pointer;}
+
+.basic_info_box{margin-bottom:20px;}
+/* 头像 */
+.upload_user_pic .pic_upload{padding-top:57px;margin-left:20px;}
+.upload_user_pic .user_pic{width:86px;height:86px;overflow: hidden;border:3px solid #eee;}
+.upload_user_pic .user_pic .pic{width:100%;height:100%;}
+.upload_user_pic .pic_upload .upload_btn_box{position: relative;width:100px;line-height:33px;height:33px;text-align: center;background-color:#2185cf;border-radius:4px;color:#fff;font-size:14px;overflow: hidden;display: block;}
+.upload_user_pic .pic_upload .upload_btn_box .upload_btn{position: absolute;width:100%;height:100%;left:0;top:0;opacity:0;cursor:pointer;font-size:0;}
+
+.detailed_info_box .sex_select{margin-right:20px;}
+.detailed_info_box .sex_select em{float: left;padding-top: 2px;}
+.detailed_info_box .personal_tag .tag{padding:10px 15px;margin-right:5px;color:#868686;cursor:pointer;border:1px solid #ccc;transition:all 0.5s;}
+.detailed_info_box .personal_tag .tag.cur{background-color:#2185cf;color:#fff;border-color:#2185cf;}
+.detailed_info_box .self_description .right_input{padding:10px;width:660px;height:150px;}
+
+.save_btn{padding:30px 0;}
+.save_btn .btn{display: block;width:120px;height:35px;line-height:35px;background-color:#2185cf;border-radius:4px;text-align: center;color:#fff;font-size:14px;margin-left:420px;}
+
+/* 修改手机号、密码弹窗 */
+.revise_popup{position: fixed;width:100%;height:100%;left:0;top:0;background-color:rgba(0,0,0,.5);display:none;}
+.revise_popup .popup_container{width:500px;position: absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:none;}
+.revise_popup .popup_container .title{padding-left:10px;font-size:14px;line-height:40px;height:40px;background-color:#2185cf;}
+.revise_popup .popup_container .container_body{background-color:#fff;height:280px;padding:20px;}
+.revise_popup .popup_container .body_title{margin-bottom:20px;}
+.revise_popup .container_body .common_box .left_title{font-size:12px;}
+.revise_popup .container_body .prompt{line-height:30px;height:30px;}
+.revise_popup .container_body .prompt.yes{color:#2185cf;}
+.revise_popup .container_body .prompt.no{color:#ff0000;}
+.revise_popup .container_body .identity_code .right_input{width:160px;margin-right:10px;}
+.revise_popup .container_body .identity_code .get_code{width:100px;height:35px;line-height:35px;text-align: center;background-color:#2185cf;border-radius:4px;color:#fff;cursor:pointer;}
+.revise_popup .btn_box{text-align: center;font-size:0;padding-top:20px;}
+.revise_popup .btn_box .btn{display:inline-block;background-color:#2185cf;height:35px;line-height:35px;border-radius:4px;color:#fff;width:110px;font-size:12px;}
+.revise_popup .btn_box .make_sure{margin-right:100px;}
+.revise_popup .success_box{padding-left:100px;padding-top:90px;display:none;}
+.revise_popup .success_box p{line-height:25px;}
+.revise_popup .success_box .link{color:#2185cf;text-decoration:underline;}

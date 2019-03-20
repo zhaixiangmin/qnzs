@@ -1,0 +1,23 @@
+
+/*找活动——列表*/
+.zhd_list_box ul{padding:0 20px;}
+.zhd_l{width:188px;height:126px;margin-right:20px;}
+.zhd_l .imgs{width: 100%;height: 100%;}
+.list_content{padding-bottom:20px;}
+.zhd_style{color:#3ebb2b;margin-top:28px;}
+.zhd_time{margin:15px 0;}
+.list_content{position:relative;}
+.list_content span{position:absolute;width:70px;height:20px;line-height:20px;border-radius:4px;right:20px;bottom:20px;text-align: center;}
+.list_content:hover h3{color:#2185cf;}
+.list_content:hover .zhd_time{color:#000;}
+.list_content:hover .zhd_adress{color:#000;}
+.content_box{padding-top:20px;}
+.zhd_list_box ul .list_content:first-child .content_box{padding-top:0;}
+.zhd_list_box ul .list_content:last-child {border-bottom:0;}
+
+/* 右侧推荐专家栏 */
+.zhd_margin{padding-top:0px !important;}
+.zhd_img{width:80px;height:80px;overflow: hidden;}
+
+/* 弹窗 */
+.zzxIndex .list_tanchuang .list_tanchuang_t{width: 680px;}

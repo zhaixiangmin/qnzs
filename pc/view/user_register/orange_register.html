@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>组织注册</title>
+    <meta http-equiv= "X-UA-Compatible" content = "IE=edge,chrome=1"/>
+     <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/user_register/user_register.css" />
+     <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <!--- 上传图片样式 ---->
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/webuploader/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/webuploader/webupload_main.css" />
+      <script src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+     
+    <style type="text/css">
+    	/*** 验证样式  ***/
+    	*{
+		      padding: 0;
+			  margin: 0;}
+			form {
+				width: 570px;
+				height: 300px;
+				margin: 100px auto;
+			}
+			label{
+				width: 64px;
+				float: left;
+				 clear: left;
+				 height: 36px;
+				line-height: 36px;
+				margin-top: 10px;
+			     }
+			input {
+				width: 300px;
+				height: 36px;
+				line-height: 36px;
+				margin-top: 10px;
+				text-indent: 8px;
+				font-size: 16px;
+				font-family: "微软雅黑";
+				border: 1px solid #ccc;
+				float: left;
+			}
+			#sub{
+				width: 302px;
+				height: 40px;
+				border: 1px solid #ccc;
+				background: #888;
+				color: #fff;
+				font-size: 18px;
+				text-indent: 0;
+				}
+			.spa{
+				height: 36px;
+				line-height: 36px;
+				width: 204px;
+				display: inline-block;
+				float: left;
+				font-size: 12px;
+				color: #BD362F;
+				text-indent: 10px;
+				margin-top: 10px;
+				}
+    	/*** 验证样式 end  ***/
+    	
+    	
+    	
+    	/*****  弹窗样式  start ******/
+    	.bg_black, .report_popup {
+		    width: 100%;
+		    height: 100%;
+		    background: rgba(0,0,0,0.5);
+		    position: fixed;
+		    left: 0;
+		    top: 0;
+		    bottom: 0;
+		    z-index: 10000;
+		    display: none;
+		   
+		}
+    	.list_tanchuang {
+		    position: absolute;
+		    left: 50%;
+		    top: 50%;
+		    -webkit-transform: translate(-50%,-50%);
+		    -moz-transform: translate(-50%,-50%);
+		    -ms-transform: translate(-50%,-50%);
+		    -o-transform: translate(-50%,-50%);
+		    transform: translate(-50%,-50%);
+		}
+		.list_tanchuang .list_tanchuang_t {
+		    width: 975px!important;
+		}
+		
+		.list_tanchuang .list_tanchuang_t {
+		    width: 1035px;
+		    height: 40px;
+		    line-height: 40px;
+		    padding: 0 20px 0 19px;
+		}
+		.list_tanchuang .list_tanchuang_t .name {
+		    color: #80c9ff;
+		}
+		
+		.font14 {
+		    font-size: 14px;
+		}
+		
+		.fl {
+		    float: left;
+		}
+		.list_tanchuang .list_tanchuang_t .delete {
+		    width: 20px;
+		    height: 20px;
+		    background: url(../../public/img/delete.png) no-repeat;
+		    margin-top: 15px;
+		    cursor: pointer;
+		}
+		
+		.fr {
+		    float: right;
+		}
+		
+		
+		
+		.list_tanchuang .list_tanchuang_b .content_l {
+		    width: 994px;
+		    height: 380px;
+		    padding: 30px 0 37px 20px;
+		    overflow-y: auto;
+		}
+		.content_l label {
+		    margin-right: 20px;
+		}
+		
+		.color333 {
+		    color: #333;
+		}
+		.bg_black .question input {
+		    width: 550px;
+		    height: 35px;
+		    line-height: 35px;
+		    padding: 0 15px;
+		    margin: 10px 0;
+		}
+		
+		.border01 {
+		    border: 1px solid #e2e2e2;
+		}
+		/***  弹窗样式  end ****/
+    </style>
+     <script src="../../public/js/common/bigDataUrl.js"></script>
+    <!--<script src="//183.63.252.158:8080/browser/0110/crossdomain.js" type="text/javascript"></script><!---- 安全连接---->
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script>
+		var dynamicLoading = {
+		    js: function(path){
+				if(!path || path.length === 0){
+					throw new Error('argument "path" is required !');
+				}
+				var head = document.getElementsByTagName('head')[0];
+		        var script = document.createElement('script');
+		        script.src = path+"/browser/0110/crossdomain.js";
+		        script.type = 'text/javascript';
+		        head.appendChild(script);
+		    }
+		}
+		
+		dynamicLoading.js(bigDataUrl);
+	
+	</script>
+</head>
+<body>
+    <header class="header">
+      <section class="login">
+        <article class="w1200">
+          <div class="logintop">
+            <div class="loginL fl">
+                <a href="//www.12355.net" class="link">
+                </a>
+            </div>
+          </div>
+        </article>
+      </section>
+    </header>
+    <div class="register_main_container w1200">
+        <div class="content">
+            <div class="info_write">
+                <h1 class="big_title" style="display: inline-block;"> <a href="user_register.html" style="border-bottom:2px solid white ;color: #2185cf; font-weight: 600;">用户注册</a></h1>
+                <h1  style="display: inline-block;font-size:16px;color: #2185cf;padding-left:30px;margin-bottom:50px;"><a href="javascript:;" style="border-bottom: 2px solid #2185cf; color: #2185cf; font-weight: 600;">组织注册 </a></h1>
+               
+                <div class="item_common clearfix">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">组织类型</span>
+                    </span>
+                    <div class=" fl">
+                      
+                  		<select name="" class="fl right_input"  id="type" onfocus="type_focus()" onchange="changStatus()">
+                  		   <option value="-1">请选择</option>
+	                       <!-- <option value="1">系统管理</option>-->
+	                        <option value="2">团委组织</option>
+	                        <option value="3">服务站点</option>
+	                        <option value="4">青年文明号</option>
+	                        <option value="5">学生社团</option>
+	                        <option value="6">社会组织</option>
+	                        <option value="7">合作机构</option>
+                  		</select>
+                        
+                        <span class="spa10" style="margin-top: 0; width: 450px; color: #ccc;float: left; margin-top: 6px; margin-left: 5px;"></span>
+                        <p class="prompt fl"></p>
+                    </div>
+                </div>
+                 <!--- 所在地区 --->
+                <div class="item_common clearfix area_choose" style="margin-bottom: 20; ">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">所属地区</span>
+                    </span>
+                    <div class="" style="width: 500px;">
+                      
+			            <select  class="select fl" id="oidType" onchange="changeOidType(this)" style="width: 100px;">
+                                    <option value="-1">请选择</option>
+                                    <option value="1">地市</option>
+                                    <option value="2">高校</option>
+                  		</select>
+			            <select id="cityOid" class="select fl"  name="cityOid" onchange="cityOidChange(this)" style="width: 110px;">
+	                 	         <option value="-1">请选择</option>
+						</select>
+	                 	<select id="shcoolOid" class="select fl" name="shcoolOid"  onchange="schoolOidChange(this)" style="width: 110px;">
+	                 	          <option value="-1">请选择</option>
+	                 	</select>
+                        <select id="areaOid" class="select fl"  onchange="quxuan(this)" style="width: 100px;">
+								<option value="-1">--区/县--</option>
+			            </select>
+	                    <select id="classOid" class="select fl"   onchange="quxuan(this)" style="width: 100px;">
+								<option value="-1">--分院--</option>
+			            </select>
+                        <span id="spa8" class="spa spa8"></span>
+                    </div>
+
+                </div>
+                
+                <!--- 组织全称 ---->
+                <div class="item_common clearfix">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">组织全称</span>
+                    </span>
+                    <div class="right_box fl clearfix">
+                        <input id="fullName" type="text" class="right_input fl"  /><span class="spa spa1"></span>
+                        <p class="prompt fl"></p>
+                    </div>
+                </div>
+                <!--- 组织简称 ---->
+                <div class="item_common clearfix">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">组织简称</span>
+                    </span>
+                    <div class="right_box fl clearfix">
+                        <input id="name" type="text" class="right_input fl"  /><span class="spa spa2"></span>
+                        <p class="prompt fl"></p>
+                    </div>
+                </div>
+                <!---  组织地址----->
+                <div class="item_common clearfix">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">组织地址</span>
+                    </span>
+                    <div class="right_box fl clearfix">
+                        <input id="address" type="type" class="right_input fl" maxlength="50"  /><span class="spa spa3"></span>
+                        <p class="prompt fl"></p>
+                    </div>
+                </div>
+                 <!---  联系电话----->
+                <div class="item_common clearfix">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">联系电话</span>
+                    </span>
+                    <div class="right_box fl clearfix">
+                        <input id="telephone" type="type" class="right_input fl"  /><span class="spa spa4"></span>
+                        <p class="prompt fl"></p>
+                    </div>
+                </div>
+                 <div class="item_common clearfix">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">组织介绍</span>
+                    </span>
+                    <div class="right_box fl clearfix">
+                    	<textarea id="introduce" rows="10" cols="40"  class=" fl"    style="   border: 1px solid #ccc; font-size: 16px;" ></textarea>
+                        <span class="spa spa5"></span>
+                        <p class="prompt fl"></p>
+                    </div>
+                </div>
+               
+                
+                 
+                <!---- 上传文件 ---->
+                 <div class="item_common clearfix">
+                    <span class="fl left_title clearfix">
+                        <em class="fl" style="color: #ccc;">*</em>
+                        <span class="left_title_txt fl">证明文件</span>
+                    </span>
+                    <!--- 上传图片 ，文件 --->
+                    <div class="right_box fl clearfix" style="width: 500px;">
+                           <div class="imgMain clearfix uploading" style="margin: 0;">
+                        <div class="imgL clearfix">
+                            <div class="uploading_l fl">
+                                <!--<p class="font14 color333">上传图片</p>-->
+                                <p class="font12 color999 uploading_num">(请上传登记/备案证书扫描件等可证明组织资质的文件,1-5张)</p>
+                            </div>
+                            <div id="wrapper" class="fl">
+                                <div id="container" style="width: 600px; height: 300px;">
+                                    <div id="uploader">
+                                        <div class="queueList">
+                                            <div id="dndArea" class="placeholder"style="height: 245px;padding-top: 0;background-position: center 100px ;">
+                                                <div id="filePicker" style="margin-top: 100px;"></div>
+                                                <p style="margin-top: 11px;"> 或将照片拖到这里，单次最多可选8张</p>
+                                            </div>
+                                        </div>
+                                        <div class="statusBar" style="display:none;">
+                                            <div class="progress">
+                                                <span class="text">0%</span>
+                                                <span class="percentage"></span>
+                                            </div><div class="info"></div>
+                                            <div class="btns">
+                                                <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="imgUrl" style="display: none;"></div>
+                        <p class="prompt fl"></p>
+                    </div>
+                    
+                    <!--- 上传图片 ，文件  end --->
+                    
+                </div>
+                 <!--- 组织头像 ---->
+                <div class="item_common clearfix">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">组织头像</span>
+                    </span>
+                    <div class="right_box fl clearfix">
+                       <div class=""  style="width: 170px;height: 170px; border: 1px solid #ccc;">
+						  <img id="ora_headImg" src="//wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/temp/image/20171201/20171201092905_246avatar.jpg" style="width: 170px;height: 170px;display: block;"/>
+					    </div>
+                        <!--- 证明文件 ---->
+                        <div id="upload_file_margin" class="telephone upload_file_margin" style="width: 500px; " >
+							<p class="fl prompt" style="padding-left:0 ;"><b></b></p>
+							<!--<span class="tit" style="margin-top: 10px;">报名附件</span>-->
+		                    <div class="content" style="padding: 0;">
+								<div class="step photoUpload clearfix ">
+									<a class="upload"> <!-- accept="application/msword,aplication/zip" --> 
+						                <input type="file" class="uploadFileBtn" id="up_file"  name="up_file" multiple="multiple" onchange="uploadFile()"/>
+						            	<input type="hidden" name="fileUrl" id="fileUrl" />
+						            </a>
+									<!--<p id="pickFileBtnNext" class="fl prompt" style="color:#333; padding-top: 10px; padding-left: 5px;"><em style="color: red; ">非必填（请压缩为zip格式上传，文件名中勿带有","、"/"、"+"等中英文标点符号，否则将会上传失败。）</em></p>-->
+								</div>
+							</div>
+					    </div>
+                        <!--- 证明文件  end ---->
+                        <p class="prompt fl"></p>
+                    </div>
+                    
+                </div>
+                 <!--  组织运营者 ---->
+                <div class="item_common clearfix">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">组织运营者</span>
+                    </span>
+                    <div class="right_box fl clearfix">
+                        <input id="checkMobile" type="text" class="right_input fl"  placeholder="请输入青年之声个人用户的手机号" /><span class="spa  true_ico" style="width: 25px;height: 25px;display: block;    margin-left: 10px;margin-top: 14px" ></span><span class="spa spa6" style="width: 500px;height: 60px;text-indent:0;margin-left: 25px;color:#aaa ;">组织运营者以个人用户身份登录成功后，可在［个人中心]点击［切换成管理员]进入组织管理后台。请务必添加已注册的青年之声个人用户作为组织运营者。</span>                                
+                        <p class="prompt fl" ></p>
+                    </div>
+                </div>
+                
+	            <div style="padding-left: 30px;">
+	               <label style="width: 350px;"><input type="checkbox" style="width: 12px;height: 12px;margin-top: 13px; " checked  name="" id="inp_Agreement" value="" />阅读并接受
+	                      <a href="user_Agreement.html" style="color: #2185cf;" target="_Blank"><<青年之声用户服务协议>></a>
+	               	
+	               </label>
+	            </div>
+            </div>
+            <div class="btn_box clearfix" >
+                <a href="javascript:;" class="submit fl" id="orange_Btn">确认</a>
+            </div>
+        </div>
+    </div>
+     <!----- 弹窗 ------>
+    <div class="bg_black" style="display: none;">
+        <div class="list_tanchuang">
+            <div class="list_tanchuang_t conBgc01 clearfix">
+                <span class="name font14 fl">添加组织运营者</span>
+                <span style="display: none;" class="delete fr"></span>
+            </div>
+
+            <div class="list_tanchuang_b bgcWhite clearfix">
+                <div class="content_l fl">
+                	<div class="wenti_shuoming clearfix" style="margin-top: 20px;">
+                        <span class="fnt14 color333 fl right_txt">头像</span>
+                        <!---- 上传图片 ----->
+	                       
+						  <img src="" id="o-detail-headImg" style="width: 200px;height: 150px;"/>
+                        <!---- 上传图片  end ----->
+                    </div>
+                	
+                	
+                    <div class="huati_fenlei clearfix" style="">
+                        <label class="fnt14 color333 "  style=" display: inline-block;height: 30px;width: 50px;float: left; ">昵称</label>
+                        <span  id="o-detail-username"  style="display: block; float: left;padding-top: 20px;"></span>
+                  
+                    </div>
+                     <div class="huati_fenlei clearfix" style="">
+                        <label class="fnt14 color333 "  style=" display: inline-block;height: 30px;width: 50px;float: left; ">所属地区</label>
+                        <span  id="o-detail-area"  style="display: block; float: left;padding-top: 20px;"></span>
+                  
+                    </div>
+                     <div class="huati_fenlei clearfix" style="">
+                        <label class="fnt14 color333 "  style=" display: inline-block;height: 30px;width: 50px;float: left;">手机号</label>
+                        <span  id="o-detail-moblie"  style="display: block; float: left;padding-top: 20px;"></span>
+                  
+                    </div>
+
+                   
+                    
+               
+                    <div id="imgUrl" style="display: none;"></div>
+                    <a  style="margin-top: 20px; margin: 0 auto; border-radius:5px ;margin-top: 40px;" href="javascript:void (0);" class="  sure conBgc01 colorfff font14" id="submit_add_org_person">确认</a>
+                </div>
+
+              
+            
+            </div>
+        </div>
+    </div>
+    <footer class="copyright">
+        <p>版权所有 copyright 2016 广东青年之声</p>
+    </footer>
+    <!-- 站长统计 -->
+	<div style="display:none">
+	    <script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+	</div>
+</body>  
+    <script src="../../public/js/register/orange_yan-zheng.js"></script>
+    <script src="../../public/js/register/orange_user_register.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+<script src="../../public/js/module/Qnzs.js"></script>
+<script src="../../public/js/ajax/ajax.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <!--图片上传-->
+    <script type="text/javascript" src="../../public/vendor/webuploader/webuploader.js"></script>
+    <script type="text/javascript" src="../../public/vendor/webuploader/upload.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <!--图片上传  end-->
+    <!--文件上传插件--->
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+	<!--文件上传插件 end --->
+</html>
+<script>
+	console.log($.cookie('__accessToken'))
+	/**** 上传图片-朱  *****/
+//    图片上传处理 start
+	   var image = '';
+	               
+		   function selectImage(file) {
+			if(!file.files || !file.files[0]) {
+				return;
+			}
+			var reader = new FileReader();
+			reader.onload = function(evt) {
+				document.getElementById('preview').src = evt.target.result;
+				image = evt.target.result;
+			
+			}
+			reader.readAsDataURL(file.files[0]);
+		};
+		////192.168.100.49:8080/qnzs/file_upload
+	    $(document).ready(function(){
+	    	
+	    
+			$('#up_file').fileupload({
+				url: base + '/file_upload',
+				dataType: 'json',
+				autoUpload: true,
+				done: function(e, data) {
+		//			alert(data.result.url);
+                    $.alert("上传成功");
+					
+					$('#pickFileBtnNext').html("上传成功");
+					console.log(data.result.url);
+					
+					 accept_file= data.result.url;
+					 $('#ora_headImg').attr('src' ,data.result.url)
+					 
+					 
+				},
+				fail: function() {
+                    $.alert('出错');
+				}
+			});
+			
+	    });
+	//图片上传处理  end
+	
+	//组织注册确认 - 提交
+	
+	//  弹出 - 添加组织运营者框     -时时检测输入数据
+    $('#checkMobile').bind('input propertychange',function(){
+    	
+    	console.log(22)
+    	if($('#checkMobile').val().length ==11){
+			    if(checkMobile_flay){
+			    	obj.ajax('/pc/account/findAccountByMobile',{'mobile':$('#checkMobile').val()},function(data){
+							console.log(data)
+							
+						 	if(data.rows !=null){
+						 		if(data.rows.oid){
+                                    $.alert('该用户已是组织运营者，无法再添加，请选择其他用户吧！');
+						 			$(".true_ico").html('')  //清空图标
+						 		}else{
+						 			    $('.bg_black').show()  //隐藏弹出框
+						 			    //添加打勾图标
+						 	            $(".true_ico").html($('<img style="display:block;   width：25px;height:25px;" src="//wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/temp/image/20171207/20171207163742_598duigou.png"/>') );
+								 		obj.ajax('/pc/account/findAccountByMobile',{'mobile':$('#checkMobile').val()},function(data){
+								    	    console.log(data);
+								    	     if(data.status=='OK'){
+								    	     	
+								    	     	if(data.rows.photoUrl){   //数据存在
+								    	     		$('#o-detail-headImg').attr('src',data.rows.photoUrl);    //用户头像   
+								    	     	}
+								    	     	if(data.rows.realname){  //数据存在
+								    	     		
+								    	     		$('#o-detail-username').html(data.rows.realname);    //昵称
+								    	     	}
+								    	     	if(data.rows.typeDistrict){
+								    	     		$('#o-detail-area').html(data.rows.typeDistrict);   //所属地区
+								    	     	}
+								    	         
+								    	           o_detail_username  = data.rows.username ;     //保存组织运营者的id
+								    	           
+								    	            obj.ajax('/common/district/getParentByUserDid',{
+											          	'did':data.rows.did     //地区编码
+											          	},function(data){
+										        			console.log(data)
+										        		var s = data.three!=''?  	data.three :data.two ;
+										        		
+													      $('#o-detail-area').html(s.districtName);   //所属地区 	
+												    },function(data){});	
+								    	         
+								    	         
+								    	         $('#o-detail-moblie').html(data.rows.mobile);  //手机号
+								    	         
+								    	        
+								    	       
+									        }else{
+									        	$.aler(data.msg);
+									        };
+								         },function(data){})
+						 			    
+						 			    
+						 		}
+						 		
+						 	 }else{
+
+                                $.alert('该手机号暂未注册成为青年之声个人用户，不能添加为组织运营者!')
+			    	           
+						 	}
+						})
+			    }
+	    } 
+    })
+    
+    // 初始化 -组织运营者id
+    var o_detail_username="";
+    function get_org_id(){
+    	
+    	if($('#checkMobile').val()==''){
+
+            $.alert('组织运营者不能为空！');
+    	  return ;
+    	}
+    	
+    	obj.ajax('/pc/account/findAccountByMobile',{'mobile':$('#checkMobile').val()},function(data){
+					console.log(data)
+				 	if(data.rows !=null){
+				 		if(data.rows.oid){
+                            $.alert('该用户已是组织运营者，无法再添加，请选择其他用户吧！');
+				 			$(".true_ico").html('')  //清空图标
+				 		}else{
+				 			    
+				 			    //添加打勾图标
+				 	            $(".true_ico").html($('<img style="display:block;   width：25px;height:25px;" src="//wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/temp/image/20171207/20171207163742_598duigou.png"/>') );
+						 		obj.ajax('/pc/account/findAccountByMobile',{'mobile':$('#checkMobile').val()},function(data){
+						    	    console.log(data);
+						    	     if(data.status=='OK'){
+						    	     	
+						    	           o_detail_username  = data.rows.username ;     //保存组织运营者的id
+						    	           
+							        }else{
+							        	$.aler(data.msg);
+							        };
+						         },function(data){})
+				 			    
+				 		}
+				 		
+				 	 }else{
+
+                        $.alert('该手机号暂未注册成为青年之声个人用户，不能添加为组织运营者!')
+	    	           
+				 	}
+				})
+
+    	
+    }
+
+    
+	//  关闭
+	$('.delete').click(function(){
+		
+		$('.bg_black').hide()  //隐藏弹出框
+		
+	})
+	
+	// 确认添加   - 组织运管者
+	$('#submit_add_org_person').click(function(){
+		
+		$('.bg_black').hide()  //隐藏弹出框
+		
+	})
+	
+     function	type_focus(){
+		$('#type').css("border","1px solid #ccc");
+	    $(".spa0").text(" ");
+		
+	}
+     
+    //组织类型
+    function changStatus(){
+    	
+    	
+        if($('#type').val() ==3){
+        	$(".spa10").text(" 服务站点注册成功后需登录管理后台在“线下服务站管理”中新增及完善站点信息。")
+        	$(".spa10").css('color','#ccc')
+        }else{
+        	$(".spa10").text(" ")
+        }
+    }
+</script>

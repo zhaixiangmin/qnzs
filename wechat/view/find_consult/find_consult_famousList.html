@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>找咨询-名人问吧-列表</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/find_consult_famousCommon.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/find_consult_famousList.css" />
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+     <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FindConsultApi.js"></script>
+    <script src="../../public/js/find_consult/find_consult_famousList.js"></script>
+<script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    
+    <!--公共底部-->
+    <script type="text/javascript" src="../../public/custom/common.js"></script>
+    <script>
+    !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+</head>
+<body>
+    <div class="famous_guys">
+            <!-- 顶部 -->
+        <div class="head_link">
+            <div class="clearfix head_box">
+                <a href="javascript:;" class="head_logo fl"></a>
+                <a href="javascript:;" class="head_title colorfff fl">名人问吧</a>
+            </div>
+        </div>
+            <!-- 搜索 -->
+        <div class="searchBox">
+            <input type="text" placeholder="搜索话题" id="keyWord">
+            <a href="javascript:;" class="fr disB fz26 colorfff" id="ridiv">搜索</a>
+        </div>
+            <!-- banner --> 
+        <div style="padding: 0.3rem 0.3rem;background-color:#d8d7d7;">
+            <a href="javascript:;">
+                <img src="../../public/img/banner-mrwb-index.png" style="width:100%;" />
+            </a>
+        </div>
+            <!-- 列表 -->
+        <div class="mainContainer">
+            <div class="header clearfix p_0_30">
+                <h3 class="fl">全部话题</h3>
+                <!--<h3 class="fr">创建话题</h3>-->
+                <h3 class="fr createTopicIcon" style="display: none" onclick="wapMrwbAskQues()">创建话题</h3>
+            </div>
+            <div class="content" id="mrwbQuesList">
+                <!-- <div class="item">
+                    <div class="topicImages">
+                        <a href="javascript:;">
+                            <img src="../../public/img/banner-mrwb-index.png" />
+                        </a>
+                    </div>
+                    <p class="topicText">
+                        <a href="javascript:;">我是内地流行乐女歌手汪晨蕊，关于流行音乐的问题，欢迎大家向我提问！</a>
+                    </p>
+                    <div class="bottomBox clearfix">
+                        <span class="topicType fl color2185cf">娱乐</span>
+                        <span class="topicPeople fl">汪晨蕊</span>
+                        <div class="join_in fr clearfix">
+                            <span class="join_in_number fl"><em>70</em>人参与</span>
+                            <a href="javascript:;" class="dianzan fl">39</a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <!--<div id="seeMoreList"><a href="javascript:;" class="seeMore" id="moreSee" onclick="seeMoreList()">查看更多</a></div>-->
+        </div>
+    </div>
+</body>
+</html>

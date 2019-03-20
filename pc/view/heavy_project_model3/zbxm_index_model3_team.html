@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>重磅项目-参赛团队</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/zbxm_index_model_3.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/custom/page.css" />
+    <!-- 分页   -->
+    <link rel="stylesheet" type="text/css" href="../../public/custom/page.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/heavy_project/page.js"></script>
+    <script src="../../public/custom/page.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+
+    <style>
+    	/********* 参赛作品  ********/
+    	
+    	.work_list .item {
+		    margin: 0 20px 27px;
+		}
+		
+		p {
+		    display: block;
+		    -webkit-margin-before: 1em;
+		    -webkit-margin-after: 1em;
+		    -webkit-margin-start: 0px;
+		    -webkit-margin-end: 0px;
+		}
+		.fl {
+		    float: left;
+		}
+		.work_list li {
+		    display: list-item;
+		    text-align: -webkit-match-parent;
+		}
+	    .work_list .item_con {
+		    width: 208px;
+		    height: 280px;
+		    background-color: floralwhite;
+		}
+		.work_list .work_pic_box {
+		    height: 138px;
+		    overflow: hidden;
+		    /*width: 208px;
+		    height: 130px;
+		    line-height: 130px;
+		    display: table-cell;
+		    background: #e2d7c8;
+		    vertical-align: middle;*/
+		}
+		.work_list .work_vote {
+		    text-align: center;
+		    background-color: rgba(232, 226, 226, 0.09);
+		    height: 150px;
+		}
+		.work_list .work_vote .txt {
+		    white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		   
+		}
+		.work_list .work_vote .project_name, .work_list .work_vote .txt {
+		    white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		     line-height: 25px;
+            font-size: 14px;
+		}
+		.work_list .work_vote .vote_btn {
+		    width: 150px;
+		    height: 35px;
+		    line-height: 35px;
+		    background-color: #ccc;
+		    border-radius: 17.5px;
+		    cursor: pointer;
+		    color: #fff;
+		}
+		.work_list .work_pic_box img {
+		    width: 208px;
+		    display: block;
+		    max-height: 138px;
+		}
+		.competition_team .team_list {
+		    height: 740px;
+		    width: 1300px;
+		}
+		.work_show_box {
+			
+			width: 100%;
+		}
+    	.competition_team .team_list_box {
+			width: 1240px;
+			margin: 0 auto;
+		}
+    	.pageMenu{
+    		margin-left:500px;
+    	}
+    </style>
+</head>
+<style type="text/css">
+    .pageNumBox .pageNumCon .pageNum a.cur{background-color: #f8274b;color:#fff;border-color:#f8274b;}
+</style>
+<body>
+    <header class="page_head">
+        <div class="content w1200 clearfix">
+            <div class="con_head clearfix">
+                <div class="fr clearfix">
+                    <a href="../../index.html" class="fl link homepage"></a>
+                    <a href="javascript:;" class="fl link login" id="head_login_img"></a>
+                </div>
+            </div>
+            <div class="con_body clearfix">
+                <a href="../../index.html" class="logo fl"><img src="../../public/img/zbxm_logo_3.png" /></a>
+                <div class="page_head_nav fr">
+                    <ul class="nav clearfix">
+                         <li class="nav_li ">
+						   <a id="project_main" href="zbxm_index_model_3.html">首页</a>
+						</li>
+						<li class="nav_li">
+							<a id="project_detalis" href="zbxm_index_model3_detail.html">项目详情</a>
+						</li>
+						<li class="nav_li">
+							<a id="project_dynamic" href="zbxm_index_model3_trends.html">项目动态</a>
+						</li>
+						<li class="nav_li cur">
+							<a id="team" href="zbxm_index_model3_team.html">参赛团队</a>
+						</li>
+	                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- banner -->
+    <div class="big_banner" id="banner_center">
+        
+    </div>
+    <!-- 参赛团队 -->
+    <div class="sections competition_team">
+        <div class="content">
+            <div class="w1200" style="margin-bottom:20px;">
+             <div class="content_title_box clearfix">
+                    <h1 class="fl content_title">参赛团队</h1>
+                </div>
+                <div class="select_work clearfix">
+                    <!--<div class="select_work_l fl clearfix">
+                        <span class="select_title fl cur">团队</span>
+                        <span class="select_title fl">个人</span>
+                        <!--<select class="select">
+                            <option value="">天河</option>
+                            <option value="">越秀</option>
+                            <option value="">白云</option>
+                        </select>
+                        <select class="select">
+                            <option value="">培训</option>
+                            <option value="">运动</option>
+                        </select>
+                        <select class="select">
+                            <option value="">最近</option>
+                            <option value="">一个月内</option>
+                        </select>-->
+                    <!--</div>-->
+                    
+                </div>
+            </div>
+            <!--- 列表及分页  ----->
+            <div class="work_show_box" id="activityList">
+				<!--报名列表 --->
+				<ul class="work_list clearfix team_list_box" id="activityListHtmlStatic"></ul>
+			</div>
+            <div class="pageNumBox">
+                <!--<div class="pageNumCon clearfix">
+                    <span class="prevPage pagePrevNext fl">上一页</span>
+                    <div class="pageNum fl">
+                        <a href="javascript:;" class="cur">1</a>
+                        <a href="javascript:;">2</a>
+                        <a href="javascript:;">3</a>
+                        <a href="javascript:;">4</a>
+                        <a href="javascript:;">5</a>
+                        <a href="javascript:;">6</a>
+                        <a href="javascript:;">7</a>
+                        <a href="javascript:;">8</a>
+                        <a href="javascript:;">...</a>
+                        <a href="javascript:;">100</a>
+                    </div>
+                    <span class="nextPage pagePrevNext fl">下一页</span>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <!-- 右侧悬浮导航 -->
+    <div class="body_r_nav">
+        <!--<ul class="nav">
+            <li class="item cur mb20">
+                <a href="javascript:;" class="item_con">我要报名</a>
+            </li>
+            <li class="item">
+                <a href="javascript:;" class="item_con">投票指导</a>
+            </li>
+            <li class="item">
+                <a href="javascript:;" class="item_con">报名指引</a>
+            </li>
+            <li class="item">
+                <a href="javascript:;" class="item_con">下载附件</a>
+            </li>
+            <li class="item">
+                <a href="javascript:;" class="item_con">举报</a>
+            </li>
+        </ul>-->
+    </div>
+    <!-- 底部 -->
+    <footer class="conBgc01 colorfff font14 another_bgc">
+        <a href="javascript:;" class="disB font14 colorfff">触屏版</a>
+        <p>版权所有 copyright 2016 广东青年之声</p>
+        <p>粤ICP备10214402号-4</p>
+    </footer>
+</body>
+</html>
+<script type="text/javascript" src="../../public/js/common/user_linkage_heavy.js"></script>
+    <script type="text/javascript" src="../../public/js/heavy_project_model3/heavy_project_model3_team.js"></script>
+    <script>
+	/*** 关键字查询 **/
+$('#search_btn').click(function() {
+	
+	sreachList()
+})
+
+
+//进入个人中心
+
+$('#head_login_img').click(function(){
+		//  获取当前登录者信息
+	obj.ajax('/commons/getSessionAccount',{},function(data){
+		
+		if(data.status =='OK'){
+			window.location.href = '../person_center/person_center.html'
+		}else{
+
+            $.alert('亲，请先登录')
+//		       	  $('#loginBtn').trigger("click");  //触发点击事件
+            var i =1;
+            var  time = setInterval(function(){
+            $('#loginBtn').click();
+	            if(i==1){
+	             	clearInterval(time);
+	            }
+		    },100)	
+			
+		}
+	})
+})
+
+/**** 举报弹出框  ******/
+	
+	$('.report_click').click(function(){
+		 $('#askBox_report').show()  //显示
+	})
+	
+	//关闭谈出窗
+	$('.bg_black .delete ').click(function(){
+		$('.bg_black').hide();
+		
+	})
+	
+	
+	//打开投票指引弹窗
+    function show_vote_box(n) {
+       $('.bg_black').show() //显示弹框
+       if(n == 1){  //投票
+       	
+       	 $('.voteGuide_box').show();
+       	 $('.enrollGuide_box').hide()
+       	 $('.list_tanchuang .title').html("投票指引")
+       }
+       if(n == 2){  //报名
+       	
+       	 $('.voteGuide_box').hide();
+       	 $('.enrollGuide_box').show()
+       	 $('.list_tanchuang .title').html("报名指引")
+       }
+    	
+    }
+	//举报
+	// 举报(发布)
+	$('#submit_report').click(function () {
+		
+		
+		
+		Qnzs.getSessionAccount({}).then(function (data) {
+			console.log(data)
+			if(data.status != 'OK') {
+				$.alert(data.msg);
+				return;
+			}
+            
+			var reportReason = $('#reportContent').val();//举报内容
+			var reportType = $('#reportType').val();
+			if (!reportType && reportType != 0) {
+				$.alert('请选择举报分类');
+				return;
+			}
+			
+			
+			FindConsultApi.report({
+				reportReason: reportReason,
+				reportType: reportType,
+				module: 4,
+				reportAgainstId:activityId
+			}).then(function (data) {
+				
+				$.alert(data.msg,function(){
+					
+					
+					$('#askBox_report').hide();
+				});
+				
+			
+				return;
+				// console.log('举报', data)
+			})
+		})
+	});
+	
+	// 举报(发布)
+	$('#submit_report').click(function () {
+		Qnzs.getSessionAccount({}).then(function (data) {
+			console.log(data)
+			if(data.status != 'OK') {
+				$.alert(data.msg);
+				return;
+			}
+            
+			var reportReason = $('#reportContent').val();//举报内容
+			var reportType = $('#reportType').val();
+			if (!reportType && reportType != 0) {
+				$.alert('请选择举报分类');
+				return;
+			}
+			
+			
+			FindConsultApi.report({
+				reportReason: reportReason,
+				reportType: reportType,
+				module: 4,
+				reportAgainstId:activityId
+			}).then(function (data) {
+				
+				$.alert(data.msg,function(){
+					
+					
+					$('#askBox_report').hide();
+				});
+				
+			
+				return;
+				// console.log('举报', data)
+			})
+		})
+	});
+
+</script>

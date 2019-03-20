@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>重磅项目-后台管理-发布</title>
+
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project_sentActivit/zbxm_CMS_index.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project_sentActivit/zbxm_CMS_detail.css" />
+    <!-- 富文本编辑器--->
+    <link class="fuwenben-link" rel="stylesheet" type="text/css" href="../../public/vendor/KindEditor/themes/default/default.css"/>
+     <!-- 富文本编辑器 end--->
+    <!---  预览css--->
+	
+	<link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+
+	<link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css"/>
+	<!---  预览css end--->
+    <!---文件上传插件---->
+    
+	<link rel="stylesheet" type="text/css" href="../../public/vendor/upload-files-zhu/webuploader.css"/>
+	<link rel="stylesheet" type="text/css" href="../../public/vendor/upload-files-zhu/webupload_main.css"/>
+	<script src="../../public/vendor/upload-files-zhu/jquery-1.8.3.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+	<!--<script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>-->
+	
+	<script type="text/javascript" src="../../public/vendor/upload-files-zhu/webuploader.js"></script>
+	<script type="text/javascript" src="../../public/vendor/upload-files-zhu/upload.js"></script>
+	<script type="text/javascript" src="../../public/vendor/upload-files-zhu/uploadPreview.js"></script>
+	<style type="text/css">
+		.fl{float: left;}
+		.topTalk #wrapper{margin:10px 0;width:525px;}
+       #filePicker>div[id]{width:168px !important;height:44px !important;top:20px !important;left:50% !important;margin-left:-84px;}
+      #uploader .filelist li{width:80px;height:80px;margin:0 5px 10px 0;}
+        #uploader .filelist li p.imgWrap{width:80px;height:80px;}
+         #uploader .placeholder{min-height:188px;padding-top:108px;background-position:center 43px;}
+	</style>
+    <!---文件上传插件 end---->
+   
+    	
+    </script>
+    <script src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+     
+    <!---  富文本编辑器  测试  带图片------>
+  
+	<link href="../../public/vendor/summernote/summernote.css" rel="stylesheet"/>
+	
+	
+	<script src="../../public/vendor/summernote/dist/summernote.js"></script>
+    <script src="../../public/vendor/summernote/dist/lang/summernote-zh-CN.js"></script>    <!-- 中文-->
+
+	
+    <style>
+	 .m{ width: 800px; margin-left: auto; margin-right: auto; }
+	 ul li {
+	 	list-style: none;
+	  
+	 }
+	 
+	.btn-group>.btn-group:last-child>.btn:first-child {
+	    
+	   
+	}
+	.note-btn-group .btn-group .note-para{
+		
+	
+	}
+	</style>
+	<script>
+	$(function(){
+	    $('.summernote0').summernote({
+		        height: 300,
+		        tabsize: 2,
+		        lang: 'zh-CN',
+		        callbacks: {  
+		            onImageUpload: function(files, editor, $editable) {  
+		                sendFile1(files);  
+		            }  
+		        }
+		});
+	});
+	function sendFile1(files, editor, $editable) {  
+        var data = new FormData();  
+        data.append("ajaxTaskFile", files[0]);  
+        $.ajax({  
+            data : data,  
+            type : "POST",  
+            url : base+"/file_upload", //图片上传出来的url，返回的是图片上传后的路径，http格式  
+            cache : false,  
+            contentType : false,  
+            processData : false,  
+            dataType : "json",  
+            success: function(data) {//data是返回的hash,key之类的值，key是定义的文件名  
+            	
+            	console.log(data.url);
+      
+                $('.summernote0').summernote('insertImage', data.url);  
+            },  
+            error:function(){
+                $.alert("上传失败");
+            }  
+        });  
+    }  
+	
+	
+	/************************  多添加几条   *****************************/	
+//   n =0 ;
+	function fn(n){
+//		n+=1;
+		 $('.summernote'+n+'').summernote({
+		        height: 300,
+		        tabsize: 2,
+		        lang: 'zh-CN',
+		        callbacks: {  
+		            onImageUpload: function(files, editor, $editable) {  
+		            	files.index =n ;  //保存下标值	
+		            	
+		                sendFile(files,files.index);  
+		            }  
+		        }  
+		});
+		
+	}
+	
+	function sendFile(files,n, editor, $editable) {  
+        var data = new FormData();  
+        data.append("ajaxTaskFile", files[0]);  
+        $.ajax({  
+            data : data,  
+            type : "POST",  
+            url : base+"/file_upload", //图片上传出来的url，返回的是图片上传后的路径，http格式  
+            cache : false,  
+            contentType : false,  
+            processData : false,  
+            dataType : "json",  
+            success: function(data) {//data是返回的hash,key之类的值，key是定义的文件名  
+            	
+            	console.log(data.url);
+      
+                $('.summernote'+n+'').summernote('insertImage', data.url);  
+            },  
+            error:function(){
+                $.alert("上传失败");
+            }  
+        });  
+    }  
+	
+		
+	</script>
+    
+    <!---  富文本编辑器  测试  带图片-  end----->
+
+
+    <script>
+    	var oid = '001';
+		var dg_activity;
+		var ctx = 'http://www.12355.net:80';
+    </script>
+    <!-- 第1页 -->
+    <div class="inner_box box1">
+    	<input id="activity_id" type="hidden"/>
+        <!-- 活动类型 -->
+        <div class="leixing clearfix mar_bo30">
+            <label for="" class="font14 color333 fl">活动类型</label>
+            <select name="" id="activityType" class="color333 fl">
+                <option value="赛事">赛事</option>
+                <option value="评选">评选</option>
+                <option value="培训">培训</option>
+                <option value="其他">其他</option>
+            </select>
+            <input id="activityTypeOther" type="text" class="fl moldInp" style="display:none" maxlength="6"/>
+        </div>
+
+        <!-- 活动名称  <button id='zhu' >测试</button>-->
+        <div class="mingcheng clearfix mar_bo30">
+            <label for="" class="font14 color333 fl">活动名称</label>
+            <input id="activityName" placeholder="请输入活动内容" type="text" class="fl" maxlength="100"/>
+        </div>
+
+        <!-- 联系电话 -->
+        <div class="mingcheng clearfix mar_bo30">
+            <label for="" class="font14 color333 fl">联系电话</label>
+            <input id="ac_mobile" type="text" class="fl" placeholder="可填手机号码或固定电话" maxlength="13"/>
+        </div>
+        <!-- 报名时间 -->
+        <div class="baoming clearfix mar_bo30">
+            <label for="" class="font14 color333 fl">报名时间</label>
+            <input id="beginTime1" class="fl easyui-datetimebox" style="height: 34px;width: 150px;"> </input>
+            <span id="" style="text-align: center;line-height: 40px;padding: 0px;margin:0px;display: inline-block;">
+            </span>
+            <input id="endTime1" class="fl easyui-datetimebox" style="height: 34px;width: 150px;"> </input>
+        </div>
+
+        <!-- 投票时间 -->
+        <div class="toupiao clearfix mar_bo30">
+            <label for="" class="font14 color333 fl">投票时间</label>
+            <input id="beginTime2" class="fl easyui-datetimebox" style="height: 34px;width: 150px;"> </input>
+             <span id="" style="text-align: center;line-height: 40px;padding: 0px;margin:0px;display: inline-block;">
+             </span>
+            <input id="endTime2" class="fl easyui-datetimebox" style="height: 34px;width: 150px;"> </input>
+        </div>
+
+        <!-- 报名审核-->
+        <div class="shenhe clearfix mar_bo30">
+            <label class="font14 color333 fl auditing" >报名审核</label>
+            <div class="fl shenhe_in">
+                <label class="radio font14 color333 shenhe_choice" ><input type="radio" name="radio1" checked="checked" value="0" /><i></i>由发布方所在区域的系统管理员直接审核</label>
+                <label class="radio font14 color333 shenhe_choice" id="showArea"><input type="radio" name="radio1" value="1" /><i></i>指定系统管理员审核</label>
+
+                <!-- 下级区域 -->
+                 <div class="area" style="display:none">
+                    <div class="area_box clearfix">
+                        <label for="" class="font14 color333 fl">下级区域有</label>
+                        <div class="fl area_r">
+                            <div class="area_t clearfix">
+                            	<select  class="form-control" id="oidType2" onchange="changeOid2Type(this)">
+                                    <option value="">请选择</option>
+                                    <option value="1">地市</option>
+                                    <option value="2">高校</option>
+                  	            </select>
+                  	            <select id="cityOid2" class="form-control"  name="cityOid2" onchange="cityOid2Change(this)">
+			                 	</select>
+			                 	<select id="shcoolOid2" class="form-control"  name="shcoolOid2"  onchange="schoolOid2Change(this)">
+			                 	</select>
+                                <!--<select name="" id="" class="color333 fl locale" >
+                                    <option value="">地市</option>
+                                    <option value="">高校</option>
+                                </select>
+                                <select name="" id="diqu" class="color333 fl" >
+                                    <option value="">广州大学松田学院</option>
+                                    <option value="">广州</option>
+                                    <option value="">珠海</option>
+                                    <option value="">其他</option>
+                                </select>-->
+                            </div>
+
+                            <p class="font12 color2185cf clearfix"><input type="checkbox" name="radio2" id="auditDidsSub" />下级区县/院系系统管理员是否可审核</p>
+
+                            <div class="area_b bgcWhite">
+                                <ul>
+                                    <!-- <li>                                        
+                                        <div class="font14 color333 clearfix"><span class="fl"></span>深圳</div>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- 选择模板-->
+        <div class="muban clearfix " id="TemplateType">
+        	<input type="hidden" id="templateName" value="model1"/>
+            <label for="" class="font14 color333 fl">选择模板</label>
+            <ul class="yulan clearfix fl" id="yulan" >
+                <li class="fl" value="1">
+                    <a href="look_model1.html" target="_blank" class="colorfff font16">预览</a>
+                    <div class="yulan_box cur" value="model1">
+                        <div class="box_1"><img src="../../public/images/mb_1.png" alt="" /></div>                        
+                        <div class="box_2" style="display: block;"></div>
+                        <img src="../../public/images/choice.png" alt=""  class="choice" style="left: 62px;"/>
+                    </div>
+                </li>
+                <li class="fl" value="2">
+                    <a href="look_model2.html" target="_blank" class="colorfff font16">预览</a>
+                    <div class="yulan_box"  value="model2">
+                        <div class="box_1"><img src="../../public/images/mb_2.png" alt="" class="model" /></div>     
+                        <div class="box_2"></div>
+                        <img src="../../public/images/choice.png" alt=""  class="choice" />
+                    </div>
+                </li>
+                <li class="fl" value="3">
+                    <a href="look_model3.html"  target="_blank" class="colorfff font16">预览</a>
+                    <div class="yulan_box"  value="model3">
+                        <div class="box_1"><img src="../../public/images/mb_3.png" alt="" /></div>                        
+                        <div class="box_2"></div>
+                        <img src="../../public/images/choice.png" alt=""  class="choice" />
+                    </div>
+                </li>
+                <li class="fl" value="4">
+                    <a href="look_model4.html" id="see" target="_blank" class="colorfff font16">预览</a>
+                    <div class="yulan_box"  value="model4">
+                        <div class="box_1"><img src="../../public/images/mb_4.png" alt="" class="model" /></div>     
+                        <div class="box_2"></div>
+                        <img src="../../public/images/choice.png" alt=""  class="choice" />
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- 按钮 -->
+        <div class="btn_box">
+             <div class="clearfix">
+                 <a onclick="nextPage(1)" href="javascript:;" class="conBgc01 font16 colorfff fl">下一页</a>
+                <a onclick="cancelSave()" href="javascript:;" class="cancel font16 colorfff fl">取消</a>
+             </div>
+        </div> 
+
+    </div>
+
+    <!-- 第2页 -->
+    <div class="inner_box box2" style="display:none;" >
+        <!-- banner板块 -->
+        <div class="banner clearfix mar_b30 htBlock">
+            <h3 class="fl font14 color333">banner</h3>
+            <div class="fl">
+                <div class="key_box">
+                	<a href="javascript:;" class="key add">添加</a>
+                	<a href="javascript:;" class="key confirm" style="display:none" style="display:none">确定</a>
+                	<a href="javascript:;" class="key check" style="display:none">查看/编辑</a>
+                	<span class="font12 color2185cf" id="banner_size_span">建议尺寸（1200px * 437px）</span>
+                </div>
+                <div class="upload mar_t20 pad_30 bgcgrey"  style="display:none">
+                    <div style="position: relative;">
+                        <!--<img src="resources/pcImages/000.png" alt="" class="banner_img"/> -->
+                
+                        <a href="javascript:;"style="position: absolute;z-index: 44;" class="key up"><input type="file" name="image_file" id="Updatefile" class="upload_btn" onChange="fileSelected('preview2','image_file1');" />上传</a>
+                        <img id="preview2" style="width: 260px;height: 100%;position: absolute;z-index: 1;" class="pic" height="100" border="0" title="" src="../../public/images/zbxm_logo.png" />
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 活动介绍板块 -->
+        <div class="introduce clearfix mar_b30 htBlock">
+            <h3 class="fl font14 color333 changeLabel">活动简介</h3><input id="hdjs" class="zhu fl" style="display:none;" maxlength="6" value="活动介绍" />
+            <div class="fl">
+                <div class="key_box"><a href="javascript:;" class="key add">添加</a><a href="javascript:;" class="key confirm" style="display:none">确定</a><a href="javascript:;" class="key check" style="display:none">查看/编辑</a></div>
+                <div class="introduce_box pad_30 mar_t20 bgcgrey"  style="display:none">
+                    <div class="introduce_in">
+                        <div class="jianjie clearfix">
+                            <textarea id="activity_introduce" class="fl" maxlength="1000"placeholder="100字以上1000字以下
+示例:
+广东青年之声优秀工作人员评选大赛，该评选项目从2016年至今每年从六月份到九月份举行，多次的举办都获得了群众的一致好评。"></textarea>
+                        </div>
+                                                                      
+                    </div>
+                </div>                
+            </div>            
+        </div>
+
+        <!-- 报名要求板块 -->
+        <form id="ff_requirements">
+        <div class="require repCommer clearfix mar_b30 htBlock">
+            <h3 class="fl font14 color333 changeLabel">报名要求</h3><input id="bmyq" class="zhu fl" style="display:none;" maxlength="6" value="报名要求" />
+            <div class="fl">
+                <div class="key_box"><a href="javascript:;" class="key add">添加</a><a href="javascript:;" class="key confirm" style="display:none">确定</a><a href="javascript:;" class="key check" style="display:none">查看/编辑</a><span class="font12 color2185cf">最多可添加5个</span></div>
+                <div class="require_box pad_30 mar_t20 bgcgrey"  style="display:none">
+                    <div class="require_in"  id="request1">
+                        <div class="list">
+                            <div class="list_t request clearfix">
+                                <em class="font14 color333 fl">1</em>
+                                <input type="text" class="fl takerequest" name="content" placeholder="示例：项目符合环保理念" maxlength="100"/>
+                                <input type="hidden" name="type" value="1">
+                                <div class="anniu clearfix fl">
+                                    <!-- <span class="delete fl"></span> -->
+                                    <span class="jia fl" style="margin-top: 10px;width: 80px;"><a href="javascript:;">添加一条</a></span>
+                                </div>
+                            </div>
+                            <div class="list_b" style="display:none">
+                                <textarea ></textarea>
+                                <p class="font12 color2185cf">完善内容，内容展示在详情页.</p>
+                            </div>
+                        </div>                                       
+                    </div>
+                </div>                
+            </div>            
+        </div>
+        </form>
+
+        <!-- 评选流程板块 -->
+        <form id="ff_process">
+        <div class="elect clearfix mar_b30 htBlock" id="div_activity_process">
+            <h3 class="fl font14 color333 changeLabel">活动流程</h3><input id="hdlc" class="zhu fl" style="display:none;" maxlength="6" value="活动流程" />
+            <div class="fl">
+                <div class="key_box"><a href="javascript:;" class="key add">添加</a><a href="javascript:;" class="key confirm" style="display:none">确定</a><a href="javascript:;" class="key check" style="display:none">查看/编辑</a><span class="font12 color2185cf">最多可添加5个</span></div>
+                <div class="elect_box pad_30 mar_t20 bgcgrey"  style="display:none">
+                    <div class="elect_in pingxuan1" id="activity_process_div">
+                        <div class="list">
+                            <div class="list_t">
+                                <div class="t_box pinxuan1 clearfix">
+                                    <em class="font14 color333 fl">1</em>
+                                    <div class="elect_time pinxuan2 clearfix fl ">
+                                        <input type="text" class="fl month easyui-datebox" name="startTime" placeholder="开始" />
+                                        <input type="text" class="fl month easyui-datebox" name="endTime" placeholder="结束" />
+                                        <input type="text" class="fl month" name="content" placeholder="示例：项目申报" maxlength="100"/>
+                                    </div>                                
+                                    <!--<a href="javascript:;" class="key colorfff font14 bgccc fl">添加详情</a>-->
+                                    <div class="anniu clearfix fl">
+                                        <!-- <span class="delete fl"></span> -->
+                                        <span class="jia fl"  style="margin-top: 10px;width: 80px;"><a href="javascript:;">添加一条</a></span>
+                                    </div>
+                                </div>
+                                <!--<div class="b_box">
+                                    <input type="text" />
+                                </div>-->
+                                                                
+                            </div>
+                            <!--<div class="list_b" style="display:none">
+                                <textarea ></textarea>
+                                <p class="font12 color2185cf">完善内容，内容展示在详情页.</p>
+                            </div>-->
+                        </div>                                       
+                    </div>
+                </div>                
+            </div>            
+        </div>
+        </form>
+        
+        <!-- 奖项设置 -->
+        <form id="ff_prize">
+        <div class="elect2 clearfix mar_b30 htBlock" id="div_activity_prize">
+            <h3 class="fl font14 color333 changeLabel">奖项设置</h3><input id="jlsz" class="zhu fl" style="display:none;" maxlength="6" value="奖项设置" />
+            <div class="fl">
+                <div class="key_box"><a href="javascript:;" class="key add">添加</a><a href="javascript:;" class="key confirm" style="display:none">确定</a><a href="javascript:;" class="key check" style="display:none">查看/编辑</a><span class="font12 color2185cf">最多可添加5个</span></div>
+                <div class="elect_box pad_30 mar_t20 bgcgrey"  style="display:none">
+                    <div class="elect_in">
+                        <div class="list">
+                            <div class="list_t ">
+                                <div class="t_box clearfix">
+                                    <em class="font14 color333 fl">1</em>
+                                    <div class="elect_time prize1 clearfix fl">
+                                        <input type="text" class="fl month" name="ranking" placeholder="示例：一等奖" maxlength="10" maxlength="10" />
+                                        <input type="number" class="fl year" name="count" placeholder="1"/>
+                                        <input type="text" class="fl month" name="prizes" placeholder="示例：macbook air一台" maxlength="20" maxlength="100"/>
+                                    </div>                                
+                                    <!--<a href="javascript:;" class="key colorfff font14 bgccc fl">添加详情</a>-->
+                                    <div class="anniu clearfix fl">
+                                        <!-- <span class="delete fl"></span> -->
+                                        <span class="jia fl"  style="margin-top: 10px;width: 80px;"><a href="javascript:;">添加一条</a></span>
+                                    </div>
+                                </div>
+                                                 
+                            </div>
+                            <!--<div class="list_b" style="display:none">
+                                <textarea ></textarea>
+                                <p class="font12 color2185cf">完善内容，内容展示在详情页.</p>
+                            </div>-->
+                        </div>                                       
+                    </div>
+                </div>                
+            </div>            
+        </div>
+        </form>
+
+        <!-- 参赛作品板块 -->
+        <div class="prize repCommer clearfix mar_b30 htBlock">
+            <h3 class="fl font14 color333 changeLabel">参赛作品</h3><input id="cpxm" class="zhu fl" style="display:none;" maxlength="6" value="参赛作品" />
+            <div class="fl">
+                <div class="key_box"><a href="javascript:;" class="key add">添加</a><a href="javascript:;" class="key confirm" style="display:none">确定</a><a href="javascript:;" class="key check" style="display:none">查看/编辑</a></div>
+                <div class="prize_box pad_30 mar_t20 bgcgrey"  style="display:none">
+                    <div class="prize_in">
+                        <div class="list ">
+                            <div class="list_t clearfix" id="showBtn">
+                               <p><input type="radio"  checked="checked" name="takeProject" value="0"><span>显示</span><input name="takeProject"  type="radio" value="1" /><span>不显示</span></p>
+                            </div>
+                           
+                        </div>                                       
+                    </div>
+                </div>                
+            </div>            
+        </div>
+        
+		<!-- 参赛者分类 -->
+        <div class="support clearfix mar_b30 htBlock">
+            <h3 class="fl font14 color333 changeLabel">参赛者分类</h3><input id="cszfl" class="zhu fl" style="display:none;" maxlength="6" value="参赛者分类" />
+            <div class="fl">
+                <div class="key_box"><a href="javascript:;" class="key add">添加</a><a href="javascript:;" class="key confirm" style="display:none">确定</a><a href="javascript:;" class="key check" style="display:none">查看/编辑</a></div>
+                <div class="support_box pad_30 mar_t20 bgcgrey"  style="display:none">
+                    <ul class="support_in clearfix"> 
+                        <li class="fl">
+                            <input type="text" id="projectType" class="depict" placeholder="多个之间(英文)逗号隔开，如：个人,集体"/>
+                        </li>                                             
+                    </ul>
+                </div>                
+            </div>            
+        </div>
+        
+        <!--投票指引板块 -->
+        <div class="poll clearfix mar_b30 htBlock">
+            <h3 class="fl font14 color333">投票指引</h3>
+            <div class="fl">
+                <div class="key_box"><a href="javascript:;" class="key add">添加</a><a href="javascript:;" class="key confirm" style="display:none">确定</a><a href="javascript:;" class="key cancel" style="display:none">取消</a><a href="javascript:;" class="key check" style="display:none">查看/编辑</a></div>
+                <div class="poll_box pad_30 mar_t20 bgcgrey" style="display:none">
+                    <textarea id="guide"></textarea>                                            
+                </div>                
+            </div>            
+        </div>
+
+        <!--报名指引板块 -->
+        <div class="name clearfix mar_b30 htBlock">
+            <h3 class="fl font14 color333">报名指引</h3>
+            <div class="fl">
+                <div class="key_box"><a href="javascript:;" class="key add">添加</a><a href="javascript:;" class="key confirm" style="display:none">确定</a><a href="javascript:;" class="key cancel" style="display:none">取消</a><a href="javascript:;" class="key check" style="display:none">查看/编辑</a></div>
+                <div class="name_box pad_30 mar_t20 bgcgrey" style="display:none">
+                    <textarea id="guide2"></textarea>                                            
+                </div>                
+            </div>            
+        </div>
+
+        <!--下载附件板块 -->
+        <div class="attachment clearfix mar_b30 htBlock">
+        	<input type="hidden" id="datazipUrl" />
+            <h3 class="fl font14 color333">报名附件</h3>
+            <div class="fl">
+                <div class="key_box"><a href="javascript:;" class="key add">添加</a><a href="javascript:;" class="key confirm" style="display:none">确定</a><a href="javascript:;" class="key cancel" style="display:none">取消</a><a href="javascript:;" class="key check" style="display:none">查看/编辑</a></div>
+                <div class="attachment_box pad_30 mar_t20 bgcgrey" style="display:none">
+                    <!-- 上传附件  -->
+                     <div class="show_box clearfix topTalk" style="height: 150px;width: 100px;">
+                     	<h2>如有多个文件请上传压缩包(文件最大20M)</h2><br/><br/>
+                        <div class="uploading_l fl" style="margin:40px 19px 0 0;">
+                            <p class="font14 color333">上传附件</p>
+                        </div>
+                        <div id="wrapper" class="fl" style="width:450px !important;">
+                            <div id="container">
+                                <div id="uploader">
+                                    <div class="queueList">
+                                        <div id="dndArea" class="placeholder">
+                                            <div id="filePicker"></div>
+                                            <!--<p>或将照片拖到这里，单次最多可选8张</p>-->
+                                        </div>
+                                    </div>
+                                    <div class="statusBar" style="display:none;">
+                                        <div class="progress">
+                                            <span class="text">0%</span>
+                                            <span class="percentage"></span>
+                                        </div><div class="info"></div>
+                                        <div class="btns">
+                                            <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                     
+                    <!---上传附件 end-->
+                </div>                
+            </div>            
+        </div>
+        
+        <!-- 主办单位 -->
+        <div class="support clearfix mar_b30 htBlock">
+            <h3 class="fl font14 color333 changeLabel">主办单位</h3><input id="zbdw" class="zhu fl" style="display:none;" maxlength="6" value="主办单位" />
+            <div class="fl">
+                <div class="key_box"><a href="javascript:;" class="key add">添加</a><a href="javascript:;" class="key confirm" style="display:none">确定</a><a href="javascript:;" class="key check" style="display:none">查看/编辑</a></div>
+                <div class="support_box pad_30 mar_t20 bgcgrey"  style="display:none">
+                    <ul class="support_in clearfix"> 
+                        <li class="fl">
+                           
+                            <input type="text" id="mainCompany1" class="depict" placeholder="请输入名称"/>
+                        </li>                                             
+                    </ul>
+                </div>                
+            </div>            
+        </div>
+        
+        <!-- 协办单位 -->
+        <div class="cooperate clearfix mar_b30 htBlock">
+            <h3 class="fl font14 color333 changeLabel">协办单位</h3><input id="xbdw" class="zhu fl" style="display:none;" maxlength="6" value="协办单位" />
+            <div class="fl">
+                <div class="key_box"><a href="javascript:;" class="key add">添加</a><a href="javascript:;" class="key confirm" style="display:none">确定</a><a href="javascript:;" class="key check"style="display:none">查看/编辑</a></div>
+                <div class="cooperate_box pad_30 mar_t20 bgcgrey"  style="display:none">
+                    <ul class="cooperate_in clearfix"> 
+                        <li class="fl">
+                            
+                            <input type="text" id="mainCompany2" class="depict" placeholder="请输入名称"/>
+                        </li>                                             
+                    </ul>
+                </div>                
+            </div>            
+        </div>
+        
+        <!-- 承办单位 -->
+        <div class="cooperate clearfix htBlock">
+            <h3 class="fl font14 color333 changeLabel">承办单位</h3><input id="cbdw" class="zhu fl" style="display:none;" maxlength="6" value="承办单位" />
+            <div class="fl">
+                <div class="key_box"><a href="javascript:;" class="key add">添加</a><a href="javascript:;" class="key confirm" style="display:none">确定</a><a href="javascript:;" class="key check"style="display:none">查看/编辑</a></div>
+                <div class="cooperate_box pad_30 mar_t20 bgcgrey"  style="display:none">
+                    <ul class="cooperate_in clearfix"> 
+                        <li class="fl">
+                            
+                            <input type="text" id="mainCompany3" class="depict" placeholder="请输入名称"/>
+                        </li>                                             
+                    </ul>
+                </div>                
+            </div>            
+        </div>
+
+        <!-- 按钮 -->
+        <div class="btn_box">
+            <div class="clearfix">
+            	<a onclick="backPage(2)" href="javascript:;" class="sure conBgc01 font16 colorfff fl">上一页</a>
+                <a onclick="nextPage(2)" href="javascript:;" class="conBgc01 font16 colorfff fl">下一页</a>
+                <a onclick="cancelSave()" href="javascript:;" class="cancel font16 colorfff fl">取消</a>
+            </div>
+        </div>
+    </div>
+    
+	<!---第3页 ----->
+	<div class="inner_box box3" style="display:none;" >
+	<!-- 项目详情板块 -->
+        <form id="ff_activityDetail">
+        <div class="project clearfix mar_b30 htBlock">
+            <h3 class="fl font14 color333 changeLabel">项目详情</h3><input id="news1" class="zhu fl" style="display:none;" maxlength="6" value="项目详情"/>
+            <div class="fl">
+                <div class="key_box"><a href="javascript:;" class="key add">添加</a><a href="javascript:;" class="key confirm" style="display:none">确定</a><a href="javascript:;" class="key check"style="display:none">查看/编辑</a></div>
+                <div class="project_box pad_30 mar_t20 bgcgrey" style="display:none;">
+                    <div class="project_in">
+                        <div class="list_t">
+                            <div class="title mar_b20 clearfix">
+                                <em class="fl">标题</em>
+                                <input type="text" id="porject_title" class="fl bgf" name="title" maxlength="100" />
+                                <div class="anniu clearfix fl">
+                                    <!-- <span class="delete fl"></span> -->
+                                    <span class="jia fl"></span>
+                                </div>
+                            </div>   
+                        </div>
+                        <div class="list_b">
+                        	<em class="fl">内容</em>
+                            <div class="edit">
+                            	<input  name="content"  type="hidden" class ="cat_pro_info add_activitDetails"/>
+                                <div class="edit_in">
+                                	<!--<textarea id="edit_in" style="width: 100%;height: 100%;" name="content"></textarea>-->
+                                	<!----测试   富文本框------>
+							        <div class="m">		
+										<div class="act_detail"></div>
+									</div>
+							        <!----测试   富文本框  end-->
+                                </div>
+                                <!--<div class="key_box mar_t20">
+                                    <a href="javascript:;" onclick="saveprojectTitle('newUrl')" class="save font14 colorfff">保存</a>
+                                    <a href="javascript:;" class="off font14 colorfff">取消</a>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>            
+        </div>
+        </form>
+        
+        <!-- 项目动态板块 -->
+        <form id="ff_activityDetailList">
+        <div class="project clearfix mar_b30 htBlock">
+            <h3 class="fl font14 color333 changeLabel" >项目动态</h3><input id="newsList1" class="zhu fl" style="display:none;" maxlength="6" value="项目动态" />
+            <div class="fl">
+                <div class="key_box"><a href="javascript:;" class="key add">添加</a><a href="javascript:;" class="key confirm" style="display:none">确定</a><a href="javascript:;" class="key check"style="display:none">查看/编辑</a></div>
+                <div id="add_div_activity_detail" class="project_box pad_30 mar_t20 bgcgrey" style="display:none;">
+                    
+                    
+                    <div class="project_in">
+                     	<h2>本区域编辑的文章及图片将作为【项目动态】的焦点图文展示在主页，为页面显示美观，请至少上传一张图片（ 建议尺寸：280px * 200px）</h2><br/><br/>
+                        <div class="list_t">
+                            <div class="title mar_b20 clearfix">
+                            	<a href="javascript:;" class="add-more-pro-info" >添加一条</a>
+                                <em class="fl">标题</em>
+                                <input type="text" name="title" class="fl bgf" maxlength="100" />
+                                <div class="anniu clearfix fl">
+                                    <!-- <span class="delete fl"></span> -->
+                                    <span class="jia fl"></span>
+                                </div>
+                            </div>   
+                        </div> 
+                        <div class="list_b">
+                        	<em class="fl">内容</em>
+                            <div class="edit">
+                            	 <input  name="content"  type="hidden" class ="cat_pro_info add_activit_info"/>
+                                <div class="edit_in">
+                                	
+                                	<!----测试   富文本框------>
+							        <div class="m">		
+										<div class="summernote0"></div>
+									</div>
+							        <!----测试   富文本框  end-->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>            
+        </div>
+        </form>
+        <!-- 按钮 -->
+        <div class="btn_box">
+             <div class="clearfix">
+            	<a href="javascript:;" onclick="backPage(3)" class="sure conBgc01 font16 colorfff fl">上一页</a>
+                <a id="next_or_back" onclick="nextPage(3)" href="javascript:;" class="conBgc01 font16 colorfff fl">下一页</a>
+                <a onclick="cancelSave()" href="javascript:;" class="cancel font16 colorfff fl">取消</a>
+             </div>
+        </div> 
+	</div>
+
+	<!---第4页 ----->
+	<div class="inner_box box4" style="display:none;" >
+	
+		<!-- 咨询链接 -->
+        <div class="support clearfix mar_b30 htBlock"  id="div_activity_question">
+            <h3 class="fl font14 color333">在咨询链接</h3>
+            <div class="fl">
+                <div class="key_box"><a href="javascript:;" class="key add">添加</a><a href="javascript:;" class="key confirm" style="display:none">确定</a><a href="javascript:;" class="key check"style="display:none">查看/编辑</a></div>
+                <div class="support_box pad_30 mar_t20 bgcgrey" style="display:none;">
+                     <input type="hidden" id="askUrl"/>
+                     <div class="key_box mar_t20">
+                     <!--<a href="javascript:;" onclick="askQuestion()" class="save font14 colorfff">发帖</a>-->
+                    <!-- 咨询链接 --->
+                     <div class="project_in">
+                     	<h2>创建在线咨询（请单独保存）</h2><br/><br/>
+                        <div class="list_t">
+                            <div class="title mar_b20 clearfix">
+                                <em class="fl">标题</em> 
+                                <input type="text" id="question_title" class="fl bgf" name="title"/ style="margin-right: 20px;"><p style="padding: 10px 0 0 20px; ">请输入在线咨询的标题及内容，随后系统将自动生成在线咨询页供报名者咨询项目相关事项。</p>
+                                <div class="anniu clearfix fl">
+                                    <!-- <span class="delete fl"></span> -->
+                                    <span class="jia fl"></span>
+                                </div>
+                            </div>   
+                        </div>
+                        <div class="list_b">
+                        	<em class="fl">内容</em>
+                            <div class="edit">
+                                <div class="edit_in">
+                                	<!--<textarea id="edit_in" style="width: 100%;height: 100%;" name="content"></textarea>-->
+                                	<!--富文本框 -->
+                                	<textarea name="content" id="question_content" style="width:800px;height:300px;visibility:hidden; display: block;"></textarea>
+                                	
+                                	<!--富文本框  end-->
+                                	 <!-- 发布按钮 --->
+                                	<div class="key_box mar_t20" style="float: right; padding-right: 250px;">
+                                        <a href="javascript:;" style="padding: 1px 10px; font-size:14px ;" onclick="saveServiceQuestion()" class="save font14 colorfff">保存</a>
+                                        <a href="javascript:;" style="padding: 1px 10px; font-size:14px ;" class="off font14 colorfff">取消</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 咨询链接 end --->
+                     </div>
+                </div>                
+            </div>            
+        </div>
+        
+        <!-- 按钮 -->
+        <div class="btn_box">
+             <div class="clearfix">
+            	<a href="javascript:;" onclick="backPage(4)" class="sure conBgc01 font16 colorfff fl">上一页</a>
+                <!--<a href="javascript:;" onclick="yulan()" id="see" class="conBgc01 font16 colorfff fl">预览</a>-->
+				<a id="save_activity" href="javascript:;" onclick="saveActivity()" class="conBgc01 font16 colorfff fl">确认发布</a>
+                <a onclick="cancelSave()" href="javascript:;" class="cancel font16 colorfff fl">取消</a>
+             </div>
+        </div> 
+	</div>
+
+	<!-- 预览板块begin -->
+	<section class="step_div" style="display: none;">
+
+		<div id="templateDiv">
+			<!-- banner图 -->
+			<div class="top_banner">
+				<img id="bannerUrl2" src="../../public/images/20170420.png" alt="">
+			</div>
+		</div>
+
+		<!-- 按钮 -->
+		<div class="btn_box" style="margin-left:400px;">
+			<div class="clearfix" style="text-align: center;">
+				<a href="javascript:;" onclick="yulanProPage()" class="sure conBgc01 font16 colorfff fl">上一页</a>
+				<a href="javascript:;" onclick="saveActivity()" id="see" class="conBgc01 font16 colorfff fl">确认发布</a>
+				<a href="../heavy_project/heavy_project.html" class="cancel font16 colorfff fl">取消</a>
+			</div>
+		</div>
+	</section>
+	<!-- 预览板块end -->
+
+</body>
+    <script type="text/javascript" src="../../public/vendor/bootstrap/bootstrap.min.js">
+		
+	</script>
+
+    <script src="../../public/js/module/Utils.js"></script> 
+    <script src="../../public/js/heavy_project_sentActivit/zbxm_CMS_index.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js" ></script>
+    <script src="../../public/js/heavy_project_sentActivit/user-linkage.js"></script>
+    
+    <!---图片上传插件---->
+    <!--<script src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>-->
+    <script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+	<script src="../../public/js/heavy_project_sentActivit/common_add_edit.js"></script>
+
+  
+   
+    <!--富文本编辑器 ---->
+    <script class="fuwenben-script" class="" src="../../public/vendor/KindEditor/kindeditor-min.js" type="text/javascript" charset="utf-8"></script>
+    <script class="fuwenben-script"  src="../../public/vendor/KindEditor/zh_CN.js" type="text/javascript" charset="utf-8"></script>
+    <!--富文本编辑器  end--->
+     <script>
+		/*富文本编译器*/
+		var editor;
+		KindEditor.ready(function(K) {
+		editor = K.create('textarea[name="content"]', {
+//      cssPath : '../kindeditor/plugins/code/prettify.css', 
+//      uploadJson : '../Kindeditor/KEupload', 
+//      fileManagerJson : '../kindeditor/php/file_manager_json.php', 
+        allowFileManager: true,
+        afterCreate: function() {
+            this.sync();
+        },
+        afterChange: function() {
+            this.sync();
+        },
+        afterBlur: function() {
+            this.sync();
+        }
+		});
+		});
+		
+		//项目详情 -富文本
+		$('.act_detail').summernote({
+		        height: 300,
+		        tabsize: 2,
+		        lang: 'zh-CN',
+		        callbacks: {  
+		            onImageUpload: function(files, editor, $editable) {  
+		                act_detail_sendFile(files);  
+		            }  
+		        }  
+		});
+		
+		function act_detail_sendFile(files, editor, $editable) {  
+	        var data = new FormData();  
+	        data.append("ajaxTaskFile", files[0]);  
+	        $.ajax({  
+	            data : data,  
+	            type : "POST",  
+	            url : base+"/file_upload", //图片上传出来的url，返回的是图片上传后的路径，http格式  
+	            cache : false,  
+	            contentType : false,  
+	            processData : false,  
+	            dataType : "json",  
+	            success: function(data) {//data是返回的hash,key之类的值，key是定义的文件名  
+	            	
+	            	console.log(data.url);
+	      
+	                $('.act_detail').summernote('insertImage', data.url);  
+	            },  
+	            error:function(){
+                    $.alert("上传失败");
+	            }  
+	        });  
+	    }  
+		
+		
+		
+		    //获取权限
+	var limits = Utils.getQueryString('limit'); // 权限
+    </script>
+</html>
+

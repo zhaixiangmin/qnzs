@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>找问答-提问</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/hd_footerNav.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/wd_tiwenPub.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/webupload_main.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/wd_zzxqtiwen.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/js/common/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+     <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FindConsultApi.js"></script>
+    <script type="text/javascript" src="../../public/js/find_consult/askToOrganization.js"></script>
+    <script type="text/javascript" src="../../public/vendor/webuploader/webuploader.js"></script>
+    <script type="text/javascript" src="../../public/vendor/webuploader/upload.js"></script>
+    <script type="text/javascript" src="../../public/vendor/xss/xss.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    
+    <!--公共底部-->
+    <script type="text/javascript" src="../../public/custom/common.js"></script>
+
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <!--<script>-->
+       <!--window.onload = function () { -->
+            <!--new uploadPreview({ UpBtn: "up_img", DivShow: "imgdiv", ImgShow: "imgShow" });-->
+
+        <!--}-->
+    <!--</script>-->
+    <style>
+        select#quesCategory{padding: 0.5rem 2%;border: none;font-size: 0.5rem!important;}
+        select#quesCategory:active{border: none;}
+        select#quesCategory option{padding: 1rem 0; text-align: right;display: block;width: 100%;}
+        section.explain textarea{height: 5rem;}
+    </style>
+</head> 
+<body class="bodyPB">
+<section class="headTxt">
+    <div class="item clearfix">
+        <div class="left fl">
+            <img style="width: 100%;height: 100%;" id="exp_photoUrl" src=""/>
+        </div>
+        <div class="right">
+            <h2 class="color000" id="orgName"></h2>
+
+        </div>
+    </div>
+</section>
+    <!-- 请选择 -->
+    <a href="javascript:;" class="choose clearfix bgcWhite">
+        <h2 class="fl color000" style="width: 20%">话题分类</h2>
+        <select id="quesCategory" class="fl color000" style="width: 76%;height: 100%">
+
+        </select>
+        <!--<span class="fr color999">请选择</span>-->
+    </a>
+    <!-- 请输入您的问题 -->
+    <section class="writeQuestion bgcWhite">
+        <h2 class="color000">您的问题</h2>
+        <textarea placeholder="(5-49字)" maxlength="49" id="quesTitle"></textarea>
+    </section>
+<!-- 问题说明 -->
+<section class="explain bgcWhite">
+    <div class="clearfix"><h2 class="fl color000">问题说明</h2><!-- <span class="fl">&nbsp;(可选)&nbsp;</span> --><em class="fl color000">：</em></div>
+    <textarea placeholder="请输入问题说明" id="askContent"></textarea>
+</section>
+    <!-- 上传图片 -->
+    <section class="uploadImg bgcWhite mb20">
+        <div class="title color000">上传图片</div>
+        <!--<div class="imgL clearfix">-->
+                <!--<div id="imgdiv" class="imgdiv" style="float:left;">-->
+                    <!--<div class="imgOut">-->
+                        <!--<div class="imgIn">-->
+                            <!--<img id="imgShow" class="imgShow" />-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="imgAdd fl">-->
+                    <!--<div class="divin">-->
+                        <!--<a href="javascript:;">-->
+                            <!--<input type="file" class="photo_upload" id="up_img"/> -->
+                        <!--</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <div class="imgMain clearfix uploading">
+            <div class="imgL clearfix">
+                <div class="uploading_l fl">
+                    <p class="font14 color333">上传图片</p>
+                    <p class="font12 color999 uploading_num">(最多8张)</p>
+                </div>
+                <div id="wrapper" class="fl">
+                    <div id="container">
+                        <div id="uploader">
+                            <div class="queueList">
+                                <div id="dndArea" class="placeholder">
+                                    <div id="filePicker"></div>
+                                    <p>或将照片拖到这里，单次最多可选8张</p>
+                                </div>
+                            </div>
+                            <div class="statusBar" style="display:none;">
+                                <div class="progress">
+                                    <span class="text">0%</span>
+                                    <span class="percentage"></span>
+                                </div><div class="info"></div>
+                                <div class="btns">
+                                    <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="imgUrl" style="display: none;"></div>
+    </section>
+
+    <!-- 确定 取消 -->
+    <section class="btns clearfix">
+        <a href="javascript:;" id="cancel" class="left fl">取消</a>
+        <a href="javascript:;" class="right fr" id="submit_help">确定</a>
+    </section>
+   <!--插入公共底部-->
+</body>
+</html>
+<!--<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>-->
+<!--<script type="text/javascript" src="js/footerChange.js"></script>-->
+<script>
+    $('#cancel').click(function () {
+        window.history.go(-1);
+        console.log('history')
+    })
+</script>

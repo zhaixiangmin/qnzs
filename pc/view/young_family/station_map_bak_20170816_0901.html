@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>青年之家-首页</title>
+    <meta http-equiv= "X-UA-Compatible" content = "IE=edge,chrome=1"/>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+     <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    <!--分页插件css-->
+    <link rel="stylesheet" type="text/css" href="../../public/custom/page.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/young_family/station_map.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/young_family/yuyuefuwu_tanchuang.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+       <script src=bigDataUrl+"/browser/0110/crossdomain.js" type="text/javascript"></script><!---- 安全连接---->
+    <!--百度地图-->
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=ggGhWZ8zW5mGMOYCohgWNRER5m76Hxfz"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <!--<script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>-->
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <!--引入公共头部、尾部-->
+    <script src="../../public/custom/common.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script src="../../public/js/module/YoungFamilyApi.js"></script>
+    <!--分页插件 js-->
+    <script type="text/javascript" src="../../public/custom/page.js"></script>
+    <script type="text/javascript" src="../../public/js/young_family/staton_map.js"></script>
+</head>
+<body class="bodyPt96">
+    <!--commonjs已引入头部、尾部-->
+
+    <div class="search_parent" style="padding: 10px 0 20px 0;text-align: center;">
+        <div class="search" style="display: inline-block;padding: 10px;height: 20px;overflow: hidden;border: 1px solid #ddd;">
+            <div class="category_parent" style="display: inline-block;vertical-align: super;width: 120px;background: url(../../public/img/selectArrow.png) no-repeat 106px 6px;">
+                <select name="category" class="category" id="category" style="width: 100%;padding-right: 20px;cursor: pointer;background: transparent;">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+            <div class="vertical" style="display: inline-block;height: 20px;width: 1px;background: #ddd;"></div>
+            <div class="province_parent" style="display: inline-block;vertical-align: super;width: 74px;background: url(../../public/img/selectArrow.png) no-repeat 60px 6px;">
+                <select name="province" class="province" id="province" style="width: 100%;padding-right: 20px;background: transparent;" disabled>
+                    <option value="440000">广东省</option>
+                </select>
+            </div>
+            <div class="vertical" style="display: inline-block;height: 20px;width: 1px;background: #ddd;"></div>
+            <div class="city_parent" style="display: inline-block;vertical-align: super;width: 74px;background: url(../../public/img/selectArrow.png) no-repeat 60px 6px;">
+                <select name="city" class="city" id="city" style="width: 100%;padding-right: 20px;cursor: pointer;background: transparent;">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+            <div class="vertical" style="display: inline-block;height: 20px;width: 1px;background: #ddd;"></div>
+            <div class="district_parent" style="display: inline-block;vertical-align: super;width: 74px;background: url(../../public/img/selectArrow.png) no-repeat 60px 6px;">
+                <select name="district" class="district" id="district" style="width: 100%;padding-right: 20px;cursor: pointer;background: transparent;">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+            <div class="vertical" style="display: inline-block;height: 20px;width: 1px;background: #ddd;"></div>
+            <div class="keyword_parent" style="display: inline-block;vertical-align: super;width: 330px;">
+                <input type="keyword" id="keyword" style="width: 100%;background: transparent;" placeholder="请输入关键字">
+            </div>
+        </div>
+
+        <div class="submit_search" id="submit_search" style="display: inline-block;vertical-align: top;margin-left: -4px;;width: 100px;height: 42px;line-height: 42px;font-size: 16px;color: #fff;cursor: pointer;background: #1086D7;">
+            立即搜索
+        </div>
+        <div class="submit_all" id="submit_all" style="display: inline-block;vertical-align: top;margin-left: -4px;;width: 100px;height: 42px;line-height: 42px;font-size: 16px;cursor: pointer;">
+            全部
+        </div>
+    </div>
+
+    <div class="map_station">
+        <div id="BMap_mask"></div>
+        <div class="aside">
+            <div class="header">
+                <span class="title">青年之家<em id="total_map"></em></span>
+                <i class="icon_left" id="icon_left"></i>
+                <i class="icon_right" id="icon_right"></i>
+            </div>
+            <div class="hr"></div>
+            <ul class="content">
+            </ul>
+        </div>
+    </div>
+
+    <!-- 预约服务弹窗 -->
+    <div class="bg_black" id="dialog_reserve">
+        <div class="list_tanchuang bgcWhite">
+            <div class=" conBgc01 clearfix service_t">
+                <span class="font14 fl colorfff">线下预约</span>
+                <span class="delete fr"></span>
+            </div>
+            <div class="service_b">
+                <div class="bgcWhite service_box_b">
+                    <div class="title clearfix publicBox">
+                        <span class="font14 color000 fl leftTitle">问题标题</span>
+                        <input type="text" class="font12 color000 fl title_r rightWrite questionTitle"
+                               id="title_reserve" placeholder="请输入标题"/>
+                    </div>
+                    <div class="leibie clearfix publicBox">
+                        <span class="font14 color000 fl leftTitle">服务类别</span>
+                        <select name="category_reserve" id="category_reserve" class="rightWrite select">
+                        </select>
+                    </div>
+                    <div class="publicBox clearfix">
+                        <span class="leftTitle fl font14 color000">服务站点</span>
+                        <p class="fl font14 color000" style="line-height:36px;height:36px;">汕头“青年之声”工作室</p>
+                    </div>
+                    <div class="clearfix miaoshu publicBox">
+                        <span class="font14 color000 fl miaoshu_l leftTitle">服务描述</span>
+                        <textarea name="description_reserve" id="description_reserve" class="color000 fl rightWrite serviceDescribe"
+                                  placeholder="我需要组织帮我解决XXX问题"></textarea>
+                    </div>
+                    <div class="serviceTime clearfix publicBox">
+                        <span class="font14 color000 fl leftTitle">服务时间</span>
+                        <select name="serviceDate_reserve" id="serviceDate_reserve" class="rightWrite fl select"
+                                style="margin-right:20px;width: 184px;background-position-x: 160px">
+                        </select>
+                        <select name="serviceTime_reserve" id="serviceTime_reserve" class="rightWrite fl select">
+                        </select>
+                    </div>
+                </div>
+                <div class="serviceBottomBtns">
+                    <div class="btnsBox">
+                        <input type="button" class="fl btn apply" id="submitApply" value="申请"/>
+                        <input type="button" class="fl btn cancel" id="submit_cancel" value="取消"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

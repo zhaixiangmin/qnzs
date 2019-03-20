@@ -1,0 +1,54 @@
+.cont_mian{width: 1200px;height: 600px;margin: 0 auto;}
+footer{display: none;}
+.active_title{width: 100%; height: 80px;font-size: 22px;font-weight: bold;color: #2185CF;line-height: 80px;background: #FFFFFF;text-indent:22px;position: relative;}
+.active_title::after{content:"";
+         display: block;
+         width: 4px;
+         height: 24px;
+         position: absolute;
+         background-color: #0064B6;
+         top:27px;
+         left: 4px;
+
+
+}
+.cont_mian{padding-bottom: 20px;}
+.cont_mian .leftAct{width: 1200px;}
+ .cont_mian .hot_acticve{margin-top:20px;}
+.cont_mian .list li{float: left;width:260px;margin: 0 40px 40px 0;}
+.cont_mian .list a .txt{padding: 0 10px;}
+.cont_mian .list li:hover{box-shadow: 3px 6px 5px rgba(187,187,187,.25);}
+.cont_mian .list li:hover .conTit p{color:#2185cf;}
+.cont_mian .list li:hover .address,
+.cont_mian .list li:hover .botTxt p{color:#000;}
+.cont_mian .list .imgDiv{width: 260px;height: 173px;overflow: hidden;position: relative;background-color: #e2e2e2;}
+.cont_mian .list .imgDiv .img01{position: absolute;
+    left: -30px;
+    top: 17px;
+    z-index: 2;
+    display: block;
+    width: 150px;
+    height: 30px;
+    font-size: 16px;
+    background-color: #0094ff;
+    opacity: 0.8;
+    line-height: 30px;
+    text-align: center;
+   
+    color: white;
+    -webkit-transform: rotate(-36deg);
+    -moz-transform: rotate(-36deg);
+     -ms-transform: rotate(-36deg);
+    }
+.cont_mian .list .imgDiv .img02{position: absolute;width:100%;left:0;top:50%;transform:translateY(-50%);}
+.cont_mian .list .conTit{padding: 5px 0 14px 0;}
+.cont_mian .list .conTit p{line-height: 50px;height: 50px; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.cont_mian .list .address{line-height: 15px; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.cont_mian .list .botTxt{line-height: 33px;}
+.pageMenu li.disabled{width: 60px;margin-left: -30px}
+.pageMenu li.nextPage,.pageMenu li.lastPage,
+
+.pageMenu li.firstPage,.pageMenu li.prevPage{width: 60px;margin-left: -30px}
+.pageMenu li.pageNum{width: 30px;margin-left: -30px;}
+.pageMenu li.last {margin-left: -20px;}
+.imgURl{width: 100%;height: 100%;}

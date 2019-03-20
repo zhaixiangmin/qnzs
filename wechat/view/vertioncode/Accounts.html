@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>账号申诉</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	 <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/register/register.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/login-register/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+
+	<script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+	<!--对话框-->
+	<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+	<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+     <script src="../../public/js/ajax/ajax2.js"></script>
+     <script src="../../public/vendor/datePicker/datePicker.js"></script>
+       <style type="text/css">
+       	body{background-color: #F2F2F2;}
+       	.pad_30de,.mangier_box{padding: 0.6rem  0.52rem  1.2rem 0.52rem;background-color: white;}
+       	.itemcent{color: #D94453;height: auto;margin-bottom: 0.4rem;font-size: 0.56rem;}
+       	.centre{font-size:0.52rem;height: auto;font-size: 0.56rem;color: #999999;letter-spacing: -0.41px;line-height: 0.8rem;}
+       	.nick{font-size: 0.68rem;color: #333333;display: inline-block;line-height: 2rem;width: 4.6rem;}
+       	.mangier{padding: 0 0.52rem;background-color: white;height: 2rem;margin: 0.6rem 0;}
+       	#nickname,#nickmail{height: 1.6rem;width: 60%;display: inline-block;padding-left: 0.4rem;font-size: 0.56rem;color: #999999;}
+       	#datepicker,#datepickertme{width: 60%;height:  1.6rem;border: 1px solid #C0C0C0;font-size: 0.56rem;padding-left: 0.32rem;display: inline-block;background: url(u79.png) no-repeat ;background-position: 100%;}
+       	
+       	.tilre{font-size:0.56rem;color: #333333;line-height:0.8rem;font-weight: 600;}
+       	.inputdic{font-size: 0.56rem;color: #333333;height: 0.6rem;line-height: 0.6rem;position: relative}
+       .liser{display: block;width: 100%;height: auto;margin-bottom: 0.4rem;}
+
+       .clhebox{display: inline-block; width: 0.6rem;height: 0.6rem;}
+       .listui{margin-top: 0.6rem;}
+       .titlerx{width: 95%;max-height: 1.6rem;display: inline-block;font-size: 0.56rem;color: #333333;line-height: 0.8rem;overflow: hidden;text-overflow: ellipsis;white-space: inherit;}
+       #sure{width: 90%;height: 2rem;font-size: 0.72rem;
+     color: #FFFFFF;text-align: center;line-height:2rem;margin:1.6rem auto;background: #2185CF;border-radius: 1rem}
+
+  #moch_box{width: 100%;height: 100%;position: fixed; top: 0;left: 0;background-color: rgba(0,0,0,0.2);z-index: 10000;}
+	.modelde_box{width: 90%;height:12rem;position: absolute;top: 50%;left: 50%; transform: translate(-50%,-50%);background-color: white;}
+	.close_box{width: 0.8rem;height: 0.8rem;position: absolute;top: 0.4rem;right: 0.4rem;background: url(../../public/img/close_c.png) no-repeat center;border: 2px solid #ccc;border-radius: 50%;display: block;}
+	.titlrexd{font-size: 0.56rem;color: #333333;line-height: 1rem;width: 11.6rem;margin: 2.6rem auto;}
+	#suer_to{
+		display: block;
+		width: 80%;
+		height: 2rem;
+		line-height: 2rem;
+		text-align: center;
+		border-radius:0.2rem;
+		font-size:0.72rem;
+		background-color: #D94453;
+		margin:0 auto;
+         color: #FFFFFF;}
+	.select{
+		width: 0.4rem;
+		height: 1.6rem;
+		 border: 1px solid #ccc;
+		background: #FFFFFF;
+	}
+	   #nickname::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+		    color:    #000000;
+		}
+		#nickname:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		   color:    #000000;
+		}
+		#nickname::-moz-placeholder { /* Mozilla Firefox 19+ */
+		   color:    #000000;
+		}
+		#nickname:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		   color:    #000000;
+		}
+		
+       </style>
+	</head>
+	<body>
+		 <section class="padding">
+		 	
+		 	<div class="pad_30de">
+		 	<h4 class="itemcent">本操作需通过以下方式确认你本人是手机<span class="phone_txt"></span>的用户身份</h4>
+		 	 <p class="centre">请尽可能回忆您的原账号信息，正确的信息项越多，将会帮助您更快地完成账号申诉。请放心，所有的账号信息都将保密。
+		 	全部资料仅用于身份验证并受到广东共青团<span style="color:#169BD5;">隐私政策</span>保护</p>
+		 	</div>
+		 	
+		 	<div class="mangier">
+		 		<label class="nick">账号昵称</label>
+		 		<input type="text" id="nickname" readonly="readonly" style="	color: black;">
+		 	</div>
+		 	
+		 	<div class="mangier">
+		 		<label class="nick">邮箱</label>
+		 		<input type="text" id="nickmail" placeholder="必填,用于接收申诉结果">
+		 	</div>
+		 	
+		 	<div class="mangier">
+		 		<label class="nick">账号注册时间</label>
+		 		 <input type="text" id="datepicker"  size="40" value="" >
+		 	</div>
+		 	
+		 	<div class="mangier">
+		 		<label class="nick">最后登录时间</label>
+		        <input type="text" id="datepickertme"  size="40" value="">
+		 	</div>
+		 		<div class="mangier">
+		 		<label class="nick" style="float: left;line-height: 1rem;">注册时所选<br/>高校/地区</label>
+		 		 <div class="" style="float: left;padding-left: 5px;">
+		 		 	
+		 		 	    <select  class="select fl" id="oidType" onchange="changeOidType(this)" style="width: 70px;">
+                                    <option value="-1">请选择</option>
+                                    <option value="1">地市</option>
+                                    <option value="2">高校</option>
+                  		</select>
+			            <select id="cityOid" class="select fl"  name="cityOid" onchange="cityOidChange(this)" style="width: 70px;">
+	                 	         <option value="-1">请选择</option>
+						</select>
+	                 	<select id="shcoolOid" class="select fl" name="shcoolOid"  onchange="schoolOidChange(this)" style="width: 70px;">
+	                 	          <option value="-1">请选择</option>
+	                 	</select>
+                        <select id="areaOid" class="select fl"  onchange="quxuan(this)" style="width: 70px;">
+								<option value="-1">--区/县--</option>
+			            </select>
+	                    <select id="classOid" class="select fl"   onchange="quxuan(this)" style="width: 70px;">
+								<option value="-1">--分院--</option>
+			            </select>
+		 		 </div>
+		 	</div>
+		 	<div class="mangier_box">
+		 		<h3 class="tilre">曾经提问过的问题?</h3>
+		 		
+		 		<div class="inputdic">
+		 	    <!--<input style="margin-left: 10%;" type="radio" name="identity" value="1" />是
+	            <input style="margin-left: 15%;"  type="radio" name="identity" value="0" />否-->
+		 	    </div>
+		 	    <ul class="listui" id="randQuestionList">
+		 	      <!-- <li class="liser"><input type="checkbox" name="ActivPickIds" class="clhebox" value="" /><span class="titlerx">【青听珠海】参与话题互动，团团送你蓝牙耳机：你有没有过坚持做一件小事，久而久之获得意外收获的经历？</span></li>	-->		 	   
+		 	    </ul> 
+		 	       
+		 	 
+		 	</div>
+	 	    <div class="mangier_box">
+		 		<h3 class="tilre">曾经报名过的活动?</h3>
+		 		
+		 		<div class="inputdic">
+		 	    <!--<input style="margin-left: 10%;" type="radio" name="identity" value="1" />是
+                <input style="margin-left: 15%;"  type="radio" name="identity" value="0" />否-->
+		 	    </div>
+		 	    <ul class="listui" id="randOfflineActivityList">
+		 	       <!--<li class="liser"><input type="checkbox" name="ActivPickIds" class="clhebox" value="" /><span class="titlerx">【青听珠海】参与话题互动，团团送你蓝牙耳机：你有没有过坚持做一件小事，久而久之获得意外收获的经历？</span></li>-->		
+		 	          
+		 	    </ul> 
+		 	       
+		 	    <div id="sure">确定</div>
+	 	   </div>
+		 </section>
+		 
+		 
+		 <!--弹窗-->
+		 
+		 <div id="moch_box" style="display: none;">
+		 	
+		 	<div class="modelde_box">
+			<span class="close_box"></span>
+			
+			<p class="titlrexd">您的申诉已提交，请密切留意邮件通知。感谢您对平台的支持。</p>
+		 	
+		 	
+		 	<span id="suer_to" >
+		 		确定
+		 	</span>
+		 	</div>
+		 </div>
+		 
+		 
+		 
+		 
+		
+	</body>
+	
+	<script type="text/javascript">
+			var phone =JSON.parse( $.cookie('getpsd')).mobile;
+			var s = phone.slice(0,phone.length-4);
+			$('.phone_txt').html(s+"****");
+		
+		    var calendar = new datePicker();
+		    //账号注册时间
+			calendar.init({
+				'trigger': '#datepicker', /*按钮选择器，用于触发弹出插件*/
+				'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+				'minDate':'1900-1',/*最小日期*/
+				'maxDate':'2100-12',/*最大日期*/
+				'onSubmit':function(){/*确认时触发事件*/
+					var theSelectData=calendar.value;
+				},
+				'onClose':function(){/*取消时触发事件*/
+				}
+			});
+			 var calendar2 = new datePicker();
+			//
+			calendar2.init({
+				'trigger': '#datepickertme', /*按钮选择器，用于触发弹出插件*/
+				'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+				'minDate':'1900-1',/*最小日期*/
+				'maxDate':'2100-12',/*最大日期*/
+				'onSubmit':function(){/*确认时触发事件*/
+					var theSelectData=calendar2.value;
+				},
+				'onClose':function(){/*取消时触发事件*/
+				}
+			});
+		
+		
+//	  $("#sure").click(function(){
+//	  	$('#moch_box').show()
+//	  })	
+//	  $(".close_box").click(function(){
+//	  	$('#moch_box').hide()
+//	  })
+		
+	</script>
+	<script src="../../public/js/vertioncode/Accounts.js"></script>
+	<script  src="../../public/js/common/user-linkage-1.js"></script>
+	
+</html>

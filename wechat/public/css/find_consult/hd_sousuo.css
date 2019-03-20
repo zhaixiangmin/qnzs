@@ -1,0 +1,17 @@
+/* 
+no less
+*/
+
+/* 搜索框 */
+section.searchBox{background-color: #e4e4e4;padding: 0.3rem 0.6rem;}
+section.searchBox input{width: 77%;height: 1rem;border-radius: 0.2rem;padding-left: 1.7rem;box-sizing: border-box;background:#f3f3f3 url(../../images/findInterlocution/searchIcon.png) no-repeat 0.4rem center;background-size: 0.8rem;}
+section.searchBox a{width:20%;line-height: 1rem;text-align: center;border-radius: 0.1rem;background-color: #2185cf;}
+
+section.recentHotSearch.none{display: none;}
+section.recentHotSearch .searchPub{border-bottom: 1px solid #ccc;}
+section.recentHotSearch .searchPub .tit{padding: 0.6rem;}
+section.recentHotSearch .searchPub .list{padding: 0 0.4rem;}
+section.recentHotSearch .searchPub .list>div{padding: 0 0.2rem 0.4rem;float: left;}
+section.recentHotSearch .searchPub .list>div a{background-color: #f7f7f7;padding: 0.2rem 0.8rem;display: block;}
+section.recentHotSearch .hotSearch .list>div{padding-bottom: 0.8rem;}
+section.recentHotSearch .hotSearch{border:0;}

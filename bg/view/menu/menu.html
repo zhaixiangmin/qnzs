@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>广东青年之声后台理</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8"> 
+      <link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+      <link href="../../public/css/common/style.css" rel="stylesheet" />
+      <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+      <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" /> 
+      <link rel="stylesheet" type="text/css" href="../../public/css/common/check.css"/>
+      <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css"/>
+      <!--校验插件--->
+     <script src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+     <script src="../../public/vendor/check/validator/fm.validator.js"></script>
+	 <script src="../../public/js/module/Qnzs.js"></script>
+     <script src="../../public/js/ajax/ajax2.js"></script>
+     <script src="../../public/js/module/Utils.js"></script> 
+     <style>
+      	
+      .inputWidth{
+      		
+      		width: 200px;
+      		
+      	}
+      	
+      </style>
+   </head>
+
+<body>
+<div class="col-sm-12">
+
+  <div class="border clearfix" id="menuBox1">
+       <ul class="nav navbar-nav " id="toolbar">
+          <li onclick="fn1()" id="menup_add"><a href="#shop"><span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#user-add" id="#menuAdd">新增</span></a></li>
+          <li onclick="menuUpdate(1)" id="menup_update"><a href="#support"><span class="glyphicon glyphicon-pencil" data-toggle="modal"  id="menuUpate">修改</span></a></li>
+          <!--<li onclick="addMenuSort(1)"><a href="#support"><span class="glyphicon glyphicon-user" data-toggle="modal"  id="menuBistribution">分配角色</span></a></li>-->
+          <li onclick="menuStart(1)" id="menup_status"><a href="#support"><span class="glyphicon glyphicon-play" data-toggle="modal"  id="menuEnable">启用</span></a></li>
+          <li onclick="menuStop(2)"><a href="#support"><span class="glyphicon glyphicon-ban-circle" data-toggle="modal"  id="menuDisable">禁用</span></a></li>
+          <!--<li onclick="menuReset(1)"><a href="#support"><span class="glyphicon glyphicon-cog" data-toggle="modal"  id="menuResetPad">重置密码</span></a></li>-->
+          <!--<li><a href="#support"><span class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#user-editor-org">修改组织</span></a></li>-->
+          <li onclick="resetBtn()" id="menup_button_add"><a href="#support"><span class="glyphicon glyphicon-cog" data-toggle="modal" data-target="#user-btn" id="menuResetBtn">配置按钮</span></a></li>
+       </ul>
+  </div>
+  <div class="border clearfix" id="menuBox2" style="display: none;">
+       <ul class="nav navbar-nav">
+          <li><a href="#support"><span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#addConfigure" >新增</span></a></li>
+          <li onclick="updateConfigure(1)"><a href="#support"><span class="glyphicon glyphicon-pencil" data-toggle="modal" >修改</span></a></li>
+          
+       </ul>
+  </div>
+  
+  
+
+  
+  
+<!--列表展示start-->
+<div id="menuTableBox">
+	 <table id="menuTable" title="菜单管理" class="easyui-treegrid" style="width:1200px;height:500px; overflow-y: 100px;">
+	 
+	 </table>  
+</div>
+ 
+ <!---配置按钮的数据列表------->
+ 
+ <div id="tabYE">
+	<table id="yeTable" style="width:1200px;height:500px; display: block;"> 	 
+	</table>  
+</div>
+
+ <!---配置按钮的数据列表---end---->
+
+
+<!--列表展示end-->   
+ </div>
+<!-- 新增框（Modal） -->
+<div class="modal fade" id="user-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					新建菜单
+				</h4>
+			</div>
+			<div class="modal-body s-height">
+		    <form id="form1"  class="form-horizontal validator">
+                 　
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>父节点:	</label>
+                        <div class="col-sm-7">
+                           <ul id="box2" id="menuFather" class="easyui-tree" style=" width: 250px; height:200px;  overflow:scroll;" ></ul>
+                            
+						   <!--<ul id="box2" class="easyui-tree" url="//api.gdqnzs.cn/bg/menuManager/getAllMenuTree"></ul>-->
+						
+                        </div>
+                    </div>
+                    
+                    <div class="item-box">
+						<span id="checkRedFly">*</span>
+						<label>名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        <input type="text" placeholder="名称" data-required class="inputWidth" id="menuName">
+			        </div>
+			        <div class="item-box">
+			        	<span id="checkRedFly">*</span>
+					    <label>链接&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        <input type="text" data-required placeholder="链接地址" id="menuLink" class="inputWidth">
+			        </div>
+			        <div class="item-box">
+			        	<span id="checkRedFly">*</span>
+					    <label>叶子节点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        <label><input  data-required="" name="radioButtons" id="radio1_3" value="1" type="radio">是</label>
+				        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input data-required="" name="radioButtons" id="radio1_3" value="0" type="radio">否</label>
+				    </div>
+				   
+				    <div class="item-box">
+				    	<span id="checkRedFly">*</span>
+				        <label>序号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        
+				        <input type="text" data-type="number" data-required placeholder="请输入数字" id="menuNum" class="inputWidth">
+				    </div>
+				   
+                    
+                   <!---提交--->
+			        <div class="stopBtn">
+						<button type="submit" class="btn btn-warning" id="addInfoBtn">确定</button>
+						<button type="reset" class="btn btn-info" onclick="Validator.removeErrors(document.getElementById('form1'));">重置</button>
+						<button type="button" class="btn btn-success" data-dismiss="modal">关闭
+				        </button>
+					</div>
+                   <!--<div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>名称:</label>
+                        <div class="col-sm-6">
+                              <input type="text" class="form-control" id="menuName">
+                        </div>  
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>链接:</label>
+                        <div class="col-sm-6">
+                              <input type="text" class="form-control" id="menuLink">
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>叶节点:</label>
+                        <div class="col-sm-6" id="menuChild">
+                               <input type="checkbox" name="isChild"><label class="checkbox_padd">是</label>
+                              <input type="checkbox"><label class="checkbox_padd">否</label>
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>序号:</label>
+                        <div class="col-sm-6">
+                               <input type="text" value="1" class="form-control" id="menuNum">
+                        </div> 
+                    </div>-->
+                                        
+                </form>
+			</div>
+			<div class="modal-footer" style="height: 50px;">
+				<!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="addInfoBtn">
+					确定
+				</button>-->
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 新增框（Modal）end -->
+
+
+<!-- 修改（Modal） -->
+<div class="modal fade" id="menuUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					新建菜单
+				</h4>
+			</div> 
+			<div class="modal-body s-height">
+		    <form method="get" class="form-horizontal">
+                 　
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">父节点:	</label>
+                        <div class="col-sm-7">
+                           <ul id="box3" id="menuFather2" style=" width: 250px;height: 200px;    overflow:scroll;"></ul>
+                        </div>
+                    </div>
+                   
+                   <div class="form-group">
+                        <label class="col-sm-2 control-label">名称:</label>
+                        <div class="col-sm-6">
+                              <input type="text" class="form-control" id="menuName2">
+                        </div>  
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">链接:</label>
+                        <div class="col-sm-6">
+                              <input type="text" class="form-control" id="menuLink2">
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">叶节点:</label>
+                        <div class="col-sm-6" id="menuChild2">
+                               <input  type="radio" checked="" value="1"><label class="checkbox_padd">是</label>
+                              <input type="radio" value="0"><label class="checkbox_padd">否</label>
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">序号:</label>
+                        <div class="col-sm-6">
+                               <input type="text" class="form-control" id="menuNum2">
+                        </div> 
+                    </div>
+                </form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="menUpdateBtn">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 新增框（Modal）end -->
+
+<!-- 分配角色框（Modal） -->
+<!--<div class="modal fade" id="user-roles" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					分配用户角色
+				</h4>
+			</div>
+			<div class="modal-body s-height">
+			  <table id="addMenuRole" style="width:200px;height:300px"><!--角色数据列表---->
+ 
+               <!--</table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="addSortBtn">
+					提交更改
+				</button>
+			</div>-->
+		<!--</div><!-- /.modal-content -->
+	<!--</div><!-- /.modal-dialog -->
+<!--</div>-->
+
+<!-- 启用框（Modal） -->
+<div class="modal fade" id="user-start" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					启用
+				</h4>
+			</div>
+			<div class="modal-body">
+		    您确认要启动该项目?
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="menuStartBtn">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 启用框（Modal）end -->
+
+<!-- 禁用框（Modal） -->
+<div class="modal fade" id="user-end" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					禁用
+				</h4>
+			</div>
+			<div class="modal-body">
+			  你确定要禁用本项目吗？
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="menuStopBtn">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 禁用框（Modal）end -->
+
+<!-- 重置密码框（Modal） -->
+<!--<div class="modal fade" id="user-pass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					warning
+				</h4>
+			</div>
+			<div class="modal-body">
+			你确定重置密码吗
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="menuResetBtn2">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	<!--</div><!-- /.modal-dialog -->
+<!--</div><!-- 重置密码框（Modal）end -->
+
+<!-- 重置密码框 send（Modal） -->
+<!--<div class="modal fade" id="user-pass2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					重置密码
+				</h4>
+			</div>
+			<div class="modal-body">
+			<form method="get" class="form-horizontal">
+                 　
+                   <div class="form-group">
+                        <label class="col-sm-3 control-label">原密码：</label>
+                        <div class="col-sm-5">
+                              <input type="text" class="form-control" id="oldPsd">
+                        </div>  
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">新密码：</label>
+                        <div class="col-sm-5">
+                              <input type="text" class="form-control" id="newPsd">
+                        </div> 
+                    </div>
+                    
+            </form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="menuResetBtn">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+<!--	</div><!-- /.modal-dialog -->
+<!--</div><!-- 重置密码框 send（Modal）end -->
+
+
+
+
+<!-- 配置按钮-新增（Modal） -->
+<div class="modal fade" id="addConfigure" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					按钮新增
+				</h4>
+			</div>
+			<div class="modal-body s-height">
+		    <form method="get" class="form-horizontal">
+                 　
+                   
+                   <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>按钮名称:</label>
+                        <div class="col-sm-6">
+                              <input type="text" class="form-control" id="permissionName">
+                        </div>  
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>按钮编码</label>
+                        <div class="col-sm-6">
+                              <input type="text" class="form-control" id="permissionCode">
+                        </div> 
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">备注</label>
+                        <div class="col-sm-6">
+                           <textarea id="description" rows="10" cols="20" name="description" class="easyui-validatebox validatebox-text" style="width: 255px;"></textarea>
+                        </div> 
+                    </div>
+                </form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="addConfigureBtn">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 新增框（Modal）end -->
+
+<!-- 配置按钮-修改（Modal） -->
+<div class="modal fade" id="updateConfigure" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					按钮修改
+				</h4>
+			</div>
+			<div class="modal-body s-height">
+		    <form method="get" class="form-horizontal">
+                 　
+                   <div class="form-group">
+                        <label class="col-sm-2 control-label">按钮名称:</label>
+                        <div class="col-sm-6">
+                              <input type="text" class="form-control" id="permissionName2">
+                        </div>  
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">按钮编码:</label>
+                        <div class="col-sm-6">
+                              <input type="text" class="form-control" id="permissionCode2">
+                        </div> 
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">备注</label>
+                        <div class="col-sm-6">
+                              <textarea id="description2" rows="10" cols="20" name="description" class="easyui-validatebox validatebox-text" style="width: 255px;"></textarea>
+                        </div> 
+                    </div>
+                </form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="updateBtn22">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 新增框（Modal）end -->
+
+
+
+<script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+
+<script type="text/javascript" src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script> 
+<script type="text/javascript" src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js" ></script>
+<!--弹出框-->
+<script src="../../public/custom/dialog.js"></script>
+<script src="../../public/js/menu/menu.js"></script>
+
+</body>
+</html>
+
+
+
+    
+    
+    
+    
+    
+    

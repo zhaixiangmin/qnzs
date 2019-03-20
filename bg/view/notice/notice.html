@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>公告管理</title>
+    <link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../public/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" /> 
+    <!--<link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project.css" />-->
+    <link rel="stylesheet" href="../../public/css/common/check.css" />
+	<link href="../../public/vendor/summernote/summernote.css" rel="stylesheet"/>
+	
+    <link rel="stylesheet" type="text/css" href="../../public/css/notice/notice_base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/notice/notice_detail.css" />
+		
+    <script src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+	<!--公共js调用api-->
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+	<script src="../../public/vendor/summernote/dist/summernote.js"></script>
+    <script src="../../public/vendor/summernote/dist/lang/summernote-zh-CN.js"></script>
+		
+    <!---文件上传插件---->
+    <script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+	
+    <script src="../../public/js/module/Utils.js"></script>
+</head>
+<style>
+	.select_type{max-width: 320px;}
+</style>
+<body>
+    <div class="col-sm-12">
+        <!-- 数据过滤 -->
+        <div class="datafilter">
+          <div class="search">
+              <form id="" method="post" class="form-inline"> 
+                    <table style=" margin-left: 30px; width: 100%;" class="form_table">
+                      <tr>
+                      	<th style="width:60px;">关键词</th>
+                        <td style="width:100px;"><input type="text" class="form-control" id="keyWord"></td>
+                        <td style="width:30px;"></td>
+                      	<th style="width:60px;">公告类型</th>
+                        <td style="width:100px;">
+                          <select class="form-control2 select" id="searchType" onchange="changeReportType(this)">
+                              <option value="">--请选择--</option>
+                              <option value="操作指引">操作指引</option>
+                              <option value="信息公告">信息公告</option>
+                              <option value="政策法规">政策法规</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr style="height:15px;"></tr>
+                      <tr>
+                        <th style="width:60px;">是否置顶</th>
+                        <td style="width:60px;">
+                          <select  class="form-control" id="isTop">
+                              		<option value="">--请选择--</option>
+                                    <option value="1">是</option>
+                                    <option value="0">否</option>
+                  		  </select>
+                        </td>
+                        <td style="width:30px;"></td>
+                        <th style="width:60px;">使用状态</th>
+                        <td style="width:60px;">
+                          <select  class="form-control" id="status">
+                              		<option value="">--请选择--</option>
+                                    <option value="0">正常</option>
+                                    <option value="1">禁用</option>=
+                  		  </select>
+                        </td>
+                        <td style="width:30px;"></td>
+                        <td style="width:150px;">
+                          <button type="button" class="btn btn-warning btn-sm" id="searchBtn"><span class="glyphicon glyphicon-search"></span>查询</button>
+                          <button type="button" class="btn btn-info btn-sm" id="clearBtn"><span class="glyphicon glyphicon-refresh"></span>清空</button>
+                        </td>
+                      </tr>
+                    </table>
+              </form>
+          </div>
+        </div>
+        <!-- 数据过滤 end -->
+        <div class="border clearfix">
+            <ul class="nav navbar-nav" id="toolbar">
+              <li class="notice_add" onclick="addNotice()"><a href="#shop"><span class="glyphicon glyphicon-plus" data-toggle="modal">添加</span></a></li>
+              <li class="notice_edit" onclick="editNotice()"><a href="#support"><span class="glyphicon glyphicon-pencil" data-toggle="modal" >编辑</span></a></li>
+              <li class="notice_top" onclick="topNotice(1,'置顶')"><a href="javascript:;"><span class="glyphicon glyphicon-arrow-down" data-toggle="modal">置顶</span></a></li>
+              <li class="notice_top" onclick="topNotice(0,'取消置顶')"><a href="javascript:;"><span class="glyphicon glyphicon-arrow-up" data-toggle="modal">取消置顶</span></a></li>
+              <li class="notice_audit" onclick="auditedNotice(0,'启用')"><a href="javascript:;"><span class="glyphicon glyphicon-play" data-toggle="modal">启用</span></a></li>
+              <li class="notice_audit" onclick="auditedNotice(1,'禁用')"><a href="javascript:;"><span class="glyphicon glyphicon-ban-circle" data-toggle="modal">禁用</span></a></li>
+              <li class="notice_audit" onclick="auditedNotice(2,'删除')"><a href="#support"><span class="glyphicon glyphicon-trash" data-toggle="modal" >删除</span></a></li>
+            </ul>
+       </div>
+       <table id="notice-partake"></table>
+       <!-- <ul class="pagination" id="pagination"></ul> -->
+       <!-- 列表展示 end -->
+    </div>
+    
+   <!-- 新增框（Modal） -->
+			<div class="modal fade" id="notice-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width:100%;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title show_mode">添加</h4>
+						</div>
+						<div class="modal-body s-height2">
+							<!--datafilter strat-->
+							<div class="datafilter">
+								<div class="search">
+									<form id="fromadd" class="form-horizontal validator">
+										<!--标题-->
+										<div class="form-group">
+											<label for="active_title" class="col-sm-2 control-label"><span style="color: red;">*</span>标题:</label>
+											<div class="col-sm-2">
+												<input type="text" class="easyui-validatebox" id="add_title" placeholder="请输入20字以内的标题" maxlength="20">
+											</div>
+										</div>
+										<!--标题end-->
+										
+										<!--类型-->
+										<div class="form-group">
+											<label class="col-sm-2 control-label"><span style="color: red;">*</span>类型:</label>
+											<div class="col-sm-2">
+												<select id="add_type" class="redact_category form-control easyui-validatebox select_type" data-options="required:true">
+						                              <option value="信息公告">信息公告</option>
+						                              <option value="操作指引">操作指引</option>
+						                              <option value="政策法规">政策法规</option>
+												</select>
+											</div>
+										</div>
+
+										<!-- 详情  -->
+										<div class="form-group">
+											<label class="col-sm-2 control-label"><span style="color: red;">*</span>内容:</label>
+											<div class="col-sm-6">
+												<div class="minrstid">
+													<div id="summernote" class="summernote0"></div>
+												</div>
+											</div>
+										</div>
+
+										<!-- 附件  -->
+										<div class="form-group">
+											<label class="col-sm-2 control-label">附件:</label>
+											<div class="col-sm-6">
+											<div class="step photoUpload clearfix ">
+												<a class="upload"> <!-- accept="application/msword,aplication/zip" --> 
+									                <input type="file" class="uploadFileBtn" id="up_file"  name="up_file" multiple="multiple" onchange="uploadFile()" style="width: 66px;"/>
+									            	<input type="hidden" name="fileUrl" id="fileUrl" />
+									            </a>
+												<p id="pickFileBtnNext" class="fl prompt" style="color:#333; padding-top: 2px; padding-left: 5px;">
+													<em style="color: red; ">非必填（请压缩为zip格式上传，文件名中勿带有","、"/"、"+"等中英文标点符号，否则将会上传失败。）</em>
+												</p>
+											</div>
+											</div>
+										</div>
+										<!-- 附件end  -->
+										
+										<div class="form-group" style="margin-bottom: 20px;">
+											<label class="col-sm-2 control-label">&nbsp;</label>
+											<div class="col-sm-3">
+												<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+												</button>
+												<button type="button" class="btn btn-info" id="btn_add_notice">
+													确定发布
+												</button>
+											</div>
+										</div>
+										<!--确定发布-->
+								</form>
+								</div>
+							</div>
+							<!--datafilter end-->
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+				<!-- 遮罩加载-->
+		</div>
+			<!-- 新增框（Modal）end -->
+			
+			<!-- 编辑框（Modal） -->
+			<div class="modal fade" id="notice-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width:100%;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title show_mode">编辑</h4>
+						</div>
+						<div class="modal-body s-height2">
+							<!--datafilter strat-->
+							<div class="datafilter">
+								<div class="search">
+									<form id="fromadd" class="form-horizontal validator">
+										<!--标题-->
+										<div class="form-group">
+											<label for="active_title" class="col-sm-2 control-label"><span style="color: red;">*</span>标题:</label>
+											<div class="col-sm-2">
+												<input type="text" class="easyui-validatebox" id="edit_title" placeholder="请输入20字以内的标题" maxlength="20">
+											</div>
+										</div>
+										<!--标题end-->
+										
+										<!--类型-->
+										<div class="form-group">
+											<label class="col-sm-2 control-label"><span style="color: red;">*</span>类型:</label>
+											<div class="col-sm-2">
+												<select id="edit_type" class="redact_category form-control easyui-validatebox select_type" data-options="required:true">
+						                              <option value="信息公告">信息公告</option>
+						                              <option value="操作指引">操作指引</option>
+						                              <option value="政策法规">政策法规</option>
+												</select>
+											</div>
+										</div>
+
+										<!-- 详情  -->
+										<div class="form-group">
+											<label class="col-sm-2 control-label"><span style="color: red;">*</span>内容:</label>
+											<div class="col-sm-6">
+												<div class="minrstid">
+													<div id="summernote_edit" class="summernote0"></div>
+												</div>
+											</div>
+										</div>
+
+										<!-- 附件  -->
+										<div class="form-group">
+											<label class="col-sm-2 control-label">附件:</label>
+											<div class="col-sm-6">
+											<div class="step photoUpload clearfix ">
+												<a class="upload"> <!-- accept="application/msword,aplication/zip" --> 
+									                <input type="file" class="uploadFileBtn" id="edit_up_file"  name="up_file" multiple="multiple" onchange="uploadFile()" style="width: 66px;"/>
+									            	<input type="hidden" name="fileUrl" id="edit_fileUrl" />
+									            </a>
+									            <span id="fileUrlOld"></span>
+												<p id="edit_pickFileBtnNext" class="fl prompt" style="color:#333; padding-top: 2px; padding-left: 5px;">
+													<em style="color: red; ">非必填（请压缩为zip格式上传，文件名中勿带有","、"/"、"+"等中英文标点符号，否则将会上传失败。）</em>
+												</p>
+											</div>
+											</div>
+										</div>
+										<!-- 附件end  -->
+										
+										<div class="form-group" style="margin-bottom: 20px;">
+											<label class="col-sm-2 control-label">&nbsp;</label>
+											<div class="col-sm-3">
+												<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+												</button>
+												<button type="button" class="btn btn-info" id="btn_edit_notice">
+													确定修改
+												</button>
+											</div>
+										</div>
+										<!--确定发布-->
+								</form>
+								</div>
+							</div>
+							<!--datafilter end-->
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+				<!-- 遮罩加载-->
+		</div>
+			<!-- 编辑框（Modal）end -->
+			
+			<!-- 详情展示框（Modal） -->
+			<div class="modal fade" id="notice-detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width:100%;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title show_mode">详情</h4>
+						</div>
+						<div class="modal-body s-height2">
+							<!--datafilter strat-->
+	<div class="header">
+        <h1 class="h1" id="titleShow">广东青年之声V5.0用户操作指引</h1>
+        <div class="s clearfix">
+            <span class="ss" id="createTimeShow">发布时间：2018-02-05 00:00:00</span>
+            <span class="ss" id="createOrgShow">发布者：广东共青团</span>
+            <span class="ss" id="typeShow">公告类型：操作指引</span>
+        </div>
+    </div>
+    <!-- 正文文段 -->
+    <div class="article" id="contentShow"></div>
+    <!-- 翻篇 -->
+    <div class="turnover clearfix">
+        <div class="fujian" id="fileUrlShow"></div>
+    </div>
+							<!--datafilter end-->
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+				<!-- 遮罩加载-->
+		</div>
+			<!-- 详情展示框（Modal）end -->
+</body>
+</html>
+    <script src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js" ></script>
+    <script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script> 
+    <script src="../../public/js/module/Utils.js"></script> 
+	<script>
+		$('#up_file').fileupload({
+				url: base + '/file_upload',
+				dataType: 'json',
+				autoUpload: true,
+				done: function(e, data) {
+					alert("上传成功");
+					var tempFileUrl = data.result.url;
+					$('#fileUrl').val(tempFileUrl); //附件地址
+					var index = tempFileUrl.indexOf('_');
+				    var fileHtml = tempFileUrl.substr(index+4);
+					$('#pickFileBtnNext').html("上传成功："+fileHtml);
+				},
+				fail: function() {
+					alert('出错');
+				}
+		});
+		
+		$('#edit_up_file').fileupload({
+				url: base + '/file_upload',
+				dataType: 'json',
+				autoUpload: true,
+				done: function(e, data) {
+					alert("上传成功");
+					var tempFileUrl = data.result.url;
+					$('#edit_fileUrl').val(tempFileUrl); //附件地址
+					var index = tempFileUrl.indexOf('_');
+				    var fileHtml = tempFileUrl.substr(index+4);
+					$('#edit_pickFileBtnNext').html("上传成功："+fileHtml);
+				},
+				fail: function() {
+					alert('出错');
+				}
+		});
+		
+	    $('#summernote,#summernote_edit').summernote({
+		        height: 300,
+		        tabsize: 2,
+		        lang: 'zh-CN',
+		        callbacks: {  
+		            onImageUpload: function(files, editor, $editable) {  
+		                sendFile(files);  
+		            }  
+		        }
+		});
+			
+	function sendFile(files, editor, $editable) {  
+        var data = new FormData();  
+        data.append("ajaxTaskFile", files[0]);  
+        $.ajax({  
+            data : data,  
+            type : "POST",  
+            url : base+"/file_upload", //图片上传出来的url，返回的是图片上传后的路径，http格式  
+            cache : false,  
+            contentType : false,  
+            processData : false,  
+            dataType : "json",  
+            success: function(data) {//data是返回的hash,key之类的值，key是定义的文件名  
+            	console.log(data.url);
+                $('.summernote0').summernote('insertImage', data.url);  
+            },  
+            error:function(){  
+                alert("上传失败");  
+            }  
+        });  
+    }  
+	</script>
+    <script src="../../public/js/notice/notice.js"></script>
+
+
+
+  
+

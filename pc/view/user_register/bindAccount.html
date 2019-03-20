@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="" name="MobileOptimized" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>绑定帐号</title>
+ <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+ <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+
+<script type="text/javascript" src="${ctx}/resources/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/util.js"></script>
+<style type="text/css">
+	.useLoginBar{ height:45px; line-height:45px; color:#fff; text-align:center; background-color:#0a9cef; font-size:1.2rem}
+	.bottom_fillPic{ background-image:url(../images/bot.png) ; background-repeat:no-repeat; background-position: center bottom  }
+	.loginArea{ background-color:#fff; border:solid 1px #e1e1e1; margin:35px 8px 10px}
+	.loginArea .col{ color:#ddd; height:30px; line-height:30px; border-bottom:solid 1px #e1e1e1}
+	.loginArea .last{border:none}
+	.loginArea td{ padding-left:10px; padding-top:3px; padding-bottom:3px}
+	.loginArea b{ display:inline-block; height:25px; width:26px;background-image:url(../images/login_03.png); background-repeat:no-repeat; margin-top:7px; background-size:contain }
+	.loginArea  input, .loginArea  password{ border:none; width:90%; color:#ddd; height:35px; line-height:35px; font-size:16px; font-family:"MicroSoft Yahei"}
+	 .loginArea b.useName{background-image:url(../images/login_03.png); }
+	.loginArea b.key{background-image:url(../images/login_07.png); background-size:25px 25px }
+	.loginButton{ margin:26px 8px 0px}
+	.loginButton input[type='button']{  background-color: #f13031;display:inline-block; border: medium none; border-radius: 0; color: #fff;  cursor: pointer; font-family: 'MicroSoft Yahei'; font-size: 16px; height: 35px; line-height: 35px;width: 100%;}
+	.loginButton  .rg_btn{ text-shadow:none}
+	.loginButton  .rg_btn{ background-color: #0a9cef;}
+</style>
+<script type="text/javascript">
+		function checkForm(){
+			var userName = document.getElementById("idcardCode").value;
+			var passWord = document.getElementById("userPassword").value;
+	
+			if (userName == "") {
+                $.alert("请输入帐号");
+				return false;
+			}
+			if (passWord == "") {
+                $.alert("请输入密码");
+				return false;
+			}
+		}
+
+		$(function(){
+			domHiehg=$(window).height();
+	 		$('body').height(domHiehg-0);
+		
+			$('.loginArea input').each(function(index, element) {
+	        	var oldValue=$(this).val();
+				$(this).focus(function(){
+					if(oldValue==$(this).val()){
+	 					$(this).css('color','#ddd');
+					}else{
+						$(this).css('color','#333');
+					}	
+	 			});
+	    	}).keydown(function(){
+	 			$(this).css('color','#333');
+	  		}).blur(function(){
+				var bvalue=$(this).val();
+				if(bvalue==''){
+					$(this).css('color','#ddd');
+				}
+			});
+		});
+		
+		$(function(){
+			$('#button').click(function(){
+				if($('#name').val() == ''){
+					alert("请输入用户名");
+					return;
+				}else if($('#pwd').val() == ''){
+					alert("请输入密码");
+					return;
+				}
+				var oldPwd = $('#pwd').val();
+				$('#pwd').val(hex_md5(oldPwd));
+				$.post($("#bindForm").attr('action'),$("#bindForm").serialize(),function(data){
+					data = JSON.parse(data);
+					$('#pwd').val(oldPwd);
+					alert(data.msg);
+				});
+			});
+		});
+	</script>
+</head>
+<body class="bodybg bottom_fillPic" style="background-color:#f5f5f5">
+	<header class="useLoginBar">绑定帐号</header>
+	<form id="bindForm" method="post" action="${ctx}/weixinOauth">
+		<input type="hidden" name="oauthType" value="${oauthType}" />
+		<input type="hidden" name="openId" value="${openId}" />
+		<input type="hidden" name="accessToken" value="${accessToken}" />
+		<input type="hidden" name="expiresIn" value="${expiresIn}" />
+		<input type="hidden" name="refreshToken" value="${refreshToken}" />
+		<section class="loginArea">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td class="col" width="4%">
+						<b class="usename" style="margin-top:0px;"></b>
+					</td>
+					<td class="col">
+						<input id="name" type="text" name="username" placeholder="请输入用户名"/> 
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b class="key" style="margin-top:0px;"></b>
+					</td>
+					<td>
+						<input id="pwd" type="password" name="password" placeholder="请输入密码" />
+					</td>
+				</tr>
+			</table>
+		</section>
+		<section class="loginButton">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="49%">
+						<input width="100%" type="button" value="绑定帐号" id="button"/>
+					</td>
+				</tr>
+				<tr>
+					<td width="49%"></td>
+				</tr>
+			</table>
+		</section>
+	</form>
+	<div style="display:none">
+		<script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+	</div>
+</body>
+</html>

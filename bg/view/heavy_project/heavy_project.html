@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>重磅项目后台管理</title>
+    <link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../public/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" /> 
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project.css" />
+    <link rel="stylesheet" href="../../public/vendor/layer/1.9.3/doc/skin/mono/layer.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../public/vendor/layer/1.9.3/doc/skin/mono/layer.ext.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <!--日期插件---->
+    <link rel="stylesheet" id=cal_style type="text/css" href="../../public/vendor/flatpickr/flatpickr.min.css">
+    <!--<link href="css/font-awesome.min93e3.css" rel="stylesheet">-->
+     
+    <!--日期插件 end---->
+    <script src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+
+    <script type="text/javascript" src="../../public/js/module/HeavyProjectApi.js"></script>
+  
+<!--弹出框-->
+	
+	
+</head>
+<body>
+    <div class="col-sm-12">
+        <!-- 数据过滤 -->
+        <div class="datafilter head-sreach">
+          <div class="search">
+              <form id="" method="post" class="form-inline"> 
+                    <table style="margin-left:30px;" class="form_table">
+                      <tr>
+                        <th>项目名称</th>
+                        <td><input type="text" class="form-control" id="keyWord"></td>
+                        <td style="width:30px;"></td>
+                        <th>报名日期</th>
+                        <td><input id="beginTime" type="text" class="easyui-datebox" /></td>
+                        <!--<td style="width:150px;"></td>-->
+                        <th>截止日期</th>
+                        <td><input id="endTime" type="text" class="easyui-datebox" /><td>
+                        <th></th>
+                        <td></td>
+                         <td></td>
+                      </tr>
+                      <tr style="height:15px;"></tr>
+                      <tr>
+                      	
+                      	 
+                        <th>审核状态</th>
+                        <td style="width:150px;">
+                          <select  class="form-control2 select" id="auditStatusSel">
+                              <option value="" selected>请选择</option>
+                              <option value="0">待审核</option>
+                              <option value="1">已通过</option>
+                              <option value="2">未通过</option>
+                          </select>
+                        </td>
+                        <td style="width:30px;"></td>
+                        <th>所属组织</th>
+                        <td style="width:150px;">
+                           <select  class="form-control" id="oidType2" onchange="changeOid2Type(this)">
+                                    <option value="-1">请选择</option>
+                                    <option value="1">地市</option>
+                                    <option value="2">高校</option>
+                  	    </select>
+                        </td>
+                        <th id="show1">组织地区1</th>
+                        <td style="width:150px;">
+                            <select id="cityOid2" class="form-control"  name="cityOid2" onchange="cityOid2Change(this)">
+		                 	</select>
+		                 	<select id="shcoolOid2" class="form-control"  name="shcoolOid2"  onchange="schoolOid2Change(this)">
+		                 	</select>
+                         
+                        </td>
+                        <th id="show2">组织地区2</th>
+                        <td style="width:150px;">
+                            <select id="areaOid2" class="form-control"  onchange="quxuan2(this)">
+								<option value="-1">--区/县--</option>
+				            </select>
+		                    <select id="classOid2" class="form-control"   onchange="quxuan2(this)">
+									<option value="-1">--分院--</option>
+				            </select>
+                         
+                        </td>
+                        <td style="width:50px;"></td>
+                        <td style="width:130px;">
+                          <button type="button" class="btn btn-warning btn-sm" id="areaBtn"><span class="glyphicon glyphicon-search"></span>查询</button>
+                          <button type="button" class="btn btn-info btn-sm" id="clearBtn"><span class="glyphicon glyphicon-refresh"></span>清空</button>
+                        </td>
+                       
+                      </tr>
+                    </table>
+              </form>
+          </div>
+        </div>
+       
+        <div class="datafilter" id="add-act" style="display: none;">
+           <iframe  style="height: 1000px; "class="J_iframe" name="mainFrame22" width="100%" height="100%" src="../heavy_project_sentActivit/zbxm_CMS_index.html"  frameborder="0" data-id="welcome.html" seamless></iframe>
+        </div>
+       <!-- 数据过滤 end -->
+        <div class="border clearfix">
+            <ul class="nav navbar-nav" id="toolbar">
+              <li class="heavy_add"> <a onclick="heavy_add()"   href="javascript:;"><span class="glyphicon glyphicon-plus">新增</span></a></li>
+              <li class="heavy_edit" onclick="updateActivityInfo()"><a href="javascript:;"><span class="glyphicon glyphicon-pencil" data-target="#user-update"  data-toggle="modal" >修改</span></a></li>
+              <li class="heavy_top" onclick="topHeavy(1,'置顶')"><a href="javascript:;"><span class="glyphicon glyphicon-arrow-up" data-toggle="modal">置顶</span></a></li>
+              <li class="heavy_top" onclick="topHeavy(0,'取消置顶')"><a href="javascript:;"><span class="glyphicon glyphicon-arrow-down" data-toggle="modal">取消置顶</span></a></li>
+              <li class="heavy_audit" onclick="auditedHeavy(0,'退回待审核')"><a href="javascript:;"><span class="glyphicon glyphicon-minus-sign" data-toggle="modal">退回待审核</span></a></li>
+              <li class="heavy_audit" onclick="auditedHeavy(1,'审核通过')"><a href="javascript:;"><span class="glyphicon glyphicon-ok-sign" data-toggle="modal">审核通过</span></a></li>
+              <li class="heavy_audit" onclick="auditedHeavy(2,'审核不通过')"><a href="javascript:;"><span class="glyphicon glyphicon-remove-sign" data-toggle="modal">审核不通过</span></a></li>
+              <!--<li class="heavy_audit" onclick="auditedHeavy(3,'删除')"><a href="javascript:;"><span class="glyphicon glyphicon-trash" data-toggle="modal" >删除</span></a></li>-->
+              <li class="heavy_share_page" onclick="setSkipUrl()"><a href="javascript:;"><span class="glyphicon glyphicon-file" data-toggle="modal" >定义分享页</span></a></li>
+              <li class="heavy_add_external"><a href="../heavy_project_sentActivit/add_external_links.html"><span class="glyphicon glyphicon-plus">新增外链项目</span></a></li>
+              <li class="heavy_edit_external" onclick="updateExternalInfo()"><a href="javascript:;"><span class="glyphicon glyphicon-pencil" data-target="#user-update"  data-toggle="modal" >编辑外链项目</span></a></li>
+            </ul>
+       </div>
+       <div class="show-mytab">
+           <table id="mytb"></table>
+       </div>
+       <!-- <ul class="pagination" id="pagination"></ul> -->
+       <!-- 列表展示 end -->
+    </div>
+   
+    <!-- 审核-->
+    <div class="modal fade" id="set_skipurl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                    	自定义页面底图
+                    </h4>
+                </div>
+                <div class="modal-body banner">
+		 		<input id="path" name="path" class="easyui-validatebox" data-options="required: false" style="display:block;width: 520px;"/>			
+		 		<div class="upload mar_t20 pad_30 bgcgrey">
+                    <div style="position: relative;">
+                    	<!--<span style="float:left;">建议尺寸（750px*1086px）</span>-->
+                        <a href="javascript:;"style="position: absolute;z-index: 44;" class="key up"><input type="file" name="image_file" id="Updatefile" class="upload_btn" onChange="fileSelected('preview2','image_file1');" />上传</a>
+                        <img id="preview2" style="width: 260px;height: 100%;position: absolute;z-index: 1;" class="pic" height="100" border="0" title="" src="../../public/images/zbxm_logo.png" />
+                    </div>
+                </div>
+                
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="addInfoBtn">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
+    <!--<script src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>-->
+    <script src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js" ></script>
+    <!--<script type="text/javascript" src="js/stree.js"></script>
+    <script type="text/javascript" src="js/streeweb.js"></script> -->
+    <script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script>
+    
+    <!---图片上传插件---->
+    <script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/ajaxfileupload.js"></script>
+    <script src="../../public/js/common/user-linkage.js"></script>
+    <script src="../../public/js/module/Utils.js"></script> 
+    <script src="../../public/js/heavy_project/heavy_project.js"></script>
+    
+

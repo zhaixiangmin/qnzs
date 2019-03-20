@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no;">
+    <!-- No less -->
+    <title>首页跳转搜索页面</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../css/hd_footerNav.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/index.css">
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+</head>
+<body>
+    <section class="searchBox clearfix">
+        <div class="searchLeft clearfix fl">
+            <select class="fz26 color333 fl">
+                <option>广州</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+            <input type="text" id="searchText" class="fl fz26" onclick="toSearch()"/>
+            <span class="fr seaIcon"></span>
+        </div>
+       <a href="javascript:;" class="fr disB fz26 colorfff" id="ridiv" onclick="searchActs()">搜索</a>
+    </section>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>青年之声-发现线下—站点详情</title>
+    <meta http-equiv= "X-UA-Compatible" content = "IE=edge,chrome=1"/>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+     <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    <!--分页插件css-->
+    <link rel="stylesheet" type="text/css" href="../../public/custom/page.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <!--<link rel="stylesheet" type="text/css" href="../../public/css/young_family/yuyuefuwu_tanchuang.css" />-->
+    <link rel="stylesheet" type="text/css" href="../../public/css/young_family/detail.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+    
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script src="../../public/vendor/super_slide/jquery.SuperSlide.2.1.1.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=13hKkYUjCLhkhnRlidP7Bmor"></script>
+    <!--引入公共头部、尾部-->
+    <script src="../../public/custom/common.js"></script>
+    <script src="../../public/js/module/YoungFamilyApi.js"></script>
+    <!--分页插件 js-->
+    <script type="text/javascript" src="../../public/custom/page.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/young_family/detail.js"></script>
+    
+</head>
+<body class="bodyPt96">
+<!--commonjs已引入头部、尾部-->
+
+     <!-- 面包屑导航 -->
+     <div class="breadcrumbs">
+         <div class="content w1200 clearfix">
+             <a href="../../index.html">首页&nbsp;&nbsp;</a><span>&gt;&nbsp;&nbsp;</span>
+             <a href="young_family.html">线下服务&nbsp;&nbsp;</a><span>&gt;&nbsp;&nbsp;</span>
+             <a href="javascript:;" id="breadcrumbs_title"></a>
+         </div>
+     </div>
+     <!-- 组织介绍 -->
+     <div class="proPersonalIntro bgcWhite">
+         <div class="content w1200 clearfix">
+             <!--<div class="fl zbf_l">-->
+                 <!--<div class="zbf_l_box">-->
+                     <!--<div class="imgBox box_round">-->
+                         <!--<img src="../../public/img/zuzhi_1.png"  />-->
+                     <!--</div>-->
+                 <!--</div>-->
+                 <!--<h3 class="font18 color000" id="fullName">广东青年之声</h3>-->
+                 <!--<div class="scoreBox clearfix">-->
+                     <!--<ol class="clearfix fl" id="star_icon">-->
+                         <!--&lt;!&ndash;星星评分图标&ndash;&gt;-->
+                     <!--</ol>-->
+                     <!--<span class="fl scoreColor01 font14 fenshu"><em id="star"></em>分</span>-->
+                     <!--<span class="yiping font14 color999 fr"><span id="evaluationNum"></span>人已评</span>-->
+                <!--</div>-->
+             <!--</div>-->
+
+             <div class="leftBox fl">
+                 <div class="imgDiv">
+                     <style type="text/css">
+                         /* 本例子css */
+                         .slideBox { width:400px; height:266px;overflow:hidden; position:relative;background: #f0f0f0; }
+                         .slideBox .hd{ height:15px; overflow:hidden; position:absolute; right:5px; bottom:5px; z-index:1; }
+                         .slideBox .hd ul{ overflow:hidden; zoom:1; float:left;  }
+                         .slideBox .hd ul li{ float:left; margin-right:2px;  width:15px; height:15px; line-height:14px; text-align:center; background:#fff; cursor:pointer; }
+                         .slideBox .hd ul li.on{ background:#f00; color:#fff; }
+
+                         .slideBox .bd{ position:relative; width: 100%; height:100%; z-index:0;  }
+                         .slideBox .bd li{ zoom:1; width:400px; height:266px;vertical-align:middle;line-height: 266px; text-align: center; font-size: 0; cursor: pointer; background: #f0f0f0; overflow: hidden; }
+                         .slideBox .bd img{ max-width:100%; max-height:100%; display:inline-block; vertical-align: middle; }
+
+                         /* 下面是前/后按钮代码，如果不需要删除即可 */
+                         .slideBox .prev,
+                         .slideBox .next{ position:absolute; left:3%; top:50%; margin-top:-25px; display:block; width:27px; height:40px; background:url(../../public/img/left.png) no-repeat; filter:alpha(opacity=50);opacity:0.5;   }
+                         .slideBox .next{ left:auto; right:3%; background:url(../../public/img/right.png) no-repeat; }
+                         .slideBox .prev:hover,
+                         .slideBox .next:hover{ filter:alpha(opacity=100);opacity:1;  }
+                         .cur{
+                         	background-color: #2185cf;
+                         	color: white;
+                         	
+                         }
+                     </style>
+
+                     <div id="slideBox" class="slideBox" style="display: none;">
+                         <div class="hd">
+                             <ul></ul>
+                         </div>
+                         <div class="bd">
+                             <ul></ul>
+                         </div>
+                         <!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+                         <a class="prev" href="javascript:void(0)"></a>
+                         <a class="next" href="javascript:void(0)"></a>
+                     </div>
+
+                 </div>
+
+                 <div style="text-align: center;">
+                     <h3 class="font18 color000" style="margin: 15px 0;text-align: center;font-weight: bold;" id="fullName"></h3>
+                     <div class="scoreBox clearfix" style="display: inline-block;width: 253px;">
+                         <ol class="clearfix fl" id="star_icon">
+                             <!--星星评分图标-->
+                         </ol>
+                         <span class="fl scoreColor01 font14 fenshu"><em id="star"></em>分</span>
+                         <span class="yiping font14 color999 fr"><span id="evaluationNum"></span>人已评</span>
+                     </div>
+                 </div>
+
+
+             </div>
+
+
+             <div class="rightBox fr">
+                 <div class="top font14 borderB01">
+                     <div class="div01 clearfix" id="map_derl">
+                        <span class="color999 fl">地点：&nbsp;</span>
+                        <p class="color000 fl"  style="cursor:pointer;"  id="address" onclick="getDressclik()" ></p> 
+                     </div>
+                     <div class="div02 clearfix">
+                         <span class="color999 fl">电话：&nbsp;</span>
+                         <p class="color000 fl" id="telephone"></p>
+                     </div>
+                     <div class="div03 clearfix">
+                         <span class="color999 fl">上班时间：&nbsp;</span>
+                         <p class="color000 fl" id="serviceTime"></p>
+                     </div>
+                     <div class="div04 clearfix">
+                         <div class="color999 style">服务类别：&nbsp;</div>
+                         <p class="color000 clearfix" id="staCategoriesList"></p>
+                     </div>
+                     <div class="div04 clearfix">
+                         <div class="color999 style">服务群体：&nbsp;</div>
+                         <p class="color000 clearfix" id="serviceGroupList"></p>
+                     </div> 
+                     <div class="div04 clearfix">
+                         <div class="color999 style">简要介绍：&nbsp;</div>
+                        <p class="middle font14 color000" id="serviceContent"></p>
+                     </div>
+                 </div>
+                 
+                 <div class="bottom clearfix">
+                     <a href="javascript:;" class="fl font18 ask colorfff tiwenBtn">预约服务</a>
+                     <a href="javascript:;" class="fl font18 guanzhu" id="concern"><span id="concern_text"></span></a>
+                     <span class="fl color999 font14"><span id="concernNum"></span>人关注</span>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <!-- 服务案例列表 -->
+    <div class="answered ask_and_answer">
+        <div class="pageBox content w1200 content_no">
+            <div class="clearfix" style="padding: 30px 0;" >
+                <h3 class="font16  fl list_box_title cur"   style="  line-height: 30px;   padding: 0 10px; border-radius:4px ;  font-weight: normal; ">已服务个例<span id="service_total"></span>次</h3>
+                <h3 class="font16 fl list_box_title" style="  line-height: 30px;   padding: 0 10px; border-radius:4px ; font-weight: normal;  "  >TA的活动<span id="activity_total" style="display: none;"></span></h3>
+                <div class="report_btn fl font16" style="padding: 8px 0;"><span class="report_inner">举报</span></div>
+            </div>
+
+            <!--已服务个例-->
+            <div id="case">
+                <div class="anli_box clearfix">
+
+                </div>
+            </div>
+
+            <!--TA的活动-->
+            <div id="activity" style="display: none;">
+                <div class="activity_box clearfix">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 预约服务弹窗 -->
+    <div class="bg_black">
+        <div class="list_tanchuang bgcWhite">
+            <div class=" conBgc01 clearfix service_t">
+                <span class="font14 fl colorfff">线下预约</span>
+                <span class="delete fr"></span>
+            </div>
+            <div class="service_b">
+                <div class="bgcWhite service_box_b">
+                    <div class="title clearfix publicBox">
+                        <span class="font14 color000 fl leftTitle">问题标题</span>
+                        <input type="text" class="font12 color000 fl title_r rightWrite questionTitle" id="title_register" placeholder="请输入标题" />
+                    </div>
+                    <div class="leibie clearfix publicBox">
+                        <span class="font14 color000 fl leftTitle">服务类别</span>
+                        <select name="" id="serviceType" class="rightWrite select">
+                        </select>
+                    </div>
+                    <div class="publicBox clearfix">
+                        <span class="leftTitle fl font14 color000">服务站点</span>
+                        <p class="fl font14 color000" style="line-height:36px;height:36px;" id="fullName_service"></p>
+                    </div>
+                    <div class="clearfix miaoshu publicBox">
+                         <span class="font14 color000 fl miaoshu_l leftTitle">服务描述</span>
+                         <textarea name="" id="description_register" class="color000 fl rightWrite serviceDescribe" placeholder="我需要组织帮我解决XXX问题"></textarea>
+                    </div> 
+                    <div class="serviceTime clearfix publicBox">
+                        <span class="font14 color000 fl leftTitle">服务时间</span>
+                        <select name="" id="serviceDate" class="rightWrite fl select" style="margin-right:20px;width: 184px;background-position-x: 160px">
+                        </select>
+                        <select name="" id="serviceClock" class="rightWrite fl select">
+                        </select>
+                    </div>
+                </div> 
+                <div class="serviceBottomBtns">
+                    <div class="btnsBox">
+                        <input type="button" class="fl btn apply" id="submitApply" value="申请" />
+                        <input type="button" class="fl btn cancel" value="取消" />
+                    </div>
+                </div>              
+            </div>
+        </div>
+    </div>
+    <!-- 举报弹窗 -->
+    <div class="report_popup">
+        <div class="list_tanchuang bgcWhite">
+            <div class="list_tanchuang_t conBgc01 clearfix">
+                <span class="name font14 fl"><em class=" colorfff">举报</em></span>
+                <span class="delete fr"></span>
+            </div>
+            <div class="report_popup_b">
+                <div class="report_write">
+                    <div class="write_box clearfix">
+                        <span class="left_title fl">举报分类</span>
+                        <div class="right_text fl">
+                            <select name="" id="report_type">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="write_box clearfix">
+                        <span class="left_title fl">举报理由</span>
+                        <div class="right_text fl">
+                            <textarea class="write_area" id="reason_report"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn_box">
+                    <div class="btns clearfix">
+                        <input type="button" class="btn ok" id="submit_report" value="发布" />
+                        <input type="button" class="btn cancel" value="取消" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<style type="text/css">
+    /* 本例子css */
+    #slideBox_Big{ width:80%; height:80%;line-height: 80%;overflow:hidden; position:relative;background: #f0f0f0;display: inline-block;margin-top: 10px; }
+    #slideBox_Big .hd{ height:15px; overflow:hidden; position:absolute; right:5px; bottom:5px; z-index:1; }
+    #slideBox_Big .hd ul{ overflow:hidden; zoom:1; float:left;  }
+    #slideBox_Big .hd ul li{ float:left; margin-right:2px;  width:15px; height:15px; line-height:14px; text-align:center; background:#fff; cursor:pointer; }
+    #slideBox_Big .hd ul li.on{ background:#f00; color:#fff; }
+
+    #slideBox_Big .bd{ position:relative; width: 100%; height:100%; z-index:0;  }
+    #slideBox_Big .bd li{ zoom:1; vertical-align:middle;text-align: center; font-size: 0; cursor: pointer; background: #f0f0f0; overflow: hidden; }
+    #slideBox_Big .bd img{ max-width:100%; max-height:100%; display:inline-block; vertical-align: middle; }
+
+    /* 下面是前/后按钮代码，如果不需要删除即可 */
+    #slideBox_Big .prev,
+    #slideBox_Big .next{ position:absolute; left:3%; top:50%; margin-top:-25px; display:block; width:27px; height:40px; background:url(../../public/img/left.png) no-repeat; filter:alpha(opacity=50);opacity:0.5;   }
+    #slideBox_Big .next{ left:auto; right:3%; background:url(../../public/img/right.png) no-repeat; }
+    #slideBox_Big .prev:hover,
+    #slideBox_Big .next:hover{ filter:alpha(opacity=100);opacity:1;  }
+    /*#slideBox_Big .prevStop{ display:none;  }*/
+    /*#slideBox_Big .nextStop{ display:none;  }*/
+</style>
+
+<div id="mask_slideBox_Big" style="position: fixed; width: 100%; height: 100%;line-height: 100%; background-color: rgba(0,0,0,.8); left: 0; top: 0; z-index: 9999;text-align: center;display: none;">
+    <div id="slideBox_Big">
+        <div class="hd">
+            <ul></ul>
+        </div>
+        <div class="bd">
+            <ul></ul>
+        </div>
+        <!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+        <a class="prev" href="javascript:void(0)"></a>
+        <a class="next" href="javascript:void(0)"></a>
+    </div>
+</div>
+
+
+   <!--  地图经纬度-->
+    <section style="display: none;">
+    	
+     <div id="allmap" style="width: 100%; height:5.333333rem;margin: 0.266666rem 0;"></div>
+    	
+    </section>
+    <!--  地图经纬度-->
+
+
+
+</body>
+</html>

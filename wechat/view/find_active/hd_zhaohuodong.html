@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no;">
+		<title>找活动—首页</title>
+		<link rel="stylesheet" type="text/css" href="../../public/css/common/base.css">
+		<link rel="stylesheet" type="text/css" href="../../public/css/common/common.css">
+		<link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/hd_zhaohuodong.css">
+		<script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+	    
+	    
+		<script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+		      <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+		<script type="text/javascript" src="../../public/vendor/touch_slide/TouchSlide.1.1.js"></script>
+		<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+		<script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+		<script type="text/javascript" src="../../public/js/find_active/hd_zhaohuodong.js"></script>
+		<script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+
+		<script type="text/javascript">
+			! function(n) {
+				var e = n.document,
+					t = e.documentElement,
+					i = 750,
+					d = i / 50,
+					o = "orientationchange" in n ? "orientationchange" : "resize",
+					a = function() {
+						var n = t.clientWidth || 320;
+						n > 750 && (n = 750), t.style.fontSize = n / d + "px"
+					};
+				e.addEventListener && (n.addEventListener(o, a, !1), e.addEventListener("DOMContentLoaded", a, !1))
+			}(window);
+		</script>
+
+	</head>
+
+	<body class="bodyPB">
+		<!-- 搜索框 -->
+		<section class="searchBox clearfix">
+			<input type="text" class="fl fz26" placeholder="搜索活动" id="active_secher" />
+			<a href="javascript:;" class="fr disB fz26 colorfff" id="sou_sercher">搜索</a> 
+		</section>
+		<!--找活动—首页-->
+		<!-- banner -->
+		<div class="zhaohd_banner" id="banner">
+			<div class="hd" style="display:none;">
+				<ul></ul>
+			</div>
+			<div class="bd" id="head-banner">
+				<ul>
+					<!--<li>
+						<a href="javascript:;" class="disB"><img src="../../public/img/banner.png" /></a>
+					</li>
+					<li>
+						<a href="javascript:;" class="disB"><img src="../../public/img/banner.png" /></a>
+					</li>-->
+				</ul>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			TouchSlide({
+				slideCell: "#banner", // 这里一定要是id
+				titCell: ".hd ul",
+				mainCell: ".bd ul",
+				autoPage: true,
+				autoPlay: true,
+				effect: "leftLoop",
+				delayTime: 300,
+				interTime: 3000
+			});
+		</script>
+
+		<!-- 找活动-小导航 -->
+		<section class="clearfix zhaohd_nav">
+			<div class="zhaohd_nav_box">
+				<a href="hd_zhoubian.html" class="fl nav_l">
+					<div class="nav_box_in">
+						<img src="../../public/img/zhoubian.png" alt="" class="fl" />
+						<span class="fr nav_word color333">周边活动</span>
+					</div>
+				</a>
+				<a href="hd_zhubanfang.html" class="fl nav_r">
+					<div class="nav_box_in">
+						<img src="../../public/img/zhuban.png" alt="" class="fl" />
+						<span class="fr nav_word color333">主办方</span>
+					</div>
+				</a>
+			</div>
+		</section>
+
+		<!-- 找活动——推荐活动 -->
+		<section class="zhaohd_tuijian hd_backgroung">
+			<div class="zhaohd_title">
+				<h3 class="fl color000">推荐活动</h3>
+				<a href="hd_tuijianhuodong.html" class="fr see_more"><span class="display"></span></a>
+			</div>
+			<!-- 内容板块 -->
+			<div class="zhaohd_box recommend_hd_box">
+			</div>
+		</section>
+
+		<!-- 找活动——人气主办方 -->
+		<section class="zhaohd_zhuban hd_backgroung hot_sponsor_box">
+			<div class="zhaohd_title">
+				<h3 class="fl color000">人气主办方</h3>
+				<a href="hd_zhubanfang.html" class="fr see_more"><span class="display"></span></a>
+			</div>
+			<!-- 内容板块 -->
+			<div class="zhaohd_box hot_sponsor_list">
+
+			</div>
+		</section>
+		<div class="morebtn color333">查看更多</div>
+		<!--<footer>
+			<ul class="clearfix">
+				<li class="myIndex">
+					<a href="../../index.html">
+						<div class="imgDiv"></div>
+						<h6>首页</h6>
+					</a>
+				</li>
+				<li class="myActivity cur">
+					<a href="hd_zhaohuodong.html">
+						<div class="imgDiv"></div>
+						<h6>找活动</h6>
+					</a>
+				</li>
+				<li class="myQuestion">
+					<a href="../../static/wd_zhaowenda.html">
+						<div class="imgDiv"></div>
+						<h6>找问答</h6>
+					</a>
+				</li>
+				<li class="myHelp">
+					<a href="../../static/bz_zhaobangzhu.html">
+						<div class="imgDiv"></div>
+						<h6>找帮助</h6>
+					</a>
+				</li>
+				<li class="../../myHomePage">
+					<a href="wode_wode.html">
+						<div class="imgDiv"></div>
+						<h6>我的</h6>
+					</a>
+				</li>
+			</ul>
+		</footer>-->
+		<script type="text/javascript" src="../../public/custom/common.js">
+			
+		</script>
+
+	</body>
+
+</html>

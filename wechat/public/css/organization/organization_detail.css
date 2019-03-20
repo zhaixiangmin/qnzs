@@ -1,0 +1,100 @@
+body { background-color: #ebebeb; }
+/* --------------顶部图片文字-----
+----------------------------- */
+.headTxt { padding-left: 0.6rem; }
+.headTxt .item { padding: 0.6rem 0.6rem 0.6rem 0; border-bottom: 1px solid #e2e2e2; }
+.headTxt .item .left { width: 4rem; height: 3.2rem;line-height: 3.2rem; text-align: center; font-size: 0; background: #f0f0f0; overflow: hidden;}
+.headTxt .item .left img { max-width: 100%; max-height: 100%; display: inline; vertical-align: middle;}
+.headTxt .item .right { padding-left: 4.48rem; }
+.headTxt .item .right h2 { font-size: 0.6rem; line-height: 0.68rem; }
+.headTxt .item .right .score { padding-top: 0.6rem; height: 0.48rem; line-height: 0.48rem; }
+.headTxt .item .right .score ul li { width: 0.46rem; height: 0.44rem; margin-right: 0.1rem; background: url(../../img/star_2.png) no-repeat; background-size: 100%; }
+.headTxt .item .right .score ul li.cur { background-image: url(../../img/star_1.png); }
+.headTxt .item .right .score .fenshu { color: #ff8814; font-size: 0.48rem; padding-left: 0.24rem; }
+.headTxt .item .right .score .commented { font-size: 0.48rem; padding-left: 0.4rem; }
+.headTxt .short_name{margin:0.4rem 0 0.2rem;}
+/* 星级评分样式覆盖之前的 */
+.headTxt .scoreBox,
+.score_list_show .scoreBox{margin:0;}
+/* ---------------------------关注人数----------------------------
+=------------------------------ */
+section.yugao { border-bottom: 1px solid #e8e8e8; padding: 0.3rem 0.6rem; margin-bottom: 0.4rem; }
+section.yugao a { padding: 0.18rem 0.52rem; background-color: #2185cf; color: #fff; border-radius: 0.1rem; font-size: 0.48rem; }
+section.yugao span { line-height: 0.96rem; font-size: 0.52rem; }
+
+/* -----------------<!-- 地址、联系等等 -->---
+ ------------------- */
+.lianxi .divout { border-top: 1px solid #e8e8e8; }
+.lianxi .divout.phoneAndAddress { margin-bottom: 0.4rem; }
+.lianxi .divout .divin { border-bottom: 1px solid #e8e8e8; padding: 0.48rem 0.6rem; }
+.lianxi .divout .divin p { font-size: 0.6rem; padding-left: 0.64rem;width: 86%; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+.lianxi .divout .divin .arrow,
+section.holder .title .imgDiv { width: 0.28rem; padding-top: 0.2rem; }
+.lianxi .divout .divin .arrow img { width: 100%; }
+.lianxi .divout.phoneAndAddress .time .imgDiv { padding-top: 0.06rem; }
+.lianxi .divout.phoneAndAddress .phone .imgDiv { padding-top: 0.14rem; }
+.lianxi .divout.phoneAndAddress img { width: 0.6rem; }
+/* ----------------------------几大子版块---------------------------- */
+#list_big_box .list_box{margin-bottom:0.4rem;display: none;}
+#list_big_box .list_box:nth-of-type(1){display: block;}
+#list_big_box .title_box{padding:0.6rem 0.4rem 0.2rem;margin-bottom:0.6rem;}
+#list_big_box .title_box .title{float: left;padding:0 0.2rem;width:33.3%;box-sizing:border-box;margin-bottom:0.4rem;}
+#list_big_box .title_box .title_con{color:#333;font-size:0.52rem;display: block;text-align: center;border-radius:0.2rem;line-height:1.36rem;background-color: #ebebeb;border:1px solid #999;}
+#list_big_box .title_box .title.cur .title_con{background-color: #2185cf;color:#fff;border-color:#2185cf;}
+/* 几大子版块   简介 */
+#list_big_box .jianjie{padding: 0.4rem 0.6rem 0.48rem; }
+#list_big_box .jianjie .phase{ line-height: 0.8rem; font-size: 0.48rem; text-indent: 0.96rem;}
+/* 几大子版块   TA的服务 */
+#list_big_box .service_list .item,
+.pingfenliebiao .item{border-bottom:1px solid #ebebeb;}
+#list_big_box .service_list .item:last-child,
+.pingfenliebiao .item:last-child{border-bottom:0;}
+#list_big_box .service_list .item_con,
+.pingfenliebiao .item_con{padding:0.6rem 0.3rem 0.6rem 0;}
+#list_big_box .service_list .item .imgBox,
+.pingfenliebiao .item .imgBox{width:2.4rem;height:2.4rem;overflow: hidden;border-radius:50%;}
+#list_big_box .service_list .item .imgBox .pic,
+.pingfenliebiao .item .imgBox .pic{width:100%;height:100%;}
+#list_big_box .service_list .item .right,
+.pingfenliebiao .item .right{padding-left:2.88rem;color:#999;}
+#list_big_box .service_list .item .user_name{color:#000;font-size:0.48rem;margin-bottom:0.2rem;}
+#list_big_box .service_list .item .ser_status{margin-bottom:0.1rem;}
+#list_big_box .service_list .item .ser_describe{margin-bottom:0.4rem;}
+#list_big_box .service_list .item .ser_time .l{margin-right:0.2rem;}
+
+/* 主办方详情页以及主办方详情页跳转到的评分列表页的共用样式 */
+/* 评分列表 */
+.score_list_show{margin-bottom:0.4rem;padding:0.6rem;}
+.score_list_show .show_con{background:url(../../img/next.png) no-repeat right center;background-size:0.28rem;}
+.score_list_show .show_con .item{margin-bottom:0.4rem;}
+.score_list_show .show_con .item:last-child{margin-bottom:0;}
+.score_list_show .show_con .left_title{margin-right:0.4rem;}
+.pingfenliebiao .item .top{line-height:0.5rem;height:0.5rem;}
+.pingfenliebiao .user_name{color:#2185cf;}
+.pingfenliebiao .scoreBox{margin:0.3rem 0;}
+.pingfenliebiao .user_evaluate{color:#000;}
+.pingfenliebiao .user_join_act{margin-top:0.2rem;}
+
+/* ---------------------------主办方-----------------------------
+-------------------------------------- */
+/* section.holder .title { padding: 0.48rem 0.6rem; font-size: 0.56rem; border-bottom: 1px solid #e8e8e8; }
+section.holder .title .imgDiv img { width: 100%; }
+section.holder .content { padding-left: 0.6rem; }
+section.holder .content .item { padding: 0.6rem 0.6rem 0.6rem 0; border-bottom: 1px solid #e8e8e8; }
+section.holder .content .item .item_l { width: 4rem; height: 3.2rem; overflow: hidden; position: relative; }
+section.holder .content .item .item_l .img01 { width: 100%; }
+section.holder .content .item .item_l .img02 { width: 61.5%; position: absolute; left: 0; top: 0; }
+section.holder .content .item .item_r { padding-left: 4.44rem; height: 3.2rem; position: relative; }
+section.holder .content .item .item_r h2 { font-size: 0.6rem; width: 100%; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+section.holder .content .item .item_r h6 { color: #2185cf; font-size: 0.48rem; padding: 0.4rem 0 0.3rem; line-height: 0.48rem; }
+section.holder .content .item .item_r .p01 { font-size: 0.48rem; }
+section.holder .content .item .item_r .p01 { padding-bottom: 0.16rem; line-height: 0.48rem; }
+section.holder .content .item .item_r .p02 { width: 50%; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+section.holder .content .item .item_r .p02,
+section.holder .content .item .item_r span { font-size: 0.48rem; position: absolute; bottom: 0; }
+section.holder .content .item .item_r span { right: 0; } */
+
+
+.zhaohd_box_r{float: right;width: 67%;}
+
+.zhaohd_box_r .hd_zhuti{max-height: 0.9rem;line-height: 0.9rem;text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }

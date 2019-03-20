@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no;">
+    <!-- No less -->
+    <title>找活动主页</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css">
+
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/index.css">
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+
+</head>
+<body>
+
+<section class="zhaohd_tuijian hd_backgroung">
+    <!-- 内容板块 -->
+    <div class="zhaohd_box recommend_hd_box">
+    </div>
+</section>
+</body>
+
+<script >
+    $(document).ready(function(){
+        function recommactivities(){
+            $.ajax({
+                type:"get",
+                url:Qnzs.path+"/personalCenter/offlineActivity/publishedList",
+                dataType :"JSON",
+                success : function(data){
+                    var data=data.rows;
+                    var html=''
+                    var actStatus= {
+                        '1': '活动预告',
+                        '2': '报名中',
+                        '3': '已满员',
+                        '4': '报名结束',
+                        '5': '活动中',
+                        '6': '活动结束'
+                    };
+
+                    for (var i = 0; i < data.length; i++) {
+                        var temp=data[i];
+                        html+='<a href="../find_active/hd_xiangqing.html?activityId='+temp.id+'" class="disB">'
+                        html+=' <div class="zhaohd_box_in clearfix">'
+                        html+='<div class="zhaohd_box_l fl">'
+                        html+='<img src="'+ Utils.compressByAli(temp.imageUrl, 160, 200) +'" alt="" class="hd_pic" / style="height:3.2rem;">'
+                        html+=' <p class="actese">'+actStatus[temp.actStatus]+'</p>'
+                        html+='  </div>'
+                        html+='  <div class="zhaohd_box_r">'
+                        html+='   <h3 class="hd_zhuti">'+temp.title+'</h3>'
+                        html+='   <p class="hd_style">'+temp.type+'</p>'
+                        html+='   <p class="hd_time color999">'+temp.activityTime+'</p>'
+                        html+='   <p class="hd_adress color999">'
+                        html+='    <span class="fl hd_adress_l">'+temp.address+'</span>'
+                        html+='   </p>'
+                        html+='  </div>'
+                        html+=' </div>'
+                        html+='</a>'
+                    };
+                    $('.recommend_hd_box').append(html);
+                    $('.act_list').append(html);
+                },
+
+            });
+
+        }
+        recommactivities();
+
+    });
+
+</script>
+</html>

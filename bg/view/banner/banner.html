@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <title>广东青年之声后台理</title>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta charset="utf-8"> 
+       <link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+       <link href="../../public/css/common/style.css" rel="stylesheet" />
+       <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+       <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" /> 
+       <link rel="stylesheet" type="text/css" href="../../public/css/common/check.css"/>
+       <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css"/>
+       <!--校验插件--->
+       <script src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+       <script src="../../public/vendor/check/validator/fm.validator.js"></script>
+       <!--弹出框-->
+		<script src="../../public/custom/dialog.js"></script>
+		<script src="../../public/js/module/Qnzs.js"></script>
+       <script src="../../public/js/ajax/ajax2.js"></script>
+       <script src="../../public/js/module/Utils.js"></script> 
+       <style>
+      	.uploadTU{
+      		height:200px;
+      		width: 300px;
+      	}
+      </style>
+</head>
+
+<body>
+
+<div class="col-sm-12">
+
+ <!--数据过滤strat-->
+ <div class="datafilter">
+      <div class="search">
+          <form id="" method="post"> 
+                <div class="form-group sz_height">
+                	<table border="0" cellspacing="" cellpadding="">
+                		<tr>
+                			
+                			
+                		    <td style="width: 80px;text-align: center;">标题 </td>
+	                		<td >  <input type="text" class="form-control" id="bannerTitle"></td>
+	                		<td style="width: 120px;text-align: center;">类型</td>
+	                		<td><select class="form-control" id="serch_banType">
+                            	<option value="">请选择</option>
+                            	<option value="0">PC端</option>
+                            	<option value="1">移动端</option>
+                                </select>
+	                		</td>
+	                		<td style="width: 80px;text-align: center;">分类</td>
+	                		<td><select class="form-control" id="serch_banActicey">
+		                        	<option value="">请选择</option>
+		                        	<option value="0">首页</option>
+		                        	<option value="1">找活动</option>
+		                        	<option value="2">找帮助</option>
+		                        	<option value="3">重磅项目</option>
+		                        	<option value="4">青年之家</option>
+		                            <option value="5">首页推荐项目</option>
+		                        	<option value="6">找咨询</option>
+	                            </select>
+	                		</td>
+                			<td style="padding-left: 20px;"><button type="button" class="btn btn-warning btn-sm" id='banSearchBtn'><span class="glyphicon glyphicon-search"></span>查询</button> <button type="button" class="btn btn-info btn-sm" id="banClearBtn"><span class="glyphicon glyphicon-refresh"></span>清空</button></td>
+	                		
+                		</tr>
+                		<tr style="height: 10px;"></tr>
+                		<tr>
+                			<td>
+                				<label>组织名称</label>
+                			</td>
+                			<td>
+                				<div>
+									<!--<input id="userType1" name="dept" value="地市">-->
+									<select class="easyui-validatebox   form-control" required="true" id="oidType2" onchange="changeOid2Type(this)">
+										<option value="">--请选择--</option>
+										<option value="1">地市</option>
+										<option value="2">高校</option>
+									</select>
+								</div>
+                			</td>
+                			<td style="text-align:center;">
+                				<label  id="show1"  >组织区域</label>
+                			</td>
+                			<td >
+                				<div>
+									<select id="cityOid2" class="form-control easyui-validatebox" name="cityOid2" onchange="cityOid2Change(this)">
+										<option value="-1">--请选择--</option>
+									</select>
+									<select id="shcoolOid2" class="form-control easyui-validatebox" name="shcoolOid2" onchange="schoolOid2Change(this)">
+										<option value="-1">--请选择--</option>
+									</select>
+								</div>
+                			</td>
+								
+								<td>
+									
+									<label  id="show2" >组织区域</label>
+									
+								</td>
+								<td>
+									<!-- <input id="userType3" name="dept" value="地市">-->
+										<div class="" style="display: none;">
+											<select id="areaOid2" class="form-control" onchange="quxuan2(this)">
+												<option value="-1">--区/县--</option>
+											</select>
+											<select id="classOid2" class="form-control" onchange="quxuan2(this)">
+												<option value="-1">--分院--</option>
+											</select>
+											
+										</div>
+									
+								</td>
+	                				
+                				
+                		
+                          
+                		   <td colspan="7" style="padding-left: 20px;"> <p>温馨提示：由于系统缓存设置，新增/删除的分站banner图片需2小时后生效。请提前进行操作，谢谢！
+                               </p>
+                		    </td>
+                		</tr>
+                	</table>
+                	
+                      <!--<label class="col-sm-1">标题</label>
+                      <div class="col-sm-2">
+                       
+                      </div>
+                       <label class="col-sm-1">类型</label>
+                      <div class="col-sm-2">
+                         <input type="text" class="form-control" id="bannerTitle">
+                      </div><label class="col-sm-1">分类</label>
+                      <div class="col-sm-2">
+                         <input type="text" class="form-control" id="bannerTitle">
+                      </div>
+                      <div class="col-sm-2">
+                      <button type="button" class="btn btn-warning btn-sm" id='banSearchBtn'><span class="glyphicon glyphicon-search"></span>查询</button> <button type="button" class="btn btn-info btn-sm" id="banClearBtn"><span class="glyphicon glyphicon-refresh"></span>清空</button>
+                      </div>
+                      <div class="col-sm-6">
+                        <p>温馨提示：由于系统缓存设置，新增/删除的分站banner图片需2小时后生效。请提前进行操作，谢谢！
+                        </p>
+                      </div>-->
+                 </div>
+                 
+		  </form>
+       </div>
+ </div>
+ <!--数据过滤end-->
+
+ <div class="border clearfix">
+   <ul class="nav navbar-nav" id="toolbar">
+      <li id="banna_add"><a href="javascript：void(0);"><span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#user-add">新增</span></a></li>
+      <li onclick="banUpdate(1)" id="banna_update"><a href="javascript:;"><span class="glyphicon glyphicon-pencil">修改</span></a></li>
+      <li onclick="banDel(2)" id="banna_delete"><a href="javascript:;"><span class="glyphicon glyphicon-trash">删除</span></a></li>
+     
+   </ul>
+</div>
+       
+<!--列表展示start-->
+<table id="banner" style="width:1200px;height:620px">
+ 
+</table>  
+   
+<!--列表展示end-->   
+ </div>
+ 
+<!-- 新增框（Modal） -->
+<div class="modal fade" id="user-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					新增图片
+				</h4>
+			</div>
+			<div class="modal-body s-height">
+				<form id="form1" class="validator ">
+					
+					<div class="item-box">
+						<span id="checkRedFly">*</span>
+						<label>图片名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        <input type="text"  data-required  id="bannerName" placeholder="请输入图片名称"  class="allInputWidth">
+			        </div>
+			        <div class="item-box">
+						<span id="checkRedFly">*</span>
+						<label>类型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        <select class="form-control" id="banType" onchange="selectType(this)">
+                            	<option value="">请选择</option>
+                            	<option value="0">PC端</option>
+                            	<option value="1">移动端</option>
+                        </select>
+			        </div>
+			        <div class="item-box">
+						<span id="checkRedFly">*</span>
+						<label>分类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+			            <select class="form-control" id="banActicey">
+                        	<option value="">请选择</option>
+                        	<option value="0">首页</option>
+                        	<option value="1">找活动</option>
+                        	<option value="2">找帮助</option>
+                        	<option value="3">重磅项目</option>
+                        	<option value="4">青年之家</option>
+                            <option value="5">首页推荐项目</option>
+                        	<option value="6">找咨询</option>
+                        </select>
+			        </div>
+			        <!--- 重磅项目  --->
+			        
+			         <div class="item-box">
+						<span id="checkRedFly"></span>
+						<label>重磅标题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        <input type="text"  data-required  id="activityTitle" placeholder="请输入重磅项目的标题"  class="allInputWidth">
+			        </div>
+			        <div class="item-box">
+						<span id="checkRedFly"></span>
+						<label>重磅类型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        <select class="form-control" id="activityType">
+                            	<option value="">请选择</option>
+                            	<option value="1">赛事</option>
+                            	<option value="2">评选</option>
+                            	<option value="3">培训</option>
+                            	<option value="4">其他</option>
+
+                        </select>
+			        </div>
+			        <div class="item-box">
+						<span id="checkRedFly"></span>
+						<label>重磅状态&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        <input type="text"  data-required  id="activityStatusDesc" placeholder="请输入重磅项目的状态"  class="allInputWidth">
+			        </div>
+			        
+                    <!--- 重磅项目 end  ---> 
+			        <div class="item-box">
+			        	<span id="checkRedFly">*</span>
+					    <label>序号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        <input type="text" data-type="number"  placeholder="请输入序号" data-required  id="bannerNum" class="allInputWidth">
+			        </div>
+			        <div class="item-box">
+			        	<span id="checkRedFly">*</span>
+					    <label>图片链接地址</label>	
+				   
+				        <input data-type="url" data-required type="text" placeholder="请输入链接地址" id="bannerLink" class="allInputWidth">
+				    </div>
+				   
+			        <div class="item-box">
+			        	<span id="checkRedFly">*</span>
+				        <label>图片描述&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        <input type="text" data-required   data-min="5" data-max="10" placeholder="请输入描述信息" id="banDescribe" class="allInputWidth">
+				    </div>
+				    <div class="uploadTU">
+				    	<span id="checkRedFly">*</span>
+				        <label>上传图片&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        <img id="preview" height="100" border="0" title="" src="../../public/images/20170420.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" class="form-control allInputWidth" placeholder="上传图片" style="margin-top:2px; width: 300px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="btn upload" id="uploadtext"><input type="file" name="image_file" id="image_file" class="upload_pic allInputWidth" onChange="fileSelected('preview','image_file');" /></div>
+                        
+				    </div>
+				    
+			       
+					 <!---提交--->
+			        <div class="stopBtn">
+						<button type="button" class="btn btn-warning" id="addBannerBtn" >确定</button>
+						<button type="reset" class="btn btn-info" onclick="Validator.removeErrors(document.getElementById('form1'));">重置</button>
+						<button type="button" class="btn btn-success" data-dismiss="modal">关闭
+				        </button>
+					</div>
+				</form>
+				
+				
+				
+				
+				
+				<!--<form method="get" class="form-horizontal">
+                 　<div class="form-group">
+                 	
+                        <label class="col-sm-2 control-label">图片名称:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="bannerName">
+                        </div>
+                    </div>
+                  　<div class="form-group">
+                        <label class="col-sm-2 control-label">序号:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="bannerNum">
+                        </div>
+                    </div>
+                    <div style="clear:both"></div>
+                   
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">图片链接地址:</label>
+                        <div class="col-sm-7">
+                           <input type="text" class="form-control" id="bannerLink"> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">图片描述:</label>
+                        <div class="col-sm-7">
+                            <textarea name="" cols="1" rows="3" class="form-control" id="banDescribe"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">上传图片:</label>
+                        <div class="col-sm-7">
+                          <img id="preview" height="100" border="0" title="" src="images/a4.png" />
+                           <input type="text" class="form-control" style="margin-top:2px;">
+                           <div class="btn upload">建议尺寸(1900px*380px)<input type="file" name="image_file" id="image_file" class="upload_pic" onChange="fileSelected('preview','image_file');" /></div>
+                            
+                        </div>
+                    </div>
+                </form>-->
+			</div>
+			<div class="modal-footer" style="height: 50px;">
+				<!--<button type="button" class="btn btn-default" data-dismiss="modal">取消
+				</button>
+				<button type="button" class="btn btn-primary" id="addBannerBtn">
+					确定
+				</button>-->
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 新增框（Modal）end -->
+
+
+<!-- 修改框（Modal） -->
+<div class="modal fade" id="banUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					修改
+				</h4>
+			</div>
+			<div class="modal-body s-height">
+				<form method="get" class="form-horizontal">
+                 　<div class="form-group">
+                        <label class="col-sm-2 control-label">图片名称:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="bannerName2">
+                        </div>
+                    </div>
+                  　<div class="form-group">
+                        <label class="col-sm-2 control-label">序号:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="bannerNum2">
+                        </div>
+                    </div>
+                    <div style="clear:both"></div>
+                   
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">图片链接地址:</label>
+                        <div class="col-sm-7">
+                           <input type="text" class="form-control" id="bannerLink2"> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">图片描述:</label>
+                        <div class="col-sm-7">
+                            <textarea name="" cols="1" rows="3" class="form-control" id="banDescribe2"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">类型:</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="upd_banType" onchange="slterlbanType(this)">
+                            	
+                            	<option value="">请选择</option>
+                            	<option value="0">PC端</option>
+                            	<option value="1">移动端</option>
+                            </select>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label">分类:</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="upd_banActicey">
+                            	
+                            	<option value="">请选择</option>
+                            	<option value="0">首页</option>
+                            	<option value="1">找活动</option>
+                            	<option value="2">找帮助</option>
+                            	<option value="3">重磅项目</option>
+                            	<option value="4">青年之家</option>
+                            	<option value="5">首页推荐项目</option>
+                        	    <option value="6">找咨询</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--- 重磅项目  --->
+			        
+			         <div class="item-box">
+						<span id="checkRedFly"></span>
+						<label>重磅标题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        <input type="text"  data-required  id="upd_activityTitle" placeholder="请输入重磅项目的标题"  class="allInputWidth">
+			        </div>
+			        <div class="form-group">
+                        <label class="col-sm-2 control-label">重磅类型</label>
+                        <div class="col-sm-7">
+                             <select class="form-control" id="upd_activityType">
+                            	<option value="">请选择</option>
+                            	<option value="1">赛事</option>
+                            	<option value="2">评选</option>
+                            	<option value="3">培训</option>
+                            	<option value="4">其他</option>
+
+                            </select>
+                        </div>
+                    </div>
+			        
+			        <div class="item-box">
+						<span id="checkRedFly"></span>
+						<label>重磅状态&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        <input type="text"  data-required  id="upd_activityStatusDesc" placeholder="请输入重磅项目的状态"  class="allInputWidth">
+			        </div>
+			        
+                    <!--- 重磅项目 end  ---> 
+                    
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">上传图片:</label>
+                        <div class="col-sm-7">
+                          <img id="preview2" height="100" border="0" title="" src="../../public/images/20170420.png" />
+                           <input type="text" class="form-control" style="margin-top:2px;">
+                           <div class="btn upload" id="sletetotext"><input type="file" name="image_file" id="Updatefile" class="upload_pic" onChange="fileSelected('preview2','image_file1');" /></div>
+                            
+                        </div>
+                    </div>
+                </form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消
+				</button>
+				<button id="banUpdateBtn" type="button" class="btn btn-primary">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 修改框（Modal）end -->
+
+
+<script type="text/javascript" src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script> 
+<script type="text/javascript" src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js" ></script>
+<script src="../../public/js/common/user-linkage.js"></script>
+<script src="../../public/js/common/user-linkage-2.js"></script>
+
+
+
+<script src="../../public/js/banner/banner.js"></script>
+
+
+<!--图片上传插件--->
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+
+
+</body>
+</html>

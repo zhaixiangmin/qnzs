@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+<title>找活动-主办方</title>
+<link rel="stylesheet" type="text/css"
+	href="../../public/css/common/base.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../public/css/common/common.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../public/css/find_aitve/hd_zhaohuodong.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../public/css/find_aitve/hd_zhubanfang.css" />
+<script type="text/javascript"
+	src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../../public/js/module/Qnzs.js">
+    	
+    </script>
+         <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+<script type="text/javascript"
+	src="../../public/js/find_active/hd_zhubanfang.js"></script>
+<script type="text/javascript" src="../../public/js/common/common.js"></script>
+<script type="text/javascript"
+	src="../../public/js/common/footerChange.js"></script>
+<script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+<script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    
+</head>
+<body class="bodyPB">
+	<div class="choose_box">
+		<!-- 
+        <div class="choose_head clearfix">
+            <div class="choose_item choose_item_l fl">
+                <div class="choose_item_con"><span class="choose_txt">全部</span></div>
+            </div>
+            <div class="choose_item choose_item_r fl">
+                <div class="choose_item_con"><span class="choose_txt">全部</span></div>
+            </div>
+            <div class="choose_item choose_item_r fl">
+                <div class="choose_item_con"><span class="choose_txt">全部</span></div>
+            </div>
+        </div>
+        <div class="choose_body">
+            <ul class="choose_body_list"></ul>
+            <ul class="choose_body_list"></ul>
+            <ul class="choose_body_list"></ul>
+        </div> 
+        -->
+		<div class="choose_head clearfix">
+			<div class="choose_item choose_item_l fl">
+				<div class="choose_item_con">
+					<select id="orgType" onchange="orgTypeChange();">
+						<!--  0省级团委、1地市团委、2高校团委、3服务站点、4青年文明号、5学生社团 、6社会组织、7合作机构 -->
+						<option value="">全部</option>
+						<option value="0">省级团委</option>
+						<option value="1">地市团委</option>
+						<option value="2">高校团委</option>
+						<option value="3">服务站点</option>
+						<option value="4">青年文明号</option>
+						<option value="5">学生社团</option>
+						<option value="6">社会组织</option>
+						<option value="7">合作机构</option>
+					</select>
+				</div>
+			</div>
+			<div class="choose_item choose_item_r fl">
+				<div class="choose_item_con">
+					<select id="cityDistrict" onchange="cityChange();">
+						<option value="">全部</option>
+					</select>
+				</div>
+			</div>
+			<div class="choose_item choose_item_r fl">
+				<div class="choose_item_con">
+					<select id="areaDistrict" onchange="regionChange()">
+						<option value="">全部</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 遮罩 -->
+	<section class="dark_cover"></section>
+	<!-- 搜索框 -->
+	<section class="searchBox clearfix">
+		<input type="text" class="fl fz26" id="keywordss" placeholder="搜索主办方" />
+		<a href="javascript:;" class="fr disB fz26 colorfff" id="seraherse">搜索</a>
+	</section>
+	<section class="zhaohd_zhuban hd_backgroung hot_sponsor_box"
+		style="margin-top: 0;">
+		<div class="zhaohd_title">
+			<h3 class="fl color000">人气主办方</h3>
+			<a href="hd_zhubanfang.html" class="fr see_more"><span
+				class="display"></span></a>
+		</div>
+		<!-- 内容板块 -->
+		<div class="zhaohd_box hot_sponsor_list"></div>
+	</section>
+	<div class="morebtn color333">查看更多</div>
+	<!--<footer>
+        <ul class="clearfix">
+        <li class="myIndex">
+            <a href="../../index.html">
+                <div class="imgDiv"></div>
+                <h6>首页</h6>
+            </a>
+        </li>
+        <li class="myActivity cur">
+            <a href="hd_zhaohuodong.html">
+                <div class="imgDiv"></div>
+                <h6>找活动</h6>
+            </a>
+        </li>
+        <li class="myQuestion">
+            <a href="wd_zhaowenda.html">
+                <div class="imgDiv"></div>
+                <h6>找问答</h6>
+            </a>
+        </li>
+        <li class="myHelp">
+            <a href="bz_zhaobangzhu.html">
+                <div class="imgDiv"></div>
+                <h6>找帮助</h6>
+            </a>
+        </li>
+        <li class="myHomePage">
+            <a href="wode_wode.html">
+                <div class="imgDiv"></div>
+                <h6>我的</h6>
+            </a>
+        </li>
+    </ul>
+    </footer>-->
+	<script type="text/javascript" src="../../public/custom/common.js">
+    	
+    </script>
+</body>
+</html>

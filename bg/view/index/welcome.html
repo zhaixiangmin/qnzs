@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>公告管理首页</title>
+    <link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../public/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" /> 
+    <link rel="stylesheet" type="text/css" href="../../public/css/notice/notice_base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/notice/welcome.css" />
+    <link rel="stylesheet" href="../../public/css/common/check.css" />
+		
+    <script src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+	<!--公共js调用api-->
+	<script src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <script src="../../public/js/notice/notice_welcome.js"></script>
+</head>
+<style>
+	th{text-align: center;}
+</style>
+<body>
+    <div class="col-sm-12">
+        <!-- 数据过滤 -->
+        <div class="datafilter">
+          <div class="search">
+              <form id="" method="post" class="form-inline"> 
+                    <table style=" margin-left: 30px; width: 100%;" class="form_table">
+                      <tr>
+                      	<th style="width:60px;">关键词</th>
+                        <td style="width:100px;"><input type="text" class="form-control" id="keyWord"></td>
+                        <td style="width:30px;"></td>
+                      	<th style="width:60px;">公告类型</th>
+                        <td style="width:100px;">
+                          <select class="form-control3 select" id="type">
+                              <option value="">--请选择--</option>
+                              <option value="操作指引">操作指引</option>
+                              <option value="信息公告">信息公告</option>
+                              <option value="政策法规">政策法规</option>
+                          </select>
+                        </td>
+                        <td style="width:30px;"></td>
+                        <td style="width:150px;">
+                          <button type="button" class="btn btn-warning btn-sm" id="searchBtn" onclick="searchNotice()"><span class="glyphicon glyphicon-search"></span>查询</button>
+                          <button type="button" class="btn btn-info btn-sm" id="clearBtn"><span class="glyphicon glyphicon-refresh"></span>清空</button>
+                        </td>
+                        <td style="width:300px;"></td>
+                      </tr>
+                      <tr style="height:15px;"></tr>
+                    </table>
+              </form>
+          </div>
+        </div>
+    </div>
+    
+   <div class="table_box">
+       <table id="list_table">
+         <!--<tr>
+             <th>标题</th>
+             <th>发布者</th>
+             <th>发布时间</th>
+         </tr>-->
+         <!--<tr class="deepcolor top">
+             <td>【操作指引】广东青年之声V5.0用户操作指引<span class="new">&nbsp;&nbsp;New!</span></td>
+             <td>广东共青团</td>
+             <td>2017-08-30 16:30</td>
+         </tr>-->
+       </table>
+   </div>
+   
+   <div class="page_box">
+       <!--<span class="prev">&lt;上一页</span>
+       <em class="num cur">1</em>
+       <em class="num">2</em>
+       <em class="num">3</em>
+       <span class="next">下一页&gt;</span>-->
+   </div>
+</body>
+</html>
+    <script src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js" ></script>
+    <script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script> 
+    <script src="../../public/js/module/Utils.js"></script> 
+
+
+  
+

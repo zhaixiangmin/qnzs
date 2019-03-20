@@ -1,0 +1,84 @@
+
+/* 模板一—项目详情页面 */
+/* 项目动态 */
+.dynamic_box{margin-top: 122px;}
+.dynamic_box .content .content_title{font-size: 24px; line-height: 35px; height: 35px; color: #333; padding-left: 50px;background-position: left center; font-weight: bold;background:url(../pcImages/zbxm_dy_icon2.png) no-repeat;margin-bottom: 20px;}
+.dynamic_box .content .content_box{width:1200px;padding:23px 0 33px;margin-bottom: 30px;}
+.dynamic_box .content .content_box p{line-height:24px;padding:0 30px;text-indent:24px;}
+/* 报名要求 */
+.requirement_box,.pingxuan,.reward{margin-top:30px;} 
+.requirement_box .content .content_title{background-image:url(../pcImages/zbxm_re_icon.png);}
+.dynamic_box .content .content_box,.requirement_box .content .baoming_box,.pingxuan .content .pingxuan_box,.reward .content .reward_box{border:1px solid #ccc;box-sizing:border-box;}
+.requirement_box .content .baoming_box,.pingxuan .content .pingxuan_box ul,.reward .content .reward_box{padding:30px;}
+.requirement_box .content .baoming_box .neirong p,.pingxuan .content .pingxuan_box ul li p,.reward .content .reward_box .reward_box_t p{font-weight:bold;}
+.requirement_box .content .baoming_box .neirong  p .number{margin-right:30px;}
+.requirement_box .content .baoming_box .neirong div{padding:15px 0 0 45px;line-height:24px;}
+.requirement_box .content .baoming_box .neirong div,.pingxuan .content .pingxuan_box ul li div{margin-bottom:15px;text-indent:24px;}
+.requirement_box .content .baoming_box .neirong:last-child div,.pingxuan .content .pingxuan_box ul li:last-child div{margin-bottom:0px;}
+/* 评选流程 */
+.pingxuan .content .content_title{background-image:url(../pcImages/zbxm_pxlc_icon.png);}
+.pingxuan .content .pingxuan_box ul li p .date{margin:0 45px;}
+.pingxuan .content .pingxuan_box ul li div{padding:15px 0 0 215px;line-height:24px;}
+/* 奖项设置 */
+.reward{margin-bottom:30px;}
+.reward .content .content_title{background-image:url(../pcImages/zbxm_prize_bg.png);}
+.reward .content .reward_box .reward_box_t p .amount{margin:0 30px;}
+.reward .content .reward_box .reward_box_t p{margin-bottom:24px;}
+.reward .content .reward_box .reward_box_t{margin-bottom:7px;}
+.reward .content .reward_box .reward_box_b{line-height:24px;text-indent:24px;}
+
+
+/* 模板一_项目动态页面 */
+.trends .content .content_title{background-image:url(../pcImages/zbxm_dy_icon.png);}
+.trends .content .trends_box{padding:30px;margin-bottom:30px;}
+.trends .content .trends_box ul li .tr_box{padding-bottom:30px;border-bottom:1px solid #e2e2e2;margin-bottom:30px;}
+.trends .content .trends_box ul li:last-child .tr_box{padding-bottom:0px;margin-bottom:0px;border-bottom:0px;}
+.trends .content .trends_box ul li .tr_box .trends_box_l{width:220px;max-height:157px;}
+.trends .content .trends_box ul li .tr_box .trends_box_l img{width:100%;}
+.trends .content .trends_box ul li .tr_box .trends_box_r{width:890px;margin-left:30px;}
+.trends .content .trends_box ul li .tr_box .trends_box_r h4{font-weight:bold;}
+.trends .content .trends_box ul li .tr_box .trends_box_r .substance{
+    line-height:28px;
+    margin:26px 0;
+    text-indent:28px;
+    width: 890px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.introduce{
+    display: block;
+    position: relative;
+/*     width:122px; */
+    height:50px;
+    font-size: 14px;
+    line-height: 20px;
+    word-break: break-all;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+    -webkit-text-overflow:ellipsis;
+    -moz-text-overflow:ellipsis;
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp:2; /** 显示的行数 **/
+    overflow: hidden; /** 隐藏超出的内容 **/
+}
+
+
+/* 模板一——参赛团队页面 */
+.section_box_top{padding-top:69px;}
+.pageNumBox .pageNumCon .pageNum a.cur{background-color:#2185cf;color:#fff;border-color:#2185cf;}
+
+/* 重磅项目一--项目动态-详情页 */
+.DT_detail{width:1200px;color:#1677bf;margin:100px auto 0;}
+.DT_detail_box {width:1200px;margin:30px auto 0;}
+.DT_detail_box h3{font-size:24px;margin-bottom:20px;}
+.DT_detail_box h3,.DT_detail_box p{text-align:left;}
+.DT_detail_box .DT_detail_img{width:594px;height:408px;margin:30px 0;}
+.DT_detail_nr{padding-bottom:35px;}
+.DT_detail_nr p{line-height:24px;}
+.DT_detail_nr .nr_explain{margin:12px 0 37px;}
+.DT_detail_nr .nr{margin-bottom:60px;}

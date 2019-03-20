@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>登陆</title>
+		<link href="../psd_reset/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+		    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    
+         <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+         <script src="../../public/vendor/jquery/jquery.cookie.js"></script>
+		<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+		 <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+		   <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+		 <script src="accountValidate.js"></script>
+	</head>
+	<style type="text/css">
+		.logo-cent{width:1200px;height:600px;margin: 0 auto;position: relative;}
+		.logo-box{width:400px; height:350px;position: absolute;top:50%;left: 50%;transform: translate(-50%,-50%);background-color: white;}
+		.actont{width: 100%;height: 40px;background-color: #007AFF; color: white;line-height: 40px;font-size: 22px;text-indent: 16px;}
+		.yonghu{width:80%;height:35px;margin:25px auto;border: 1px solid #C0C0C0;}
+		.yonghu span{display: block;width: 35px;height: 35px;float: left;}
+		#username,#password {width: 284px;display: block;float: left;height: 34px;margin-top: 1px;text-indent: 10px;}
+		#login-btn{width: 80%;height:35px;text-align: center;color: white;background-color: green;line-height: 35px;font-size: 16px;margin:0 auto;display: block;}
+		.register-btn{width: 80%;height:35px;text-align: center;color: white;line-height: 35px;font-size: 16px;margin:20px auto;display: block;}
+		.wj-paswrod{width: 80%;height:35px;text-align: center;line-height: 35px;font-size: 16px;margin:20px auto;display: block;}
+		.usre-bg{background-image:url(../../public/img/login_user_icon.png) ;background-size:20px 20px;background-repeat: no-repeat;background-position: center center;}
+		.pass-bg{background-image:url(../../public/img/login_pw_icon.png) ;background-size:20px 20px;background-repeat: no-repeat;background-position: center center;}
+	</style>
+	<body>
+		<div class="logo-cent">
+			
+			<div class="logo-box">
+				<h3 class="actont">账号验证</h3>
+				<div class="yonghu claerfix">
+				<span class="usre-bg"></span>
+				<input type="text" id="username">
+			  </div>
+			   <div class="yonghu claerfix">
+				<span class="pass-bg"></span>
+				<input type="password" id="password">
+			  </div>
+			   <button id="login-btn" onclick="getAccessTokenAndLogin()">验证登陆</button>
+			   <button class="register-btn"><a href="../user_register/user_register.html">注册</button>
+			   	<a href="../psd_reset/psd_reset.html" class="wj-paswrod">忘记密码?</a>
+			   
+			</div>
+			
+	
+		</div>
+		
+	</body>
+	
+	
+	<script type="text/javascript">
+		
+		var dynamicLoading = {
+		    js: function(path){
+				if(!path || path.length === 0){
+					throw new Error('argument "path" is required !');
+				}
+				var head = document.getElementsByTagName('head')[0];
+		        var script = document.createElement('script');
+		        script.src = path+"/browser/0110/crossdomain.js";
+		        script.type = 'text/javascript';
+		        head.appendChild(script);
+		    }
+		}
+		
+		
+		
+		dynamicLoading.js(bigDataUrl);
+		
+		
+		
+	</script>
+</html>

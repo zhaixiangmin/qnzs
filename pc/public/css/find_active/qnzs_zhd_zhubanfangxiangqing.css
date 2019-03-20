@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+.answered .pageNumBox .pageNumCon{top:0;}
+.answered .pageNumBox{height: 86px;}
+
+/* 关注按钮 */
+.btn_care{width:120px;height:50px;border-radius: 24px;margin-top:20px;}
+
+
+/* TA的活动列表 */
+#list_big_box .content .title{margin:60px 0 30px;}
+.hd_list_box ul li{width:545px;height:80px;padding:20px;position:relative;margin:0 30px 30px 0;}
+.hd_list_box ul li:hover h4{color:#2185cf;}
+.hd_list_box ul li:hover p{color:#000;}
+.hd_list_box ul li:nth-child(2n){margin-right:0px;}
+.hd_list_box ul li .list_box_l{width:120px;height:80px;margin-right:20px;}
+.hd_list_box ul li .list_box_r .hd_time{margin:15px 0;}
+.hd_state{position:absolute;right:20px;bottom:20px;}
+
+/* .proPersonalIntro{background:url(../../resources/pcImages/wzzBg.jpg) no-repeat;} */
+
+/* 图片轮番展示 */
+.zbf_l{padding-left:0;}
+.zbf_l .imgBox{width:460px;height:274px;position: relative;}
+.zbf_l .imgBox .pic{width:100%;height:100%;}
+.proPersonalIntro .content .rightBox .top{padding-bottom:0;margin-bottom:30px;}
+.proPersonalIntro .host_name{font-size:18px;color:#000;font-weight: bold;margin-bottom:18px;}
+.proPersonalIntro .host_intro .intro_1{margin-right:35px;}
+.proPersonalIntro  .middleTxt .common_box{margin-bottom:20px;}
+.proPersonalIntro  .middleTxt .scoreBox{padding-right:20px;margin-bottom:0;background:url(../pcImages/combo_arrow.png) no-repeat right center;}
+.proPersonalIntro  .middleTxt .scoreBox .yiping{padding-left:20px;float: left;width:60px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.proPersonalIntro .score_show_box{top:15px;padding-top:20px;width:330px;display:none;}
+.proPersonalIntro .score_show_con{padding:20px;border:1px solid #dcdcdc;}
+.proPersonalIntro .score_show_con .title{padding-right:20px;}
+.proPersonalIntro .score_show_box .con_item{margin-bottom:15px;}
+.proPersonalIntro  .middleTxt .left_title{margin-right:5px;}
+.proPersonalIntro  .middleTxt .act_address .right_txt{padding-right:23px;background:url(../pcImages/addressIcon.png) no-repeat right center;}
+.proPersonalIntro .btn_care{background-color: #2185cf;line-height:50px;text-align: center;cursor:pointer;}
+
+/* 简介 TA的活动 TA的回答 TA的帮助 TA的服务 TA的重磅 */
+#list_big_box .title_box{padding-left:27px;}
+#list_big_box .title_box .title{float: left;padding:0 25px;border-radius:4px;line-height:30px;height:30px;color:#000;cursor:pointer;margin-right:20px;}
+#list_big_box .title_box .title.cur,
+#list_big_box .title_box .title:hover{background-color: #2185cf;color:#fff;}
+#list_big_box .list{padding-bottom:0;}
+#list_big_box .article{padding:24px 22px;margin-bottom:60px;}
+#list_big_box .article .phase{line-height:24px;font-size:14px;color:#000;margin-bottom:24px;text-indent:28px;}
+    /* TA的回答 */
+#list_big_box .answer_list_box .itemBox{width:545px;margin-bottom:30px;}
+#list_big_box .answer_list_box .itemCon{padding-bottom:0;}
+    /* TA的帮助 */
+#list_big_box .help_list_box .itemBox .itemCon .imgDiv{width:210px;height:140px;border-radius:0;}
+#list_big_box .help_list_box .itemBox .itemCon .rightTxt{padding-left:230px;}
+#list_big_box .help_list_box .help_list{margin-bottom:30px;}
+    /* TA的服务 */
+.anli_box .anli_list{width:545px;height:80px;padding:20px;margin:0 20px 20px 0;position:relative;}
+.anli_box .anli_list:nth-child(2n){margin-right:0;}
+.anli_box .anli_list .anli_l{width:80px;height:80px;border-radius:50%;overflow: hidden;margin-right:20px;}
+.anli_box .anli_list .anli_r{width:445px;}
+.anli_box .anli_list .pic{width:100%;height:100%;}
+.anli_r .mes{margin:15px 0;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.anli_time{position:absolute;right:20px;top:20px;}
+    /* TA的重磅 */
+#list_big_box .heavy_list .zbxm_box{width:546px;height:290px;padding:20px 20px 0;margin-bottom:30px;}
+#list_big_box .heavy_list .zbxm_box .xm_mes{margin-top:15px;width:545px;}
+#list_big_box .heavy_list .zbxm_box .xm_mes h4{width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#list_big_box .heavy_list .zbxm_box .xm_mes .xm_style{color:#17c0ff;margin-right:15px;}
+#list_big_box .heavy_list .zbxm_box .xm_mes .xm_state .state_l{width:18px;height:18px;line-height:18px;border-radius:2px;text-align: center;display:inline-block;background:#1795ff;margin:2px 10px 0 0;}
+
+/* 页码 */
+.pageNumBox{height:86px;}

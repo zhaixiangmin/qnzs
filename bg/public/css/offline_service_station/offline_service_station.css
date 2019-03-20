@@ -1,0 +1,173 @@
+/*数据筛选 -- 手风琴选中时，背景色不变色*/
+.accordion .accordion-header-selected{
+    background: #E0ECFF;
+}
+
+/*站点管理 -- 点击查看，模态框的表格样式*/
+#fm_stationshow table{
+    width: 100%;
+    border: 1px solid #6C90CE;
+    border-collapse: collapse;
+}
+#fm_stationshow table tr{
+    width: 100%;
+}
+#fm_stationshow table tr td{
+    padding: 5px;
+    border: 1px solid #6C90CE;
+}
+#fm_stationshow table tr td:nth-of-type(1){
+    width: 20%;
+    text-align: right;
+}
+#fm_stationshow table tr td:nth-of-type(2){
+    width: 80%;
+}
+
+#fm_stationshow table tr td input{
+    width: 100%;
+    border: 0;
+}/*站点管理 -- 点击查看，模态框的表格样式*/
+
+/*站点管理 -- 新增，模态框的表格样式*/
+#fm_stationsadd table{
+    width: 100%;
+    border: 1px solid #6C90CE;
+    border-collapse: collapse;
+}
+#fm_stationsadd table tr{
+    width: 100%;
+}
+#fm_stationsadd table tr td{
+    padding: 5px;
+    border: 1px solid #6C90CE;
+}
+#fm_stationsadd table tr td:nth-of-type(1){
+    width: 20%;
+    text-align: right;
+}
+#fm_stationsadd table tr td:nth-of-type(2){
+    width: 80%;
+}
+
+#fm_stationsadd table tr td.supplies_td .supplies .icon_add{
+    display: none;
+}
+/*最后一个才显示'+'图标，每一个都显示'-'图标*/
+#fm_stationsadd table tr td.supplies_td .supplies:nth-last-of-type(1) .icon_add, #fm_stationsadd table tr td.supplies_td .supplies .icon_delete{
+    margin-left: 5px;
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    vertical-align: top;
+    text-align: center;
+    cursor: pointer;
+    font-style: normal;
+    border: 1px black dotted;
+}
+/*最多添加8个 - 最后一个不显示'+'图标，第一个不显示'-'图标*/
+#fm_stationsadd table tr td.supplies_td .supplies:nth-of-type(8) .icon_add, #fm_stationsadd table tr td.supplies_td .supplies:nth-of-type(1) .icon_delete{
+    display: none;
+}/*站点管理 -- 新增，模态框的表格样式*/
+
+
+/*!*站点管理 -- 新增，模态框的表格样式*!*/
+/*#fm_stationstatus table{*/
+    /*width: 100%;*/
+    /*border: 1px solid #6C90CE;*/
+    /*border-collapse: collapse;*/
+/*}*/
+/*#fm_stationstatus table tr{*/
+    /*width: 100%;*/
+/*}*/
+/*#fm_stationstatus table tr td{*/
+    /*padding: 5px;*/
+    /*border: 1px solid #6C90CE;*/
+/*}*/
+/*#fm_stationstatus table tr td:nth-of-type(1){*/
+    /*width: 20%;*/
+    /*text-align: right;*/
+/*}*/
+/*#fm_stationstatus table tr td:nth-of-type(2){*/
+    /*width: 80%;*/
+/*}*/
+/*!*站点管理 -- 新增，模态框的表格样式*!*/
+
+/*去除因为自定义easyui的弹出框位置，而出现的阴影块*/
+.window-shadow{
+    display: none !important;
+}
+
+/*webuploader插件 -- 开始*/
+#wrapper p {
+    margin: 0;
+}
+
+
+#staSceneries{
+    margin-top: 1rem;
+}
+#staSceneries a {
+    position: relative;
+    margin: 20px 8px;
+    display: inline-block;
+    width: 110px;
+    height: 110px;
+    line-height: 110px;
+    font-size: 0;
+    text-align: center;
+    background: #f4f4f4;
+}
+#staSceneries a img {
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+#staSceneries a div.file-panel{
+    position: absolute;
+    height: 0;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    background: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+#staSceneries a div.file-panel span {
+    width: 24px;
+    height: 24px;
+    display: inline;
+    float: right;
+    text-indent: -9999px;
+    overflow: hidden;
+    background: url(../../images/icons.png) no-repeat;
+    margin: 5px 1px 1px;
+    cursor: pointer;
+}
+
+#staSceneries a div.file-panel span.rotateLeft{
+    background-position: 0 -24px;
+}
+
+#staSceneries a div.file-panel span.rotateLeft:hover{
+    background-position: 0 0;
+}
+
+#staSceneries a div.file-panel span.rotateRight{
+    background-position: -24px -24px;
+}
+
+#staSceneries a div.file-panel span.rotateRight:hover{
+    background-position: -24px 0;
+}
+
+#staSceneries a div.file-panel span.cancel{
+    background-position: -48px -24px;
+}
+
+#staSceneries a div.file-panel span.cancel:hover{
+    background-position: -48px 0;
+}
+/*webuploader插件 -- 结束*/

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>广东青年之声后台理</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+       <link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+       <link href="../../public/css/style.css" rel="stylesheet" />
+       <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+       <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" />
+       <link rel="stylesheet" href="../../public/css/offline_service_station/offline_service_station.css">
+
+       
+       <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+       <!--<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>-->
+       <!--<script type="text/javascript" src="../../public/js/module/FindConsultApi.js"></script>-->
+       <!--<script type="text/javascript" src="../../public/js/find_consult/serviceQuestion.js"></script>-->
+      <!--<link rel="stylesheet" id=cal_style type="text/css" href="../../public/vendor/flatpickr/flatpickr.min.css">-->
+
+       <style>
+           /*站点管理 -- 新增，模态框的表格样式*/
+           .panel.window{}
+           #fm_stationsadd table{
+               width: 100%;
+               border: none;
+               border-collapse: collapse;
+
+           }
+           #fm_stationsadd table tr{
+               width: 100%;
+           }
+           #fm_stationsadd table tr td{
+               padding: 5px;
+               border: 1px solid #6C90CE;
+           }
+           #fm_stationsadd table tr.last td{border: none;padding-top: 20px;}
+           #fm_stationsadd table tr td:nth-of-type(1){
+               width: 20%;
+               text-align: right;
+           }
+           #fm_stationsadd table tr td:nth-of-type(2){
+               width: 80%;
+           }
+
+           #fm_stationsadd table tr td input{
+               width: 90%;
+               /*border: 0;*/
+           }
+           #fm_stationsadd table tr td select{
+               width: 80%;
+               /*border: 0;*/
+           }
+           /*编辑弹框*/
+           #serviceQuestion_edit table{
+               width: 100%;
+               border: none;
+               border-collapse: collapse;
+
+           }
+           #serviceQuestion_edit table tr{
+               width: 100%;
+           }
+           #serviceQuestion_edit table tr td{
+               padding: 5px;
+               border: 1px solid #6C90CE;
+           }
+           #serviceQuestion_edit table tr.last td{border: none;padding-top: 15px;}
+           #serviceQuestion_edit table tr td:nth-of-type(1){
+               width: 25%;
+               text-align: right;
+           }
+           #serviceQuestion_edit table tr td:nth-of-type(2){
+               width: 75%;
+           }
+
+           #serviceQuestion_edit table tr td input{
+               width: 90%;
+               /*border: 0;*/
+           }
+           #serviceQuestion_edit table tr td select{
+               width: 80%;
+               /*border: 0;*/
+           }
+h1{font-size: 12px!important;}
+       </style>
+</head>
+
+<body>
+
+<div class="col-sm-12" style="margin-top: 15px">
+
+  <!--数据过滤strat-->
+    <div class="easyui-accordion">
+        <div title="数据筛选"  style="overflow:auto;padding:10px;">
+          <!--<form id="ff_question" method="post">-->
+                <!--<div class="form-group sz_height">-->
+                      <!--<label class="col-sm-1">关键词</label>-->
+                      <!--<div class="col-sm-2">-->
+                         <!--<input type="text" class="form-control" id="keyword">-->
+                      <!--</div>-->
+                       <!--<label class="col-sm-1">所属类别</label>-->
+                      <!--<div class="col-sm-2">-->
+                          <!--&lt;!&ndash;<select class="form-control" id="categoryId">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;&lt;!&ndash;<option>校园啄木鸟</option>&ndash;&gt;&ndash;&gt;-->
+                                    <!--&lt;!&ndash;&lt;!&ndash;<option>物物交换</option>&ndash;&gt;&ndash;&gt;-->
+                                    <!--&lt;!&ndash;&lt;!&ndash;<option>失物招领</option>&ndash;&gt;&ndash;&gt;-->
+                            <!--&lt;!&ndash;</select>&ndash;&gt;-->
+                          <!--<input id="categoryId" class="easyui-combobox" name="dept"-->
+                                 <!--data-options="valueField:'id',textField:'text',">-->
+                      <!--</div>-->
+                      <!--<label class="col-sm-1">是否公开</label>-->
+                      <!--<div class="col-sm-2">-->
+                           <!--<select class="form-control" id="isPublic">-->
+                                    <!--<option value="1">公开</option>-->
+                                    <!--<option value="0">匿名</option>-->
+                            <!--</select>-->
+                      <!--</div>-->
+                      <!---->
+                 <!--</div>&lt;!&ndash;form-group end&ndash;&gt;-->
+                 <!---->
+                 <!--<div class="form-group sz_height">-->
+                      <!--<label class="col-sm-1">精华帖</label>-->
+                      <!--<div class="col-sm-2">-->
+                            <!--<select class="form-control" id="isEssence">-->
+                                    <!--<option value="1">是</option>-->
+                                    <!--<option value="0">否</option>-->
+                            <!--</select>-->
+                      <!--</div>-->
+                       <!--<label class="col-sm-1" for="start_time">开始时间</label>-->
+                      <!--&lt;!&ndash;<div class="col-sm-2">&ndash;&gt;-->
+                          <!--&lt;!&ndash;<input id="beginTimeAsk" class=flatpickr data-enable-time=true>&ndash;&gt;-->
+                      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                     <!--<input id="start_time" type="text" class="easyui-datetimebox">-->
+                      <!--<label class="col-sm-1" for="end_time">结束时间</label>-->
+                      <!--&lt;!&ndash;<div class="col-sm-2">&ndash;&gt;-->
+                           <!--&lt;!&ndash;<input id="endTimeAsk" class=flatpickr data-enable-time=true>&ndash;&gt;-->
+                      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                     <!--<input id="end_time" type="text" class="easyui-datetimebox">-->
+                 <!--</div>&lt;!&ndash;form-group end&ndash;&gt;-->
+                 <!---->
+                 <!--<div class="form-group sz_height">-->
+                      <!--<label class="col-sm-1">审核状态</label>-->
+                     <!--<div class="col-sm-2">-->
+                         <!--<select class="form-control" id="status">-->
+                             <!--<option value="">全部</option>-->
+                             <!--<option value="0">待审核</option>-->
+                             <!--<option value="1">已通过</option>-->
+                             <!--<option value="2">未通过</option>-->
+                             <!--<option value="3">已回复</option>-->
+                             <!--<option value="4">已完成</option>-->
+                             <!--<option value="5">转线下</option>-->
+                             <!--<option value="6">线下服务已审核</option>-->
+                             <!--<option value="7">线下服务已完成</option>-->
+                             <!--<option value="8">线下服务已撤销</option>-->
+                         <!--</select>-->
+                     <!--</div>-->
+                     <!---->
+                      <!--<div class="col-sm-2">-->
+                      <!--<button type="button" class="btn btn-warning btn-sm" onclick="search()"><span class="glyphicon glyphicon-search"></span>查询</button> <button type="button" id="clearbtn" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-refresh"></span>清空</button>-->
+                      <!--</div>-->
+                      <!--<div class="col-sm-2">-->
+                      <!--<button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-refresh"></span>待回复问题</button>                </div>-->
+                 <!--</div>&lt;!&ndash;form-group end&ndash;&gt;-->
+		  <!--</form>-->
+            <form id="ff_question" method="post">
+                <table>
+                    <tr>
+                        <th align="right"><label for="keyword">关键词:</label></th>
+                        <td><input id="keyword"></td>
+                        <td>&nbsp;&nbsp;</td>
+                        <th><label for="categoryId">所属类别:</label></th>
+                        <td><input id="categoryId" class="easyui-combobox" name="categoryId"></td>
+                        <td>&nbsp;&nbsp;</td>
+                        <th><label for="isPublic">是否公开:</label></th>
+                        <!--<td><input id="audit" class="easyui-combobox" name="dept"></td>-->
+                        <td>
+                            <select class="form-control" id="isPublic">
+                                <option value="">全部</option>
+                                <option value="1">公开</option>
+                                <option value="0">匿名</option>
+                            </select>
+                        </td>
+                        <th><label for="isPublic">地市/高校</label></th>
+                        <td>
+                        <!---  3级联动   --->
+	                       <select  class="form-control  select fl" id="oidType" onchange="changeOidType(this)" style="width: 100px;">
+                                    <option value="-1">请选择</option>
+                                    <option value="1">地市</option>
+                                    <option value="2">高校</option>
+                  		</select>
+			            <select id="cityOid" class="form-control select fl"  name="cityOid" onchange="cityOidChange(this)" style="width: 110px;">
+	                 	         <option value="-1">请选择</option>
+						</select>
+	                 	<select id="shcoolOid" class="form-control select fl" name="shcoolOid"  onchange="schoolOidChange(this)" style="width: 110px;">
+	                 	          <option value="-1">请选择</option>
+	                 	</select>
+                        <select id="areaOid" class="form-control select fl"  onchange="quxuan(this)" style="width: 100px;">
+								<option value="-1">--区/县--</option>
+			            </select>
+	                    <select id="classOid" class="form-control  select fl"   onchange="quxuan(this)" style="width: 100px;">
+								<option value="-1">--分院--</option>
+			            </select>
+				                        	
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="isEssence">精华帖:</label></th>
+                        <td>
+                            <select class="form-control" id="isEssence">
+                                <option value="">全部</option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </td>
+                        <td>&nbsp;&nbsp;</td>
+                        <th><label for="start_time">开始时间:</label></th>
+                        <td><input id="start_time" type="text" class="easyui-datetimebox"></td>
+                        <td>&nbsp;&nbsp;</td>
+                        <th><label for="end_time">结束时间:</label></th>
+                        <td><input id="end_time" type="text" class="easyui-datetimebox"></td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><label for="isEssence">审核状态:</label></th>
+                        <td>
+                            <select class="form-control" id="status">
+                                <option value="">全部</option>
+                                <option value="10">待回复</option>
+                                <option value="0">待审核</option>
+                                <option value="1">已通过</option>
+                                <option value="2">不通过</option>
+                                <option value="3">已回复</option>
+                                <option value="4">已完成</option>
+                                <option value="5">转线下</option>
+                                <option value="6">线下服务已审核</option>
+                                <option value="7">线下服务已完成</option>
+                                <option value="8">线下服务已撤销</option>
+                            </select>
+                        </td>
+                      
+                        
+                        
+                        <!--<td>&nbsp;&nbsp;</td>-->
+                        <td colspan="2">
+                            <a href="#" class="easyui-linkbutton" iconCls="icon-search" id="searchbtn">查询</a>
+                            <!--<button class="easyui-linkbutton" iconCls="icon-search" id="searchbtn">查询</button>-->
+                            <!--<button type="button" class="easyui-linkbutton" iconCls="icon-search" onclick="search()">查询</button>-->
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#" class="easyui-linkbutton" iconCls="icon-reload" id="clearbtn">清空</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <!--<a href="#" class="easyui-linkbutton" iconCls="icon-search" id="">待回复问题</a>-->
+                            	
+                            </td>
+                          <td></td>
+                    </tr>
+                </table>
+            </form>
+       </div>
+ </div>
+ <!--数据过滤end-->
+<div style="clear:both"></div>
+ <div class="border clearfix">
+       <ul class="nav navbar-nav" id="toolbar">
+          <!--<li><a href="#" onclick="openDetail()"><span class="glyphicon glyphicon-list-alt" data-toggle="modal" >查看</span></a></li>-->
+          <!--<li><a href="#" onclick="serviceQuestion_add()"><span class="glyphicon glyphicon-plus" data-toggle="modal">新增</span></a></li>-->
+          <li id="question_edit"><a href="#" onclick="serviceQuestion_edit()"><span class="glyphicon glyphicon-pencil" data-toggle="modal">编辑/分发</span></a></li>
+          <li id="question_audit"><a href="#" onclick="auditQuestionByIds()"><span class="glyphicon glyphicon-user" data-toggle="modal" >审核</span></a></li>
+          <li id="question_enable"><a href="#" onclick="userStart()"><span class="glyphicon glyphicon-play" data-toggle="modal">启动</span></a></li>
+          <li id="question_disable"><a href="#" onclick="userStopt()"><span class="glyphicon glyphicon-ban-circle" data-toggle="modal">禁用</span></a></li>
+          <li id="question_delete"><a href="#" onclick="serviceQuestionDele()"><span class="glyphicon glyphicon-trash">删除</span></a></li>
+          <li id="question_setEssence"><a href="#" onclick="setEssenceQuestion()"><span class="glyphicon glyphicon-cog" data-toggle="modal" >设置精华贴</span></a></li>
+          <li id="question_removeEssence"><a href="#" onclick="essenceQuestionRemove()"><span class="glyphicon glyphicon-trash">移除精华贴子</span></a></li>
+          <li id="question_oppe"><a href="#" onclick="openQuestion()"><span class="glyphicon glyphicon-folder-open" data-toggle="modal" >打开贴子</span></a></li>
+          <li id="question_top_site"><a href="#" onclick="add_allsize_top()"><span class="glyphicon glyphicon-folder-open" data-toggle="modal" >全站置顶</span></a></li>
+          <li id="cancel_top_site" ><a href="#" onclick="cancel_allsize_top()"><span class="glyphicon glyphicon-folder-open" data-toggle="modal" >取消全站置顶</span></a></li>
+          <li id="question_top"><a href="#" onclick="add_province_top()"><span class="glyphicon glyphicon-folder-open" data-toggle="modal" >省级置顶</span></a></li>
+          <li id="cancel_top"><a href="#" onclick="cancel_province_top()"><span class="glyphicon glyphicon-folder-open" data-toggle="modal" >取消省级置顶</span></a></li>
+          <li class="show_hide_1"><a href="#" onclick="add_ask_bar_top()"><span class="glyphicon glyphicon-folder-open" data-toggle="modal" >名人问吧帖子置顶</span></a></li>
+          <li class="show_hide_2"><a href="#" onclick="cannel_ask_bar_top()"><span class="glyphicon glyphicon-folder-open" data-toggle="modal" >取消名人问吧帖子置顶</span></a></li>
+       </ul>
+  </div>
+
+    <!--列表展示start-->
+    <table id="mytb"></table>
+    <table id="dg_question" style="display: none;"></table>
+    <!--列表展示end-->
+ </div>
+ 
+<!-- 查看框（Modal） -->
+<div class="modal fade" id="user-see" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					服务问题详情
+				</h4>
+			</div>
+			<div class="modal-body s-height">
+				<form method="get" class="form-horizontal">
+                  　
+                 　　<div class="form-group">
+                        <label class="col-sm-2 control-label">评论人:</label>
+                        <div class="col-sm-7" id="title_show">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">评论时间:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">评论内容:</label>
+                      　 <div class="col-sm-7">
+                           
+                            <textarea name="" cols="1" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div style="clear:both"></div>
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label">主帖子链接：</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                  
+                </form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 查看框（Modal）end -
+
+<!-- 新增框（Modal） -->
+
+<div class="easyui-dialog" title="新增问题" modal="true" id="serviceQuestion_add" data-options="closed:true" style="width: 420px;height: 360px;">
+    <form id="fm_stationsadd">
+        <table>
+            <tr>
+                <td>问题标题：</td>
+                <td><input class="easyui-textbox easyui-validatebox" type="text" id="title" name="title" required="true" style="width: 270px;"></td>
+            </tr>
+            <tr>
+                <td>所属类别：</td>
+                <td><input class="easyui-combobox " id="categoryId_add" name="categoryId_add" required="true" editable="false" style="width: 270px;"></td>
+            </tr>
+            <tr>
+                <td>向谁提问：</td>
+                <td><input class="easyui-combobox" id="accExpertIdsStr_add" name="accExpertIdsStr_add" required="true" editable="false" style="width: 270px;"></td>
+            </tr>
+            <tr>
+                <td>问题标签：</td>
+                <td><input class="easyui-combobox " id="quesLabelIdsStr" name="quesLabelIdsStr" required="true" editable="false" style="width: 270px;"></td>
+            </tr>
+            <tr>
+                <td>问题内容：</td>
+                <td><textarea class="easyui-textbox easyui-validatebox" id="askContent" required="true" style="width: 270px;"></textarea></td>
+            </tr>
+            <tr>
+                <td>问题分级：</td>
+                <td>
+                    <input id="level"  name="level" type="text" class="easyui-combobox" editable="false" style="width: 75px;">
+                    <!--<select class="easyui-combobox" id="level" style="width: 75px;">-->
+                    <!--<option value="1">低</option>-->
+                    <!--<option value="2">中</option>-->
+                    <!--<option value="3">高</option>-->
+                    <!--</select>-->
+                </td>
+            </tr>
+            <!--combobox-->
+            <tr>
+                <td>是否公开：</td>
+                <td>
+                    <input id="isPublic_add"  name="isPublic_add" type="text" class="easyui-combobox" editable="false" style="width: 75px;">
+                    <!--<select class="easyui-combobox" id="isPublic_add" style="width: 75px;">-->
+                        <!--<option value="1">公开</option>-->
+                        <!--<option value="0">匿名</option>-->
+
+                        <!--</select>-->
+                </td>
+            </tr>
+            <tr class="last">
+                <td colspan="2">
+                    <a href="#" class="easyui-linkbutton" iconCls="icon-ok" id="addInfo">确定</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" id="cancel">取消</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<!-- 新增框（Modal）end -->
+
+<!-- 编辑框（Modal） -->
+<div class="easyui-dialog" title="编辑问题" id="serviceQuestion_edit" modal="true" data-options="closed:true" style="width: 420px;height: 360px;">
+    <form id="fm_stationsadd_edit" method="post">
+        <table>
+            <tr>
+                <td>问题标题：</td>
+                <td><input class="easyui-validatebox " type="text" id="title_edit" name="title" required="true" style="width: 270px;"></td>
+            </tr>
+            <tr>
+                <td>所属类别：</td>
+                <td><input class="easyui-combobox " id="categoryId_edit" comboname="categoryId" required="true" editable="false" style="width: 270px;"></td>
+            </tr>
+            <!--<tr>
+                <td>邀请专家回答：</td>
+                <td><input class="easyui-combobox" id="accExpertIdsStr_edit" name="accExpertIdsStr_edit" required="true" editable="false" style="width: 270px;"></td>
+            </tr>-->
+            <!--<tr>-->
+                <!--<td>邀请组织回答：</td>-->
+                <!--<td><input class="easyui-combobox " id="organization_edit" name="organization_edit" required="true" editable="false" style="width: 270px;"></td>-->
+            <!--</tr>-->
+            <tr>
+                <td>问题标签：</td>
+                <td><input class="easyui-combobox " id="quesLabelIdsStr_edit" name="quesLabelIdsStr_edit" required="true" editable="false" style="width: 270px;"></td>
+            </tr>
+            <tr>
+                <td>问题内容：</td>
+                <td><textarea class="easyui-textbox easyui-validatebox" id="askContent_edit" name="askContent" required="true" style="width: 270px;"></textarea></td>
+            </tr>
+            <tr>
+                <td>问题分级：</td>
+                <td>
+                    <input id="level_edit"  comboname="level" type="text" class="easyui-combobox" editable="false" style="width: 75px;" data-options="valueField:'id', textField:'text', data: [{id:'1',text:'低'},{id:'2',text:'中'},{id:'3',text:'高'}], panelHeight:'auto'">
+
+                </td>
+            </tr>
+            <!--combobox-->
+            <tr>
+                <td>是否公开：</td>
+                <td>
+                    <input id="isPublic_edit" name="isPublic" type="text" class="easyui-combobox" editable="false" style="width: 75px;" data-options="valueField:'id', textField:'text', data: [{id:'1',text:'公开'},{id:'0',text:'匿名'}], panelHeight:'auto'">
+                </td>
+            </tr>
+            <tr class="last">
+                <td colspan="2">
+                    <a href="#" class="easyui-linkbutton" iconCls="icon-ok" id="updater_edit" >确定</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" id="cancel_edit">取消</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<!--<div class="modal fade" id="user-editor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+	<!--<div class="modal-dialog">-->
+		<!--<div class="modal-content">-->
+			<!--<div class="modal-header">-->
+				<!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">-->
+					<!--&times;-->
+				<!--</button>-->
+				<!--<h4 class="modal-title" id="myModalLabel">-->
+					<!--编辑问题-->
+				<!--</h4>-->
+			<!--</div>-->
+			<!--<div class="modal-body s-height">-->
+				<!--<form method="get" class="form-horizontal">-->
+                 <!--　　<div class="form-group">-->
+                        <!--<label class="col-sm-2 control-label">问题标题:</label>-->
+                        <!--<div class="col-sm-7">-->
+                            <!--<input type="text" class="form-control">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="col-sm-2 control-label">所属类别:</label>-->
+                        <!--<div class="col-sm-3">-->
+                               <!--<select class="input-sm form-control input-s-sm inline">-->
+                                    <!--<option value="1">健康</option>-->
+                                    <!--<option value="2">学习</option>-->
+                                <!--</select>-->
+                        <!--</div>  -->
+                    <!--</div>-->
+                    <!--<div style="clear:both"></div>-->
+                     <!--<div class="form-group">-->
+                        <!--<label class="col-sm-2 control-label">邀请专家回答：</label>-->
+                        <!--<div class="col-sm-7">-->
+                            <!--<select class="input-sm form-control input-s-sm inline">-->
+                                  <!--<option value="0">请选择</option>-->
+                                  <!--<option value="1">陈专一</option>-->
+                                  <!--<option value="2">陈专二</option>-->
+                                  <!--<option value="3">陈专三</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="col-sm-2 control-label">邀请组织回答:</label>-->
+                        <!--<div class="col-sm-7">-->
+                            <!--<select class="input-sm form-control input-s-sm inline">-->
+                                  <!--<option value="0">请选择</option>-->
+                                  <!--<option value="1">广东青年之声</option>-->
+                                  <!--<option value="2">团省委权益部</option>-->
+                                  <!--<option value="3">省希望工程服务中心</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="col-sm-2 control-label">分办回答:</label>-->
+                        <!--<div class="col-sm-7">-->
+                            <!--<select class="input-sm form-control input-s-sm inline">-->
+                                  <!--<option value="0">请选择</option>-->
+                                  <!--<option value="1">河源青年之声</option>-->
+                                  <!--<option value="2">汕尾共青团</option>-->
+                                  <!--<option value="3">茂名青年之声</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="col-sm-2 control-label">问题标签:</label>-->
+                        <!--<div class="col-sm-7">-->
+                            <!--<select class="input-sm form-control input-s-sm inline">-->
+                                  <!--<option value="0">请选择</option>-->
+                                  <!--<option value="1">志愿者</option>-->
+                                  <!--<option value="2">支教</option>-->
+                                  <!--<option value="3">高考</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="col-sm-2 control-label">问题内容:</label>-->
+                        <!--<div class="col-sm-7">-->
+                            <!---->
+                            <!--<textarea name="" cols="1" rows="3" class="form-control"></textarea>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                   <!--<div class="form-group">-->
+                        <!--<label class="col-sm-2 control-label">问题分级:</label>-->
+                        <!--<div class="col-sm-3">-->
+                               <!--<select class="input-sm form-control input-s-sm inline">-->
+                                    <!--<option value="1">低</option>-->
+                                    <!--<option value="2">中</option>-->
+                                    <!--<option value="2">高</option>-->
+                                <!--</select>-->
+                        <!--</div>  -->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="col-sm-2 control-label">是否公开:</label>-->
+                        <!--<div class="col-sm-3">-->
+                               <!--<select class="input-sm form-control input-s-sm inline">-->
+                                    <!--<option value="1">匿名</option>-->
+                                    <!--<option value="2">公开</option>-->
+                                <!--</select>-->
+                        <!--</div>  -->
+                    <!--</div>-->
+                <!--</form>-->
+			<!--</div>-->
+			<!--<div class="modal-footer">-->
+				<!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭-->
+				<!--</button>-->
+				<!--<button type="button" class="btn btn-primary">-->
+					<!--确定-->
+				<!--</button>-->
+			<!--</div>-->
+		<!--</div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
+	<!--</div>&lt;!&ndash; /.modal-dialog &ndash;&gt;-->
+<!--</div>-->
+
+<!-- 编辑框（Modal）end -->
+
+
+<!-- 审核框（Modal） -->
+<div class="modal fade" id="user-verify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					确认对话框
+				</h4>
+			</div>
+			<div class="modal-body">
+			    这些问题确认要审核通过吗？
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 审核框（Modal）end -->
+
+<!-- 启用框（Modal） -->
+<div class="modal fade" id="user-start" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					warning
+				</h4>
+			</div>
+			<div class="modal-body">
+		    您确认要启动该项目?
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="userStartBtn">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 启用框（Modal）end -->
+
+<!-- 禁用框（Modal） -->
+<div class="modal fade" id="user-end" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					warning
+				</h4>
+			</div>
+			<div class="modal-body">
+			你确定要禁用本项目吗？
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="userStoptBtn">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 禁用框（Modal）end -->
+
+<!-- 设置精华贴（Modal） -->
+<div class="modal fade" id="user-reset" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					新增帐号
+				</h4>
+			</div>
+			<div class="modal-body">
+			    你确认要设置精华贴吗？
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 设置精华贴（Modal）end -->
+
+<!-- 打开贴子（Modal） -->
+<div class="modal fade" id="user-open" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					新增帐号
+				</h4>
+			</div>
+			<div class="modal-body">
+			    请选择一行数据？
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 打开贴子（Modal）end -->
+
+<!--<script type="text/javascript" src="vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>-->
+<script src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+<script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+<script type="text/javascript"  src="../../public/js/ajax/ajax2.js"></script>
+<script type="text/javascript" src="../../public/js/module/FindConsultApi.js"></script>
+<script src="../../public/js/module/Utils.js"></script>
+<script type="text/javascript" src="../../public/js/find_consult/serviceQuestion.js"></script>
+<!--<script src="js/jquery-1.8.3.min.js"></script>-->
+<!--<script src="js/bootstrap.min.js"></script>-->
+<!--<script type="text/javascript" src="content/lib/layer/1.9.3/layer.js"></script> -->
+
+<!--日历控件-->
+<!--<script src="../../public/vendor/flatpickr/contabs.js"></script>-->
+<!--<script async src="../../public/vendor/flatpickr/data.js"></script>-->
+<!--<script async src="../../public/vendor/flatpickr/flatpickr.js" onload="fp_ready()"></script>-->
+
+      	<script type="text/javascript" src="../../public/js/common/user-linkage-4.js"></script>
+</body>
+</html>

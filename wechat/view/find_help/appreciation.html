@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <!-- No Less! -->
+    <title>找帮助-答谢</title>
+
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+
+    
+    <!--<link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="../../public/css/common/hd_footerNav.css" />-->
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_help/appreciation.css" />
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+     <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <!--<script type="text/javascript" src="../../public/vendor/touch_slide/TouchSlide.1.1.js"></script>-->
+    <!--公共底部栏-->
+    <!--<script type="text/javascript" src="../../public/custom/common.js"></script>-->
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <!--<script type="text/javascript" src="../../public/js/module/Utils.js"></script>-->
+    <script type="text/javascript" src="../../public/js/module/FindHelpApi.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/find_help/appreciation.js"></script>
+</head>
+<body class="bodyPB bgcWhite">
+
+<form id="form_evaluate">
+    <input type="hidden" name="apId" value="2860">
+    <!-- 发表言论区 -->
+    <section class="talk">
+        <textarea class="fz28 color333" name="evaluate" id="evaluate" placeholder="请输入你的答谢感言"></textarea>
+    </section>
+    <!-- 评分 -->
+    <input type="hidden" name="score" value="">
+    <section class="pf">
+        <div class="tit clearfix">
+            <span class="fl fz28 color333">给受理方评分</span>
+            <em class="fr color999 fz24">满意请给五星</em>
+        </div>
+        <div class="scoreBox">
+            <ul class="clearfix">
+                <li><span><em></em></span></li>
+                <li><span><em></em></span></li>
+                <li><span><em></em></span></li>
+                <li><span><em></em></span></li>
+                <li><span><em></em></span></li>
+            </ul>
+        </div>
+    </section>
+</form>
+
+<a href="javascript:;" class="appearNow fz30 colorfff disB" id="submit_appreciation">立即发表</a>
+
+</body>
+</html>

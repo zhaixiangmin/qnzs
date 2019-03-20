@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>站内信列表页</title>
+    <!--<link rel="stylesheet" type="text/css" href="css/base.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="css/common.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="css/wd_wenda.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="css/hd_footerNav.css" />-->
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/hd_footerNav.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/find_consult.css" />
+    <!--<link rel="stylesheet" type="text/css" href="../../public/css/find_consult/wd_wendafenlei.css" />-->
+    <script type="text/javascript" src="../../public/js/common/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <!--<script type="text/javascript" src="../../public/js/find_consult/wd_zhaowenda.js"></script>-->
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FindConsultApi.js"></script>
+    <script type="text/javascript" src="../../public/js/person_center/informationList.js"></script>
+    <!--公共底部-->
+    <script type="text/javascript" src="../../public/custom/common.js"></script>
+    <script src="../../public/js/ajax/ajax2.js"></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <style rel="stylesheet">
+        .wd_header h2{
+            background: #009DDA;color: #fff;padding: 0.4rem 1rem;
+        }
+        .sysinformation .title{ background: #009DDA;color: #fff;box-shadow: 0.1rem 0.3rem 0.5rem #eee;padding:0!important;}
+        .sysinformation .title ul li{float: left;width: 24.7%; text-align: center;padding: 0.4rem 0;}
+        .sysinformation .title ul li:nth-child(1),.sysinformation .title ul li:nth-child(2),.sysinformation .title ul li:nth-child(3){border-right: 1px solid #fff;}
+        .sysinformation .title ul li.cur{background: #fff;color: #009DDA;}
+        .sysinformation .content{display: none;}
+        .sysinformation .up a{color: #2185cf;font-size: 0.48rem;}
+        .sysinformation .down .span02{color: red;display: none;}
+        .sysinformation .down .right span{color: #2185cf; }
+        .wenda .content_in .r .up p.askcont{height: auto!important;white-space:normal!important;overflow: auto;}
+        
+        .content_box{position: fixed; width: 100%;height: 100%;background-color: rgba(0,0,0,.5);left: 0;top: 0;}
+        .box_test{width:90%;height:6.333333rem;background-color:white;position: absolute;left:6%;top: 4rem;margin-top: 3.333333rem;}
+        .title_txt{width: 100%;height:1.066666rem;background-color: #D4B899;text-align: center;line-height:1.066666rem;}
+        .team_listld{margin: 0.8rem 0 0.633333rem  1.333333rem;}
+        .btnndf{width: 100%;1.066666rem;line-height: 1.066666rem;}
+        .cererlde,.clerdfr{display: inline-block;margin-top: 0.8rem;}
+        .cererlde,.clerdfr{width: 20%;line-height: 1.066666rem;text-align: center;color: white;background-color: #0094FF;}
+        .cererlde{margin-left: 3.333333rem;}
+        
+        .clerdfr{margin-left:0.666666rem}
+    </style>
+</head>
+<body class="bodyPB">
+    <!--<header class="clearfix wd_header"><h2>我的消息</h2></header>-->
+   <!--<section class="wenda bgcWhite">-->
+        <!--<section class="content" id="quesList">-->
+           <!--&lt;!&ndash;插入列表&ndash;&gt;-->
+        <!--</section>-->
+   <!--</section>-->
+    <section class="sysinformation wenda">
+        <div class="title clearfix">
+            <ul class="clearfix">
+                <li class="title_item cur" >全部</li>
+                <li class="title_item" >系统消息</li>
+                <li class=" title_item" >组织消息</li>
+                <li class=" title_item" >用户消息</li>
+            </ul>
+        </div>
+        <section class="content" id="list_all" style="display: block;">
+        </section>
+        <section class="content" id="list_sys">
+        </section>
+        <section class="content" id="list_org">
+        </section>
+        <section class="content" id="list_user">
+        </section>
+    </section>
+    
+    
+   <!-- 弹框-->
+   <div class="content_box" style="display:none;">
+      
+      
+      <div class="box_test">
+      	<h3 class="title_txt">资源领取</h3>
+      	
+      	<p class="team_listld"><label>领取数量:</label><input type="text" class="text_number" style="border: solid 1px #CCCCCC;margin-left: 0.266666rem;padding-left: 0.213333rem;"></p>
+      	
+      	<p style="color:red; text-align: center;">领取数量:1份/家</p>
+      	
+      	
+      	<p class="btnndf"><span class="cererlde">确定</span> <span class="clerdfr">取消</span></p>
+      	
+      	
+      </div>
+   
+   
+   <div>
+   <!--弹框-->
+     
+    
+
+</body>
+
+<script>
+	
+	$('.clerdfr').click(function(){
+		
+		$('.content_box').hide();
+		
+	})
+	
+	
+</script>
+</html>

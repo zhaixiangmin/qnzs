@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>第二课堂-已有成绩单</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/person_center/second_classroom.css" />
+    <script type="text/javascript" src="../../public/js/common/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/module/Qnzs.js"><script>
+    <script src="../../public/js/person_center/secondClassromm.js"></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+</head>
+<body class="bgcWhite">
+    <section class="report_card_box p_0_30 has_report">
+        <div class="up_txt">
+            <ul>
+                <li class="item clearfix">
+                    <span class="fl left_title">姓名：</span>
+                    <div class="right">
+                        <p class="right_txt">张三</p>
+                    </div>
+                </li>
+                <li class="item clearfix">
+                    <span class="fl left_title">学号：</span>
+                    <div class="right">
+                        <p class="right_txt">12789</p>
+                    </div>
+                </li>
+                <li class="item clearfix">
+                    <span class="fl left_title">学校：</span>
+                    <div class="right">
+                        <p class="right_txt">中山大学</p>
+                    </div>
+                </li>
+                <li class="item clearfix">
+                    <span class="fl left_title">院系：</span>
+                    <div class="right">
+                        <p class="right_txt">计算机学院</p>
+                    </div>
+                </li>
+                <li class="item clearfix school_year">
+                    <span class="fl left_title">学年：</span>
+                    <div class="right">
+                        <select class="select">
+                            <option value="">2017-9 —— 2018-8</option>
+                            <option value="">2016-9 —— 2017-8</option>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="info_table_box">
+            <div class="table_box">
+                <table class="table" cellspacing="0";>
+                    <tr>
+                        <th>活动时间</th>
+                        <th>活动名称</th>
+                        <th>类型</th>
+                        <th>学时(h)</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="table_bottom colorfff">
+                <div class="one">
+                    <span>文体文化发展：20</span>
+                    <span>艺术设计创新：20</span>
+                    <span>创新创业：30</span>
+                </div>
+                <div class="one">
+                    <span>学年总学时：70</span>
+                    <span>总学时：100</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+<script type="text/javascript">
+    function info_table(){
+        var num=10;
+        var html=''
+        for (var i = 0; i < num; i++) {
+            html+='<tr>'
+            html+=' <td>2017-05-01</td>'
+            html+=' <td>广东农村孩子也能上中学名校，广州七中培正你来挑</td>'
+            html+=' <td>文体文化发展</td>'
+            html+=' <td>3</td>'
+            html+='</tr>'
+        };
+        $('.info_table_box .table').append(html)
+    }
+    info_table();
+</script>

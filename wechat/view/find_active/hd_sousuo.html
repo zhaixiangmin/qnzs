@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>找活动-搜索活动</title>
+    <!-- No Less -->
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+</head>
+<body class="bgcWhite">
+    <!-- 搜索框 -->
+    <section class="searchBox clearfix">
+        <input type="text" class="fl fz26 keyword" placeholder="搜索活动"/>
+        <a href="javascript:;" class="fr disB fz26 colorfff recentSearch">搜索</a>
+    </section>
+    <section class="recentHotSearch none">
+        <div class="recentSearch searchPub">
+            <div class="tit clearfix">
+                <span class="fl fz26">最近搜索</span>
+                <a href="javascript:;" class="fr fz26 color2185cf">清除</a>
+            </div>
+            <div class="list clearfix  recentSearchsList">
+                <div><a href="javascript:;" class="fz26">交流会</a></div>
+                <div><a href="javascript:;" class="fz26">苏迪曼杯</a></div>
+                <div><a href="javascript:;" class="fz26">交流会</a></div>
+            </div>
+        </div>
+        <div class="hotSearch searchPub">
+            <div class="tit clearfix">
+                <span class="fl fz26">热门搜索</span>
+            </div>
+            <div class="list clearfix">
+                <div><a href="javascript:;" class="fz26">交流会</a></div>
+                <div><a href="javascript:;" class="fz26">苏迪</a></div>
+                <div><a href="javascript:;" class="fz26">交流会</a></div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
+<script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../../public/js/module/Qnzs.js"> </script>
+<script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+
+<script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		
+ $('.recentSearch').focus(function(event) {
+  $('.recentHotSearch').removeClass('none');
+    });
+	  	 var  keyword=$('.keyword').val();
+	  	 
+	  	 $.ajax({
+	  	 	type:"get",
+	  	 	url:Qnzs.path+"/activity/search/list",
+	  	 	 dataType :"JSON",
+	  	 	 success:function(data){
+	  	 	 	
+	  	 	 	//var data=data.data.frequentSearchsList;
+	  	 	 	console.log(data);
+	  	 	 	
+	  	 	
+	  	 	 }
+	  	 });
+	  	
+	  	
+	
+	  
+		
+		
+		
+		
+	})
+	
+	
+	
+   
+</script>

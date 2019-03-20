@@ -1,0 +1,713 @@
+<html xmlns="//www.w3.org/1999/xhtml"><head>
+    <title>活动管理-新增</title>
+	<link rel="stylesheet" href="../../public/css/activity/activity.css" type="text/css">
+	<link rel="stylesheet" href="../../public/css/activity/activity02.css" type="text/css">
+	<link rel="stylesheet" href="../../public/css/activity/base_style.css" type="text/css">
+	<link href="../../public/css/common_style.css" rel="stylesheet" type="text/css">
+	<link href="../../public/pcCss/common/common.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/onlineEvents/pcActivityShow.css">
+	<link rel="stylesheet" href="../../public/js/jquery-easyui-1.3.3/themes/default/easyui.css" type="text/css">
+	<link rel="stylesheet" href="../../public/js/jquery-easyui-1.3.3/themes/icon.css" type="text/css">
+	<script type="text/javascript" src="../../public/js/jquery-easyui-1.3.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../../public/js/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../public/js/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../../public/js/ajaxfileupload.js"></script>
+	<script type="text/javascript" src="../../public/js/jsonUtil.js"></script>
+	<script type="text/javascript" src="../../public/js/plupload-2.1.8/js/plupload.full.min.js"></script>
+	<script type="text/javascript" src="../../public/js/commons/activity_saveOrUpdate.js"></script>
+	
+	<script type="text/javascript" src="../../public/js/commons/laydate.js"></script><link type="text/css" rel="stylesheet" href="../../public/js/commons/need/laydate.css"><link type="text/css" rel="stylesheet" href="../../public/js/commons/skins/default/laydate.css" id="LayDateSkin">
+	<style type="text/css">
+		h4{width:80px;}
+		.btn_buzhou{background:#fff; padding:20 0 20 0px;}
+		.buzhou_box{width:358px;margin:0 auto;}
+		.buzhou_box a{width:174px;height:40px;display:inline-block;background:#00A1D8;border-radius:50px;color:#fff;line-height:40px;text-align: center;}
+		.btn_sure{background:#2185CF !important;}
+		.wrap{ width: 1200px; margin:0 auto;}
+	</style>
+	<script type="text/javascript">
+		var oid = '001';
+		var dg_activity;
+		var ctx = '//www.12355.net';
+		var activity_oid = '';
+		
+		$(function(){
+			var curr_time = new Date();
+			var curr_month = curr_time.getMonth()+1;
+			var curr_day = curr_time.getDate();
+  		 	var strDate = curr_time.getFullYear()+"-";
+   			strDate += (curr_month > 9 ? curr_month+"-" : "0"+curr_month+"-");
+   			strDate += (curr_day > 9 ? curr_day : "0"+curr_day);
+			//默认当天日期
+			$('#startTime').datebox('setValue',strDate);
+			$('#endTime').datebox('setValue',strDate);
+			$('#voteStartTime').datebox('setValue',strDate);
+			$('#voteEndTime').datebox('setValue',strDate);
+		});
+    </script>
+  </head>
+  
+	<body>
+		<div class="act_tit">
+			<div class="w1200 clearfix">
+				<ul class="clearfix">
+					<li>
+						<a href="javascript:void(0);">
+							<i class="head1 cur">1</i>
+							<span class="head2 cur">基本信息</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">
+							<i class="head1">2</i>
+							<span class="head2">活动细节</span>
+						</a>
+					</li>
+					<li class="last_li">
+						<a href="javascript:void(0);">
+							<i class="head1">3</i>
+							<span class="head2">预览</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<form id="ff_activity">
+			<div class="basic_info w1200 step_div">
+				<div class="downBtn">
+					<div class="btn">
+						<a href="javascript:void(0);" class="next_step">下一步</a>
+						<!-- <a href="javascript:void(0);" class="cancel">取消</a> -->
+					</div>
+				</div>
+					<div style="padding: 20px 0 10px 100px;">
+						<a target="_blank" href="//wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/qnzs/doc/ZhongBangXiangMuFaBu-V1.0-20161102.html" style="color:red;text-decoration: underline;">操作指引查看</a>&nbsp;
+						<a target="_blank" href="//wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/qnzs/doc/ZhongBangXiangMuFaBu-V1.0-20161102.pdf" style="color:red;text-decoration: underline;">操作指引下载</a>
+					</div>
+				<div class="up">
+					<div class="step act_name clearfix">
+						<span>活动名称</span>
+						<input name="title" maxlength="30" require="true" type="text">
+					</div>
+					<div class="step photoUpload clearfix">
+						<span>标题图片</span>
+						<a class="upload">
+							上传<input value="上传" id="up_img" name="up_img" type="file">
+							<input name="bannerUrl" id="bannerUrl" require="true" value="//wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/temp/image/20170708/20170708230059_877A%`_V87}{BY37K417QLH)B2.png" type="hidden">
+						</a>
+						<p>
+							banner大小建议使用1200*330 ，支持格式jpg、bmp
+						</p>
+					</div>
+					<div id="imgdiv" style="display: block;">
+						<img id="imgShow" src="//wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/temp/image/20170708/20170708230059_877A%`_V87}{BY37K417QLH)B2.png">
+					</div>
+					<div class="step clearfix">
+						<span>活动类型</span>
+						<select style="height: 33px; width: 120px; margin-bottom: 15px;" name="type">
+								<option value="赛事">赛事</option>
+								<option value="评选">评选</option>
+								<option value="培训">培训</option>
+								<option value="其他">其他</option>
+						</select>
+					</div>
+					<div class="signup baomingjiezhi clearfix">
+						<span class="time">报名时间</span>
+						<input class="easyui-datebox datebox-f combo-f" id="startTime" data-options="deltaX:100" editable="false" style="display: none;" comboname="startTime" type="text"><span class="combo datebox" style="width: 145.4px; height: 20.4px;"><input class="combo-text validatebox-text" autocomplete="off" readonly="readonly" style="cursor: pointer; width: 127.4px; height: 20.4px; line-height: 20.4px;" type="text"><span><span class="combo-arrow" style="height: 20.4px;"></span></span><input class="combo-value" name="startTime" value="2017-07-08" type="hidden"></span> 
+						<span style="float:left;height:35px;line-height:35px;margin:0 20px;">至</span> 
+						<input class="easyui-datebox datebox-f combo-f" id="endTime" editable="false" style="display: none;" comboname="endTime" type="text"><span class="combo datebox" style="width: 145.4px; height: 20.4px;"><input class="combo-text validatebox-text" autocomplete="off" readonly="readonly" style="cursor: pointer; width: 127.4px; height: 20.4px; line-height: 20.4px;" type="text"><span><span class="combo-arrow" style="height: 20.4px;"></span></span><input class="combo-value" name="endTime" value="2017-07-08" type="hidden"></span> 
+					</div>
+					<div class="signup baomingjiezhi clearfix">
+						<span class="time">投票时间</span>
+						<input class="easyui-datebox datebox-f combo-f" id="voteStartTime" data-options="deltaX:100" editable="false" style="display: none;" comboname="voteStartTime" type="text"><span class="combo datebox" style="width: 145.4px; height: 20.4px;"><input class="combo-text validatebox-text" autocomplete="off" readonly="readonly" style="cursor: pointer; width: 127.4px; height: 20.4px; line-height: 20.4px;" type="text"><span><span class="combo-arrow" style="height: 20.4px;"></span></span><input class="combo-value" name="voteStartTime" value="2017-07-08" type="hidden"></span>
+						<span style="float:left;height:35px;line-height:35px;margin:0 20px;">至</span>
+						<input class="easyui-datebox datebox-f combo-f" id="voteEndTime" data-options="deltaX:100" editable="false" style="display: none;" comboname="voteEndTime" type="text"><span class="combo datebox" style="width: 145.4px; height: 20.4px;"><input class="combo-text validatebox-text" autocomplete="off" readonly="readonly" style="cursor: pointer; width: 127.4px; height: 20.4px; line-height: 20.4px;" type="text"><span><span class="combo-arrow" style="height: 20.4px;"></span></span><input class="combo-value" name="voteEndTime" value="2017-07-08" type="hidden"></span>  
+					</div>
+					<div class="step act_name clearfix">
+						<span>联系电话</span>
+						<input name="mobile" id="mobile" require="true" type="text">
+					</div>
+					<div class="step audit clearfix">
+						<span>报名审核</span>
+						<input value="所有下级组织可审核" name="shenhe" checked="checked" type="radio">
+						<em>所有下级组织可审核</em>
+						<input value="指定下级组织审核" name="shenhe" type="radio">
+						<em>指定下级组织审核</em>
+					</div>
+					<div class="step orgId clearfix" style="display: none; ">
+						<span>下级组织</span>
+						<select id="orgId" style="height: 33px;"></select>
+					</div>
+					<div class="step clearfix">
+						<span>选择模版</span>
+						<select style="height: 33px; width: 108px;" name="templateName">
+							
+								<option value="model2">模版1</option>
+							
+								<option value="model3">模版2</option>
+							
+								<option value="model1">模版3</option>
+							
+						</select>
+					</div>
+					<!-- 模板预览图 -->
+					<div class="modelPreview clearfix">
+						<div class="modelBlue"><img src="../../public/images/activity/actModelBlue.png"></div>
+						<div class="modelGreen"><img src="../../public/images/activity/actModelGreen.png"></div>
+						<div class="modelRed"><img src="../../public/images/activity/actModelRed.png"></div>
+					</div>
+				</div>
+				<div class="downBtn">
+					<div class="btn">
+						<a href="javascript:void(0);" class="next_step">下一步</a>
+						<!-- <a href="javascript:void(0);" class="cancel">取消</a> -->
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="basic_info w1200 main step_div" style="display: none;">
+			<div class="down w1200">
+				<div class="downBtn">
+					<div class="btn">
+						<a href="javascript:void(0);" class="last_step">上一步</a>
+						<a href="javascript:void(0);" class="next_step">下一步</a>
+					</div>
+				</div>
+			</div>
+		<div style="padding: 20px 0 10px 62px;">
+						<a target="_blank" href="//wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/qnzs/doc/ZhongBangXiangMuFaBu-V1.0-20161102.html" style="color:red;text-decoration: underline;">操作指引查看</a>&nbsp;
+						<a target="_blank" href="//wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/qnzs/doc/ZhongBangXiangMuFaBu-V1.0-20161102.pdf" style="color:red;text-decoration: underline;">操作指引下载</a>
+					</div>
+			<div class="up">
+			  <fieldset>
+    				<legend style="margin-left:-2rem;padding:1rem;">导航栏目区:</legend>
+				<!-- 文章详情1 -->
+				<div class="news1 public content_bd public03">
+					<div class="h3">
+						<input class="cb" type="checkbox">
+						<input id="news1" name="news1" value="文章详情1" disabled="disabled" type="text">
+						<input id="news1_e" onclick="edit_e(this)" value="更新内容" type="button">
+						<input id="news1_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+						<input id="news1_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+					</div>
+					<div class="content">
+						<select name="newsUrl1" id="newsUrl1">
+							<option value="">--请选择您发布的文章--</option>
+							
+								<option value="3754">2017年广东省“最美古树” 青年摄影评选活动</option>
+							
+								<option value="3716">2017年“青年同心圆计划”庆祝香港回归20周年系列活动之粤港青年专题内地实习计划候选人员名单公示公告</option>
+							
+								<option value="3679">广东省“培英计划”   北大附中为明广州实验学校“元培班”招生简介</option>
+							
+								<option value="3385">广东省“培英计划” 深圳实验承翰学校“承志班”招生简介</option>
+							
+								<option value="3341">广东省“培英计划” 广外佛山外国语学校“尚行班”招生简介</option>
+							
+								<option value="3340">广东省“培英计划” 广州市第七中学“遂志班”招生简介</option>
+							
+								<option value="3339">广东省“培英计划” 广州市培正中学“红蓝班”招生简介</option>
+							
+								<option value="3241">关于推选广东省学生联合会第十一次代表大会代表和第十一届委员会候选团体的通知</option>
+							
+								<option value="3240">学联风采 | 我们的故事，希望永远续写（华农学生会）</option>
+							
+								<option value="3239">学联风采｜正好遇见你，有幸赖上你（广海学生会篇）</option>
+							
+								<option value="3238">青春喜迎十九大：揭秘你所不知道的百年广东学联</option>
+							
+								<option value="3237">厉害了，word学联君！广东学联十一大宣传片燃爆来袭！</option>
+							
+						</select>
+					</div>
+				</div>
+				<!-- 文章详情2 -->
+				<div class="news2 public content_bd public03">
+					<div class="h3">
+						<input class="cb" type="checkbox">
+						<input id="news2" name="news2" value="文章详情2" disabled="disabled" type="text">
+						<input id="news2_e" onclick="edit_e(this)" value="更新内容" type="button">
+						<input id="news2_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+						<input id="news2_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+					</div>
+					<div class="content">
+						<select name="newsUrl2" id="newsUrl2">
+							<option value="">--请选择您发布的文章--</option>
+							
+								<option value="3754">2017年广东省“最美古树” 青年摄影评选活动</option>
+							
+								<option value="3716">2017年“青年同心圆计划”庆祝香港回归20周年系列活动之粤港青年专题内地实习计划候选人员名单公示公告</option>
+							
+								<option value="3679">广东省“培英计划”   北大附中为明广州实验学校“元培班”招生简介</option>
+							
+								<option value="3385">广东省“培英计划” 深圳实验承翰学校“承志班”招生简介</option>
+							
+								<option value="3341">广东省“培英计划” 广外佛山外国语学校“尚行班”招生简介</option>
+							
+								<option value="3340">广东省“培英计划” 广州市第七中学“遂志班”招生简介</option>
+							
+								<option value="3339">广东省“培英计划” 广州市培正中学“红蓝班”招生简介</option>
+							
+								<option value="3241">关于推选广东省学生联合会第十一次代表大会代表和第十一届委员会候选团体的通知</option>
+							
+								<option value="3240">学联风采 | 我们的故事，希望永远续写（华农学生会）</option>
+							
+								<option value="3239">学联风采｜正好遇见你，有幸赖上你（广海学生会篇）</option>
+							
+								<option value="3238">青春喜迎十九大：揭秘你所不知道的百年广东学联</option>
+							
+								<option value="3237">厉害了，word学联君！广东学联十一大宣传片燃爆来袭！</option>
+							
+						</select>
+					</div>
+				</div>
+				<!-- 文章列表1 -->
+				<div class="newsList1 public content_bd public03">
+					<div class="h3">
+						<input class="cb" type="checkbox">
+						<input id="newsList1" name="newsList1" value="文章列表1" disabled="disabled" type="text">
+						<input id="newsList1_e" onclick="edit_e(this)" value="更新内容" type="button">
+						<input id="newsList1_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+						<input id="newsList1_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+					</div>
+					<div class="content">
+						<div class="newslist">
+						
+							<input class="checknews" name="newsList1" value="3754" type="checkbox">2017年广东省“最美古树” 青年摄影评选活动<br>
+						
+							<input class="checknews" name="newsList1" value="3716" type="checkbox">2017年“青年同心圆计划”庆祝香港回归20周年系列活动之粤港青年专题内地实习计划候选人员名单公示公告<br>
+						
+							<input class="checknews" name="newsList1" value="3679" type="checkbox">广东省“培英计划”   北大附中为明广州实验学校“元培班”招生简介<br>
+						
+							<input class="checknews" name="newsList1" value="3385" type="checkbox">广东省“培英计划” 深圳实验承翰学校“承志班”招生简介<br>
+						
+							<input class="checknews" name="newsList1" value="3341" type="checkbox">广东省“培英计划” 广外佛山外国语学校“尚行班”招生简介<br>
+						
+							<input class="checknews" name="newsList1" value="3340" type="checkbox">广东省“培英计划” 广州市第七中学“遂志班”招生简介<br>
+						
+							<input class="checknews" name="newsList1" value="3339" type="checkbox">广东省“培英计划” 广州市培正中学“红蓝班”招生简介<br>
+						
+							<input class="checknews" name="newsList1" value="3241" type="checkbox">关于推选广东省学生联合会第十一次代表大会代表和第十一届委员会候选团体的通知<br>
+						
+							<input class="checknews" name="newsList1" value="3240" type="checkbox">学联风采 | 我们的故事，希望永远续写（华农学生会）<br>
+						
+							<input class="checknews" name="newsList1" value="3239" type="checkbox">学联风采｜正好遇见你，有幸赖上你（广海学生会篇）<br>
+						
+							<input class="checknews" name="newsList1" value="3238" type="checkbox">青春喜迎十九大：揭秘你所不知道的百年广东学联<br>
+						
+							<input class="checknews" name="newsList1" value="3237" type="checkbox">厉害了，word学联君！广东学联十一大宣传片燃爆来袭！<br>
+						
+						</div>
+					</div>
+				</div>
+				<!-- 文章列表2 -->
+				<div class="newsList2 public content_bd public03">
+					<div class="h3">
+						<input class="cb" type="checkbox">
+						<input id="newsList2" name="newsList2" value="文章列表2" disabled="disabled" type="text">
+						<input id="newsList2_e" onclick="edit_e(this)" value="更新内容" type="button">
+						<input id="newsList2_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+						<input id="newsList2_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+					</div>
+					<div class="content">
+						<div class="newslist">
+						
+							<input class="checknews" name="newsList2" value="3754" type="checkbox">2017年广东省“最美古树” 青年摄影评选活动<br>
+						
+							<input class="checknews" name="newsList2" value="3716" type="checkbox">2017年“青年同心圆计划”庆祝香港回归20周年系列活动之粤港青年专题内地实习计划候选人员名单公示公告<br>
+						
+							<input class="checknews" name="newsList2" value="3679" type="checkbox">广东省“培英计划”   北大附中为明广州实验学校“元培班”招生简介<br>
+						
+							<input class="checknews" name="newsList2" value="3385" type="checkbox">广东省“培英计划” 深圳实验承翰学校“承志班”招生简介<br>
+						
+							<input class="checknews" name="newsList2" value="3341" type="checkbox">广东省“培英计划” 广外佛山外国语学校“尚行班”招生简介<br>
+						
+							<input class="checknews" name="newsList2" value="3340" type="checkbox">广东省“培英计划” 广州市第七中学“遂志班”招生简介<br>
+						
+							<input class="checknews" name="newsList2" value="3339" type="checkbox">广东省“培英计划” 广州市培正中学“红蓝班”招生简介<br>
+						
+							<input class="checknews" name="newsList2" value="3241" type="checkbox">关于推选广东省学生联合会第十一次代表大会代表和第十一届委员会候选团体的通知<br>
+						
+							<input class="checknews" name="newsList2" value="3240" type="checkbox">学联风采 | 我们的故事，希望永远续写（华农学生会）<br>
+						
+							<input class="checknews" name="newsList2" value="3239" type="checkbox">学联风采｜正好遇见你，有幸赖上你（广海学生会篇）<br>
+						
+							<input class="checknews" name="newsList2" value="3238" type="checkbox">青春喜迎十九大：揭秘你所不知道的百年广东学联<br>
+						
+							<input class="checknews" name="newsList2" value="3237" type="checkbox">厉害了，word学联君！广东学联十一大宣传片燃爆来袭！<br>
+						
+						</div>
+					</div>
+				</div>
+    			<!-- 参评项目 -->
+  				<div class="canping public content_bd public03">
+					<div class="h3">
+						<input class="cb" type="checkbox">
+						<input id="cpxm" name="cpxm" value="参评项目" disabled="disabled" type="text">
+						<input id="cpxm_e" onclick="edit_e(this)" value="更新内容" type="button">
+						<input id="cpxm_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+						<input id="cpxm_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+					</div>
+				</div>
+				</fieldset>
+				 <fieldset>
+    				<legend style="margin-left:-2rem;padding:1rem;">首页展示区:</legend>
+				<div class="public content_bd public03 cur">
+					<div class="h3">
+						<input class="cb" checked="checked" type="checkbox">
+						<input id="id" name="id" value="" disabled="disabled" type="hidden">
+						<input id="hdjs" name="hdjs" value="活动介绍/详情" disabled="disabled" type="text">
+						<input id="hdjs_e" onclick="edit_e(this)" value="更新内容" type="button">
+						<input id="hdjs_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+						<input id="hdjs_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+						<input id="hdjs_d" onclick="default_d(this)" value="重置" style="display: none;" type="button">
+					</div>
+					<div class="content">
+						<textarea name="remark" id="remark" class="content content_bd" style="height:70px;" maxlength="1000" placeholder="100字以上1000字以下
+示例:
+广东青年之声优秀工作人员评选大赛，该评选项目从2016年至今每年从六月份到九月份举行，多次的举办都获得了群众的一致好评。"></textarea>
+					</div>
+				</div>
+				<form id="ff_process">
+					<div class="flow public public02">
+						<div class="h3">
+							<input class="cb" type="checkbox">
+							<input id="hdlc" name="hdlc" value="活动流程" disabled="disabled" type="text">
+							<input id="hdlc_e" onclick="edit_e(this)" value="更新内容" type="button">
+							<input id="hdlc_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+							<input id="hdlc_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+						</div>
+						<div class="content">
+							<div class="clearfix">
+								<h4>编号</h4>
+								<span style="width:190px;">时间段</span>
+								<p>本阶段的内容</p>
+							</div>
+							<ul>
+								<li class="clearfix cur">
+									<i>1</i>
+									<input class="start" onclick="laydate()" name="startTime" id="startTime" placeholder="开始" data-options="deltaX:100" type="text">
+									<input class="end" onclick="laydate()" name="endTime" id="startTime" placeholder="结束" data-options="deltaX:100" type="text">
+									<input name="content" class="con" placeholder="示例：项目申报" type="text">
+									<em class="delete">×</em>
+									<em class="flow_add add" id="flow_add">+</em>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</form>
+				<form id="ff_sign">
+					<div class="require public public02">
+						<div class="h3">
+							<input class="cb" type="checkbox">
+							<input id="bmyq" name="bmyq" value="报名要求" disabled="disabled" type="text">
+							<input id="bmyq_e" onclick="edit_e(this)" value="更新内容" type="button">
+							<input id="bmyq_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+							<input id="bmyq_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+						</div>
+						<div class="content">
+							<div class="clearfix">
+								<h4>编号</h4>
+								<span>要求</span>
+							</div>
+							<ul>
+								<li class="clearfix cur">
+									<i>1</i>
+									<input name="content" class="con" placeholder="示例：年满18岁" maxlength="50" type="text">
+									<input name="type" value="1" type="hidden"><!-- 报名要求 -->
+									<em class="delete">×</em>
+									<em class="require_add add">+</em>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</form>
+				<form id="ff_mission">
+					<div class="project public public02">
+						<div class="h3">
+							<input class="cb" type="checkbox">
+							<input id="xmyq" name="xmyq" value="项目要求" disabled="disabled" type="text">
+							<input id="xmyq_e" onclick="edit_e(this)" value="更新内容" type="button">
+							<input id="xmyq_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+							<input id="xmyq_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+						</div>
+						<div class="content">
+							<div class="clearfix">
+								<h4>编号</h4>
+								<span>要求</span>
+							</div>
+							<ul>
+								<li class="clearfix cur">
+									<i>1</i>
+									<input name="content" class="con" placeholder="示例：项目符合环保理念" maxlength="50" type="text">
+									<input name="type" value="2" type="hidden"><!-- 项目要求 -->
+									<em class="delete">×</em>
+									<em class="project_add add">+</em>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</form>
+				<form id="datazipUrl">
+					<div class="project public public02">
+						<div class="h3">
+							<input class="cb" type="checkbox">
+							<input id="fj" name="fj" value="附件" disabled="disabled" type="text">
+							<input id="fj_e" onclick="edit_e(this)" value="更新内容" type="button">
+							<input id="fj_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+							<input id="fj_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+						</div>
+						<div class="content">
+
+							<div class="step photoUpload clearfix ">
+					            <a class="upload">上传附件 <!-- accept="application/msword,aplication/zip" --> 
+					                <input class="uploadFileBtn" id="up_file" name="up_file" multiple="multiple" onchange="javascript:uploadFile();" type="file">
+					            	<input name="fileUrl" id="fileUrl" "="" type="hidden">
+					            </a>
+					            <p id="pickFileBtnNext" class="fl prompt" style="color:#333;">请上传相关报名资料，如果有多个请压缩后上传</p>
+							</div>
+						</div>
+					</div>
+				</form>
+							
+				<form id="ff_prize">
+					<div class="prizes public public02">
+						<div class="h3">
+							<input class="cb" type="checkbox">
+							<input id="jlsz" name="jlsz" value="奖励设置" disabled="disabled" type="text">
+							<input id="jlsz_e" onclick="edit_e(this)" value="更新内容" type="button">
+							<input id="jlsz_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+							<input id="jlsz_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+						</div>
+						<div class="content">
+							<div class="clearfix">
+								<h4>编号</h4>
+								<span class="s01" style="width:106px;">奖项</span>
+								<span class="s02" style="width:145px;">数量</span>
+								<p>奖品</p>
+							</div>
+							<ul>
+								<li class="clearfix cur">
+									<i>1</i>
+									<input name="ranking" class="prize_kind start" placeholder="示例：一等奖" maxlength="10">
+									<input name="count" class="prize_count end" placeholder="示例：1">
+									<input name="prizes" class="con" placeholder="示例：macbook air一台" maxlength="20" type="text">
+									<em class="delete">×</em>
+									<em class="prize_add add">+</em>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</form>
+				<form id="ff_rule">
+					<div class="rule public public02">
+						<div class="h3">
+							<input class="cb" type="checkbox">
+							<input id="pxgz" name="pxgz" value="评选规则" disabled="disabled" type="text">
+							<input id="pxgz_e" onclick="edit_e(this)" value="更新内容" type="button">
+							<input id="pxgz_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+							<input id="pxgz_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+						</div>
+						<div class="content">
+							<div class="clearfix">
+								<h4>编号</h4>
+								<span class="s01" style="width:106px;">权重（%）</span>
+								<span class="s02" style="width:145px;">内容</span>
+							</div>
+							<ul>
+								<li class="clearfix cur">
+									<i>1</i>
+									<input name="weight" class="weight" placeholder="示例：30" maxlength="3">
+									<input name="rule" class="con" placeholder="示例：在线投票" maxlength="50" type="text">
+									<em class="delete">×</em>
+									<em class="rule_add add">+</em>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</form>
+				<div class="zhuban public public03">
+					<div class="h3">
+						<input class="cb" type="checkbox">
+						<input id="zbdw" name="zbdw" value="主办单位" disabled="disabled" type="text">
+						<input id="zbdw_e" onclick="edit_e(this)" value="更新内容" type="button">
+						<input id="zbdw_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+						<input id="zbdw_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+					</div>
+					<div class="content">
+						<textarea class="content content_bd" name="sponsorUnit" id="sponsorUnit" placeholder="示例：广东团省委 广州团市委"></textarea>
+					</div>
+				</div>
+				<div class="xieban public public03">
+					<div class="h3">
+						<input class="cb" type="checkbox">
+						<input id="xbdw" name="xbdw" value="协办单位" disabled="disabled" type="text">
+						<input id="xbdw_e" onclick="edit_e(this)" value="更新内容" type="button">
+						<input id="xbdw_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+						<input id="xbdw_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+					</div>
+					<div class="content">
+						<textarea class="content content_bd" name="assistUnit" id="assistUnit" placeholder="示例：东莞团市委"></textarea>
+					</div>
+				</div>
+				<div class="chengban public public03">
+					<div class="h3">
+						<input class="cb" type="checkbox">
+						<input id="cbdw" name="cbdw" value="承办单位" disabled="disabled" type="text">
+						<input id="cbdw_e" onclick="edit_e(this)" value="更新内容" type="button">
+						<input id="cbdw_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+						<input id="cbdw_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+					</div>
+					<div class="content">
+						<textarea class="content content_bd" name="undertakeUnit" id="undertakeUnit" placeholder="示例：汇青公司"></textarea>
+					</div>
+				</div>
+				<div class="zixun public content_bd public03">
+					<div class="h3">
+						<input class="cb" type="checkbox">
+						<input id="zxzxlj" name="zxzxlj" value="在线咨询链接" disabled="disabled" type="text">
+						<input id="zxzxlj_e" onclick="edit_e(this)" value="更新内容" type="button">
+						<input id="zxzxlj_s" onclick="save_s(this)" value="保存" style="display: none;" type="button">
+						<input id="zxzxlj_c" onclick="cancel_c(this)" value="取消" style="display: none;" type="button">
+					</div>
+					<div class="content">
+						<textarea class="content content_bd" name="askUrl" id="askUrl" placeholder="示例：//www.gd12355.org/questionManage/detail?quId=8408364(请先到相应版块发帖)"></textarea>
+					</div>
+				</div>
+				</fieldset>
+				
+			 
+			</div>
+			<div class="down w1200">
+				<div class="downBtn">
+					<div class="btn">
+						<a href="javascript:void(0);" class="last_step">上一步</a>
+						<a href="javascript:void(0);" class="next_step">下一步</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 预览板块begin -->
+		<section class="step_div" style="display:none;">
+			
+			<div id="templateDiv"></div>
+			<!-- 按钮 -->
+			<div class="btn_buzhou">
+			    <div class="wrap">
+			        <div class="buzhou_box clearfix">
+			            <a href="javascript:void(0);" class="fl fnt14 last_step">上一步</a>
+			            <a href="javascript:void(0);" class="fl fnt14 m_left10 btn_sure" id="add_btn">确认发布</a>
+			        </div>
+			    </div>
+			</div>
+		</section>
+		<div class="dark"><em class="darkClose">×</em></div>
+		<!-- 预览板块end -->
+	<script type="text/javascript">
+	var uploader = new plupload.Uploader({
+	runtimes : 'html5,flash,silverlight,html4',
+	browse_button : 'pickFileBtn', // you can pass an id...
+	container: document.getElementById('container'), // ... or DOM Element itself
+	url : ctx+'/file_upload',
+	
+	filters : {
+		max_file_size : '10MB',
+		mime_types: [
+	            {title : "File files", extensions : "pdf,ppt,doc,docx,pptx"}
+		],
+		prevent_duplicates : true//不允许选取重复文件
+	},
+
+	init: {
+		PostInit: function() {
+			document.getElementById('filelist').innerHTML = '';
+
+			document.getElementById('uploadFileBtn').onclick = function() {
+				uploader.start();
+				return false;
+			};
+		},
+
+		FilesAdded: function(up, files) {
+			plupload.each(files, function(file) {
+			document.getElementById('filelist').innerHTML += '<div id="' + file.id + '"><b>' + file.name + ' (' + plupload.formatSize(file.size) + ') </b><span></span></div>';
+			});
+		},
+
+		UploadProgress: function(up, file) {
+			document.getElementById(file.id).getElementsByTagName('span')[0].innerHTML = '<span style="color:green; font-size:16px;"><b>&nbsp;&nbsp;' + file.percent + "%</b></span>";
+			if(file.percent == 100){
+				$('#pickFileBtn').hide();
+				$('#pickFileBtnNext').hide();
+				$('#uploadFileBtn').hide();
+			}
+		},
+
+	    FileUploaded: function(up, file, data) {
+	        	console.log(data);
+	        	var response = JSON.parse(data.response);
+	        	if (response.error == 0) {
+		        		alert("上传成功");
+		        		//var filelist = $('#filelist');
+	
+		        		//filelist.append('<input type="hidden" name="fileUrl" value="' + response.url + '" id="' + file.id + '" />');
+		        		//$('#fileUrl').val(response.url);
+		        		$('input[name="fileUrl"]').val(response.url);
+		        	} else {
+		        		alert(response.message);
+		        	}
+	       	 	},
+				Error: function(up, err) {
+					document.getElementById('console').appendChild(document.createTextNode("\nError #" + err.code + ": " + err.message));
+				}
+			}
+		});
+		
+		uploader.init();
+		
+	 	
+		/* 模板预览图 */
+		
+		/* $('.modelPreview>div').click(function(){
+			$(this).toggleClass('enlarge');
+			if($(this).hasClass('enlarge')){
+				$(this).animate({"width":"1200px","left":"50%","margin-left":"-640px","top":"-500px"},400)
+				$('.dark').show();
+			}
+		})
+		
+		$('.dark .darkClose').click(function(){
+			$(this).parent().hide();
+			if($('.modelPreview .modelBlue').hasClass('enlarge')){
+				$('.modelPreview .modelBlue').animate({"width":"220px","left":"0","margin-left":"0","top":"0"},400);
+				setTimeout(function(){
+					$('.modelPreview .modelBlue').removeClass("enlarge");
+				},400)
+					
+			}
+			
+			if($('.modelPreview .modelGreen').hasClass('enlarge')){
+				$('.modelPreview .modelGreen').animate({"width":"220px","left":"250px","margin-left":"0","top":"0"},400);
+				setTimeout(function(){
+					$('.modelPreview .modelGreen').removeClass("enlarge");
+				},400)
+			}
+			
+			if($('.modelPreview .modelRed').hasClass('enlarge')){
+				$('.modelPreview .modelRed').animate({"width":"220px","left":"500px","margin-left":"0","top":"0"},400);
+				setTimeout(function(){
+					$('.modelPreview .modelRed').removeClass("enlarge");
+				},400)
+			}
+			
+			
+		}) */
+		
+	</script>
+	<div style="display:none">
+		<script src="https://s95.cnzz.com/stat.php?id=1258031328&amp;web_id=1258031328" language="JavaScript"></script><script src="https://c.cnzz.com/core.php?web_id=1258031328&amp;t=z" charset="utf-8" type="text/javascript"></script><a href="//www.cnzz.com/stat/website.php?web_id=1258031328" target="_blank" title="站长统计">站长统计</a>
+	</div>
+	<script type="text/javascript" src="../../public/js/commons/activity_titleModify.js"></script>
+	
+<div class="panel combo-p" style="position: absolute; z-index: 10; display: none; width: 180px;"><div class="combo-panel panel-body panel-body-noheader" title="" style="width: 178.4px; height: auto; overflow: hidden;"><div class="datebox-calendar-inner panel-noscroll"><div class="calendar calendar-noborder" style="width: 0px; height: 178px;"><div class="calendar-header"><div class="calendar-prevmonth"></div><div class="calendar-nextmonth"></div><div class="calendar-prevyear"></div><div class="calendar-nextyear"></div><div class="calendar-title"><span>七月 2017</span></div></div><div class="calendar-body" style="height: 156px;"><table cellspacing="0" cellpadding="0" border="0"><thead><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead><tbody><tr><td class="calendar-day calendar-other-month calendar-sunday" abbr="2017,6,25">25</td><td class="calendar-day calendar-other-month" abbr="2017,6,26">26</td><td class="calendar-day calendar-other-month" abbr="2017,6,27">27</td><td class="calendar-day calendar-other-month" abbr="2017,6,28">28</td><td class="calendar-day calendar-other-month" abbr="2017,6,29">29</td><td class="calendar-day calendar-other-month" abbr="2017,6,30">30</td><td class="calendar-day calendar-saturday" abbr="2017,7,1">1</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,2">2</td><td class="calendar-day" abbr="2017,7,3">3</td><td class="calendar-day" abbr="2017,7,4">4</td><td class="calendar-day" abbr="2017,7,5">5</td><td class="calendar-day" abbr="2017,7,6">6</td><td class="calendar-day" abbr="2017,7,7">7</td><td class="calendar-day calendar-today calendar-selected calendar-saturday" abbr="2017,7,8">8</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,9">9</td><td class="calendar-day" abbr="2017,7,10">10</td><td class="calendar-day" abbr="2017,7,11">11</td><td class="calendar-day" abbr="2017,7,12">12</td><td class="calendar-day" abbr="2017,7,13">13</td><td class="calendar-day" abbr="2017,7,14">14</td><td class="calendar-day calendar-saturday" abbr="2017,7,15">15</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,16">16</td><td class="calendar-day" abbr="2017,7,17">17</td><td class="calendar-day" abbr="2017,7,18">18</td><td class="calendar-day" abbr="2017,7,19">19</td><td class="calendar-day" abbr="2017,7,20">20</td><td class="calendar-day" abbr="2017,7,21">21</td><td class="calendar-day calendar-saturday" abbr="2017,7,22">22</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,23">23</td><td class="calendar-day" abbr="2017,7,24">24</td><td class="calendar-day" abbr="2017,7,25">25</td><td class="calendar-day" abbr="2017,7,26">26</td><td class="calendar-day" abbr="2017,7,27">27</td><td class="calendar-day" abbr="2017,7,28">28</td><td class="calendar-day calendar-saturday" abbr="2017,7,29">29</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,30">30</td><td class="calendar-day" abbr="2017,7,31">31</td><td class="calendar-day calendar-other-month" abbr="2017,8,1">1</td><td class="calendar-day calendar-other-month" abbr="2017,8,2">2</td><td class="calendar-day calendar-other-month" abbr="2017,8,3">3</td><td class="calendar-day calendar-other-month" abbr="2017,8,4">4</td><td class="calendar-day calendar-other-month calendar-saturday" abbr="2017,8,5">5</td></tr></tbody></table><div class="calendar-menu" style="display: none;"><div class="calendar-menu-year-inner"><span class="calendar-menu-prev"></span><span><input class="calendar-menu-year" type="text"></span><span class="calendar-menu-next"></span></div><div class="calendar-menu-month-inner"></div></div></div></div></div><div class="datebox-button"><table style="width:100%" cellspacing="0" cellpadding="0"><tbody><tr><td style="width: 50%;"><a href="javascript:void(0)">今天</a></td><td style="width: 50%;"><a href="javascript:void(0)">关闭</a></td></tr></tbody></table></div></div></div><div class="panel combo-p" style="position: absolute; z-index: 10; display: none; width: 180px;"><div class="combo-panel panel-body panel-body-noheader" title="" style="width: 178.4px; height: auto; overflow: hidden;"><div class="datebox-calendar-inner panel-noscroll"><div class="calendar calendar-noborder" style="width: 0px; height: 178px;"><div class="calendar-header"><div class="calendar-prevmonth"></div><div class="calendar-nextmonth"></div><div class="calendar-prevyear"></div><div class="calendar-nextyear"></div><div class="calendar-title"><span>七月 2017</span></div></div><div class="calendar-body" style="height: 156px;"><table cellspacing="0" cellpadding="0" border="0"><thead><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead><tbody><tr><td class="calendar-day calendar-other-month calendar-sunday" abbr="2017,6,25">25</td><td class="calendar-day calendar-other-month" abbr="2017,6,26">26</td><td class="calendar-day calendar-other-month" abbr="2017,6,27">27</td><td class="calendar-day calendar-other-month" abbr="2017,6,28">28</td><td class="calendar-day calendar-other-month" abbr="2017,6,29">29</td><td class="calendar-day calendar-other-month" abbr="2017,6,30">30</td><td class="calendar-day calendar-saturday" abbr="2017,7,1">1</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,2">2</td><td class="calendar-day" abbr="2017,7,3">3</td><td class="calendar-day" abbr="2017,7,4">4</td><td class="calendar-day" abbr="2017,7,5">5</td><td class="calendar-day" abbr="2017,7,6">6</td><td class="calendar-day" abbr="2017,7,7">7</td><td class="calendar-day calendar-today calendar-selected calendar-saturday" abbr="2017,7,8">8</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,9">9</td><td class="calendar-day" abbr="2017,7,10">10</td><td class="calendar-day" abbr="2017,7,11">11</td><td class="calendar-day" abbr="2017,7,12">12</td><td class="calendar-day" abbr="2017,7,13">13</td><td class="calendar-day" abbr="2017,7,14">14</td><td class="calendar-day calendar-saturday" abbr="2017,7,15">15</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,16">16</td><td class="calendar-day" abbr="2017,7,17">17</td><td class="calendar-day" abbr="2017,7,18">18</td><td class="calendar-day" abbr="2017,7,19">19</td><td class="calendar-day" abbr="2017,7,20">20</td><td class="calendar-day" abbr="2017,7,21">21</td><td class="calendar-day calendar-saturday" abbr="2017,7,22">22</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,23">23</td><td class="calendar-day" abbr="2017,7,24">24</td><td class="calendar-day" abbr="2017,7,25">25</td><td class="calendar-day" abbr="2017,7,26">26</td><td class="calendar-day" abbr="2017,7,27">27</td><td class="calendar-day" abbr="2017,7,28">28</td><td class="calendar-day calendar-saturday" abbr="2017,7,29">29</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,30">30</td><td class="calendar-day" abbr="2017,7,31">31</td><td class="calendar-day calendar-other-month" abbr="2017,8,1">1</td><td class="calendar-day calendar-other-month" abbr="2017,8,2">2</td><td class="calendar-day calendar-other-month" abbr="2017,8,3">3</td><td class="calendar-day calendar-other-month" abbr="2017,8,4">4</td><td class="calendar-day calendar-other-month calendar-saturday" abbr="2017,8,5">5</td></tr></tbody></table><div class="calendar-menu" style="display: none;"><div class="calendar-menu-year-inner"><span class="calendar-menu-prev"></span><span><input class="calendar-menu-year" type="text"></span><span class="calendar-menu-next"></span></div><div class="calendar-menu-month-inner"></div></div></div></div></div><div class="datebox-button"><table style="width:100%" cellspacing="0" cellpadding="0"><tbody><tr><td style="width: 50%;"><a href="javascript:void(0)">今天</a></td><td style="width: 50%;"><a href="javascript:void(0)">关闭</a></td></tr></tbody></table></div></div></div><div class="panel combo-p" style="position: absolute; z-index: 10; display: none; width: 180px;"><div class="combo-panel panel-body panel-body-noheader" title="" style="width: 178.4px; height: auto; overflow: hidden;"><div class="datebox-calendar-inner panel-noscroll"><div class="calendar calendar-noborder" style="width: 0px; height: 178px;"><div class="calendar-header"><div class="calendar-prevmonth"></div><div class="calendar-nextmonth"></div><div class="calendar-prevyear"></div><div class="calendar-nextyear"></div><div class="calendar-title"><span>七月 2017</span></div></div><div class="calendar-body" style="height: 156px;"><table cellspacing="0" cellpadding="0" border="0"><thead><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead><tbody><tr><td class="calendar-day calendar-other-month calendar-sunday" abbr="2017,6,25">25</td><td class="calendar-day calendar-other-month" abbr="2017,6,26">26</td><td class="calendar-day calendar-other-month" abbr="2017,6,27">27</td><td class="calendar-day calendar-other-month" abbr="2017,6,28">28</td><td class="calendar-day calendar-other-month" abbr="2017,6,29">29</td><td class="calendar-day calendar-other-month" abbr="2017,6,30">30</td><td class="calendar-day calendar-saturday" abbr="2017,7,1">1</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,2">2</td><td class="calendar-day" abbr="2017,7,3">3</td><td class="calendar-day" abbr="2017,7,4">4</td><td class="calendar-day" abbr="2017,7,5">5</td><td class="calendar-day" abbr="2017,7,6">6</td><td class="calendar-day" abbr="2017,7,7">7</td><td class="calendar-day calendar-today calendar-selected calendar-saturday" abbr="2017,7,8">8</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,9">9</td><td class="calendar-day" abbr="2017,7,10">10</td><td class="calendar-day" abbr="2017,7,11">11</td><td class="calendar-day" abbr="2017,7,12">12</td><td class="calendar-day" abbr="2017,7,13">13</td><td class="calendar-day" abbr="2017,7,14">14</td><td class="calendar-day calendar-saturday" abbr="2017,7,15">15</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,16">16</td><td class="calendar-day" abbr="2017,7,17">17</td><td class="calendar-day" abbr="2017,7,18">18</td><td class="calendar-day" abbr="2017,7,19">19</td><td class="calendar-day" abbr="2017,7,20">20</td><td class="calendar-day" abbr="2017,7,21">21</td><td class="calendar-day calendar-saturday" abbr="2017,7,22">22</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,23">23</td><td class="calendar-day" abbr="2017,7,24">24</td><td class="calendar-day" abbr="2017,7,25">25</td><td class="calendar-day" abbr="2017,7,26">26</td><td class="calendar-day" abbr="2017,7,27">27</td><td class="calendar-day" abbr="2017,7,28">28</td><td class="calendar-day calendar-saturday" abbr="2017,7,29">29</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,30">30</td><td class="calendar-day" abbr="2017,7,31">31</td><td class="calendar-day calendar-other-month" abbr="2017,8,1">1</td><td class="calendar-day calendar-other-month" abbr="2017,8,2">2</td><td class="calendar-day calendar-other-month" abbr="2017,8,3">3</td><td class="calendar-day calendar-other-month" abbr="2017,8,4">4</td><td class="calendar-day calendar-other-month calendar-saturday" abbr="2017,8,5">5</td></tr></tbody></table><div class="calendar-menu" style="display: none;"><div class="calendar-menu-year-inner"><span class="calendar-menu-prev"></span><span><input class="calendar-menu-year" type="text"></span><span class="calendar-menu-next"></span></div><div class="calendar-menu-month-inner"></div></div></div></div></div><div class="datebox-button"><table style="width:100%" cellspacing="0" cellpadding="0"><tbody><tr><td style="width: 50%;"><a href="javascript:void(0)">今天</a></td><td style="width: 50%;"><a href="javascript:void(0)">关闭</a></td></tr></tbody></table></div></div></div><div class="panel combo-p" style="position: absolute; z-index: 10; display: none; width: 180px;"><div class="combo-panel panel-body panel-body-noheader" title="" style="width: 178.4px; height: auto; overflow: hidden;"><div class="datebox-calendar-inner panel-noscroll"><div class="calendar calendar-noborder" style="width: 0px; height: 178px;"><div class="calendar-header"><div class="calendar-prevmonth"></div><div class="calendar-nextmonth"></div><div class="calendar-prevyear"></div><div class="calendar-nextyear"></div><div class="calendar-title"><span>七月 2017</span></div></div><div class="calendar-body" style="height: 156px;"><table cellspacing="0" cellpadding="0" border="0"><thead><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead><tbody><tr><td class="calendar-day calendar-other-month calendar-sunday" abbr="2017,6,25">25</td><td class="calendar-day calendar-other-month" abbr="2017,6,26">26</td><td class="calendar-day calendar-other-month" abbr="2017,6,27">27</td><td class="calendar-day calendar-other-month" abbr="2017,6,28">28</td><td class="calendar-day calendar-other-month" abbr="2017,6,29">29</td><td class="calendar-day calendar-other-month" abbr="2017,6,30">30</td><td class="calendar-day calendar-saturday" abbr="2017,7,1">1</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,2">2</td><td class="calendar-day" abbr="2017,7,3">3</td><td class="calendar-day" abbr="2017,7,4">4</td><td class="calendar-day" abbr="2017,7,5">5</td><td class="calendar-day" abbr="2017,7,6">6</td><td class="calendar-day" abbr="2017,7,7">7</td><td class="calendar-day calendar-today calendar-selected calendar-saturday" abbr="2017,7,8">8</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,9">9</td><td class="calendar-day" abbr="2017,7,10">10</td><td class="calendar-day" abbr="2017,7,11">11</td><td class="calendar-day" abbr="2017,7,12">12</td><td class="calendar-day" abbr="2017,7,13">13</td><td class="calendar-day" abbr="2017,7,14">14</td><td class="calendar-day calendar-saturday" abbr="2017,7,15">15</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,16">16</td><td class="calendar-day" abbr="2017,7,17">17</td><td class="calendar-day" abbr="2017,7,18">18</td><td class="calendar-day" abbr="2017,7,19">19</td><td class="calendar-day" abbr="2017,7,20">20</td><td class="calendar-day" abbr="2017,7,21">21</td><td class="calendar-day calendar-saturday" abbr="2017,7,22">22</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,23">23</td><td class="calendar-day" abbr="2017,7,24">24</td><td class="calendar-day" abbr="2017,7,25">25</td><td class="calendar-day" abbr="2017,7,26">26</td><td class="calendar-day" abbr="2017,7,27">27</td><td class="calendar-day" abbr="2017,7,28">28</td><td class="calendar-day calendar-saturday" abbr="2017,7,29">29</td></tr><tr><td class="calendar-day calendar-sunday" abbr="2017,7,30">30</td><td class="calendar-day" abbr="2017,7,31">31</td><td class="calendar-day calendar-other-month" abbr="2017,8,1">1</td><td class="calendar-day calendar-other-month" abbr="2017,8,2">2</td><td class="calendar-day calendar-other-month" abbr="2017,8,3">3</td><td class="calendar-day calendar-other-month" abbr="2017,8,4">4</td><td class="calendar-day calendar-other-month calendar-saturday" abbr="2017,8,5">5</td></tr></tbody></table><div class="calendar-menu" style="display: none;"><div class="calendar-menu-year-inner"><span class="calendar-menu-prev"></span><span><input class="calendar-menu-year" type="text"></span><span class="calendar-menu-next"></span></div><div class="calendar-menu-month-inner"></div></div></div></div></div><div class="datebox-button"><table style="width:100%" cellspacing="0" cellpadding="0"><tbody><tr><td style="width: 50%;"><a href="javascript:void(0)">今天</a></td><td style="width: 50%;"><a href="javascript:void(0)">关闭</a></td></tr></tbody></table></div></div></div></body></html>

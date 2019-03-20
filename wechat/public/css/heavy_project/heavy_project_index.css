@@ -1,0 +1,43 @@
+.bodyPB { position: relative; }
+body{padding-top:1.6rem;}
+/* 头部筛选 */
+.choose_t { border-bottom: 1px solid #ebebeb; height: 1.6rem; line-height: 1.6rem; position:fixed;width:100%;z-index:500;top:0;}
+.choose_t .choose_box { width: 33%;line-height: 1rem; }
+.choose_t .choose_box a { display: block; width: 100%; height: 1rem; line-height: 1rem; text-align: center; margin: 0.3rem 0; }
+.choose_t .choose_box a .tit { padding-right: 0.9rem; background: url(../../img/downArrow.png) no-repeat right center; background-size: 0.48rem; }
+.choose_t .choose_box.cur a .tit { background: url(../../img/up.png) no-repeat right center; background-size: 0.48rem; color: #228DDC; }
+.choose_box_m { width: 34% !important; }
+.choose_box_m a { border-left: 1px solid #e2e2e2; border-right: 1px solid #e2e2e2; box-sizing: border-box; }
+/* 筛选列表 */
+.choose_list ul li { border-bottom: 1px solid #e2e2e2;position: fixed; left: 0; top: 0; z-index: 200;width:100%;height:100%;padding-top:1.6rem;overflow-y:auto;box-sizing:border-box;padding-bottom:2.24rem;}
+.choose_list ul .list .bg{position: absolute;left:0;top:0;z-index:-1;background-color:rgba(0,0,0,.5);width:100%;height:100%;}
+.choose_list ul li div { padding-left: 0.6rem;background-color: #fff;}
+.choose_list ul li a { height: 1.6rem; line-height: 1.6rem; border-bottom: 1px solid #e2e2e2; display: block; }
+.choose_list ul li div a:last-child { border-bottom: none; }
+.list_1,
+.list_2,
+.list_3 { display: none; }
+/*黑色背景*/
+.bg_black { width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); position: fixed; left: 0; top: 3.4rem; z-index: 150; display: none; }
+/* 推荐项目列表 */
+.hd_backgroung { width: 100%; background: #fff; /* border:1px solid #e2e2e2; */
+  border-left: none; border-right: none; }
+.xiangmu_box { padding-left: 0.6rem; }
+.xiangmu_box_in { padding: 0.3rem 0.6rem 0.3rem 0; border-bottom: 1px solid #e2e2e2; }
+.xiangmu_box_in .xm_fenlei { color: #2185cf; margin-right: 0.4rem; }
+.xm_fenlei,
+.xm_zhuti { font-size: 0.52rem; }
+.xiangmu_box_in .xm_zhuti { width: 62%; color: #000; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pic_box { height: 4rem; overflow:hidden; }
+.xiangmu_box_in img { width: 100%;height:100%;}
+.xiangmu_box_in p { line-height: 0.6rem; margin-top: 0.3rem; }
+.xiangmu_box_in .rest { width: 0.64rem; height: 0.64rem; background: #3dba2b; border-radius: 0.04rem; color: #fff; display: inline-block; text-align: center; line-height: 0.64rem; margin: -1px 0.2rem 0 0; }
+.xiangmu_box_in .rest,
+.xiangmu_box_in .day,
+.xiangmu_box_in .xm_state { font-size: 0.48rem; }
+.xiangmu_box_in .day { color: #3dba2b; }
+.xiangmu a:last-child .xiangmu_box_in { border-bottom: none; }
+/* 查看更多 */
+.gengduo { width: 100%; height: 1.3rem; text-align: center; line-height: 1.3rem; font-size: 0.56rem; }
+
+.xiangmu_box_in .xiangmu_content{padding:0.6rem 0 0;}

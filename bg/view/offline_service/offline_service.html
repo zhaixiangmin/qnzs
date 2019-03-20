@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>广东青年之声后台理</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/css/offline_service/offline_service.css">
+    <!--百度地图-->
+    <!--<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=ggGhWZ8zW5mGMOYCohgWNRER5m76Hxfz"></script>-->
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <!--<script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script>-->
+    <script src="../../public/js/common/contabs.js"></script> <!--主界面的左侧选项卡事件-->
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script src="../../public/js/module/OfflineServiceApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/offline_service/offline_service.js"></script>
+</head>
+<body>
+<!--数据筛选 -- 手风琴-->
+<div class="easyui-accordion">
+    <div title="数据筛选"  style="overflow:auto;padding:10px;">
+        <form id="df" method="post">
+            <table>
+                <tr>
+                    <th align="right"><label for="keyword">关键词:</label></th>
+                    <td><input id="keyword"></td>
+                    <td>&nbsp;&nbsp;</td>
+                    <th><label for="category">所属类别:</label></th>
+                    <td><input id="category" class="easyui-combobox" name="category" editable="false"></td>
+                    <td>&nbsp;&nbsp;</td>
+                    <th><label for="status">审核状态:</label></th>
+                    <!--<td><input id="audit" class="easyui-combobox" name="dept"></td>-->
+                    <td>
+                        <select class="easyui-combobox" id="status" editable="false" style="width: 173px">
+                            <option value="" selected>全部</option>
+                            <option value="0">待审核</option>
+                            <option value="1">已通过</option>
+                            <option value="2">不通过</option>
+                            <option value="3">已完结</option>
+                            <option value="4">已评价</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="start_time">开始时间:</label></th>
+                    <td><input id="start_time" type="text" class="easyui-datetimebox" editable="false"></td>
+                    <td>&nbsp;&nbsp;</td>
+                    <th><label for="end_time">结束时间:</label></th>
+                    <td><input id="end_time" type="text" class="easyui-datetimebox" editable="false"></td>
+                    <td>&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;</td>
+                    <td>
+                        <a href="#" class="easyui-linkbutton" iconCls="icon-search" id="check">查询</a>
+                        <a>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        <a href="#" class="easyui-linkbutton" iconCls="icon-reload" id="clear">清空</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+<!--线下服务申请管理-->
+<table class="easyui-datagrid" id="offline_service"></table>
+
+
+<!--查看 -- 模态窗口-->
+<div id="dialog_show" class="easyui-dialog" title="线下服务申请详情" data-options="modal: true, closed: true" style="width: 500px;height: 400px;padding: 10px;">
+    <form id="fm_show">
+        <table>
+            <tr>
+                <td>所属问题：</td>
+                <td><input class="easyui-textbox" type="text" name="quesTitle" readonly></td>
+            </tr>
+            <tr>
+                <td>所属类别：</td>
+                <td><input class="easyui-textbox" type="text" name="categoryName" readonly></td>
+            </tr>
+            <tr>
+                <td>服务时间：</td>
+                <td><input class="easyui-textbox" type="text" name="serviceTimeStr" readonly></td>
+            </tr>
+            <tr>
+                <td>服务站点：</td>
+                <td><input class="easyui-textbox" type="text" name="stationName" readonly></td>
+            </tr>
+            <tr>
+                <td>服务描述：</td>
+                <td><input class="easyui-textbox" type="text" name="description" readonly></td>
+            </tr>
+            <tr>
+                <td>申请者：</td>
+                <td><input class="easyui-textbox" type="text" name="applicantName" readonly></td>
+            </tr>
+            <tr>
+                <td>申请时间：</td>
+                <td><input class="easyui-textbox" type="text" name="applyTime" readonly></td>
+            </tr> <tr>
+                <td>申请者电话：</td>
+                <td><input class="easyui-textbox" type="text" name="applyMoblie" readonly></td>
+            </tr>
+            <tr>
+                <td>审核状态：</td>
+                <td><input class="easyui-textbox" type="text" name="statusStr" readonly></td>
+            </tr>
+            <tr>
+                <td>服务总结：</td>
+                <td><input class="easyui-textbox" type="text" name="applySummary" readonly></td>
+            </tr>
+            <tr>
+                <td>评价：</td>
+                <td><input class="easyui-textbox" type="text" name="scoreStr" readonly></td>
+            </tr>
+            <tr>
+                <td>评价内容：</td>
+                <td><input class="easyui-textbox" type="text" name="evaluate" readonly></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!--审核 -- 对话框-->
+<div class="easyui-dialog" title="审核线下服务申请" id="dialog_audit" data-options="modal: true, closed: true" style="width: 700px;height: 400px;">
+
+    <form id="fm_audit">
+        <table>
+            <tr>
+                <td>服务标题：</td>
+                <td><input id="quesTitle_audit" class="easyui-textbox" type="text" name="quesTitle" style="width: 99%;" readonly></td>
+            </tr>
+            <tr>
+                <td>服务描述：</td>
+                <td><input id="description_audit" class="easyui-textbox" type="text" name="description" readonly></td>
+            </tr>
+            <tr>
+                <td>服务类别：</td>
+                <td><input id="category_audit" class="easyui-textbox" type="text" name="description" readonly></td>
+                <!--<td><input id="category_audit" class="easyui-combobox" name="category" required="true"  editable="false"></td>-->
+            </tr>
+            <tr>
+                <td>服务站点：</td>
+                <td><input id="station_audit" class="easyui-textbox" type="text" name="description" readonly></td>
+                <!--<td>-->
+                    <!--<div style="display: inline-block;">-->
+                        <!--<input id="stationA_audit" class="easyui-combobox" name="stationA" required="true"  editable="false">-->
+                    <!--</div>-->
+                    <!--<div style="display: inline-block;">-->
+                        <!--<input id="stationB_audit" class="easyui-combobox" name="stationB" required="true"  editable="false">-->
+                    <!--</div>-->
+                    <!--<div style="display: inline-block;">-->
+                        <!--<input id="stationC_audit" class="easyui-combobox" name="stationC" required="true" editable="false">-->
+                    <!--</div>-->
+                <!--</td>-->
+            </tr>
+            <tr>
+                <td>服务时间：</td>
+                <td><input id="servicetime_audit" class="easyui-textbox" type="text" name="description" readonly></td>
+                <!--<td>-->
+                    <!--<input id="serviceday_audit" class="easyui-combobox" name="serviceday" required="true"  editable="false">-->
+                    <!--<input id="servicetime_audit" class="easyui-combobox" name="servicetime" required="true"  editable="false">-->
+                <!--</td>-->
+            </tr>
+        </table>
+    </form>
+
+</div>
+
+
+<!--&lt;!&ndash;审核 &#45;&#45; 对话框&ndash;&gt;-->
+<!--<div class="easyui-dialog" title="审核线下服务申请" id="dialog_audit" data-options="modal: true, closed: true" style="width: 700px;height: 400px;">-->
+
+    <!--<form id="fm_audit">-->
+        <!--<table>-->
+            <!--<tr>-->
+                <!--<td>服务标题：</td>-->
+                <!--<td><input id="quesTitle_audit" class="easyui-textbox" type="text" name="quesTitle" style="width: 99%;" readonly></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>服务描述：</td>-->
+                <!--<td><textarea rows="3" id="description_audit" class="easyui-textbox" type="text" name="description" style="width: 99%;" readonly></textarea></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>服务类别：</td>-->
+                <!--<td><input id="category_audit" class="easyui-combobox" name="category" required="true"  editable="false"></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>服务站点：</td>-->
+                <!--<td>-->
+                    <!--<div style="display: inline-block;">-->
+                        <!--<input id="stationA_audit" class="easyui-combobox" name="stationA" required="true"  editable="false">-->
+                    <!--</div>-->
+                    <!--<div style="display: inline-block;">-->
+                        <!--<input id="stationB_audit" class="easyui-combobox" name="stationB" required="true"  editable="false">-->
+                    <!--</div>-->
+                    <!--<div style="display: inline-block;">-->
+                        <!--<input id="stationC_audit" class="easyui-combobox" name="stationC" required="true" editable="false">-->
+                    <!--</div>-->
+                <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>服务时间：</td>-->
+                <!--<td>-->
+                    <!--<input id="serviceday_audit" class="easyui-combobox" name="serviceday" required="true"  editable="false">-->
+                    <!--<input id="servicetime_audit" class="easyui-combobox" name="servicetime" required="true"  editable="false">-->
+                <!--</td>-->
+            <!--</tr>-->
+        <!--</table>-->
+    <!--</form>-->
+
+<!--</div>-->
+
+<!--完结 -- 对话框-->
+<div class="easyui-dialog" title="完结线下服务申请" id="dialog_finish" data-options="modal: true, closed: true" style="width: 700px;height: 400px;">
+
+    <form id="fm_finish">
+        <table>
+            <tr>
+                <td>服务标题：</td>
+                <td><input id="quesTitle_finish" class="easyui-textbox" type="text" name="quesTitle" readonly></td>
+            </tr>
+            <tr>
+                <td>服务描述：</td>
+                <td><textarea rows="3" id="description_finish" class="easyui-textbox" type="text" name="description" readonly></textarea></td>
+            </tr>
+            <tr>
+                <td>服务类别：</td>
+                <td><input id="category_finish" class="easyui-textbox" type="text" name="category" readonly></td>
+            </tr>
+            <tr>
+                <td>服务站点：</td>
+                <td><input id="station_finish" class="easyui-textbox" type="text" name="station" readonly></td>
+            </tr>
+            <tr>
+                <td>服务时间：</td>
+                <td><input id="servicedate_finish" class="easyui-textbox" type="text" name="servicedate" readonly></td>
+            </tr>
+            <tr>
+                <td>服务总结：</td>
+                <td><textarea rows="3" id="applysummary_finish" class="easyui-textbox" type="text" name="applysummary"></textarea></td>
+            </tr>
+        </table>
+    </form>
+
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+ .area-type{width: 550px;height: 100px;overflow-y: auto;float: left;border: 1px solid #C0C4CD;margin-left: 10px;}
+	 .radioarea,.radiouser{float: left;}
+	 .ullist li{display: block; width: 160px;height: 40px;line-height:40px;list-style: none;float: left;text-align: center;}
+      .ullist{width: 100%;height: 100px;}
+      .mold_type{width: 500px;height: 40px;margin-bottom: 10px;}
+      .mold_type span{display: inline-block;width:80px;height: 40px;line-height: 40px;text-align: center;padding: 0 15px;font-size: 16px;}
+      .typemold{width: 550px;height: 400px;overflow-y: auto;border: 1px solid #C0C4CD; display: none;}
+      .show{display: block;}
+      .ative{color:  #0093FF;border-bottom: 2px solid #0093FF;}
+      .choose_ctiy{width: 100%;height: 40px;line-height: 40px;}
+      
+      .choose_ctiy span{display:inline-block; width: 80px;float:left;}
+      .ullistctiy{width: 100%;}
+      .ullistctiy li{width: 100%;display: block;height: 40px;line-height: 40px;border-bottom: 1px solid #C2C2C2;list-style: none;font-size: 14px;}
+#pehone{width: 300px;height: 100px;}
+
+#schloolarea li span{ display: inline-block;}
+#schloolarea li .checkour{float: right;margin-right: 30px; }
+
+#schoolusfity   li span{ display: inline-block;}
+#schoolusfity   li .checkour{float: right;margin-right:30px;}
+.box_divlist{margin-top: 10px; width: 100%;}
+.box_divlist li{margin-top: 10px; display: block;width: 100%;height: 30px;}
+.box_divlist .iphoenumber{float: left;width: 50%; height: 30px;}
+.box_divlist .btn_rmove{ float: left; width: 30px; height: 30px;background-color: orangered;color: white;margin-left: 10px;line-height: 30px;text-align: center;cursor: pointer;}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>重磅项目二-项目动态详情</title>
+     <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+     <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project_model2/zbxm_common.css" />
+     <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project_model2/zbxm_index_model_1.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project_model2/zbxm_index_model_2.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+
+	<script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+	<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+	<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+	<script src="../../public/js/module/Qnzs.js"></script>
+	<script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+	<script src="../../public/js/heavy_project_model2/heavy_project_trends_detail.js"></script>
+		<style type="text/css">
+			.DT_detail_nr img {
+				display: block;
+	    		max-width: 300px;
+	    		min-width:  400px;
+	    		max-height: 300px;
+	    		min-height: 200px;
+	    		margin-bottom: 50px;
+			}
+			#header_nav li:hover a{
+				background: #0ba903;
+		    }
+		    .DT_detail_box h1 {
+		    font-size: 24px;
+		    line-height: 35px;
+		    height: 35px;
+		    color: #333;
+		    background-position: left center;
+		    font-weight: bold;
+		    margin-bottom: 10px;
+		    text-align: center;
+		}
+		.DT_detail_box h4 {
+		    font-size: 16px;
+		    line-height: 25px;
+		    height: 25px;
+		    color: #999;
+		    background-position: left center;
+		    margin-bottom: 40px;
+		    text-align: center;
+		}
+		</style>
+		<!--- 引入头部和尾部 ----->
+	    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+	    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script> 
+	    <!--  对话框-->
+	    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+	    <script type="text/javascript" src="../../public/js/heavy_project/common.js"></script>
+	       <script src="../../public/js/module/Qnzs.js"></script>
+</head>
+<body style="background:#eee;">
+    <!-- 头部 -->
+    <header class="header_box">
+        <div class="w1200 header_content clearfix">
+            <div class="logo fl"><a href="zbxm_index.html"></a></div>
+           <ul class="fl clearfix header_nav" id="header_nav">
+					<li class="nav_li">
+						<a id="project_main" href="zbxm_index_model_2.html">首页</a>
+					</li>
+					<li class="nav_li">
+						<a id="project_detail" href="zbxm_index_model2_detail.html">项目详情</a>
+					</li>
+					<li class="nav_li cur">
+						<a id="project_dynamic" href="zbxm_index_model2_trends.html">项目动态</a>
+					</li>
+					<li class="nav_li participator_work">
+						<a id="team" href="zbxm_index_model2_team.html">参赛团队</a>
+					</li>
+            </ul>
+				<div class="fr header_box_r clearfix">
+					<a href="../../index.html" class="link homepage fl"></a>
+					<a href="#" class="link login fl" id="head_login_img"></a>
+				</div>
+        </div>
+    </header>
+    <!-- banner -->
+    <div class="banner_box">
+        <div id="banner_center" class="banner_center w1200"></div>
+    </div>
+
+		<!-- 项目动态详情 -->
+		<div class=" DT_detail font14"><span>首页</span>><span>项目动态</span></div>
+		<div class="w1200 ">
+			<div class="DT_detail_box">
+				<h1 id="h1_detail_title"></h1>
+                <h4 id="h4_detail_time"></h4>
+			</div>
+			<div class="DT_detail_nr" id="div_detail_content">
+			</div>
+		</div>
+
+    <!-- 底部 -->
+    <footer class="conBgc01 colorfff font14">
+        <a href="javascript:;" class="disB font14 colorfff">触屏版</a>
+        <p>版权所有 copyright 2016 广东青年之声</p>
+        <p>粤ICP备10214402号-4</p>
+    </footer>
+</body>
+</html>
+<script>
+//  $('.topBlock').hide()  //隐藏顶部
+//  $('footer').hide()  //隐藏底部
+// 	setInterval(function(){
+// 		$('.topBlock').hide()  //隐藏顶部
+// 	    $('footer').hide()  //隐藏底部
+////   	   
+// 	},1)	
+     
+	//控制弹出窗
+	$('#head_login_img').click(function(){
+			//  获取当前登录者信息
+		obj.ajax('/commons/getSessionAccount',{},function(data){
+			
+			if(data.status =='OK'){
+				window.location.href = '../person_center/person_center.html'
+			}else{
+
+                $.alert('亲，请先登录')
+//		       	  $('#loginBtn').trigger("click");  //触发点击事件
+                var i =1;
+	            var  time = setInterval(function(){
+	            $('#loginBtn').click();
+		            if(i==1){
+		             	clearInterval(time);
+		            }
+			    },100)	
+				
+			}
+		})
+	})
+	
+	
+</script>

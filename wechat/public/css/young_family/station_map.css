@@ -1,0 +1,121 @@
+.toolbar{
+    padding: 0 0.375rem;
+    height: 1.875rem;
+    line-height: 1.875rem;
+    color: #fff;
+    background-color: #1070b6;
+}
+
+/*返回图标*/
+.toolbar .combo .icon_left{
+    display: inline-block;
+    height: 1.875rem;
+}
+.toolbar .combo .icon_left em{
+    display: inline-block;
+    width: 1.875rem;
+    height: 1.875rem;
+    background: url(../../img/back_arrow.png) no-repeat center center;
+}
+
+/*服务类别*/
+.toolbar .combo .category_parent{
+    display: inline-block;
+    vertical-align: top;
+    padding: 0.375rem;
+    height: 1.125rem;
+}
+.toolbar .combo .category_parent .category{
+    vertical-align: top;
+    padding-left: 0.375rem;
+    height: 1.125rem;
+    width: 5rem;
+    font-size: 0.48rem;
+    background: #fff url(../../img/down.png) no-repeat 95% center;
+}
+
+/*城市*/
+.toolbar .combo .city_parent{
+    display: inline-block;
+    vertical-align: top;
+    padding: 0.375rem 0.375rem 0.375rem 0;
+    height: 1.125rem;
+}
+.toolbar .combo .city_parent .city{
+    vertical-align: top;
+    padding-left: 0.375rem;
+    height: 1.125rem;
+    width: 5rem;
+    font-size: 0.48rem;
+    background: #fff url(../../img/down.png) no-repeat 95% center;
+}
+
+/*地图*/
+#BMap_mask{
+    width: 100%;
+    height: 11.25rem;
+}
+
+/*站点列表*/
+.station_parent .station_list li{
+    border-bottom: 1px solid #dfdfdf; padding: 0.375rem; line-height: 1rem;
+}
+.station_parent .station_list li.header{
+    height: 0.75rem;
+    line-height: 0.75rem;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    background: #2185cf;
+}
+.station_parent .station_list li .station_fullName{
+    font-size: 0.675rem; color: #333333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.station_parent .station_list li .station_categories{
+    font-size: 0.525rem; color: #666; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.station_parent .station_list li .station_address{
+    font-size: 0.45rem;color: #939393;
+}
+
+/*站点详情*/
+.station_detail .content{
+    padding: 0.375rem;
+    line-height: 1.125rem;
+    border-bottom: 1px solid #dfdfdf;
+}
+.station_detail .content .station_fullName{
+    font-size: 0.675rem; color: #333333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+.station_detail .content .station_address{
+    position: relative; display: block; padding-left: 0.75rem;padding-right: 0.75rem;font-size: 0.525rem; color: #666;overflow: hidden; text-overflow: ellipsis; white-space: nowrap; background: url(../../img/iconAddress.png) no-repeat left center; background-size: 0.6rem;
+}
+
+.station_detail .content .station_address .station_address_text{
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.station_detail .content .station_address .right_icon{
+    position: absolute;right: 0.1875rem;top: 0;width: 0.375rem; height: 1.125rem; background: url(../../img/next.png) no-repeat right center;background-size: 0.375rem;
+}
+
+.station_detail .content .station_categories{
+    font-size: 0.45rem; color: #939393;
+}
+
+.station_detail .button_parent{
+    padding: 0.5625rem 0.75rem;border-bottom: 1px solid #dfdfdf;
+}
+.station_detail .button_parent .button{
+    height: 1.35rem;line-height: 1.35rem;font-size: 0.6rem;text-align: center;color: #fff;background: #2185cf;border-radius: 0.1875rem;
+}
+
+.station_detail .produce_parent{
+    padding: 0.375rem;line-height: 1.125rem;border-bottom: 1px solid #dfdfdf;
+}
+.station_detail .produce_parent .produce{
+    font-size: 0.675rem; color: #999; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.station_detail .serviceContent_parent{
+    padding: 0.5625rem 0.75rem;
+}

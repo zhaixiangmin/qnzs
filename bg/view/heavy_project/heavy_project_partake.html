@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>重磅项目后台管理</title>
+    <link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../public/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" /> 
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project.css" />
+    <link rel="stylesheet" href="../../public/vendor/layer/1.9.3/doc/skin/mono/layer.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../public/vendor/layer/1.9.3/doc/skin/mono/layer.ext.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../public/css/common/check.css" />
+   <!--日期插件---->
+    <link rel="stylesheet" id=cal_style type="text/css" href="../../public/vendor/flatpickr/flatpickr.min.css">
+    <!--<link href="css/font-awesome.min93e3.css" rel="stylesheet">-->
+     
+    <!--日期插件 end---->
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+
+
+    <script type="text/javascript" src="../../public/js/module/HeavyProjectApi.js"></script>
+    <!--图片上传插件------>
+    <script type="text/javascript" src="../../public/vendor/flatpickr/flatpickr.js"></script>
+      <!--图片上传插件-end---->
+
+    <script src="../../public/vendor/validatebox/validatebox.js" ></script>
+    <style type="text/css"></style>
+</head>
+<body>
+    <div class="col-sm-12">
+        <!-- 数据过滤 -->
+        <div class="datafilter">
+          <div class="search">
+              <form id="" method="post" class="form-inline"> 
+                    <table  style=" margin-left: 30px; max-width: 1200px; min-width: 800px;" class="form_table">
+                      <tr>
+                        
+                        <td style="text-align: center;width: 90px;">参赛者编号</td>
+                        <td style="width:150px;"><input type="text" class="form-control" id="projectId"></td>
+                        <td style="text-align: center;width: 90px;">参赛者/申报人</td>
+                        <td style="width:150px;"><input type="text" class="form-control" id="projectName"></td>
+                        <td style="text-align: center;width: 90px;">参赛者类别</td>
+                        <td style="width:150px;"><input type="text" class="form-control" id="creatorType"></td>
+                        <td style="text-align: center;width: 90px;">项目名称</td>
+                        <td style="width:150px;"><input type="text" class="form-control" id="activityName"></td>
+                        <td style="text-align: center; width: 90px;">审核状态</td>
+                        <td style="width:100px;"><select  class="form-control2 select" id="auditStatusSel">
+                              <option value="" selected>请选择</option>
+                              <option value="0">待审核</option>
+                              <option value="1">已通过</option>
+                              <option value="2">未通过</option>
+                          </select>
+                        </td>
+                        
+                      </tr>
+                      <tr style="height:15px;"></tr>
+                      <tr>
+                      	
+                        
+                        <td style="text-align: center;">报名日期</td>
+                        <td><input id="beginTime" type="text" class="easyui-datebox"  /></td>
+                        <td style="text-align: center;">截止日期</td>
+                        <td><input id="endTime" type="text" class="easyui-datebox" /></td>
+                        <td style="text-align: center;">参赛者所在地</td>
+                        <td colspan="3"><select style="width: 100px;" class="form-control" id="oidType2" onchange="changeOid2Type(this)">
+                                    <option value="-1">请选择</option>
+                                    <option value="1">地市</option>
+                                    <option value="2">高校</option>
+                  	    	</select>
+                  	    	<!--2级  --->
+                  	    	<select style="width: 100px;" id="cityOid2" class="form-control"  name="cityOid2" onchange="cityOid2Change(this)">
+		                 	</select>
+		                 	<select style="width: 100px;" id="shcoolOid2" class="form-control"  name="shcoolOid2"  onchange="schoolOid2Change(this)">
+		                 	</select>
+		                 	<!---- 3级 ----->
+                  	    	<select style="width: 100px;" id="areaOid2" class="form-control"  onchange="quxuan2(this)">
+								<option value="-1">--区/县--</option>
+				            </select>
+		                    <select style="width: 100px;" id="classOid2" class="form-control"   onchange="quxuan2(this)">
+									<option value="-1">--分院--</option>
+				            </select>
+                        </td>
+                        <td colspan="2"> <button type="button" class="btn btn-warning btn-sm" id="areaBtn"><span class="glyphicon glyphicon-search"></span>查询</button>
+                          <button type="button" class="btn btn-info btn-sm" id="clearBtn"><span class="glyphicon glyphicon-refresh"></span>清空</button></td>
+                      
+                       
+                      </tr>
+                    </table>
+              </form>
+          </div>
+        </div>
+        <!-- 数据过滤 end -->
+        <div class="border clearfix">
+            <ul class="nav navbar-nav" id="toolbar">
+              <li class="heavy_project_edit" onclick="look(1)"><a href="#shop"><span class="glyphicon glyphicon-plus" data-toggle="modal">查看</span></a></li>
+              <li class="heavy_project_edit" onclick="updateAct(1)"><a href="#support"><span class="glyphicon glyphicon-pencil" data-toggle="modal" >修改</span></a></li>
+              <li class="heavy_project_audit" onclick="auditedProject(0,'退回待审核')"><a href="javascript:;"><span class="glyphicon glyphicon-minus-sign" data-toggle="modal">退回待审核</span></a></li>
+              <li class="heavy_project_audit" onclick="auditedProjectOld(1,'审核通过')"><a href="javascript:;"><span class="glyphicon glyphicon-ok-sign" data-toggle="modal">审核通过</span></a></li>
+              <li class="heavy_project_audit" onclick="auditedProject(2,'审核不通过')"><a href="javascript:;"><span class="glyphicon glyphicon-remove-sign" data-toggle="modal">审核不通过</span></a></li>
+              <li class="heavy_project_audit" onclick="auditedProjectOld(3,'删除')"><a href="#support"><span class="glyphicon glyphicon-trash" data-toggle="modal" >删除</span></a></li>
+            </ul>
+       </div>
+       <table id="project-partake"></table>
+       <!-- <ul class="pagination" id="pagination"></ul> -->
+       <!-- 列表展示 end -->
+    </div>
+    
+    <!-- 查看框（Modal） -->
+    <div class="modal fade" id="user-look" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width:100%;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">参赛者详情</h4>
+			</div>
+			<div class="modal-body s-height2">
+				<!--datafilter strat-->
+				<div class="datafilter">
+					<div class="search">
+							<!--申报者-->
+								<div class="container" style="width: auto;height: 60px ;margin: 0 auto; text-align: center;">
+										<h1 class="project_title" id="projectName_look"></h1>
+										<p style="margin: 10px 0 0 25px ;">申报者：<span class="project_name" id="reporterName_look" ></span></p>
+								</div>
+                               <div class="cover_box" style="margin-top: 50px;display: none;">
+                               	    <!--<h2>封面图片:</h2>
+                               	    <p style="margin-left:120px;" ><img style="width: 500px;height: auto;display: block;"/></p>-->
+                               </div>
+                               <div>
+                               	    <h2>联系电话:</h2>
+                               	    <p style="margin-left:120px;" ><span id="mobile_look" ></span></p>
+                               </div>
+                               <div>
+                               	    <h2>项目简介:</h2>
+                               	    <p style="margin-left:120px;" ><span id="projectIntroduce" ></span></p>
+                               </div>
+                               
+        					<div class="img_box img_box" style="display: none;">
+								<h2>风采展示:</h2>	
+								<div>
+									<ul class="imageList" style="list-style:none;">
+										<!--<li><div class="fencai_item" style="width: 500px;height: 400px;margin-top: 80px;background: yellow;">
+											     <img id="projectImageList" src="2.png" style="width: 500px;height: 400px;display: block;"/>
+                                        	</div>
+                                        	<p style=" width: 100px;height: 20px; font-size: 15px;display: block; margin-left:200px ; margin-top: 10px;">look for you</p>
+										</li>-->
+									</ul>
+								</div>
+							 </div>
+							 
+							 <div class="youku-box form-group" style=" margin-top: 50px; display: none;">
+								<h2>视频播放:</h2>	
+								<div id="youku_src">
+					                <div class="img" style=" width: 700px; height: 400px;margin: 0 auto; padding: 0 30px;">
+						                <iframe frameborder="0" width="700" height="400" src="" allowfullscreen></iframe>
+					              		
+					        		</div>
+								</div>
+							 </div>
+							
+							
+								<div class="file_box form-group" style="margin-top: 50px;display: none;">
+                               	    <h2>报名附件:</h2>
+                               	    <p style="margin-left:120px;" ><span id="projectFileList_look1"></span></p>
+                               </div>
+						
+							<div class="form-group">
+								<div>
+								     <button id="voteProjectt_look" type="button" class="btn btn-info" style="margin: 80px  0 20px 160px; ">&nbsp;&nbsp;&nbsp;&nbsp;(<span id="vote_project"></span>)人支持他&nbsp;&nbsp;&nbsp;&nbsp;</button>
+								</div>
+							</div>
+                            <!--下一步 end-->
+				</div>
+				<!--datafilter end-->
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+    </div>
+    <!-- 查看框（Modal）end -->
+    
+    
+   <!-- 修改-->
+    <div class="modal fade" id="updateActivite" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+	    
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					修改
+				</h4>
+			</div>
+			<div class="modal-body " style="overflow-y: scroll;">
+				
+				<form id="form2" class="form-horizontal">
+					<div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>申报者:</label>
+                         <div class="col-sm-7">
+                            <input  class="easyui-validatebox form-control"  data-options="required:true"  placeholder="请输入申报者的单位名称或个人姓名" id="reporterName" class="form-control">
+                        </div>
+                    </div>
+					<div class="form-group didSelect">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>所属地区:</label>
+                         <div class="col-sm-7">
+                            <select  class="district form-control" id="oidType" onchange="changeOidType(this)">
+                                    <option value="-1">--请选择--</option>
+                                    <option value="1">地市</option>
+                                    <option value="2">高校</option>
+                  		    </select>
+                        </div>
+                    </div>
+					<div class="form-group didSelect">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly"></span></label>
+                        <div class="col-sm-7">
+                                <select id="cityOid" class="district form-control"  name="cityOid" onchange="cityOidChange(this)">
+						        </select>
+			                 	<select id="shcoolOid" class="district form-control" name="shcoolOid"  onchange="schoolOidChange(this)">
+			                 	</select>
+                        </div>
+                    </div>
+                    <div class="form-group didSelect">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly"></span></label>
+                        <div class="col-sm-7">
+                            <select id="areaOid" class="district form-control">
+								<option value="-1">--区/县--</option>
+			                </select>
+		                    <select id="classOid" class="district form-control">
+									<option value="-1">--分院--</option>
+				            </select>
+                        </div>
+                    </div>
+					<div class="form-group didSelect">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly"></span>分类:</label>
+                        <div class="col-sm-7">
+                                <select id="createReatorType" class="district form-control">
+						        </select>
+                        </div>
+                    </div>
+					<div class="form-group typeSelect">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>联系电话:</label>
+                        <div class="col-sm-7">
+                            <input id="mobile" class="easyui-validatebox form-control"  data-options="validType:'mobile'" placeholder="联系电话">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>联系邮箱:</label>
+                        <div class="col-sm-7">
+                           <input class="easyui-validatebox form-control"  data-options="required:true,validType:'email'" placeholder="联系邮箱" id="email" >
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>标题:</label>
+                        <div class="col-sm-7">
+                            <input class="easyui-validatebox form-control"  data-options="required:true"  placeholder="标题" id="upd_projectName" >
+                        </div>
+                    </div>
+					
+					
+					<div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>项目简介:</label>
+                        <div class="col-sm-7">
+                             <textarea  rows="5" cols="37" placeholder="申报项目简介" id="upd_projectIntroduce" ></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">视频链接:</label>
+                        <div class="col-sm-7">
+                             <input type="text"  placeholder="视频链接" id="upd_videoUrl" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>封面图片:</label>
+                        <div class="col-sm-7">
+	                        <div class="" style="width: 500px;">
+	                        	<div>
+		                            <img id="preview0" height="100" border="0" title="" src="../../public/images/a4.png" />
+	                        	</div>
+		                          <!--<input type="text" class="form-control" style="margin-top:2px;">-->
+		                        <div  class="btn upload" style="width: 250px;">建议尺寸(1900px*380px)<input type="file" name="image_file" id="Updatefile" class="upload_pic" onChange="fileSelected('preview0','image_file1');" /></div>
+		                            
+	                        </div>
+                        </div>
+                    </div>
+				</form>
+				
+                    <form id="projectImageList" class="form-horizontal">
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>风采展示:</label>
+	                        <div class="col-sm-7" id="upd_imgshow">
+	                        	<!--<input  name="content" type="hidden" value=""  class="projectImageList_input"/>
+		                        <div class="" style="width: 500px;">
+		                        	<div>
+			                            <img id="preview2" height="100" border="0" title="" src="../../public/images/a4.png" />
+			                            <div  class="btn upload" style="width: 250px;">建议尺寸(1900px*380px)<input type="file" name="image_file" id="Updatefile" class="upload_pic" onChange="fileSelected('preview2','image_file1');" /></div>
+		                        	</div>
+		                        </div>
+		                        <div class=""style="margin-top: 10px;">
+			                        <input type="" name="" id="" value="" class="form-control" />
+		                        </div>-->
+	                        </div>
+                    </div>
+                   </form>
+                    	
+                   <form id="projectFileList" class="form-horizontal">
+                    <div class="form-group">
+                    		<label class="col-sm-2 control-label">附件地址:</label>
+                    		<div class="col-sm-7">
+                    		    <div class="step photoUpload clearfix ">
+								    <a class="upload" id="fileList_a"> <!-- accept="application/msword,aplication/zip" --> 
+					                    <input type="file" class="uploadFileBtn" id="up_file"  name="up_file" multiple="multiple" onchange="uploadFile()"/>
+					            	    <input type="hidden" name="id" id="fileId"/>
+					            	    <input type="hidden" name="projectId" id="fileProjectId"/>
+					            	    <input type="hidden" name="fileUrl" id="projectFileList_hidden_input"/>
+					                </a>
+								    <p id="pickFileBtnNext" class="fl prompt" style="color:#333; padding-top: 2px; padding-left: 5px;"><em style="color: red; ">（请压缩为zip格式上传，文件名中勿带有","、"/"、"+"等中英文标点符号，否则将会上传失败。）</em></p>
+							    </div>
+                    		</div>
+                    </div>
+                   </form>
+			</div>
+			<div class="modal-footer" style="height: 50px;">
+				<button type="button" class="btn btn-warning" id="updateActBtn" onclick="editProject()">确定</button>
+				<button type="button" class="btn btn-success" data-dismiss="modal">关闭
+		        </button>
+			</div>
+			
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 修改框（Modal）end -->
+    
+    <!-- 审核（Modal） -->
+			<div class="modal fade" id="auditedProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="auditedProjectH4"></h4>
+						</div>
+						<div class="modal-body" style="height: 160px;">
+							<div class="form-group">
+								<label class="col-sm-2 control-label" id="auditedProjectLabel">审核意见:</label>
+								<textarea class="col-sm-10 " id="auditedAdvice" placeholder="请输入审核意见" style="height: 125px;">您提交的报名资料未符合该项目的报名条件</textarea>
+							</div>
+							<!--<div class="form-group">
+								<span class="col-sm-10" style="color:red;"></span>
+							</div> -->
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+							</button>
+							<button type="button" class="btn btn-primary" id="btn-forbidden">
+								确定
+							</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- 审核（Modal）end -->
+			
+</body>
+</html>
+	<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+    <script src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js" ></script>
+    <script type="text/javascript" src="js/stree.js"></script>
+    <script type="text/javascript" src="js/streeweb.js"></script> 
+    <script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script> 
+    <!---图片上传插件------>
+	<script async src="../../public/js/flatpickr.js" onload="fp_ready()"></script>
+    <!---图片上传插件---end--->
+   
+    <script src="../../public/js/module/Utils.js"></script> 
+	<script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <script src="../../public/js/heavy_project/heavy_project_partake.js"></script>
+    <script src="../../public/js/common/user-linkage.js"></script>
+    <script src="../../public/js/common/user_linkage_heavy.js"></script>
+    <!---图片上传插件---->
+    <script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+	<script>
+		
+	</script>
+
+
+
+  
+

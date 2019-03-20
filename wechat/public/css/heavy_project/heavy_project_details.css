@@ -1,0 +1,50 @@
+/* 
+No Less
+*/
+section.banner img{width:100%;}
+
+/* 赛事及其时间 */
+section.pub>a h2{background:url(../../img/game.png) no-repeat left center;background-size: 0.6rem;padding-left: 1.2rem;}
+section.game>a:nth-of-type(1){border-bottom: 1px solid #e8e8e8;}
+section.game>a.time h2{background-image: url(../../img/iconTime.png);}
+
+/* phone number */
+section.phoneNumber>a h2{background-image: url(../../img/iconPhone.png);}
+section.phoneNumber>a span{height: 1.56rem;width: 0.28rem;background: url(../../img/next.png) no-repeat right center;background-size: 0.28rem;}
+
+/* 活动详情 */
+section.secPub .tit{padding-top: 0.2rem;background-color: #ebebeb;}
+section.secPub .tit h6{line-height: 1.32rem;padding-left: 1.2rem;background: url(../../img/jieshao.png) no-repeat left center;background-size: 0.64rem;}
+section.secPub .txtContent{padding:0.44rem 0.6rem;}
+section.secPub .txtContent>p{text-indent: 1.12rem;}
+
+/* 报名须知 */
+section.bmxz .tit h6{background-image: url(../../img/pen.png);}
+section.bmxz .txtContent{padding:0 0.6rem 0.3rem;}
+section.bmxz .txtContent .item{padding-top: 0.3rem;}
+section.bmxz .txtContent .item h6{line-height: 1.16rem;}
+
+/* 奖品设置 */
+.picScroll .bd ul{ width:100%;  float:left;}
+.picScroll .bd li{ width:33.3%; float:left; text-align:center;  }
+.picScroll .bd li a{display: block;padding: 0.6rem 0; }
+.picScroll .bd li:nth-of-type(2) a>div{border-right: 1px solid #e2e2e2;border-left: 1px solid #e2e2e2;}
+.picScroll .bd li a div img{width:2rem;margin:0 auto;}
+.picScroll .bd li a div h6{line-height: 1.16rem;}
+.picScroll .bd li a div p{line-height: 0.48rem;}
+
+/* 参赛项目 */
+section.gameItem .tit{border-bottom: 1px solid #e7e7e7;}
+section.gameItem .tit a{background: url(../../img/next.png) no-repeat right center;background-size: 0.28rem;}
+section.gameItem .content .item{padding: 0.6rem 0.6rem 0.6rem 0;border-bottom: 1px solid #e7e7e7;}
+section.gameItem .content .item .left{width:4rem;height: 3.2rem;overflow: hidden;}
+section.gameItem .content .item .left img{width:4rem;}
+section.gameItem .content .item .right{padding-left: 4.6rem;}
+section.gameItem .content .item .right p{padding: 0.2rem 0;width: 95%;text-overflow:ellipsis;overflow: hidden;white-space:nowrap;}
+section.gameItem .content .item .right em{padding-left: 0.52rem;background: url(../../img/loveOrange.png) no-repeat left center;background-size: 0.44rem;}
+
+/* 底部按钮 */
+section.botBtns{position: fixed;width:100%;left: 0;bottom: 0;}
+section.botBtns a{text-align: center;line-height: 1.6rem;width: 50%;}
+section.botBtns a.left{background-color: #2185cf;}
+section.botBtns a.right{background-color: #2198cf;}

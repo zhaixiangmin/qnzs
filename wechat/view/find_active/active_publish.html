@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		 <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>我的-发布活动</title>
+    <!-- No Less -->
+    	<link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    	 <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/active_pulsh.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/summernote/dist/summernote.css"/>
+   <!-- <link rel="stylesheet" type="text/css" href="../../public/vendor/KindEditor/themes/default/default.css" />
+   	
+    <script src="../../public/vendor/KindEditor/kindeditor-min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../public/vendor/KindEditor/zh_CN.js" type="text/javascript" charset="utf-8"></script>-->
+	   <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/summernote/dist/summernote.js">
+    	
+    </script>
+    <script type="text/javascript" src="../../public/vendor/summernote/dist/lang/summernote-zh-CN.js">
+    	
+    </script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <script type="text/jscript" src="../../public/js/common/utf.js"></script>
+   <!--<script type="text/javascript" src="../../public/js/common/jquery.qrcode.min.js">
+   	
+   </script>-->
+   
+   <script type="text/jscript" src="../../public/js/common/jquery.qrcode.js"></script>
+    <script src="../../public/js/find_active/active_publish.js"></script>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=13hKkYUjCLhkhnRlidP7Bmor"></script>
+    <script type="text/javascript" src="../../public/vendor/easyui/jquery.easyui.min.js">
+    
+    </script>
+    <script type="text/javascript" src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js">
+    	
+    </script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/vendor/webuploader/uploadPreview.js"></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <script>
+       window.onload = function () { 
+            new uploadPreview({ UpBtn: "up_img", DivShow: "imgdiv", ImgShow: "imgShow" });
+
+        }
+    </script>
+	</head>
+	<body>
+		
+		  <section class="huodongmingcheng bgcWhite">
+        <h2 class="color000">活动标题</h2>
+        <input placeholder="请输入活动标题" maxlength="25" class="fz26 title_txt"></input>
+    </section>
+    <!-- 上传图片 -->
+    <section class="uploadImg bgcWhite mb20">
+         <div class="title color000 lineH78 fz30">上传图片</div>
+        <div class="imgL clearfix">
+                <div id="imgdiv" class="imgdiv" style="float:left;">
+                    <div class="imgOut">
+                        <div class="imgIn">
+                            <img id="imgShow" class="imgShow" />
+                        </div>
+                    </div>
+                </div>
+                <div class="imgAdd fl">
+                    <div class="divin">
+                        <a href="javascript:;">
+                            <input type="file" class="photo_upload" id="up_img" name="up_img"/> 
+                        </a>
+                    </div>
+                </div>
+    </section>
+    <!-- 报名时间，活动时间、费用denghdeng -->
+    <section class="sectionPub bgcWhite mb20">
+        <a href="javascript:;" class="item lineH78 p_0_30 clearfix borderBot">
+            <h3 class="color333 fz30 fl maring_right">报名开始时间</h3>
+           <input   id="stop_time" type="text" class="easyui-datetimebox easyui-validatebox" editable="true" data-options="required:true,missingMessage:'报名开始时间应晚于当前时间'">
+        </a>
+        <a href="javascript:;" class="item lineH78 p_0_30 clearfix borderBot">
+            <h3 class="color333 fz30 fl maring_right">报名结束时间</h3>
+           <input   id="stop_times" type="text" class="easyui-datetimebox easyui-validatebox" editable="true" data-options="required:true,missingMessage:'报名结束时间应早于活动结束时间'">
+        </a>
+    </section>
+    <section class="sectionPub bgcWhite mb20">
+        <a href="javascript:;" class="item lineH78 p_0_30 clearfix borderBot">
+            <h3 class="color333 fz30 fl maring_right">活动开始时间</h3>
+            <input   id="start_time" type="text" class="easyui-datetimebox easyui-validatebox" editable="true" data-options="required:true,missingMessage:'活动开始时间应晚于报名开始时间'">
+        </a>
+        <a href="javascript:;" class="item lineH78 p_0_30 clearfix borderBot">
+            <h3 class="color333 fz30 fl maring_right">活动结束时间</h3>
+            <input   id="start_times" type="text" class="easyui-datetimebox easyui-validatebox" editable="true" data-options="required:true,missingMessage:'活动结束时间应晚于活动开始时间'">
+        </a>
+        <a href="javascript:;" class="item lineH78 p_0_30 clearfix">
+            <h3 class="color333 fz30 fl maring_right">活动地点</h3>
+            <input type="text" id='longitude_number' value="" style="display: none;">
+												<input type="text" id='latitude_number' value="" style="display: none;">
+            <input type='text' value='' name='sever_add' id='sever_add' placeholder="点击地图获取当前位置地址">
+        </a>
+        
+        <div id="r-result">请输入:<input type="text" id="suggestId" size="20" value="" ></div>
+	   <div id="searchResultPanel" ></div>
+	   <div id="allmap">
+	 </div>
+	 
+    </section>
+    
+   <section class="signTimes">
+   	<label class="col-sm-2 control-label">参与者是否:</label>
+											<input type="radio" value="1" name='rd'>签到 &nbsp;&nbsp; &nbsp; 
+											<input type="radio" value="2" name='rd'>签到和签退 &nbsp;&nbsp; &nbsp;
+											<input type="radio" value="0" name='rd'>不需要签到和签退 &nbsp; &nbsp; 
+   	
+   	
+   </section>
+    <section class="sectionPub bgcWhite mb20">
+        <a href="javascript:;" class="item lineH78 p_0_30 clearfix borderBot">
+            <h3 class="color333 fz30 fl maring_right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;费用</h3>
+            <input type="text" id="active_money" placeholder="请输入收费金额" >
+        </a>
+        <a href="javascript:;" class="item lineH78 p_0_30 clearfix">
+            <h3 class="color333 fz30 fl maring_right">活动人数</h3>
+            <input type="number" id="active_people">
+        </a>
+    </section>
+    <section class="sectionPub bgcWhite mb20">
+        
+        <a href="javascript:;" class="item lineH78 p_0_30 clearfix borderBot">
+        	
+        	<h3 class="color333 fz30 fl  maring_right">联系电话</h3>
+            <input type="text" id="iphonpeo"> 
+        </a>
+        <a href="javascript:;" class="item lineH78 p_0_30 clearfix">
+            <h3 class="color333 fz30 fl maring_right">活动分类</h3> 
+             <select class="choose_body_list" style="width: 40%;" onchange="gradeChange(this)"><!---->
+             	
+             </select>
+        </a>
+        
+       
+    </section>
+    
+    <section class="sectionPub bgcWhite mb20" id="class_rooms" style="display:none ;">
+    	 <a href="javascript:;" class="item lineH78 p_0_30 clearfix">
+            <h3 class="color333 fz30 fl maring_right">第二课堂</h3>
+             <select class="calss_body_list">
+             	
+             </select>
+             
+            
+        </a>
+    	<a href="javascript:;" class="item lineH78 p_0_30 clearfix">
+    	 <h3 class="color333 fz30 fl maring_right">学时</h3>
+             <input type="text" id="extracurricularHour"> 
+    	</a>
+    </section>
+    	
+    <!-- 活动介绍 -->
+    <section class="explain bgcWhite">
+        <div class="clearfix"><h2 class="fl color000">活动介绍</h2><!-- <span class="fl">&nbsp;(可选)&nbsp;</span> --><em class="fl color000">：</em></div>
+      <!-- <textarea name="content" style="width:100%;height:6rem;visibility:hidden; display: block;" id="contect_text" class="ckeditor"></textarea>-->
+       <div id="summernote" style="width:100%;height:6rem;visibility:hidden;"></div>
+    </section>
+    <!-- 活动分享 -->
+    <section class="explain bgcWhite">
+        <div class="clearfix"><h2 class="fl color000">活动分享</h2><!-- <span class="fl">&nbsp;(可选)&nbsp;</span> --><em class="fl color000">：</em></div>
+        <textarea placeholder="活动分享描述用于移动端转发分享活动链接的简要介绍" class="fz24 sharing"></textarea>
+    </section>
+    <section class="explain bgcWhite">
+        <div style="padding-left: 30px;padding-top: 0.133333rem;">
+       <label style="width: 350px;"><input type="checkbox" style="width: 12px;height: 12px; " checked  name="" id="inp_Agreement" value="" />阅读并接受
+              <a href="user_Agreement.html" style="color: #2185cf;" target="_Blank"><<青年之声活动发布协议>></a>
+       	
+       </label>
+    </div>
+    </section>
+    <section class="claerfix">
+    	  <!-- <h3 class="mafess">添加自定义选项填写更多报名信息:</h3> -->
+    	  <h3 class="mafess" style="font-size: 0.186666rem;">报名时，默认收集参与者昵称与手机号，如需收集更多参与者信息，请添加自定义项:</h3>
+	         <ul class="activt_ullist">
+			<li>
+			<input type="text" name="text" class="text_input itemName" placeholder="请输单行文本内容" max="200">
+			<input type="hidden" name="itemType" value="1" class="itemType" />
+			<i class="glyphicon glyphicon-plus btn btn-primary"></i></li>
+			</ul>
+    	
+    	
+    	
+    	
+    </section>
+    <div class="fabuBtn p_0_30">
+        <a href="javascript:;" class="disB bgc2185cf colorfff fz30 promptly_btn">立即发布</a>
+    </div>
+    
+      <!-- 弹出二维码-->
+      
+      <div class="showDiv" style="display: none;">
+      	
+      	<div class="maincton">
+      	<p class="rubrt_title"><span>活动发布成功！以下为活动二维码，另存后微信扫一扫，即可进行现场报名、签到及评价</span><span class="del_rubsh">X</span></p>
+      	  <div id="qrcode1">
+
+							</div>
+      	
+      	</div>
+      	</div>
+      
+      
+      
+    
+    
+    <script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js">
+</script>
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js">
+
+	
+</script>
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js">
+	
+</script>
+
+<script>
+	    var imageUrl="";
+	$(document).ready(function(){
+		
+		/*富文本*/
+					$('#summernote').summernote({
+						height: 400,
+						tabsize: 2,
+						lang: 'zh-CN',
+						callbacks: {
+							onImageUpload: function(files, editor, $editable) {
+								sendFile(files);
+							}
+						}
+					});
+					/*富文本*/
+		
+		$('#up_img').fileupload({
+						url: Qnzs.path + '/file_upload',
+						dataType: 'json',
+						autoUpload: true,
+						done: function(e, data) {
+
+							//alert(data.result.url);
+							imageUrl= data.result.url;
+							 console.log(imageUrl);
+							
+						},
+						fail: function() {
+							alert('出错');
+						}
+					});
+			
+			
+			//活动类型
+		$.ajax({
+			type: "get",
+			url: Qnzs.path + "/activity/type/listByOrg",
+			dataType: "JSON",
+			success: function(data) {
+				var data = data.dataList;
+				$.each(data, function(index, item) {
+					$('.choose_body_list').append('<option value="' + item.id + '">' + item.name + '</option>')
+				})
+			},
+			
+		});
+      //第二课堂类型
+      $.ajax({
+			type: "get",
+			url: Qnzs.path + "/activity/extracurricularType/listByOrg",
+			dataType: "JSON",
+			success: function(data) {
+				console.log(data);
+				var data = data.dataList;
+				$.each(data, function(index, item) {
+					$('.calss_body_list').append('<option value="' + item.id + '">' + item.name + '</option>')
+				})
+			},
+			
+		});
+      
+      
+      
+					
+					
+					
+		});
+		
+		
+		
+		/*富文本编译器*/
+			function sendFile(files, editor, $editable) {
+					var data = new FormData();
+					data.append("ajaxTaskFile", files[0]);
+					$.ajax({
+						data: data,
+						type: "POST",
+						url: Qnzs.path + '/file_upload', //图片上传出来的url，返回的是图片上传后的路径，http格式  
+						cache: false,
+						contentType: false,
+						processData: false,
+						dataType: "json",
+						success: function(data) { //data是返回的hash,key之类的值，key是定义的文件名  
+							console.log(data.url);
+							$('#summernote').summernote('insertImage', data.url);
+						},
+						error: function() {
+							alert("上传失败");
+						}
+					});
+				}
+				/*富文本编译器*/
+				
+		//添加自定单行文本框
+				$('.btnnt_add').click(function() {
+					$('.activt_ullist').show();
+				})
+				$('.activt_ullist i').click(function() {
+						var ulli = ('<li><input type="text" name="itemName" class="text_input itemName" placeholder="请输入您必须收集的报名者信息字段，例如“单位”、“职业”、“身份证号”等"><input type="hidden" name="itemType" value="1" class="itemType" />   <span class="glyphicon glyphicon-trash btn btn-warning"></span></li>');
+						$('.activt_ullist').append(ulli);
+					})
+					//删除自己本身的文本框
+				$(document).on('click', '.activt_ullist span', function() {
+					$(this).parent().slideUp(500, function() {
+						$(this).remove();
+					});
+				});
+		
+	function validate() {
+					var sever_add=document.getElementsByName('sever_add')[0].value;
+					
+					if(isNull(sever_add)) {
+						alert('请选择地址');
+						return false;
+					}
+					return true;
+				}
+				
+					function G(id) {
+		           return document.getElementById(id);
+	              }
+              
+				var map = new BMap.Map("allmap");
+				var mk;
+				map.centerAndZoom("广州", 12);
+				var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+		{"input" : "suggestId"
+		,"location" : map
+	});
+	ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
+	var str = "";
+		var _value = e.fromitem.value;
+		var value = "";
+		if (e.fromitem.index > -1) {
+			value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+		}    
+		str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+		
+		value = "";
+		if (e.toitem.index > -1) {
+			_value = e.toitem.value;
+			value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+		}    
+		str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+		//G("searchResultPanel").innerHTML = str;
+	});
+
+	var myValue;
+	ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
+	var _value = e.item.value;
+		myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+		//G("searchResultPanel").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+		
+		setPlace();
+	});
+
+	function setPlace(){
+		map.clearOverlays();    //清除地图上所有覆盖物
+		function myFun(){
+			var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+			map.centerAndZoom(pp, 18);
+			map.addOverlay(new BMap.Marker(pp));    //添加标注
+		}
+		var local = new BMap.LocalSearch(map, { //智能搜索
+		  onSearchComplete: myFun
+		});
+		local.search(myValue);
+	}
+				map.enableScrollWheelZoom(); //启用滚轮放大缩小，默认禁用  
+				map.enableContinuousZoom(); //启用地图惯性拖拽，默认禁用  
+				map.enableInertialDragging();
+				var geoc = new BMap.Geocoder(); //地址解析对象  
+				var markersArray = [];
+				var geolocation = new BMap.Geolocation();
+
+				var point = new BMap.Point(113.23, 23.16);
+				map.centerAndZoom(point, 12); // 中心点  
+				geolocation.getCurrentPosition(function(r) {
+					if(this.getStatus() == BMAP_STATUS_SUCCESS) {
+						var mk = new BMap.Marker(r.point);
+						map.addOverlay(mk);
+						map.panTo(r.point);
+						map.enableScrollWheelZoom(true);
+					} else {
+						alert('failed' + this.getStatus());
+					}
+				}, {
+					enableHighAccuracy: true
+				})
+				map.addEventListener("click", showInfo);
+
+				//添加选择城市的控件  
+				var size = new BMap.Size(80, 30);
+				map.addControl(new BMap.CityListControl({
+					anchor: BMAP_ANCHOR_TOP_RIGHT,
+					offset: size,
+					// 切换城市之间事件  
+					onChangeBefore: function() {
+						alert('before');
+					},
+					// 切换城市之后事件  
+					onChangeAfter: function() {
+						alert('after');
+					}
+				}));
+
+				//单击获取点击的经纬度  
+				/* map.addEventListener("click", function (e) {  
+				     //alert(e.point.lng + "," + e.point.lat);  
+				     map.removeOverlay(mk);  
+				     mk = new BMap.Marker(e.point);  
+				     map.addOverlay(mk); 
+				       $('#latitude_number').val(e.point.lat);  
+				      $('#longitude_number').val(e.point.lng);  
+				 });  */
+				//清除标识  
+				function clearOverlays() {
+					if(markersArray) {
+						for(i in markersArray) {
+							map.removeOverlay(markersArray[i])
+						}
+					}
+				}
+
+				function addMarker(point) {
+					var marker = new BMap.Marker(point);
+					markersArray.push(marker);
+					clearOverlays();
+					map.addOverlay(marker);
+				}
+
+				//点击地图时间处理  
+				function showInfo(e) {
+					document.getElementById('longitude_number').value = e.point.lng;
+					document.getElementById('latitude_number').value = e.point.lat;
+					
+					geoc.getLocation(e.point, function(rs) {
+						var addComp = rs.addressComponents;
+						var address = addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;
+						if(confirm("确定要地址是" + address + "?")) {
+							/* document.getElementById('allmap').style.display = 'none'; */
+							document.getElementById('sever_add').value = address;
+
+							
+							
+						}
+					});
+					addMarker(e.point);
+				}
+
+				// 添加带有定位的导航控件  
+				var navigationControl = new BMap.NavigationControl({
+					// 靠左上角位置  
+					anchor: BMAP_ANCHOR_TOP_LEFT,
+					// LARGE类型  
+					type: BMAP_NAVIGATION_CONTROL_LARGE,
+					// 启用显示定位  
+					enableGeolocation: true
+				});
+				map.addControl(navigationControl);
+				// 添加定位控件  
+				var geolocationControl = new BMap.GeolocationControl();
+				geolocationControl.addEventListener("locationSuccess", function(e) {
+					// 定位成功事件  
+					var address = '';
+					address += e.addressComponent.province;
+					address += e.addressComponent.city;
+					address += e.addressComponent.district;
+					address += e.addressComponent.street;
+					address += e.addressComponent.streetNumber;
+					alert("当前定位地址为：" + address);
+				});
+				geolocationControl.addEventListener("locationError", function(e) {
+					// 定位失败事件  
+					alert(e.message);
+				});
+				map.addControl(geolocationControl);
+	
+	
+	       function gradeChange() {
+					//var setelist = $(".choose_body_list  option:selected").val();
+					var setelist = $(".choose_body_list  option:selected").text();
+					if ('第二课堂' == setelist) {
+						$('#class_rooms').show();
+					} else {
+						$('#class_rooms').hide();
+					}
+				}
+	
+</script>
+	</body>
+</html>

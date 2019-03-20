@@ -1,0 +1,27 @@
+/* --------问答-组织以及问答-专家公用样式---------------
+--------------------------------- */
+section.districtChoose {
+  border-bottom: 1px solid #ebebeb;
+}
+section.districtChoose > div {
+  width: 50%;
+}
+section.districtChoose > div a {
+  display: block;
+  width: 100%;
+  line-height: 1.6rem;
+  text-align: center;
+  height: 1.6rem;
+}
+section.districtChoose > div a .tit {
+  padding-right: 0.9rem;
+  background: url(../../img/downArrow.png) no-repeat right center;
+  background-size: 0.48rem;
+}
+section.districtChoose > div.left a .bdr {
+  padding-top: 0.44rem;
+}
+section.districtChoose > div.left a .bdr > div {
+  line-height: 0.74rem;
+  border-right: 1px solid #e2e2e2;
+}

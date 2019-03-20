@@ -1,0 +1,1406 @@
+{
+  "rows": [
+    {
+      "name": "中大",
+      "fullName": "中山大学",
+      "disabled": false,
+      "oid": "ZD",
+      "sort": 1,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "珠海城职院团委",
+      "fullName": "珠海城市职业技术学院",
+      "disabled": false,
+      "oid": "ZHCS",
+      "sort": 1,
+      "type": 2,
+      "parentId": "001",
+      "did": "440400"
+    },
+    {
+      "name": "华南理工",
+      "fullName": "华南理工大学",
+      "disabled": false,
+      "oid": "HG",
+      "sort": 24,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "暨南大学",
+      "fullName": "暨南大学",
+      "disabled": false,
+      "oid": "JD",
+      "sort": 25,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "华农",
+      "fullName": "华南农业大学",
+      "disabled": false,
+      "oid": "HN",
+      "sort": 26,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "南医大",
+      "fullName": "南方医科大学",
+      "disabled": false,
+      "oid": "NY",
+      "sort": 27,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广中医",
+      "fullName": "广州中医药大学",
+      "disabled": false,
+      "oid": "GZY",
+      "sort": 28,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "华南师大",
+      "fullName": "华南师范大学",
+      "disabled": false,
+      "oid": "HS",
+      "sort": 29,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广工大",
+      "fullName": "广东工业大学",
+      "disabled": false,
+      "oid": "GG",
+      "sort": 30,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广外",
+      "fullName": "广东外语外贸大学",
+      "disabled": false,
+      "oid": "GW",
+      "sort": 31,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "汕大",
+      "fullName": "汕头大学",
+      "disabled": false,
+      "oid": "SD1",
+      "sort": 32,
+      "type": 2,
+      "parentId": "001",
+      "did": "440500"
+    },
+    {
+      "name": "广财大",
+      "fullName": "广东财经大学",
+      "disabled": false,
+      "oid": "GC",
+      "sort": 33,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广东医",
+      "fullName": "广东医科大学",
+      "disabled": false,
+      "oid": "GY",
+      "sort": 34,
+      "type": 2,
+      "parentId": "001",
+      "did": "440800"
+    },
+    {
+      "name": "广海大",
+      "fullName": "广东海洋大学",
+      "disabled": false,
+      "oid": "GH",
+      "sort": 35,
+      "type": 2,
+      "parentId": "001",
+      "did": "440800"
+    },
+    {
+      "name": "仲恺",
+      "fullName": "仲恺农业工程学院",
+      "disabled": false,
+      "oid": "ZK",
+      "sort": 36,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广药大",
+      "fullName": "广东药科大学",
+      "disabled": false,
+      "oid": "GY1",
+      "sort": 37,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "星海学院",
+      "fullName": "星海音乐学院",
+      "disabled": false,
+      "oid": "XH",
+      "sort": 38,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广美",
+      "fullName": "广州美术学院 ",
+      "disabled": false,
+      "oid": "GM",
+      "sort": 39,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广体",
+      "fullName": "广州体育学院",
+      "disabled": false,
+      "oid": "GT",
+      "sort": 40,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广技师",
+      "fullName": "广东技术师范学院",
+      "disabled": false,
+      "oid": "GJS",
+      "sort": 41,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "岭师院",
+      "fullName": "岭南师范学院",
+      "disabled": false,
+      "oid": "LS",
+      "sort": 42,
+      "type": 2,
+      "parentId": "001",
+      "did": "440800"
+    },
+    {
+      "name": "韩山师院",
+      "fullName": "韩山师范学院",
+      "disabled": false,
+      "oid": "HS1",
+      "sort": 43,
+      "type": 2,
+      "parentId": "001",
+      "did": "445100"
+    },
+    {
+      "name": "广油",
+      "fullName": "广东石油化工学院",
+      "disabled": false,
+      "oid": "GSY",
+      "sort": 44,
+      "type": 2,
+      "parentId": "001",
+      "did": "440900"
+    },
+    {
+      "name": "广金",
+      "fullName": "广东金融学院团委",
+      "disabled": false,
+      "oid": "GJ",
+      "sort": 45,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广警",
+      "fullName": "广东警官学院",
+      "disabled": false,
+      "oid": "GJX",
+      "sort": 46,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广东二师",
+      "fullName": "广东第二师范学院",
+      "disabled": false,
+      "oid": "G2S",
+      "sort": 47,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广航",
+      "fullName": "广州航海学院",
+      "disabled": false,
+      "oid": "GHY",
+      "sort": 48,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广大",
+      "fullName": "广州大学",
+      "disabled": false,
+      "oid": "GD",
+      "sort": 49,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广医",
+      "fullName": "广州医科大学",
+      "disabled": false,
+      "oid": "GYK",
+      "sort": 50,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "深圳大学",
+      "fullName": "深圳大学",
+      "disabled": false,
+      "oid": "SZD",
+      "sort": 51,
+      "type": 2,
+      "parentId": "001",
+      "did": "440300"
+    },
+    {
+      "name": "南科大",
+      "fullName": "南方科技大学",
+      "disabled": false,
+      "oid": "NKD",
+      "sort": 52,
+      "type": 2,
+      "parentId": "001",
+      "did": "440300"
+    },
+    {
+      "name": "韶关学院",
+      "fullName": "韶关学院",
+      "disabled": false,
+      "oid": "SGX",
+      "sort": 53,
+      "type": 2,
+      "parentId": "001",
+      "did": "440200"
+    },
+    {
+      "name": "嘉应学院",
+      "fullName": "嘉应学院",
+      "disabled": false,
+      "oid": "JYX",
+      "sort": 54,
+      "type": 2,
+      "parentId": "001",
+      "did": "441400"
+    },
+    {
+      "name": "惠州学院",
+      "fullName": "惠州学院",
+      "disabled": false,
+      "oid": "HZX",
+      "sort": 55,
+      "type": 2,
+      "parentId": "001",
+      "did": "441300"
+    },
+    {
+      "name": "东莞理工",
+      "fullName": "东莞理工学院",
+      "disabled": false,
+      "oid": "DGL",
+      "sort": 56,
+      "type": 2,
+      "parentId": "001",
+      "did": "441900"
+    },
+    {
+      "name": "五邑大学",
+      "fullName": "五邑大学",
+      "disabled": false,
+      "oid": "WYD",
+      "sort": 57,
+      "type": 2,
+      "parentId": "001",
+      "did": "440700"
+    },
+    {
+      "name": "佛科院",
+      "fullName": "佛山科学技术学院",
+      "disabled": false,
+      "oid": "FSK",
+      "sort": 58,
+      "type": 2,
+      "parentId": "001",
+      "did": "440600"
+    },
+    {
+      "name": "肇庆学院",
+      "fullName": "肇庆学院",
+      "disabled": false,
+      "oid": "ZQ1",
+      "sort": 59,
+      "type": 2,
+      "parentId": "001",
+      "did": "441200"
+    },
+    {
+      "name": "培正学院",
+      "fullName": "广东培正学院",
+      "disabled": false,
+      "oid": "PZX",
+      "sort": 60,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "白云学院",
+      "fullName": "广东白云学院",
+      "disabled": false,
+      "oid": "GDBY",
+      "sort": 61,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广科院",
+      "fullName": "广东科技学院",
+      "disabled": false,
+      "oid": "GKJ",
+      "sort": 62,
+      "type": 2,
+      "parentId": "001",
+      "did": "441900"
+    },
+    {
+      "name": "广州商院",
+      "fullName": "广州商学院",
+      "disabled": false,
+      "oid": "GZS",
+      "sort": 63,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "东软学院",
+      "fullName": "广东东软学院",
+      "disabled": false,
+      "oid": "DR",
+      "sort": 64,
+      "type": 2,
+      "parentId": "001",
+      "did": "440600"
+    },
+    {
+      "name": "广州工商学院",
+      "fullName": "广州工商学院",
+      "disabled": false,
+      "oid": "GZG",
+      "sort": 65,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广理工",
+      "fullName": "广东理工学院",
+      "disabled": false,
+      "oid": "GZLG",
+      "sort": 66,
+      "type": 2,
+      "parentId": "001",
+      "did": "441200"
+    },
+    {
+      "name": "民航职院",
+      "fullName": "广州民航职业技术学院",
+      "disabled": false,
+      "oid": "GZMH",
+      "sort": 69,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广东轻院",
+      "fullName": "广东轻工职业技术学院",
+      "disabled": false,
+      "oid": "GDQG",
+      "sort": 70,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广外艺",
+      "fullName": "广东省外语艺术职业学院",
+      "disabled": false,
+      "oid": "GDWY",
+      "sort": 71,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "机电职院",
+      "fullName": "广东机电职业技术学院",
+      "disabled": false,
+      "oid": "GDJD",
+      "sort": 72,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广东工贸职业技术学院",
+      "fullName": "广东工贸职业技术学院",
+      "disabled": false,
+      "oid": "GDGM",
+      "sort": 73,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广东职业技术学院",
+      "fullName": "广东职业技术学院",
+      "disabled": false,
+      "oid": "GDZY",
+      "sort": 74,
+      "type": 2,
+      "parentId": "001",
+      "did": "440600"
+    },
+    {
+      "name": "广东建院",
+      "fullName": "广东建设职业技术学院",
+      "disabled": false,
+      "oid": "GDJS",
+      "sort": 75,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广东理工",
+      "fullName": "广东理工职业学院",
+      "disabled": false,
+      "oid": "GDLG",
+      "sort": 76,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "科技职院",
+      "fullName": "广东科学技术职业学院",
+      "disabled": false,
+      "oid": "GDKX",
+      "sort": 77,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广交职院",
+      "fullName": "广东交通职业技术学院",
+      "disabled": false,
+      "oid": "GDJT",
+      "sort": 78,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "水电职院",
+      "fullName": "广东水利电力职业技术学院",
+      "disabled": false,
+      "oid": "GDSL",
+      "sort": 79,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "司警职院",
+      "fullName": "广东司法警官职业学院",
+      "disabled": false,
+      "oid": "GDSF",
+      "sort": 80,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "行职院",
+      "fullName": "广东行政职业学院",
+      "disabled": false,
+      "oid": "GDXZ",
+      "sort": 81,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广东体职",
+      "fullName": "广东体育职业技术学院",
+      "disabled": false,
+      "oid": "GDTY",
+      "sort": 82,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "文艺职院",
+      "fullName": "广东文艺职业学院",
+      "disabled": false,
+      "oid": "GDW",
+      "sort": 83,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广药职院",
+      "fullName": "广东食品药品职业学院",
+      "disabled": false,
+      "oid": "GDSP",
+      "sort": 84,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广东女院",
+      "fullName": "广东女子职业技术学院",
+      "disabled": false,
+      "oid": "85",
+      "sort": 85,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "松山学院",
+      "fullName": "广东松山职业技术学院",
+      "disabled": false,
+      "oid": "GDSS",
+      "sort": 86,
+      "type": 2,
+      "parentId": "001",
+      "did": "440200"
+    },
+    {
+      "name": "广农工商",
+      "fullName": "广东农工商职业技术学院",
+      "disabled": false,
+      "oid": "GDNG",
+      "sort": 87,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "邮电职院",
+      "fullName": "广东邮电职业技术学院",
+      "disabled": false,
+      "oid": "GDYD",
+      "sort": 88,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "工程职院",
+      "fullName": "广东工程职业技术学院",
+      "disabled": false,
+      "oid": "GDGC",
+      "sort": 89,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "粤科贸职",
+      "fullName": "广东科贸职业学院",
+      "disabled": false,
+      "oid": "GDKM",
+      "sort": 90,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "环保职院",
+      "fullName": "广东环境保护工程职业学院",
+      "disabled": false,
+      "oid": "GDHJ",
+      "sort": 91,
+      "type": 2,
+      "parentId": "001",
+      "did": "440600"
+    },
+    {
+      "name": "广青院",
+      "fullName": "广东青年职业学院",
+      "disabled": false,
+      "oid": "GDQN",
+      "sort": 92,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广舞戏",
+      "fullName": "广东舞蹈戏剧职业学院",
+      "disabled": false,
+      "oid": "GDWD",
+      "sort": 93,
+      "type": 2,
+      "parentId": "001",
+      "did": "440600"
+    },
+    {
+      "name": "生态职院",
+      "fullName": "广东生态工程职业学院",
+      "disabled": false,
+      "oid": "GDST",
+      "sort": 94,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "番职院",
+      "fullName": "广州番禺职业技术学院",
+      "disabled": false,
+      "oid": "GDPY",
+      "sort": 95,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广州体职",
+      "fullName": "广州体育职业技术学院",
+      "disabled": false,
+      "oid": "GZTY",
+      "sort": 96,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广州工程技术职业学院",
+      "fullName": "广州工程技术职业学院",
+      "disabled": false,
+      "oid": "GZGC",
+      "sort": 97,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广铁职",
+      "fullName": "广州铁路职业技术学院",
+      "disabled": false,
+      "oid": "GZTL",
+      "sort": 98,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广城职",
+      "fullName": "广州城市职业学院",
+      "disabled": false,
+      "oid": "GZCS",
+      "sort": 99,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "科贸职院",
+      "fullName": "广州科技贸易职业学院",
+      "disabled": false,
+      "oid": "GZKJ",
+      "sort": 100,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "深职院",
+      "fullName": "深圳职业技术学院",
+      "disabled": false,
+      "oid": "SZZY",
+      "sort": 101,
+      "type": 2,
+      "parentId": "001",
+      "did": "440300"
+    },
+    {
+      "name": "深信职院",
+      "fullName": "深圳信息职业技术学院",
+      "disabled": false,
+      "oid": "SZXX",
+      "sort": 102,
+      "type": 2,
+      "parentId": "001",
+      "did": "440300"
+    },
+    {
+      "name": "汕头职院",
+      "fullName": "汕头职业技术学院",
+      "disabled": false,
+      "oid": "STZY",
+      "sort": 104,
+      "type": 2,
+      "parentId": "001",
+      "did": "440500"
+    },
+    {
+      "name": "河职院",
+      "fullName": "河源职业技术学院",
+      "disabled": false,
+      "oid": "HYZY",
+      "sort": 105,
+      "type": 2,
+      "parentId": "001",
+      "did": "441600"
+    },
+    {
+      "name": "惠卫院",
+      "fullName": "惠州卫生职业技术学院",
+      "disabled": false,
+      "oid": "HZWS",
+      "sort": 106,
+      "type": 2,
+      "parentId": "001",
+      "did": "441300"
+    },
+    {
+      "name": "惠城职院",
+      "fullName": "惠州城市职业学院",
+      "disabled": false,
+      "oid": "HZCS",
+      "sort": 107,
+      "type": 2,
+      "parentId": "001",
+      "did": "441300"
+    },
+    {
+      "name": "汕尾职院",
+      "fullName": "汕尾职业技术学院",
+      "disabled": false,
+      "oid": "SWZY",
+      "sort": 108,
+      "type": 2,
+      "parentId": "001",
+      "did": "441500"
+    },
+    {
+      "name": "中山火炬",
+      "fullName": "中山火炬职业技术学院",
+      "disabled": false,
+      "oid": "ZSHJ",
+      "sort": 109,
+      "type": 2,
+      "parentId": "001",
+      "did": "442000"
+    },
+    {
+      "name": "中山职院",
+      "fullName": "中山职业技术学院",
+      "disabled": false,
+      "oid": "ZSZY",
+      "sort": 110,
+      "type": 2,
+      "parentId": "001",
+      "did": "442000"
+    },
+    {
+      "name": "江职院",
+      "fullName": "江门职业技术学院",
+      "disabled": false,
+      "oid": "JMZY",
+      "sort": 111,
+      "type": 2,
+      "parentId": "001",
+      "did": "440700"
+    },
+    {
+      "name": "佛山职院",
+      "fullName": "佛山职业技术学院",
+      "disabled": false,
+      "oid": "FSZY",
+      "sort": 112,
+      "type": 2,
+      "parentId": "001",
+      "did": "440600"
+    },
+    {
+      "name": "阳江职院",
+      "fullName": "阳江职业技术学院",
+      "disabled": false,
+      "oid": "YJZY",
+      "sort": 113,
+      "type": 2,
+      "parentId": "001",
+      "did": "441700"
+    },
+    {
+      "name": "茂职院",
+      "fullName": "茂名职业技术学院",
+      "disabled": false,
+      "oid": "MMZY",
+      "sort": 114,
+      "type": 2,
+      "parentId": "001",
+      "did": "440900"
+    },
+    {
+      "name": "肇庆医专",
+      "fullName": "肇庆医学高等专科学校",
+      "disabled": false,
+      "oid": "ZQYY",
+      "sort": 115,
+      "type": 2,
+      "parentId": "001",
+      "did": "441200"
+    },
+    {
+      "name": "清职院",
+      "fullName": "清远职业技术学院",
+      "disabled": false,
+      "oid": "QYZY",
+      "sort": 116,
+      "type": 2,
+      "parentId": "001",
+      "did": "441800"
+    },
+    {
+      "name": "揭职院",
+      "fullName": "揭阳职业技术学院",
+      "disabled": false,
+      "oid": "JYZY",
+      "sort": 117,
+      "type": 2,
+      "parentId": "001",
+      "did": "445200"
+    },
+    {
+      "name": "罗定职院",
+      "fullName": "罗定职业技术学院",
+      "disabled": false,
+      "oid": "LDZY",
+      "sort": 118,
+      "type": 2,
+      "parentId": "001",
+      "did": "445300"
+    },
+    {
+      "name": "顺职院",
+      "fullName": "顺德职业技术学院",
+      "disabled": false,
+      "oid": "SDZY",
+      "sort": 119,
+      "type": 2,
+      "parentId": "001",
+      "did": "440600"
+    },
+    {
+      "name": "东莞职院",
+      "fullName": "东莞职业技术学院",
+      "disabled": false,
+      "oid": "DGZY",
+      "sort": 120,
+      "type": 2,
+      "parentId": "001",
+      "did": "441900"
+    },
+    {
+      "name": "南华工商",
+      "fullName": "广东南华工商职业学院",
+      "disabled": false,
+      "oid": "MBNH",
+      "sort": 121,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "私立华联",
+      "fullName": "私立华联学院",
+      "disabled": false,
+      "oid": "SLHL",
+      "sort": 122,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "潮汕职院",
+      "fullName": "潮汕职业技术学院",
+      "disabled": false,
+      "oid": "CSZY",
+      "sort": 123,
+      "type": 2,
+      "parentId": "001",
+      "did": "445200"
+    },
+    {
+      "name": "新安职院",
+      "fullName": "广东新安职业技术学院",
+      "disabled": false,
+      "oid": "GDXA",
+      "sort": 124,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "岭南职院",
+      "fullName": "广东岭南职业技术学院",
+      "disabled": false,
+      "oid": "GDLN",
+      "sort": 125,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "亚视职院",
+      "fullName": "广东亚视演艺职业学院",
+      "disabled": false,
+      "oid": "GDYS",
+      "sort": 126,
+      "type": 2,
+      "parentId": "001",
+      "did": "441900"
+    },
+    {
+      "name": "康大职院",
+      "fullName": "广州康大职业技术学院",
+      "disabled": false,
+      "oid": "GDKD",
+      "sort": 127,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "珠海艺职",
+      "fullName": "珠海艺术职业学院",
+      "disabled": false,
+      "oid": "ZHYS",
+      "sort": 128,
+      "type": 2,
+      "parentId": "001",
+      "did": "440400"
+    },
+    {
+      "name": "涉外职院",
+      "fullName": "广州涉外经济职业技术学院",
+      "disabled": false,
+      "oid": "GZSW",
+      "sort": 129,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "南洋职院",
+      "fullName": "广州南洋理工职业学院",
+      "disabled": false,
+      "oid": "GZNY",
+      "sort": 130,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "科技职院",
+      "fullName": "广州科技职业技术学院",
+      "disabled": false,
+      "oid": "GZKX",
+      "sort": 131,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "惠经院",
+      "fullName": "惠州经济职业技术学院",
+      "disabled": false,
+      "oid": "HZJJ",
+      "sort": 132,
+      "type": 2,
+      "parentId": "001",
+      "did": "441300"
+    },
+    {
+      "name": "广东工商",
+      "fullName": "广东工商职业学院",
+      "disabled": false,
+      "oid": "GDGS",
+      "sort": 133,
+      "type": 2,
+      "parentId": "001",
+      "did": "441200"
+    },
+    {
+      "name": "华南商贸",
+      "fullName": "广州华南商贸职业学院",
+      "disabled": false,
+      "oid": "GZHS",
+      "sort": 134,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "华立职院",
+      "fullName": "广州华立科技职业学院",
+      "disabled": false,
+      "oid": "GZHL",
+      "sort": 135,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "现代工职",
+      "fullName": "广州现代信息工程职业技术学院",
+      "disabled": false,
+      "oid": "GZXD",
+      "sort": 136,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "珠江职院",
+      "fullName": "广州珠江职业技术学院",
+      "disabled": false,
+      "oid": "GZZJ",
+      "sort": 137,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "松田职院",
+      "fullName": "广州松田职业学院",
+      "disabled": false,
+      "oid": "GZST",
+      "sort": 138,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "文理职院",
+      "fullName": "广东文理职业学院",
+      "disabled": false,
+      "oid": "GDWL",
+      "sort": 139,
+      "type": 2,
+      "parentId": "001",
+      "did": "440800"
+    },
+    {
+      "name": "广州城建职业学院",
+      "fullName": "广州城建职业学院",
+      "disabled": false,
+      "oid": "GZCJ",
+      "sort": 140,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "UIC",
+      "fullName": "北师大-浸会联合国际学院",
+      "disabled": false,
+      "oid": "UIC001",
+      "sort": 140,
+      "type": 2,
+      "parentId": "001",
+      "did": "440400"
+    },
+    {
+      "name": "南方职院",
+      "fullName": "广东南方职业学院",
+      "disabled": false,
+      "oid": "GDNF",
+      "sort": 141,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "华商职院",
+      "fullName": "广州华商职业学院",
+      "disabled": false,
+      "oid": "GZH",
+      "sort": 142,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "华夏职院",
+      "fullName": "广州华夏职业学院",
+      "disabled": false,
+      "oid": "GZHX",
+      "sort": 143,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "创新职院",
+      "fullName": "广东创新科技职业学院",
+      "disabled": false,
+      "oid": "GZCX",
+      "sort": 144,
+      "type": 2,
+      "parentId": "001",
+      "did": "441900"
+    },
+    {
+      "name": "东华职院",
+      "fullName": "广州东华职业学院",
+      "disabled": false,
+      "oid": "GZDH",
+      "sort": 145,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "信工职院",
+      "fullName": "广东信息工程职业学院",
+      "disabled": false,
+      "oid": "GDXX",
+      "sort": 146,
+      "type": 2,
+      "parentId": "001",
+      "did": "441200"
+    },
+    {
+      "name": "碧园职院",
+      "fullName": "广东碧桂园职业学院",
+      "disabled": false,
+      "oid": "GDBGY",
+      "sort": 147,
+      "type": 2,
+      "parentId": "001",
+      "did": "441800"
+    },
+    {
+      "name": "北师珠",
+      "fullName": "北京师范大学珠海分校",
+      "disabled": false,
+      "oid": "BSZ",
+      "sort": 148,
+      "type": 2,
+      "parentId": "001",
+      "did": "440400"
+    },
+    {
+      "name": "电科中山",
+      "fullName": "电子科技大学中山学院",
+      "disabled": false,
+      "oid": "DZKZ",
+      "sort": 149,
+      "type": 2,
+      "parentId": "001",
+      "did": "442000"
+    },
+    {
+      "name": "北理珠院",
+      "fullName": "北京理工大学珠海学院",
+      "disabled": false,
+      "oid": "BLZ",
+      "sort": 150,
+      "type": 2,
+      "parentId": "001",
+      "did": "440400"
+    },
+    {
+      "name": "吉大珠院",
+      "fullName": "吉林大学珠海学院",
+      "disabled": false,
+      "oid": "JDZ",
+      "sort": 151,
+      "type": 2,
+      "parentId": "001",
+      "did": "440400"
+    },
+    {
+      "name": "广工华立",
+      "fullName": "广东工业大学华立学院",
+      "disabled": false,
+      "oid": "GGH",
+      "sort": 152,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广大松田",
+      "fullName": "广州大学松田学院",
+      "disabled": false,
+      "oid": "ST",
+      "sort": 153,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "东莞城院",
+      "fullName": "东莞理工学院城市学院",
+      "disabled": false,
+      "oid": "DL",
+      "sort": 154,
+      "type": 2,
+      "parentId": "001",
+      "did": "441900"
+    },
+    {
+      "name": "中大新华",
+      "fullName": "中山大学新华学院",
+      "disabled": false,
+      "oid": "ZX",
+      "sort": 155,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "中大南方",
+      "fullName": "中山大学南方学院",
+      "disabled": false,
+      "oid": "ZN",
+      "sort": 156,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "华工广院",
+      "fullName": "华南理工大学广州学院",
+      "disabled": false,
+      "oid": "HG1",
+      "sort": 157,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "华农珠江",
+      "fullName": "华南农业大学珠江学院",
+      "disabled": false,
+      "oid": "HZ1",
+      "sort": 158,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广外南商",
+      "fullName": "广东外语外贸大学南国商学院",
+      "disabled": false,
+      "oid": "GN",
+      "sort": 159,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广财华商",
+      "fullName": "广东财经大学华商学院",
+      "disabled": false,
+      "oid": "CS",
+      "sort": 160,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广海寸金",
+      "fullName": "广东海洋大学寸金学院",
+      "disabled": false,
+      "oid": "CJ",
+      "sort": 161,
+      "type": 2,
+      "parentId": "001",
+      "did": "440800"
+    },
+    {
+      "name": "广技天河",
+      "fullName": "广东技术师范学院天河学院",
+      "disabled": false,
+      "oid": "JT",
+      "sort": 162,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "广大华软",
+      "fullName": "广州大学华软软件学院",
+      "disabled": false,
+      "oid": "HR",
+      "sort": 163,
+      "type": 2,
+      "parentId": "001",
+      "did": "440100"
+    }
+  ],
+  "total": "140",
+  "status": "OK"
+}

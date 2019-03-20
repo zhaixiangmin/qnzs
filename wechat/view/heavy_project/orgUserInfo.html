@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>微信-个人资料</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<link href="https://120.25.215.237:18001/resources/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="wapUserInfo/wap_style.css" />
+<link rel="stylesheet" type="text/css" href="wapUserInfo/common.css">
+
+<!--<script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>-->
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+	<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+	<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+<script src="../../public/js/ajax/ajax2.js"></script>
+<script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+ <script type="text/javascript" src="../../public/js/common/user-linkage-4.js"></script>
+<script src="../../public/js/heavy_project/orgUserInfo.js"></script>		
+<script src="../../public/js/module/Utils.js"></script>
+
+</head>
+<style type="text/css">
+	/****  处理头像样式 ***/
+ 
+	#photo img {
+		display: block;
+		width:3.666666rem;
+		height: 3.666666rem;
+		
+	}
+	#photo input {
+		display: block;
+		width:3.666666rem;
+		height: 3.666666rem;
+		filter:alpha(opacity:0); opacity:0;border: none;
+		
+	}
+	.editInfor select option {
+		
+		text-align: center;
+	}
+	/***** 轮播图样式 *****/
+	.swiper-container {
+        width: 100%;
+        height: 300px;
+        margin: 20px auto;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        width: 60%;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .swiper-slide:nth-child(2n) {
+        width: 40%;
+    }
+    .swiper-slide:nth-child(3n) {
+        width: 20%;
+    }
+	/***** 轮播图样式 end *****/
+</style>
+
+<body class="bgcolor1">
+	<form method="post" name="useInfor" >
+		<div class="useTopBar grzl">
+			<span class="hostroyBack">
+				<a href="javascript:window.history.back(-1);">
+					<img   src="../../public/img/back_arrow.png" width="10" height="16" />
+				</a>
+			</span> 
+			<!-- <b>个人资料</b>  -->
+			<span class="edit">
+				<button type="button" class="bj">编辑</button>
+				<button type="button"  class="bc" style="display: none;">保存</button>
+				<button type="button" class="finishButton hidden" onclick="editUserInfo(1);">完成</button>
+			</span>
+		</div>
+		<!-- <div class="vgap"></div> -->
+		
+		 
+		<ul class="useInfor urow urow01">
+			<li class="div_relative" style="line-height:70px;">
+				<span class="fl fnt15">头像</span> 
+				<span class="useimg" style="margin-right: 0;">
+						 							
+					<!--<img src="" id="photo"/>-->
+					
+					<div id="photo" style="position: relative; width:3.666666rem;height: 3.666666rem;">
+						<img id="preview2"  src=""  style="display:block ;position: absolute; z-index: 1;left: 0; top: 0;" />
+					    <input disabled="disabled" style="position: absolute;z-index: 55; "  type="file" style=" filter:alpha(opacity:0); opacity:0;border: none;" name="image_file" id="Updatefile" class="upload_pic" onChange="fileSelected('preview2','image_file1');" />
+					</div>
+					<!--- 图片插件 ---->
+					 
+				</span>
+				<input id="file" name="file" type="file" style="display: none">
+				<span class="useimg_arrow"></span>
+			</li>
+		</ul>
+		 
+		<ul class="useInfor urow m_top10">
+			<li style="display: none;">
+				<span class="fl fnt15">用户ID</span>
+				<span class="gray fr showTxt ">25854095</span>
+				<div class="editInfor"><input type="text" name="aid" value="25854095" class="editInput" required placeholder="用户ID" /></div>
+			</li>
+		    <li>
+				<span class="fl fnt15">简称</span> 
+				<span class="gray fr showTxt realname hideLabel"></span>
+				<div class="editInfor">
+					<input type="text" style="border: none;" name="realname" id="name" value=""  placeholder="请输入昵称" />
+				</div>
+			</li>
+		     <li>
+				<span class="fl fnt15">全称</span> 
+				<span class="gray fr  hideLabel "  id="fullName"></span>
+				<div class="editInfor">
+					<input type="text" style="border: none;" name="name" class="fullName" value=""  placeholder="请输入昵称" />
+				</div>
+			</li>
+		    
+		   
+			<li>
+				<span class="fl fnt15">所属地区</span> 
+				<span class="gray fr showTxt areadis hideLabel" ></span>
+				<div class="editInfor" >
+					<select id="oidType" class="form-control" style="width: 110px; border: 1px solid black;"  onchange="fn4($(this))">
+                            <option value="">请选择</option>
+                            <option value="1">地市</option>
+                            <option value="2">高校</option>
+                  	</select>
+				
+				</div>
+				<div class="editInfor" >
+					<!--<select id="cityOid" style=" width: 40%; text-align: center; border: 1px solid black;" class="form-control"  name="cityOid" onchange="cityOidChange(this)">
+                 	</select>
+                 	<select id="shcoolOid" style="width: 40%; border: 1px solid black;" class="form-control"  name="shcoolOid"  onchange="schoolOidChange(this)">
+                 	</select>-->
+                 	 <select id="cityOid" class="select fl"  name="cityOid"  onchange="oidCity(this)" style="width: 110px;border: 1px solid black;">
+	                 </select>
+                 	<select id="shcoolOid" class="select fl"  name="shcoolOid"  onchange="oidSchool(this)" style="width: 110px;border: 1px solid black; ">
+                 	</select>
+			
+				</div>
+				<div class="editInfor" >
+					<!--<select id="areaOid" class="form-control" style="width: 40%; border: 1px solid black;"  onchange="quxuan(this)">
+								<!--<option value="-1">--区/县--</option>-->
+			        <!--</select>
+                    <select id="classOid" class="form-control"  style="width: 40%; border: 1px solid black;"  onchange="quxuan(this)">
+							<option value="-1">--分院--</option>
+		            </select>-->
+				    <select id="areaOid" class="select fl"  onchange="quxuan(this)"  style="width: 100px;border: 1px solid black;">
+							<option value="-1">--区/县--</option>
+		            </select>
+                    <select id="classOid"  class="select fl"  onchange="quxuan(this)"  style="width: 100px;border: 1px solid black;">
+							<option value="-1">--分院--</option>
+		            </select>
+				</div>
+			</li>
+	    </ul>
+			 
+			<ul class="useInfor urow m_top10">
+			
+			<li>
+				<span class="fl fnt15">固定电话</span> 
+				<span class="gray fr showTxt email hideLabel mobile" ></span>
+				<div class="editInfor">
+					<input type="email" name="email" id="telephone" style="border: none;" placeholder="请输入固定号码" value=""/>
+				</div> 
+			</li>
+			
+			<li id="mobileExit" style="display:none;line-height:30px;min-height:30px;"><span class="fl fnt12 red"></span></li>
+			
+		 	<li>
+				<span class="fl fnt15">联系地址</span> 
+				<span class="gray fr showTxt address hideLabel"></span>
+				<div class="editInfor">
+					<input type="text" id="address" name="address" style="border: none;" value="" placeholder="联系地址" />
+				</div>
+			</li> 
+			<li style="height: 250px;">
+				<span class="fl fnt15">简介</span> 
+				<div class="hideLabel description"  style="height: 150px; border: 1px solid #dfdfdf;width: 75%;margin: 0 auto;margin-top: 10px;padding: 10px;"  >
+					
+				</div>
+				<div class="editInfor m_top5">
+					<textarea id="description"  name="description" class="editInput" style=" height: 150px; border: 1px solid #dfdfdf; " rows="15" cols="18" placeholder="填写自我描述"></textarea>
+				</div>
+			</li>	
+			
+			
+		</ul> 
+		
+		<div class="vgap"></div>
+	</form>
+	
+	<!-- 站点地图-->
+	<!-- 暂且屏蔽
+	<div id="win_map"></div>
+	-->
+	<!-- 确认弹窗 -->
+	
+<!--<script type="text/javascript" src="http://120.25.215.237:18001/resources/js/common_popup_wap.js"></script>-->
+<!-- 公共确认弹窗 -->
+    <section id="darkCover"></section>
+	<section id="tanchuang01Box">
+		<div class="top clearfix">
+			<em class="close fr" onclick="javascript:closePopupWindow()"></em>
+		</div>
+		<div class="down">
+			<div class="downCon">
+				<p class="p01 fz28 color333 popupWord"><!-- 提示语 --></p>
+				<div class="btns clearfix popupBtn">
+					<a href='javascript:void(0);' onclick="closePopupWindow()" class='fz30 colorfff btn01 fl btn'>取消</a>
+					<span class="popupBtnSure disB btn fr"></span>
+				</div>
+			</div>
+		</div>
+	</section> 
+	
+	<div style="display:none">
+		<script src="http://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+	</div>
+
+	<!--图片上传插件--->
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+
+   
+</body>
+</html>
+<script>
+	
+	
+	  Code_flay =true;  
+	function sendYanzhengCode(){
+		$('.sendSecurityCodeGray').css('background-color','#3ebb2b');
+		if(Code_flay ==true){
+       	    Code_flay =false;
+	        obj.ajax('/bg/account/updatePhoneSecurityCode',{'phone':$('#mobile').val()},function(data){
+				
+				console.log(data);
+				if(data.status =='ERROR'){
+				   alert(data.msg);
+				   $('.prompt').html('亲，验证码在发送失败！');
+				}
+				if(data.status =='OK'){
+				   alert(data.msg);
+				   $('.prompt').html('亲，验证码在发送成功！');
+				}
+			},function(data){})
+	        
+		    $('.sendSecurityCodeGreen').css('display','none');
+	        $('.sendSecurityCodeGreen').css({'display':'block','font-size':'14px'});   
+	        $('.sendSecurityCodeGreen').html('(<em>60</em>)秒后可以重发');
+	    
+	        var  time =setInterval(function(){
+		    	$('.sendSecurityCodeGreen em').html($('.sendSecurityCodeGreen em').html()-1);
+		    	if($('.sendSecurityCodeGreen em').html()<=0){
+		    		   Code_flay =true ;  //重新打开锁
+		    		  clearInterval(time);
+		    		  $('.sendSecurityCodeGreen').html('重发验证码');
+		    	}
+	   	    },1000);
+	    }  
+		
+	}
+	
+	
+</script>

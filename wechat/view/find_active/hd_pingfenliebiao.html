@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>找活动-主办方详情</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/hd_zhaohuodong.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/hd_zhubanfangxiangqing.css" />
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+         <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/find_active/common.js"></script>
+    <script type="text/javascript" src="../../public/js/find_active/hd_zhubanfangxiangqing.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+</head>
+<body class="bodyPB">
+    <section class="headTxt">
+        <div class="item clearfix">
+            <div class="left fl">
+                <img src="../../images/liulian.png"/>
+            </div>
+            <div class="right">
+                <h2 class="color000">中国共产主义河源职业技术学院青年之声</h2>
+                <p class="fz24 color999 short_name">简称：河职院青年之声</p>
+                <div class="scoreBox">    
+                    <ol class="score_ol clearfix fl"></ol>    
+                    <span class="fenshu fl"><em class="score_num">2.5</em>分</span>
+                    <span class="pingjia color999 fl">65人已评</span>   
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 评分列表 -->
+    <section class="bgcWhite score_list_show">
+        <a href="javascript:;" class="show_con disB">
+            <div class="item clearfix">
+                <span class="left_title fz24 color333 fl">主办活动</span>
+                <div class="scoreBox fl">    
+                    <ol class="score_ol clearfix fl"></ol>    
+                    <span class="fenshu fl"><em class="score_num">3.5</em>分</span>
+                    <span class="pingjia color999 fl">65人已评</span>   
+                </div>
+            </div>
+            <div class="item clearfix">
+                <span class="left_title fz24 color333 fl">求助解决</span>
+                <div class="scoreBox fl">    
+                    <ol class="score_ol clearfix fl"></ol>    
+                    <span class="fenshu fl"><em class="score_num">4.5</em>分</span>
+                    <span class="pingjia color999 fl">65人已评</span>   
+                </div>
+            </div>
+            <div class="item clearfix">
+                <span class="left_title fz24 color333 fl">线下服务</span>
+                <div class="scoreBox fl">    
+                    <ol class="score_ol clearfix fl"></ol>    
+                    <span class="fenshu fl"><em class="score_num">1.2</em>分</span>
+                    <span class="pingjia color999 fl">65人已评</span>   
+                </div>
+            </div>
+        </a>
+    </section>
+    <!-- 几大子版块 -->
+    <section class="pingfenliebiao" id="list_big_box">
+        <nav class="title_box bgcWhite">
+            <ul class="title_list clearfix">
+                <li class="title"><span class="title_con">主办活动</span></li>
+                <li class="title"><span class="title_con">求助解决</span></li>
+                <li class="title"><span class="title_con">线下服务</span></li>
+            </ul>
+        </nav>
+        <div class="list_box host_list_box bgcWhite">
+            <ul class="host_list pl_30"></ul>
+        </div>
+        <div class="list_box help_done bgcWhite">
+            <ul class="done_list pl_30 pl_30"></ul>
+        </div>
+        <div class="list_box xxfw_list_box bgcWhite">
+            <ul class="xxfw_list pl_30"></ul>
+        </div>
+    </section>
+    <!-- ****************主办方 ****************-->
+    <!-- <section class="holder bgcWhite">
+        <div class="title color000 clearfix">
+            <h3 class="fl">主办方</h3>
+            <div class="imgDiv fr"><img src="images/next.png" /></div>
+        </div>
+        <section class="content">
+            <div class="item clearfix">
+                <div class="item_l fl"><img src="images/huodong_1.png" class="img01" /><img src="images/baoming.png" class="img02" /></div>
+                <div class="item_r">
+                    <h2 class="color000">#慈善羊城 志愿一夏#广州南站</h2>
+                    <h6>培训</h6>
+                    <p class="p01">2016.03.06--2016.05.13</p>
+                    <p class="fl p02 color999">成府路35号华清嘉园7号楼1楼</p>
+                    <span class="fr color999">&lt;500m</span>
+                </div>
+            </div>
+        </section>
+    </section> -->
+    <!-- <div class="morebtn color333">查看更多</div> -->
+     <!-- 底部 -->
+   <!-- <footer>
+        <ul class="clearfix">
+            <li>
+                <a href="javascript:;">
+                    <div class="imgDiv"></div>
+                    <h6>首页</h6>
+                </a>
+            </li>
+            <li class="cur">
+                <a href="javascript:;">
+                    <div class="imgDiv"></div>
+                    <h6>找活动</h6>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="imgDiv"></div>
+                    <h6>找问答</h6>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="imgDiv"></div>
+                    <h6>找帮助</h6>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="imgDiv"></div>
+                    <h6>我的</h6>
+                </a>
+            </li>
+        </ul>
+    </footer>-->
+    <script type="text/javascript" src="../../public/custom/common.js">
+    	
+    </script>
+</body>
+</html>

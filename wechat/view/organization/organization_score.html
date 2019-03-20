@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>找活动-主办方详情</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/organization/organization_score.css" />
+    <!--<link rel="stylesheet" type="text/css" href="css/hd_zhubanfangxiangqing.css" />-->
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <!--百度地图-->
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=ggGhWZ8zW5mGMOYCohgWNRER5m76Hxfz"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+     <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/OrganizationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/organization/organization_score.js"></script>
+    <!--<script type="text/javascript" src="js/hd_zhubanfangxiangqing.js"></script>-->
+
+</head>
+<body class="bodyPB">
+    <section class="headTxt">
+        <div class="item clearfix">
+            <div class="left fl">
+                <img id="photoUrl"/>
+            </div>
+            <div class="right">
+                <h2 class="color000" id="fullName"></h2>
+                <p class="fz24 color999 short_name">简称：<em id="shortName"></em></p>
+                <div class="scoreBox">
+                    <ol class="score_ol clearfix fl"></ol>
+                    <span class="fenshu fl"><em class="score_num" id="averageScore"></em>分</span>
+                    <span class="pingjia color999 fl"><em id="scoreCount"></em>人已评</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 关注人数 -->
+    <section class="yugao clearfix bgcWhite">
+        <span class="fl color999"><em id="attentionCount"></em>人关注</span>
+        <!--<a href="javascript:;" class="fr">关注</a>-->
+        <a id="submit_help" style="margin-left: 0.38rem;" class="fr">向TA求助</a>
+        <a href="javascript:;" class="fr" id="concern">关注</a>
+    </section>
+    <!-- 评分列表 -->
+    <section class="bgcWhite score_list_show">
+        <a class="show_con disB">
+            <div class="item clearfix">
+                <span class="left_title fz24 color333 fl">主办活动</span>
+                <div class="scoreBox fl">
+                    <ol class="score_ol clearfix fl" id="activityAverageScoreIcon"></ol>
+                    <span class="fenshu fl"><em class="score_num" id="activityAverageScore"></em>分</span>
+                    <span class="pingjia color999 fl"><em id="activityScoreCount"></em>人已评</span>
+                </div>
+            </div>
+            <div class="item clearfix">
+                <span class="left_title fz24 color333 fl">求助解决</span>
+                <div class="scoreBox fl">
+                    <ol class="score_ol clearfix fl" id="helpAverageScoreIcon"></ol>
+                    <span class="fenshu fl"><em class="score_num" id="helpAverageScore"></em>分</span>
+                    <span class="pingjia color999 fl"><em id="helpScoreCount"></em>人已评</span>
+                </div>
+            </div>
+            <div class="item clearfix">
+                <span class="left_title fz24 color333 fl">线下服务</span>
+                <div class="scoreBox fl">
+                    <ol class="score_ol clearfix fl" id="stationAverageScoreIcon"></ol>
+                    <span class="fenshu fl"><em class="score_num" id="stationAverageScore"></em>分</span>
+                    <span class="pingjia color999 fl"><em id="stationScoreCount"></em>人已评</span>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <!-- 几大子版块 -->
+    <section class="pingfenliebiao" id="list_big_box">
+        <nav class="title_box bgcWhite">
+            <ul class="title_list clearfix">
+                <li class="title cur"><span class="title_con">主办活动<em id="total_activity"></em></span></li>
+                <li class="title"><span class="title_con">求助解决<em id="total_help"></em></span></li>
+                <li class="title"><span class="title_con">线下服务<em id="total_service"></em></span></li>
+            </ul>
+        </nav>
+        <div class="list_box host_list_box bgcWhite">
+            <ul class="host_list pl_30"></ul>
+        </div>
+        <div class="list_box help_done bgcWhite">
+            <ul class="done_list pl_30 pl_30"></ul>
+        </div>
+        <div class="list_box xxfw_list_box bgcWhite">
+            <ul class="xxfw_list pl_30"></ul>
+        </div>
+    </section>
+</body>
+</html>

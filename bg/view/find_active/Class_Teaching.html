@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>广东青年之声后台理</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+		<link href="../../public/css/common/style.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" />
+
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+		<script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+		<script src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+
+		<script src="../../public/custom/dialog.js"></script>
+		<script src="../../public/js/module/Qnzs.js"></script>
+		<script src="../../public/js/module/ClacssTachApi.js"></script>
+		<script type="text/javascript" src="../../public/js/module/Utils.js">
+		</script>
+		
+
+	</head>
+
+	<body>
+		<div class="col-sm-12">
+			<!--数据过滤strat-->
+			<div class="datafilter">
+				<div class="search">
+					<form id="" method="post">
+						<div class="form-group sz_height">
+							<label class="col-sm-1">关键词</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="key_Word">
+							</div>
+							<label class="col-sm-1">显示状态</label>
+							<div class="col-sm-2">
+								<select class="form-control" id="is_Use">
+
+									<option value="1">正常</option>
+									<option value="0">禁用</option>
+								</select>
+							</div>
+
+							<div class="col-sm-2">
+								<button type="button" class="btn btn-warning btn-sm" id="classy_actit"><span class="glyphicon glyphicon-search"></span>查询</button>
+								<button type="button" class="btn btn-info btn-sm" id="btn_empty"><span class="glyphicon glyphicon-refresh"></span>清空</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!--数据过滤end-->
+
+			<div class="border clearfix">
+				<ul class="nav navbar-nav" id="toolbar">
+					<li class="active" id="extracurricularType_add"><a href="#"><span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#user-add" id="btn_add">新增</span></a></li>
+					<li onclick="startusing(2)" id="extracurricularType_enable"><a href="javascript：void(0);"><span class="glyphicon glyphicon-play" data-toggle="modal" >启用</span></a></li>
+					<li onclick="forbidden(3)" id="extracurricularType_disable"><a href="javascript：void(0);"><span class="glyphicon glyphicon-ban-circle" data-toggle="modal" >禁用</span></a></li>
+
+				</ul>
+			</div>
+
+			<!--列表展示start-->
+			<div class="table_menu_list">
+				<table id="class_model">
+
+				</table>
+
+			</div>
+			<!--列表展示end-->
+		</div>
+
+		<!-- 新增框（Modal） -->
+		<div class="modal fade" id="user-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+					新增类别
+				</h4>
+					</div>
+					<div class="modal-body">
+						<form method="get" class="form-horizontal">
+							<div class="form-group">
+								<label class="col-sm-2 control-label"><span style="color: red;">*</span>类别名称:</label>
+								<div class="col-sm-7">
+									<input type="text" class="form-control" id="sort_names">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">类别介绍:</label>
+							
+								<div class="col-sm-7">
+
+									<textarea name="" cols="1" rows="3" class="form-control" id="sort_inters"></textarea>
+								</div>
+							</div>
+							<div style="clear:both"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">显示状态:</label>
+								<div class="col-sm-7">
+									<select class="input-sm form-control input-s-sm inline" id="stor_shows">
+
+										<option value="1">正常</option>
+										<option value="0">禁用</option>
+									</select>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary" id="btnn_add">
+							确定
+						</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- 新增框（Modal）end -->
+
+		<!-- 编辑框（Modal） -->
+		<div class="modal fade" id="user-editor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+					编辑类别
+				</h4>
+					</div>
+					<div class="modal-body">
+						<form method="get" class="form-horizontal">
+							<div class="form-group">
+								<label class="col-sm-2 control-label">类别名称:</label>
+								<div class="col-sm-7">
+									<input type="text" class="form-control" id="sort_name">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">类别介绍:</label>
+							
+								<div class="col-sm-7">
+
+									<textarea name="" cols="1" rows="3" class="form-control" id='sort_inter'></textarea>
+								</div>
+							</div>
+							<div style="clear:both"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">显示状态:</label>
+								<div class="col-sm-7">
+									<select class="input-sm form-control input-s-sm inline" id="stor_show">
+										<option value="1">正常</option>
+										<option value="0">禁用</option>
+									</select>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary" id="btn_editor">
+							确定
+						</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- 编辑框（Modal）end -->
+
+		<!-- 启用框（Modal） -->
+		<div class="modal fade" id="user-start" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+					启用
+				</h4>
+					</div>
+					<div class="modal-body">
+						您确定要启用吗?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary" id='userStartBtn'>
+							确定
+						</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- 启用框（Modal）end -->
+
+		<!-- 禁用框（Modal） -->
+		<div class="modal fade" id="user-end" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+					禁用
+				</h4>
+					</div>
+					<div class="modal-body">
+						您确定要禁用吗?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary" id="btn-forbidden">
+							确定
+						</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- 禁用框（Modal）end -->
+
+		<script src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+		<script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script>
+		<script src="../../public/js/contabs.js"></script>
+<script src="../../public/js/find_active/ClassTacher.js"></script>
+		<!--<script src="js/request-ajax/classify_activit.js"></script>-->
+
+	</body>
+
+</html>

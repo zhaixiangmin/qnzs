@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>重磅项目四-首页</title>
+      <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/zbxm_index_model_3.css" />
+    
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_proiect_model4/zbxm_common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/zbxm_index_model_4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/findConsult.css"/>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/super_slide/jquery.SuperSlide.2.1.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+    <!--<script type="text/javascript" src="../../public/js/heavy_project_model4/zbxm_index4.js"></script>-->
+    
+
+    
+    <style>
+    	.banner_box{
+    		
+    		background-size: 100% 100%;
+    	}
+    	
+    	 .work_vote .txt {
+		    white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    line-height: 25px;
+		    font-size: 14px;
+		}
+		 .work_pic_box img {
+		    width: 208px;
+		    display: block;
+		    max-height: 138px;
+		}
+		#secth_tu{
+       	background: url(../../public/img/blueFangdajing.png) no-repeat center center;
+       	
+       }
+    </style>
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="header_box">
+        <div class="w1200 header_content clearfix">
+            <div class="logo fl"><a href="../../index.html"></a></div>
+            <ul class="fl clearfix header_nav">
+                 <!--<li class="nav_li cur"><a href="zbxm_index_model_4.html" id="project_main">首页</a></li>
+                <li class="nav_li"><a href="zbxm_index_model4_detail.html" id="project_detail" >项目详情</a></li>
+                <li class="nav_li"><a href="zbxm_index_model4_team.html" id="team">参赛团队</a></li>-->
+                <li class="nav_li cur">
+					<a id="project_main" href="zbxm_index_model_4.html">首页</a>
+				</li>
+				<li class="nav_li">
+					<a id="project_detail" href="zbxm_index_model4_detail.html">项目详情</a>
+				</li>
+				
+				<li class="nav_li">
+					<a id="team" href="zbxm_index_model4_team.html">参赛团队</a>
+				</li>
+            
+            </ul>
+            <div class="fr header_box_r clearfix">
+                <a href="../../index.html" class="link homepage fl"></a>
+                <a href="javascript:;" class="link login fl" id="head_login_img"></a>
+            </div>
+        </div>
+    </header>
+    <!-- banner -->
+    <div class="banner_box" id="banner_center">
+        <div class="rolling_box clearfix">
+            <div class="rolling_list_box">
+                <ul class="rolling_list clearfix">
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 活动介绍以及报名要求 -->
+    <div class="section_box intro_require_box" style="margin-bottom:40px;">
+        <div class="content w1200 clearfix">
+            <div class="con_left fl padding_0_30">
+                <div class="content_title_box clearfix">
+                    <h1 class="content_title fl">活动介绍</h1>
+                    <a id="activit_jiesao_more" href="zbxm_index_model4_detail.html" class="more_btn fr">MORE</a>
+                </div>
+                <div class="content_b clearfix">
+                    <div class="fl pic_box">
+                        <ul class="pic_list">
+                            <li class="item">
+                                <a href="javascript:;" class="item_con"><img src="../../public/img/66.png" alt="" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="fr right_txt" id="div_activity_remark" style="overflow: hidden;">
+                    	<p style="height: 210px;;"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="fr con_right padding_0_30">
+                <div class="content_title_box clearfix">
+                    <h1 class="content_title fl">报名要求</h1>
+                    <a id="sign_up1" href="zbxm_index_model4_detail.html" class="more_btn fr">MORE</a>
+                </div>
+                <div class="content_b">
+                    <ul class="list" id="requires" style="padding-left: 20px;">
+                        <!--<li class="item">
+                            <a href="javascript:;" class="item_con">参加过省级或以上号长资格培训班并获得资格证书</a>
+                        </li>
+                        <li class="item">
+                            <a href="javascript:;" class="item_con">负责人中至少有1人年龄不超过35周岁</a>
+                        </li>
+                        <li class="item">
+                            <a href="javascript:;" class="item_con">创建集体人数一般为10-200人</a>
+                        </li>
+                        <li class="item">
+                            <a href="javascript:;" class="item_con">5周岁以下青年人数不少于集体总人数60%</a>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 评选流程 -->
+    <div class="section_box selection_process margin_b_30">
+        <div class="content w1200">
+            <div class="content_title_box clearfix padding_0_30">
+                <h1 class="content_title fl">评选流程</h1>
+                <a href="zbxm_index_model4_detail.html" class="more_btn fr">MORE</a>
+            </div>
+            <div class="content_b padding_0_30">
+                <ul class="content_b_list clearfix">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 参赛者作品 -->
+    <div class="section_box participator_work margin_b_30">
+        <div class="content w1200">
+            <div class="content_title_box clearfix padding_0_30">
+                <h1 class="content_title fl">参赛者作品</h1>
+                <a id="tack_activit_mroe" href="zbxm_index_model4_team.html" class="more_btn fr">MORE</a>
+            </div>
+            <div class="select_work padding_0_30 clearfix">
+                <div class="select_work_l fl clearfix">
+                    <select  class="select" id="oidType2" onchange="changeOid2Type(this)">
+                            <option value="-1">请选择</option>
+                            <option value="1">地市</option>
+                            <option value="2">高校</option>
+                    </select>
+                    <select id="cityOid2" class="select"  name="cityOid2" onchange="cityOid2Change(this)"></select>
+                 	<select id="areaOid2" class="select"  onchange="quxuan2(this)">
+							<option value="-1">--区/县--</option>
+		            </select>
+		            
+                 	<select id="shcoolOid2" class="select"  name="shcoolOid2"  onchange="schoolOid2Change(this)"></select>
+                    <select id="classOid2" class="select"  onchange="quxuan2(this)">
+							<option value="-1">--分院--</option>
+		            </select>
+                </div>
+                <div class="select_work_r fr">
+                    <input id="key" type="text" class="search fl" placeholder="请输入关键字" />
+                    <span class="search_btn fl" id="search_btn"></span>
+                </div>
+            </div>
+            <!--<div class="work_show_box">
+                <ul class="work_list clearfix team"></ul>
+                <ul class="work_list clearfix person"></ul>
+            </div>-->
+            <div class="work_show_box" id="activityList">
+				<!--报名列表 --->
+				<ul class="work_list clearfix team_list_box" id="activityListHtmlStatic"></ul>
+			</div>
+        </div>
+    </div>
+    <!-- 赞助商、合作伙伴、联系电话 -->
+    <div class="section_box sponsor_partner_contact">
+        <div class="content w1200 clearfix">
+            <div class="fl sp_pa">
+                <div class="sp_pa_con bgc_white margin_b_30">
+                    <div class="content_title_box clearfix padding_0_30">
+                        <h1 class="content_title fl">主办单位</h1>
+                    </div>
+                    <div class="con_list clearfix">
+                        <li class="sponsor_unit_list item" ></li>
+                       
+                    </div>
+                </div>
+                <div class="sp_pa_con bgc_white">
+                    <div class="content_title_box clearfix padding_0_30">
+                        <h1 class="content_title fl">协办单位</h1>
+                    </div>
+                    <div class="con_list clearfix">
+                        <li class="assist_unit_list  item"></li>
+                       
+                    </div>
+                </div>
+                 <div class="sp_pa_con bgc_white" style="margin-top: 30px;">
+                    <div class="content_title_box clearfix padding_0_30">
+                        <h1 class="content_title fl">承办单位</h1>
+                    </div>
+                    <div class="con_list clearfix">
+                        <li class="undertake_unit_list  item"></li>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="fr contact_phone">
+                <div class="con">
+                    <h1 class="title">联系电话</h1>
+                    <p class="phone_number"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 右侧悬浮导航 -->
+    <div class="body_right_nav">
+        <ul class="nav">
+            <li class="item">
+                <a href="../heavy_project/openEnroll.html" class="item_con" id="sign_up">
+                    <span class="item_con_txt">我要报名</span>
+                </a>
+            </li>
+             <li class="item vote_item">
+                <a href="javascript:;" class="item_con" onclick="show_vote_box(1)">
+                    <span class="item_con_txt">投票指引</span>
+                </a>
+            </li>
+            <li class="item en_item">
+                <a href="javascript:;" class="item_con" onclick="show_vote_box(2)">
+                    <span class="item_con_txt" >报名指引</span>
+                </a>
+            </li>
+            <li class="item" id="load_file_box" >
+                <a id="load_file" href="javascript:;" class="item_con">
+                    <span class="item_con_txt">下载附件</span>
+                </a>
+            </li>
+           
+            <li class="item">
+                <a href="javascript:;" class="item_con">
+                    <span class="item_con_txt report_click">举报</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--- 投票指引 ，报名指引弹窗  ----->
+    <div class="bg_black" style="display:none;">
+        <div class="list_tanchuang" >
+            <div class="list_tanchuang_t conBgc01 clearfix" style="width: 700px!important;">
+                <span class="name font14 fl title">投票指引</span>
+                <span class="delete fr"></span>
+            </div>
+
+            <div class="list_tanchuang_b bgcWhite clearfix" style="width: 749px;">
+                <div class="content_l fl" style="width: 700px;">
+                   
+                    <div class="wenti_shuoming clearfix voteGuide_box" style=";height: 296px;" id="look_img_box">
+                        <div  class="vote_content" style=" text-indent: 20px;line-height: 30px;   width: 675px;height: 251px; border: 1px solid #eee; display: inline-block; padding: 10px 3px;overflow: hidden;">
+                        	
+                        </div>
+                    </div>
+                    <div class="wenti_shuoming clearfix enrollGuide_box" style=";height: 296px;display:none;">
+                        <div  class="enrollGuide_content" style=" text-indent: 20px;line-height: 30px; width: 675px;height: 251px; border: 1px solid #eee; display: inline-block; padding: 10px 3px;overflow: hidden;">
+                        	
+                        </div>
+                    </div>
+                    <div id="imgUrl" style="display: none;"></div>
+                    <a  style="margin-top: 43px;" href="javascript:void (0);" class="delete  sure conBgc01 colorfff font14" id="submit_help">关闭</a>
+                </div>
+
+              
+            
+            </div>
+        </div>
+    </div>
+   
+    <!--举报弹出框-->
+	<div class="askBox2" id="askBox_report" style="display:none;">
+	    <span class="closed" onclick="$('#dark_report').hide(); $('#askBox_report').hide();"></span>
+	    <div class="askBox2_H">
+	        <h3>举报</h3>
+	    </div>
+	    <div class="askBox2_Con">
+	        <form id="form_report" method="" action="">
+	            <input id="module" name="module" value="2" type="hidden">
+	            <input id="reportAgainstId" name="reportAgainstId" value="9025147" type="hidden">
+	            <div class="clearfix jubao_fenlei">
+	                <label class="fl">举报分类</label>
+	                <select name="reportType" id="reportType" class="fl">
+	                    <!--<option value="0">请选择</option>-->
+	                    <option value="1">欺诈</option>
+	                    <option value="2">色情</option>
+	                    <option value="3">诱导行为</option>
+	                    <option value="4">不实信息</option>
+	                    <option value="5">违法犯罪</option>
+	                    <option value="6">骚扰</option>
+	                    <option value="7">侵权(冒充他人、侵犯名誉等)</option>
+	                    <option value="0">其他</option>
+	                </select>
+	            </div>
+	            <div class="clearfix pinghjia_box">
+	                <div class="pingjia_world">
+	                    <span class=" pingjia fl">举报理由</span>
+	                    <!-- 	                    <span class="zifu fl">(至少5个字符)</span>  -->
+	                </div>
+		                <span>
+		                    <textarea class="inputyxxi2 fr" name="content" id="reportContent"></textarea>
+		                </span>
+	            </div>
+	        </form>
+	    </div>
+	    <div class="askBox2_Btn">
+	        <ul>
+	            <li class="fabu2"><a href="javascript:void(0);" id="submit_report">发布</a></li>
+	            <li class="quxiao"><a href="javascript:void(0);" onclick="$('#dark_report').hide(); $('#askBox_report').hide();">取消</a></li>
+	        </ul>
+	    </div>
+	</div>	
+	<!--举报弹出框 end-->
+    <footer class="conBgc01 colorfff font14">
+        <a href="javascript:;" class="disB font14 colorfff">触屏版</a>
+        <p>版权所有 copyright 2016 广东青年之声</p>
+        <p>粤ICP备10214402号-4</p>
+    </footer>
+    <script type="text/javascript" src="../../public/js/heavy_project_model4/zbxm_index_model_common.js"></script>
+    
+</body>
+
+</html>
+<script type="text/javascript" src="../../public/js/common/user_linkage_heavy.js"></script>
+<script>
+	/*** 关键字查询 **/
+$('#search_btn').click(function() {
+	
+	sreachList()
+})
+
+
+//进入个人中心
+
+$('#head_login_img').click(function(){
+		//  获取当前登录者信息
+	obj.ajax('/commons/getSessionAccount',{},function(data){
+		
+		if(data.status =='OK'){
+			window.location.href = '../person_center/person_center.html'
+		}else{
+
+            $.alert('亲，请先登录')
+//		       	  $('#loginBtn').trigger("click");  //触发点击事件
+            var i =1;
+            var  time = setInterval(function(){
+            $('#loginBtn').click();
+	            if(i==1){
+	             	clearInterval(time);
+	            }
+		    },100)	
+			
+		}
+	})
+})
+
+/**** 举报弹出框  ******/
+	
+	$('.report_click').click(function(){
+		 $('#askBox_report').show()  //显示
+	})
+	
+	//关闭谈出窗
+	$('.bg_black .delete ').click(function(){
+		$('.bg_black').hide();
+		
+	})
+	
+	
+	//打开投票指引弹窗
+    function show_vote_box(n) {
+       $('.bg_black').show() //显示弹框
+       if(n == 1){  //投票
+       	
+       	 $('.voteGuide_box').show();
+       	 $('.enrollGuide_box').hide()
+       	 $('.list_tanchuang .title').html("投票指引")
+       }
+       if(n == 2){  //报名
+       	
+       	 $('.voteGuide_box').hide();
+       	 $('.enrollGuide_box').show()
+       	 $('.list_tanchuang .title').html("报名指引")
+       }
+    	
+    }
+	//举报
+	// 举报(发布)
+	$('#submit_report').click(function () {
+		
+		
+		
+		Qnzs.getSessionAccount({}).then(function (data) {
+			console.log(data)
+			if(data.status != 'OK') {
+				$.alert(data.msg);
+				return;
+			}
+            
+			var reportReason = $('#reportContent').val();//举报内容
+			var reportType = $('#reportType').val();
+			if (!reportType && reportType != 0) {
+				$.alert('请选择举报分类');
+				return;
+			}
+			
+			
+			FindConsultApi.report({
+				reportReason: reportReason,
+				reportType: reportType,
+				module: 4,
+				reportAgainstId:activityId
+			}).then(function (data) {
+				
+				$.alert(data.msg,function(){
+					
+					
+					$('#askBox_report').hide();
+				});
+				
+			
+				return;
+				// console.log('举报', data)
+			})
+		})
+	});
+	
+	// 举报(发布)
+	$('#submit_report').click(function () {
+		Qnzs.getSessionAccount({}).then(function (data) {
+			console.log(data)
+			if(data.status != 'OK') {
+				$.alert(data.msg);
+				return;
+			}
+            
+			var reportReason = $('#reportContent').val();//举报内容
+			var reportType = $('#reportType').val();
+			if (!reportType && reportType != 0) {
+				$.alert('请选择举报分类');
+				return;
+			}
+			
+			
+			FindConsultApi.report({
+				reportReason: reportReason,
+				reportType: reportType,
+				module: 4,
+				reportAgainstId:activityId
+			}).then(function (data) {
+				
+				$.alert(data.msg,function(){
+					
+					
+					$('#askBox_report').hide();
+				});
+				
+			
+				return;
+				// console.log('举报', data)
+			})
+		})
+	});
+
+</script>

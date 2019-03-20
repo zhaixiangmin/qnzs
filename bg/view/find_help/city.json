@@ -1,0 +1,236 @@
+{
+  "rows": [
+    {
+      "name": "广州",
+      "fullName": "广州",
+      "disabled": false,
+      "oid": "001001",
+      "sort": 1,
+      "type": 1,
+      "parentId": "001",
+      "did": "440100"
+    },
+    {
+      "name": "深圳",
+      "fullName": "深圳",
+      "disabled": false,
+      "oid": "SHENZHEN",
+      "sort": 2,
+      "type": 1,
+      "parentId": "001",
+      "did": "440300"
+    },
+    {
+      "name": "珠海",
+      "fullName": "珠海",
+      "disabled": false,
+      "oid": "ZHUHAI",
+      "sort": 3,
+      "type": 1,
+      "parentId": "001",
+      "did": "440400"
+    },
+    {
+      "name": "汕头",
+      "fullName": "汕头",
+      "disabled": false,
+      "oid": "SHANTOU",
+      "sort": 4,
+      "type": 1,
+      "parentId": "001",
+      "did": "440500"
+    },
+    {
+      "name": "佛山",
+      "fullName": "佛山青年之声",
+      "disabled": false,
+      "oid": "FS",
+      "sort": 5,
+      "type": 1,
+      "parentId": "001",
+      "did": "440600"
+    },
+    {
+      "name": "韶关",
+      "fullName": "韶关青年之声",
+      "disabled": false,
+      "oid": "SHAOGUAN",
+      "sort": 6,
+      "type": 1,
+      "parentId": "001",
+      "did": "440200"
+    },
+    {
+      "name": "河源",
+      "fullName": "河源市",
+      "disabled": false,
+      "oid": "HY",
+      "sort": 7,
+      "type": 1,
+      "parentId": "001",
+      "did": "441600"
+    },
+    {
+      "name": "梅州",
+      "fullName": "梅州青年之声",
+      "disabled": false,
+      "oid": "MZ",
+      "sort": 8,
+      "type": 1,
+      "parentId": "001",
+      "did": "441400"
+    },
+    {
+      "name": "惠州",
+      "fullName": "惠州青年之声",
+      "disabled": false,
+      "oid": "HZ",
+      "sort": 9,
+      "type": 1,
+      "parentId": "001",
+      "did": "441300"
+    },
+    {
+      "name": "汕尾",
+      "fullName": "汕尾青年之声",
+      "disabled": false,
+      "oid": "SW",
+      "sort": 10,
+      "type": 1,
+      "parentId": "001",
+      "did": "441500"
+    },
+    {
+      "name": "东莞",
+      "fullName": "东莞青年之声",
+      "disabled": false,
+      "oid": "DG",
+      "sort": 11,
+      "type": 1,
+      "parentId": "001",
+      "did": "441900"
+    },
+    {
+      "name": "中山",
+      "fullName": "中山青年之声",
+      "disabled": false,
+      "oid": "ZS",
+      "sort": 12,
+      "type": 1,
+      "parentId": "001",
+      "did": "442000"
+    },
+    {
+      "name": "江门",
+      "fullName": "江门青年之声",
+      "disabled": false,
+      "oid": "JM",
+      "sort": 13,
+      "type": 1,
+      "parentId": "001",
+      "did": "440700"
+    },
+    {
+      "name": "阳江",
+      "fullName": "阳江青年之声",
+      "disabled": false,
+      "oid": "YJ",
+      "sort": 14,
+      "type": 1,
+      "parentId": "001",
+      "did": "441700"
+    },
+    {
+      "name": "湛江",
+      "fullName": "湛江青年之声",
+      "disabled": false,
+      "oid": "ZJ",
+      "sort": 15,
+      "type": 1,
+      "parentId": "001",
+      "did": "440800"
+    },
+    {
+      "name": "茂名",
+      "fullName": "茂名青年之声",
+      "disabled": false,
+      "oid": "MM",
+      "sort": 16,
+      "type": 1,
+      "parentId": "001",
+      "did": "440900"
+    },
+    {
+      "name": "肇庆",
+      "fullName": "肇庆青年之声",
+      "disabled": false,
+      "oid": "ZQ",
+      "sort": 17,
+      "type": 1,
+      "parentId": "001",
+      "did": "441200"
+    },
+    {
+      "name": "清远",
+      "fullName": "清远青年之声",
+      "disabled": false,
+      "oid": "QY",
+      "sort": 18,
+      "type": 1,
+      "parentId": "001",
+      "did": "441800"
+    },
+    {
+      "name": "潮州",
+      "fullName": "潮州青年之声",
+      "disabled": false,
+      "oid": "CZ",
+      "sort": 19,
+      "type": 1,
+      "parentId": "001",
+      "did": "445100"
+    },
+    {
+      "name": "揭阳",
+      "fullName": "揭阳青年之声",
+      "disabled": false,
+      "oid": "JY",
+      "sort": 20,
+      "type": 1,
+      "parentId": "001",
+      "did": "445200"
+    },
+    {
+      "name": "云浮",
+      "fullName": "云浮青年之声",
+      "disabled": false,
+      "oid": "YF",
+      "sort": 21,
+      "type": 1,
+      "parentId": "001",
+      "did": "445300"
+    },
+    {
+      "name": "顺德",
+      "fullName": "顺德青年之声",
+      "disabled": false,
+      "oid": "SD",
+      "sort": 22,
+      "type": 1,
+      "parentId": "001",
+      "did": "440606"
+    },
+    {
+      "name": "汇青合作商家",
+      "fullName": "广东汇青信息科技有限公司",
+      "disabled": false,
+      "oid": "2017",
+      "sort": 1953,
+      "type": 1,
+      "parentId": "001",
+      "did": "440100"
+    }
+  ],
+  "total": "23",
+  "status": "OK"
+}

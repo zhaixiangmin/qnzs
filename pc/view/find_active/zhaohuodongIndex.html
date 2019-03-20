@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>青年之声-找活动首页</title>
+    <meta http-equiv= "X-UA-Compatible" content = "IE=edge,chrome=1"/>
+    <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/custom/page.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_active/qnzs_zhaohuodongIndex.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/vendor/super_slide/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="../../public/custom/qnzsPcCommon.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/ajax/ajax.js"></script>
+    <script type="text/javascript" src="../../public/custom/common.js"> </script>
+    <script type="text/javascript" src="../../public/custom/page.js"></script><!--分页js-->
+    <script type="text/javascript" src="../../public/js/find_active/zhaohuodong.js"></script>
+    <script>
+        var dynamicLoading = {
+            js: function(path){
+                if(!path || path.length === 0){
+                    throw new Error('argument "path" is required !');
+                }
+                var head = document.getElementsByTagName('head')[0];
+                var script = document.createElement('script');
+                script.src = path+"/browser/0110/crossdomain.js";
+                script.type = 'text/javascript';
+                head.appendChild(script);
+            }
+        }
+
+        dynamicLoading.js(bigDataUrl);
+
+    </script>
+
+    <style>
+
+        #pagecount{margin:30px 0 30px 0;
+            padding: 0 100px 0 200px;
+
+        }
+        #pagecount span{ display:block;
+            width:60px;
+            height: 20px;
+            line-height: 20px;
+            float: left;
+            text-align: center;
+            margin-left:10px;
+            background-color:white;
+            border-radius:8px ;
+
+        }
+
+
+    </style>
+</head>
+<body class="bodyPt96">
+
+<!--   banner~\(≧▽≦)/~啦啦啦 -->
+<div id="banBox" class="banBox" style="width:100%;">
+    <div class="hd">
+        <ul></ul>
+    </div>
+    <div class="bd" id="head-banner">
+        <ul>
+            <!-- <li>
+                 <a href="javascript:;" target="_blank">
+                     <img src="../../public/img/indexBanner01.png" />
+                 </a>
+             </li>
+             <li>
+                 <a href="javascript:;" target="_blank">
+                     <img src="../../public/img/indexBanner02.jpg" />
+                 </a>
+             </li>
+             <li>
+                 <a href="javascript:;" target="_blank">
+                     <img src="../../public/img/indexBanner03.png" />
+                 </a>
+             </li>-->
+        </ul>
+    </div>
+    <a class="prev change" href="javascript:void(0)"></a>
+    <a class="next change" href="javascript:void(0)"></a>
+</div>
+<script type="text/javascript">
+    jQuery(".banBox").slide({
+        titCell:".hd ul",
+        mainCell:".bd ul",
+        effect:"leftLoop",
+        autoPlay:true,
+        autoPage:true,
+        interTime:3000,
+        delayTime:300,
+        prevCell:".change.prev",
+        nextCell:".change.next",
+        trigger:"mouseover"
+    });
+</script>
+<!-- 主要内容 -->
+<div class="contentBigBox ask_and_answer act_and_host ">
+    <div class="w1200 clearfix">
+        <div class="leftBox leftAsk fl">
+            <div class="clearfix">
+                <div class="secondSearch zhdIndex fr">
+                    <img src="../../public/img/secSeaIcon.png" class="fl seaIcon">
+                    <input id="sb_huodong" type="text" value="" placeholder="请输入关键字！" class="font14 fl">
+                    <a href="javascript:;" class="font14 colorfff conBgc01 fl disB" id="serchar">搜索</a>
+                </div>
+            </div>
+            <div class="titListBox bgcWhite">
+                <div class="titList">
+                    <div class="listBox clearfix actType">
+                        <span class="spanTit color999 fl">类型：</span>
+                        <div class="listDiv clearfix" id="listDiv">
+                            <a href="javascript:getQuestionsByParams();"   class="option" lang="">全部</a>
+                            <a href="javascript:gethotList();"   class="option" lang="">热门</a>
+
+
+                        </div>
+                    </div>
+                    <div class="listBox clearfix actStatus">
+                        <span class="spanTit color999 fl">状态：</span>
+                        <div class="listDiv clearfix" id="pesserLst">
+                            <a href="javascript:getQuestionsByParam();" class="option" lang="">全部</a>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--分页插件-->
+            <div class="bgcWhite zhd_list_box">
+                <ul class="zhd_list_ul" id="zhd_list_ul">
+                </ul>
+            </div>
+            <!--分页插件-->
+
+
+        </div>
+        <div class="rightHost fr">
+            <div class="hostTit clearfix zhd_margin">
+                <h3 class="font16 color2185cf fl">人气主办方</h3>
+                <a href="../more_active/mood_host.html" class="lookMore fr font14 color999">More&gt;</a>
+            </div>
+            <div class="itemBox bgcWhite">
+                <ul class="hostUl">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<!-- 底部 -->
+<!-- <footer class="conBgc01 colorfff font14">
+     <a href="javascript:;" class="disB font14 colorfff">触屏版</a>
+     <p>版权所有 copyright 2016 广东青年之声</p>
+     <p>粤ICP备10214402号-4</p>
+ </footer>-->
+<!-- 站长统计 -->
+<div style="display:none">
+    <script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+</div>
+
+</body>
+</html>

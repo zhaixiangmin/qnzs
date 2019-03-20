@@ -1,0 +1,11 @@
+.coemt_urel{display: block;width: 100%;height: 3.666666rem;background-color: white;margin-top:10px;}
+.imgphot{width: 2rem;height: 2rem;float: left;margin: 15px 0 15px 10px;}
+.imgphot img{width: 100%;height: 2rem;border-radius: 50%;}
+.comt_time{text-align: right; width: 100%;height: 0.8rem;color: #C2C2C2;line-height: 0.8rem}
+
+.coment_deil{width: 80%;height: 3.666666rem;float: left;margin-left: 0.266666rem;}
+.comt_mark{color: red;width: 100%;height: 0.8rem;text-indent: 10px;}
+.comt_bandwidth,.commet_title{width: 100%;height: 0.8rem; overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;}
+    .commet_title{color: #C0C4CD;margin-top: 0.333333rem;}

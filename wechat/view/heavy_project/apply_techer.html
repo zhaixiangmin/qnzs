@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>微信-个人资料</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<link href="//120.25.215.237:18001/resources/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="wapUserInfo/wap_style.css" />
+<link rel="stylesheet" type="text/css" href="wapUserInfo/common.css">
+	<link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+
+<!--<script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>-->
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+<script src="../../public/js/ajax/ajax2.js"></script>
+	<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+<script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+
+<script src="../../public/js/common/user-linkage.js"></script>
+<script src="../../public/js/module/Utils.js"></script>
+<script src="../../public/js/heavy_project/apply_techer.js"></script>
+</head>
+<style type="text/css">
+	/****  处理头像样式 ***/
+ 
+	#photo img {
+		display: block;
+		width:3.666666rem;
+		height: 3.666666rem;
+		
+	}
+	#photo input {
+		display: block;
+		width:3.666666rem;
+		height: 3.666666rem;
+		filter:alpha(opacity:0); opacity:0;border: none;
+		
+	}
+	.editInfor select option {
+		
+		text-align: center;
+	}
+	/***** 轮播图样式 *****/
+	.swiper-container {
+        width: 100%;
+        height: 300px;
+        margin: 20px auto;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        width: 60%;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .swiper-slide:nth-child(2n) {
+        width: 40%;
+    }
+    .swiper-slide:nth-child(3n) {
+        width: 20%;
+    }
+	/***** 轮播图样式 end *****/
+</style>
+
+<body class="bgcolor1">
+	<form  id="form1" method="post" name="useInfor" >
+		<div class="useTopBar grzl">
+			<span class="hostroyBack">
+				<a href="javascript:window.history.back(-1);">
+					<img src="//120.25.215.237:18001/resources/wapImages/useCenter_03.png" width="10" height="16" />
+				</a>
+			</span> 
+			<!-- <b>个人资料</b>  -->
+			<!--<span class="edit">
+				<button type="button" class="bj">编辑</button>
+				<button type="button"  class="bc" style="display: none;">保存</button>
+				<button type="button" class="finishButton hidden" onclick="editUserInfo(1);">完成</button>
+			</span>-->
+		</div>
+		<!-- <div class="vgap"></div> -->
+		
+		<ul class="useInfor urow m_top10">
+			<li style="display: none;">
+				<span class="fl fnt15">用户ID</span>
+				<span class="gray fr showTxt ">25854095</span>
+				<div class="editInfor"><input type="text" name="aid" value="25854095" class="editInput" required placeholder="用户ID" /></div>
+			</li>
+		
+			<li>
+				<span class="fl fnt15">真实姓名</span>
+				
+				<div class="editInfor" style="height: 1rem; line-height: 3rem;">
+					<input type="text" style="border: none;" name="realname" class="realname" value=""  placeholder="亲，请输入昵称" maxlength="10"/>
+
+					
+				</div> 
+			</li>
+			<li>
+				<span class="fl fnt15">所在地区</span> 
+				<span class="gray fr showTxt areadis hideLabel" ></span>
+				<div class="editInfor" >
+					<select style="width: 7.933333rem;"  class="form-control" id="oidType2" onchange="changeOid2Type(this)">
+                            <option value="-1">--请选择--</option>
+                            <option value="1">地市</option>
+                            <option value="2">高校</option>
+                    </select>
+				</div>
+				
+			</li>
+			<li class="showArea"  style="display: none;">
+				<span class="fl fnt15" ></span> 
+				<span class="gray fr showTxt areadis hideLabel" ></span>
+				<div class="editInfor" >
+					<select  id="cityOid2" class="form-control"  name="cityOid2" onchange="cityOid2Change(this)">
+                 	</select>
+                 	<select  id="shcoolOid2" class="form-control"  name="shcoolOid2"  onchange="schoolOid2Change(this)">
+                 	</select>
+				</div>
+			</li>
+			<li  class="showArea" style="display: none;">
+				<span class="fl fnt15" ></span> 
+				<span class="gray fr showTxt areadis hideLabel" ></span>
+				<div class="editInfor" >
+					<select  id="areaOid2" class="form-control"  onchange="quxuan2(this)">
+						<!--<option value="-1">--区/县--</option>-->
+		            </select>
+                    <select  id="classOid2" class="form-control"   onchange="quxuan2(this)">
+							<option value="-1">--分院--</option>
+	                </select>
+				</div>
+			</li>
+			
+		</ul>
+			 
+		<ul class="useInfor urow m_top10">
+			
+				
+			<li>
+				<span class="fl fnt15">职业</span> 
+				<span class="gray fr showTxt realname hideLabel"></span>
+				<div class="editInfor">
+					<input type="text" style="border: none;" name="realname" class="expProfession" value=""  placeholder="亲，你的职业" maxlength="10"/>
+				</div>
+			</li>
+			<li>
+				<span class="fl fnt15">服务类别</span> 
+				<span class="gray fr showTxt realname hideLabel"></span>
+				<div class="editInfor">
+					<select class="categoryId" style="width: 40%;">
+						<option value="">--请选择--</option>
+						
+					</select>
+				</div>
+			</li>
+			<li>
+				<span class="fl fnt15">特长</span> 
+				<span class="gray fr showTxt email hideLabel"></span>
+				<div class="editInfor">
+					<input type="email" name="email" class="speciality" style="border: none;" placeholder="亲 ，请描素下你的特长" value=""/>
+				</div> 
+			</li>
+			<li   style="height:7rem;">
+				<span class="fl fnt15">个人介绍</span> 
+				<span class="gray fr showTxt hideLabel"></span>
+				<div class="editInfor m_top5">
+					<textarea  name="description" class="description" style="width:100%;padding-top: 0.533333rem;" rows="2" placeholder="亲，请描述下自己"></textarea>
+				</div>
+			</li>
+			<li class="phone" style="height: 9rem; " >
+				<span class="fl fnt15 phonenum">上传手持身份证照片</span> 
+				<span class="gray fr showTxt mobile hideLabel"></span>
+				<span>
+						
+					<div id="photo" style="position: relative; width:6.666666rem;height: 4.666666rem;margin-top: 3.266666rem;margin-left: 1.666666rem;">
+						<img id="preview2"  src="../../public/img/uploadImgBg.png"  style="display:block ;width:6.666666rem;height: 4.666666rem;   position: absolute; z-index: 1;left: 0; top: 0;" />
+					    <input  type="file" style="position: absolute;z-index: 55;  filter:alpha(opacity:0); opacity:0;border: none;" name="image_file" id="Updatefile" class="upload_pic" onChange="fileSelected('preview2','image_file1');" />
+					</div>
+					<!--- 图片插件 ---->
+				</span>
+			</li> 
+			
+			
+		</ul> 
+		<ul class="useInfor urow m_top10" style="margin-bottom: 1rem;">
+			<li style="text-align: center;"  class="add_type1_btn" ><a id="add_techer" href="javascript:;" style="padding: 0.333333rem 3rem; background: #3ebb2b;margin: 0 0.5rem;">提交</a><a  href="../person_center/person_center.html" style="padding: 0.333333rem 3rem; background: #3ebb2b;margin: 0 0.5rem;">取消</a></li>
+		    <li style="text-align: center;  display: none;" class="upd_type3_btn"  ><a id="upd_techer" href="javascript:;" style="padding: 0.333333rem 3rem; background: #3ebb2b;margin: 0 0.5rem;">修改提交</a><a  class="cancel2" href="javascript:;" style="padding: 0.333333rem 3rem; background: #3ebb2b;margin: 0 0.5rem;">注销导师</a></li>
+		
+		</ul>
+		 <p style=" display: block;height: 3rem; margin-left: 0.133333rem;  margin-bottom: 1rem;">温馨提示：提交后将由所在地区的系统管理员审核。</p>
+		<div class="vgap"></div>
+	</form>
+	
+	
+	<form id="form2" style="display: none;">
+		<ul class="useInfor urow m_top10" style="margin-bottom: 1rem;">
+			<li style="text-align: center;" ><a href="javascript:;" style="padding: 0.333333rem 3rem; background: #3ebb2b;margin: 0 0.5rem;">亲，您已经申请了咨询导师，正在审核当中...</a></li>
+
+		
+		</ul>
+		
+		
+		
+	</form>
+	<!-- 站点地图-->
+	<!-- 暂且屏蔽
+	<div id="win_map"></div>
+	-->
+	<!-- 确认弹窗 -->
+	
+<script type="text/javascript" src="//120.25.215.237:18001/resources/js/common_popup_wap.js"></script>
+<!-- 公共确认弹窗 -->
+    <section id="darkCover"></section>
+	<section id="tanchuang01Box">
+		<div class="top clearfix">
+			<em class="close fr" onclick="javascript:closePopupWindow()"></em>
+		</div>
+		<div class="down">
+			<div class="downCon">
+				<p class="p01 fz28 color333 popupWord"><!-- 提示语 --></p>
+				<div class="btns clearfix popupBtn">
+					<a href='javascript:void(0);' onclick="closePopupWindow()" class='fz30 colorfff btn01 fl btn'>取消</a>
+					<span class="popupBtnSure disB btn fr"></span>
+				</div>
+			</div>
+		</div>
+	</section> 
+	
+	<div style="display:none">
+		<script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+	</div>
+
+	<!--图片上传插件--->
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="../../public/js/common/user-linkage-1.js"></script>
+   
+</body>
+</html>
+<script>
+	
+	//图片上传处理 start
+   var image = '';
+               
+	   function selectImage(file) {
+		if(!file.files || !file.files[0]) {
+			return;
+		}
+		var reader = new FileReader();
+		reader.onload = function(evt) {
+			document.getElementById('preview').src = evt.target.result;
+			image = evt.target.result;
+		
+		}
+		reader.readAsDataURL(file.files[0]);
+	};
+	////192.168.100.49:8080/qnzs/file_upload
+   
+    	//#file
+    	$('#image_file').fileupload({
+			url: base + '/file_upload',
+			dataType: 'json',
+			autoUpload: true,
+			done: function(e, data) {
+
+//					alert(data.result.url);
+				imageUrl = data.result.url;
+				$('#preview').attr('src',imageUrl)
+			},
+			fail: function() {
+				alert('出错');
+			}
+		});
+		////192.168.100.49:8080/qnzs/file_upload
+        $('#Updatefile').fileupload({
+			url: base + '/file_upload',
+			dataType: 'json',
+			autoUpload: true,
+			done: function(e, data) {
+
+//					alert(data.result.url);
+				imageUrl2 = data.result.url;
+				$('#preview2').attr('src',imageUrl2) ;  //回显图片
+			},
+			fail: function() {
+				alert('出错');
+			}
+		});
+
+   
+</script>

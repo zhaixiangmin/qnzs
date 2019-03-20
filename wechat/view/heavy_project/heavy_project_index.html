@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no;">
+    <title>重磅项目_首页</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project_index.css">
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/ajax/ajax2.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script src="../../public/js/heavy_project/heavy_project_index.js"></script>
+    <!--公共底部栏-->
+    <script type="text/javascript" src="../../public/custom/common.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/find_active/common.js"></script>
+    <script type="text/javascript" src="../../public/js/find_active/index.js"></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+</head>
+<body class="bodyPB">
+    <!-- 菜单选择 -->
+    <section class="zbxm_choose">
+        <!-- 头部筛选 -->
+        <div class="choose_t bgcWhite clearfix">
+            <div class="choose_box choose_box_l fl">
+                <a href="javascript:;" class="color666 fz28">
+                    <span class="tit" id="typeName1">活动区域</span>
+                </a>
+            </div>
+            <div class="choose_box choose_box_m fl">
+                <a href="javascript:;" class="color666 fz28">
+                    <span class="tit" id="typeName2">活动类型</span>
+                </a>
+            </div>
+            <div class="choose_box choose_box_r fl">
+                <a href="javascript:;" class="color666 fz28">
+                    <span class="tit" id="typeName3">活动状态</span>
+                </a>
+            </div>
+        </div>
+        <!-- 筛选列表 -->
+        <div class="choose_list">
+            <ul class="bgcWhite">
+                <li class="list_1 list">
+                    <div class="list_con" id="area_list1" >               
+                        <a href="javascript:;" class="fz28 color333">全部区域</a>
+                        <!--<a href="javascript:;" class="fz28 color333">深圳</a>
+                        <a href="javascript:;" class="fz28 color333">珠海</a>
+                        <a href="javascript:;" class="fz28 color333">佛山</a>-->
+                    </div>
+                </li>
+                <li class="list_2 list">
+                    <div class="list_con">
+                        <a href="javascript:;" name="type2" class="fz28 color333" districtId="">全部类型</a>
+                        <a href="javascript:;" name="type2" class="fz28 color333" districtId="推荐">推荐</a>
+                        <a href="javascript:;" name="type2" class="fz28 color333" districtId="赛事">赛事</a>
+                        <a href="javascript:;" name="type2" class="fz28 color333"  districtId="培训">培训</a>
+                        <a href="javascript:;" name="type2" class="fz28 color333"  districtId="评选">评选</a>
+                        <a href="javascript:;" name="type2" class="fz28 color333"  districtId="其他">其他</a>
+                    </div>
+                </li>
+                <li class="list_3 list">
+                    <div class="list_con">               
+                        <a href="javascript:;" name="type3" class="fz28 color333" value="0">全部状态</a>
+                        <a href="javascript:;" name="type3" class="fz28 color333" value="1" >未开始</a>
+                        <a href="javascript:;" name="type3" class="fz28 color333" value="2" >报名中</a>
+                        <a href="javascript:;" name="type3" class="fz28 color333" value="3">投票中</a>
+                        <a href="javascript:;" name="type3" class="fz28 color333" value="4">已结束</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--  黑色背景 -->
+   <div class="bg_black"></div>
+<!-- 项目列表 -->
+    <section class="xiangmu hd_backgroung project_item_list">
+        <!-- <a href="javascript:;">
+            <div class="xiangmu_box">
+                <div class="xiangmu_box_in">
+                    <div class="xiangmu_content">
+                        <div class="pic_box">
+                            <img src="../../public/img/xiangmu_1.png" />
+                        </div>
+                        <p class="clearfix">
+                            <span class="xm_fenlei fl">情感</span>
+                            <span class="xm_zhuti fl">广外法学院Dreammakers</span>
+                            <span class="xm_time fr clearfix"><i class="rest fl">剩</i><i class="day fl">12天4小时</i></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="javascript:;">
+            <div class="xiangmu_box">
+                <div class="xiangmu_box_in">
+                    <div class="xiangmu_content">
+                        <div class="pic_box">
+                            <img src="../../public/img/xiangmu_1.png" alt="" />
+                        </div> 
+                        <p class="clearfix">
+                            <span class="xm_fenlei fl">情感</span>
+                            <span class="xm_zhuti fl">广外法学院Dreammakers</span>
+                            <span class="xm_state fr clearfix color999">已结束</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a> -->
+    </section >
+    <div class="gengduo bgcWhite">
+        <a href="javascript:;" class="color333">查看更多</a>
+    </div>
+    <!-- 底部菜单栏 -->
+    <!-- 站长统计 -->
+<div style="display:none">
+    <script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+</div>
+</body>
+</html>

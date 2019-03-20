@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>密码重置</title>
+ <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="css/zhustyle.css" rel="stylesheet" type="text/css">
+	<link href="css/zhuanimation.css" rel="stylesheet" type="text/css">
+	<!--<script type="text/javascript" src="../../public/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../../public/js/My97DatePicker/WdatePicker.js"></script><link href="../../public/js/My97DatePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css">	
+    <script type="text/javascript" src="../../public/js/util.js"></script>
+	<script type="text/javascript" src="../../public/js/commons/resetPassword.js"></script>
+	<script type="text/javascript" src="../../public/js/validateInput.js"></script>
+	<script type="text/javascript">
+	var ctx = '//www.12355.net';
+	</script>-->
+	 <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+   
+	<style type="text/css">
+		.step_hide {display: none;}
+		.step_show {display: block;}
+		#imagesyanz{width: 120px;height: 40px;display: block;float: left;vertical-align: middle;cursor: pointer;}
+	</style>
+	<script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script src="../../public/js/ajax/ajax.js"></script>
+  
+</head>
+
+<body class="gray_bg">
+
+<header class="header">
+  <section class="login">
+    <article class="w1200">
+      <div class="logintop">
+      	<div style="float: left;">
+      		<a href="//www.12355.net">
+				<img class="IndexLocationName2" src="../../public/images/logo.png"> 
+			</a>
+      	</div>
+      </div>
+    </article>
+  </section>
+</header>
+
+<section class="loginbodyBox">
+    <div id="hao" class=" bigboxCon">	
+	<div class="bbbigbox01 clearfix step2_1"> 
+	            
+    	<article style="padding:0px 30px 0px 50px">            
+          <div class="pageme">
+               <p class="pcircle"></p>
+                <p>密码重置</p>
+          </div>
+  			<form id="fm_forget_pw" method="post"> 
+			<section class="clearfix">
+              <!-- <div class="input1" style="margin-top:10px">
+                <p class="fl"><label for="username">登录帐号</label></p>
+                <input id="username" name="username" type="text" class="inp_mai fl inputfoucs" maxlength="12"  placeholder="已注册账号">
+                <p class="fl prompt"><b>*</b></p>
+              </div> -->
+              <div class="input1">
+                <p class="fl"><label for="email">手机号</label></p>
+              	<input  id="mobile" type="text" placeholder="请输入手机号" style="color:gray" class="inp_mai fl inputfoucs">
+                <p class="fl prompt"><b>*</b></p>
+              </div>
+              <p class="fl spa2" style="margin-left: 106px;color: red;"></p>
+            
+              <!-- 验证码  -->
+              
+              
+              
+              <!-- 验证码 end  -->
+              <div class="input1">
+                <p class="fl" style="letter-spacing:7px"><label for="password">新密码</label></p>
+                <input id="userPassword"  type="password" class="inp_mai fl inputfoucs" maxlength="16" placeholder="6-16位字母/数字/_">
+                <p class="fl prompt"><b>*</b></p>
+              </div>
+              <div class="input1">
+                <p class="fl"><label for="rePassword">确认密码</label></p>
+                <input id="confirmPassword"  type="password" class="inp_mai fl inputfoucs" maxlength="16" placeholder="6-16位字母/数字/_">
+                <p class="fl prompt"><b>*</b></p>
+              </div>
+              <div class="input1">
+                <p class="fl">图片验证码<label for="imageVal">&nbsp;&nbsp;</label></p>
+              		<input style="width:100px;"    id="imageVal" type="text" placeholder="请输入图片验证码"  class="inp_mai fl inputfoucs">
+                <p class="fl prompt"><span><b>*</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!--  <em style="font-size:16px;color:#000" onclick="javascript:sendResetPwSecurityCode()" id="sendEmailVal" name="sendEmailVal"/><b>点击发送验证码</b></em>
+                 -->
+                 <img id="imagesyanz" onclick="changeModel()" src="" alt="">
+                </p>
+                 
+              </div>
+              
+              <div class="input1">
+                <p class="fl">短信验证码<label for="emailVal">&nbsp;&nbsp;</label></p>
+              		<input style="width:100px;"    id="emailVal" type="text" placeholder="请输入短信验证码" maxlength="6" class="inp_mai fl inputfoucs">
+                <p class="fl prompt"><span><b>*</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!--  <em style="font-size:16px;color:#000" onclick="javascript:sendResetPwSecurityCode()" id="sendEmailVal" name="sendEmailVal"/><b>点击发送验证码</b></em>
+                 -->
+                 <input style="display:none;border:none;background-color:#ccc;color:#333;font-size:14px;width:100px;height:35px;border-radius: 2px;" type="button" value="发送验证码" id="sendEmailVal" name="sendEmailVal">
+                  <span id="get-yangzhengcode" style="display:inline-block; cursor: pointer; padding: 2px 5px;background: lightskyblue; height: 33px;">发送验证码</span><p id="getcodeInfo"></p>
+                </p>
+                 
+              </div>
+              
+              
+              
+              
+              <div class="mebutton" style="width:870px;">
+					<a href="javascript:void(0)" id="sbmitBtn" onclick="resetBtn()" >提交</a>
+					<a href="javascript:;"  id="cancelBtn" style="background-color:#ccc; color:#333; margin-left: 10px;">取消</a>
+			  </div>
+			</section>
+			</form>
+		</article>
+		
+	</div>
+	</div>
+</section>	
+<!-- footer-->
+<footer class="footerIn">
+  <address class="loginbm w1200">
+     <p>版权所有 copyright 2016 广东青年之声</p>
+  </address>
+</footer>
+	<!--<div style="display:none">
+		<script src="https://s95.cnzz.com/stat.php?id=1258031328&amp;web_id=1258031328" language="JavaScript"></script><script src="https://c.cnzz.com/core.php?web_id=1258031328&amp;t=z" charset="utf-8" type="text/javascript"></script><a href="//www.cnzz.com/stat/website.php?web_id=1258031328" target="_blank" title="站长统计">站长统计</a>
+	</div>-->
+
+<div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;"><iframe style="width: 182px; height: 201px;" src="../../public/js/My97DatePicker/My97DatePicker.html" frameborder="0" border="0" scrolling="no"></iframe></div>
+    
+    <!-- 站长统计 -->
+	<div style="display:none">
+	    <script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+	</div>
+</body>
+   <script src="../../public/js/module/Qnzs.js"></script>
+     <script src="../../public/js/psd_reset/psd_reset.js"></script>
+</html>
+
+<script>
+	
+	//取消密码重置
+	$('#cancelBtn').click(function(){
+		
+		$('#emailVal').val(''),  //验证码
+		$('#userPassword').val(''),  //新密码
+        $('#mobile').val('')             //用户ID
+		$(".spa2").text("");
+		$("#mobile").css("border","1px solid #ccc")
+		code_flay = false;  //给发送验证码解锁
+	})
+	//聚焦
+	$("#mobile").focus(function(){
+		$(".spa2").text("");
+	    $(this).css("border","1px solid #ccc")
+			
+			
+	})
+	
+
+	  var xmlhttp;
+	   
+	xmlhttp=new XMLHttpRequest();
+	//xmlHttp = createXMLHttpRequest();
+	xmlhttp.open("GET",Qnzs.path+"/pc/account/updateValidCode",true);
+	xmlhttp.setRequestHeader("POWERED-BY-MENGXIANHUI", "Approve");  
+	xmlhttp.setRequestHeader("Content-Type", "application/xml"); 
+	xmlhttp.withCredentials = true;
+	xmlhttp.responseType = "blob";
+	xmlhttp.onload = function(){
+	    console.log(this);
+	    if (this.status == 200) {
+	        var blob = this.response;
+	        var img = document.getElementById("imagesyanz");
+	        img.onload = function(e) {
+	            window.URL.revokeObjectURL(img.src); 
+	        };
+	        img.src = window.URL.createObjectURL(blob);
+	        
+	        
+	    }
+	}
+	xmlhttp.send();
+
+
+		
+	function  changeModel(){
+		
+var xmlhttp;
+   
+xmlhttp=new XMLHttpRequest();
+//xmlHttp = createXMLHttpRequest();
+xmlhttp.open("GET",Qnzs.path+"/pc/account/updateValidCode",true);
+xmlhttp.setRequestHeader("POWERED-BY-MENGXIANHUI", "Approve");  
+xmlhttp.setRequestHeader("Content-Type", "application/xml"); 
+xmlhttp.withCredentials = true;
+xmlhttp.responseType = "blob";
+xmlhttp.onload = function(){
+    console.log(this);
+    if (this.status == 200) {
+        var blob = this.response;
+        var img = document.getElementById("imagesyanz");
+        img.onload = function(e) {
+            window.URL.revokeObjectURL(img.src); 
+        };
+        img.src = window.URL.createObjectURL(blob);
+        
+        
+    }
+}
+xmlhttp.send();
+		
+	}
+	
+	
+	
+</script>

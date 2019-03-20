@@ -1,0 +1,18 @@
+.header{background-color:#1070b6;height:44px;position: relative;}
+.header .header_btn{position: absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
+.header .btn{float: left;width:66px;height:26px;line-height:26px;border-radius:5px;text-align: center;background-color: #fff;color:#000;font-size:14px;}
+.header .btn:first-child{margin-right:5px;}
+.header .btn.cur{background-color:#33cc33;color:#fff;}
+
+.current_area{padding-left:15px;background-color: #fff;line-height:35px;height:35px;color:#000;font-size:14px;border-bottom:1px solid #ccc;}
+
+.area_list{padding:15px 10px 0;}
+.area_list .list_ul .list_item{float: left;width:50%;padding:0 5px;box-sizing:border-box;margin-bottom:10px;}
+.area_list .list_ul .item_link{display: block;background-color: #fff;text-align: center;font-size:0.525rem;line-height:25px;height:25px;border:1px solid #ccc;}
+.school_list{display: none;}
+.school_list .area_search{padding:0 5px;margin-bottom:10px;}
+.school_list .search_txt_box{width:78%;background-color: #fff;border-radius:12px;}
+.school_list .search_txt_box .search_txt{width:80%;line-height:26px;height:26px;padding-left:10px;box-sizing:border-box;border-radius:12px 0 0 12px;}
+.school_list .search_txt_box .fangda{width:20%;padding-right:10px;box-sizing:border-box;}
+.school_list .search_txt_box .fangda_img{background:url(../../img/searchIcon.png) no-repeat right center;line-height:26px;height:26px;background-size:18px;display: block;}
+.school_list .search_btn{width:20%;background-color: #2185cf;color:#fff;text-align: center;line-height:26px;height:26px;font-family:'Microsoft yahei';border-radius:4px;}

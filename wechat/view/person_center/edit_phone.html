@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改手机号</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/person_center/edit_phone.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/login-register/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/PersonCenterApi.js"></script>
+    <script type="text/javascript" src="../../public/js/person_center/edit_phone.js"></script>
+</head>
+<body>
+<div style="position: relative;height:1.76rem;line-height:1.76rem;text-align: center;font-size:0.72rem;color:#fff;background-color: #333;">
+    <a href="user_info_edit.html" style="position: absolute;left:0;width:1.68rem;height:100%;background: url(../../public/img/arrow-left.png) no-repeat center;background-size: 0.34rem 0.58rem;"></a>
+    修改手机号
+</div>
+<div class="info_box">
+    <ul class="info_list">
+        <li class="info_item"><!-- 原手机号 -->
+            <span class="title">原手机号</span>
+            <span class="txt" id="phone"></span>
+        </li>
+        <li class="info_item_input"><!-- 新手机号 -->
+            <span class="title">新手机号</span>
+            <input type="text" placeholder="请输入新手机号" id="new_phone" />
+        </li>
+        <li class="pic_box"><!-- 图片验证码 -->
+            <input id="pic_code" class="code" type="text" placeholder="请输入图片验证码" />
+            <img src="" alt="" id="img">
+        </li>
+        <li class="msg_box"><!-- 短信验证码 -->
+            <input id="msg_code" class="code" type="text" placeholder="请输入短信验证码" />
+            <span class="code_txt">发送验证码</span>
+            <div class="code_count" style="display: none;"><span></span>秒后重发</div>
+        </li>
+    </ul>
+    <div class="tips">
+        <p>注：修改手机号需要对新手机号进行短信验证；</p>
+        <p class="second">成功修改后，你需要使用修改后的新手机号登录。</p>
+    </div>
+    <a href="javascript:;" class="bot_big_btn" id="confirm">确定修改</a>
+</div>
+
+</body>
+</html>

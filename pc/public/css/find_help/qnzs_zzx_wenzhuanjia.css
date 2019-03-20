@@ -1,0 +1,24 @@
+/* 与问组织、组织列表公用啊啊啊 */
+/* 专家列表-分类选项*/
+.zhuanjia{padding:22px 0;}
+.zhuanjia .listBox{padding: 8px 0;line-height: 26px;}
+.zhuanjia .listBox .spanTit{padding-right: 14px;}
+.zhuanjia .listBox .listDiv{padding-left:50px;}
+.zhuanjia .listBox .listDiv .option{float: left;padding: 0 12px;line-height: 26px;border-radius: 13px;margin: 0 3px;color:#000;}
+.zhuanjia .listBox .listDiv .option:hover{background-color: #2185cf;color:#fff;}
+.zhuanjia .listBox .listDiv .option.cur{background-color: #2185cf;color: #fff;}
+
+.secondSearch.fr{padding-bottom:0;padding-top:15px;}
+
+/* 专家列表内容*/
+.zhuanjia_list{padding-top:60px;}
+.zhuanjia_list .list_ul .list_li{position: relative;}
+.zhuanjia_list .list_ul .list_li .list_box{width:237.5px;height:80px;padding:20px;margin:0 30px 30px 0;}
+.zhuanjia_list .list_ul .list_li:nth-child(4n) .list_box{margin-right:0 !important;}
+.list_box_l{width:80px;height:80px;border-radius:50%;overflow:hidden;}
+.list_box_l img{width:100%;display:inline-block;}
+.list_box_r{margin-left:20px;width: 136px;}          /*这里给宽度*/
+.list_box_r p{line-height:12px;margin:14px 0;width:100%;overflow:hidden;text-overflow:ellipsis;-o-text-overflow:ellipsis;white-space:nowrap;}
+.tiwenBtn{width:70px;line-height:18px;display:block;border-radius:4px;text-align:center;cursor:pointer;font-size: 12px;position: absolute;left:120px;bottom:50px;}
+
+

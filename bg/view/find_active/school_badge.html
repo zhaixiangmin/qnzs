@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+		<link href="../../public/css/common/style.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" />
+
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+		<script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+		<script src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+		<script src="../../public/custom/dialog.js"></script>
+		<script src="../../public/js/module/Qnzs.js"></script>
+
+		<!--<script src="../../public/js/module/Utils.js"></script>-->
+		<script type="text/javascript" src="../../public/js/find_active/school_bage.js">
+		</script>
+		<style>
+			.btn_file {
+				position: relative;
+				margin-left: 100px;
+			}
+			
+			.btn_file input[type="file"] {
+				position: absolute;
+				top: 4px;
+				left: 0;
+				opacity: 0;
+				background: none repeat scroll 0 0 transparent;
+				cursor: inherit;
+			}
+			
+			.btn_file,
+			.upto_image {
+				display: inline-block;
+			}
+			
+			#imgDiv {
+				width: 300px;
+				height: 300px;
+				border: solid 2px silver;
+			}
+			
+			#imghead {
+				width: 300px;
+				height: 300px;
+			}
+			
+			.maing_lift {
+				margin-left: 93px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="col-sm-12">
+			<!--数据过滤strat-->
+
+			<!--数据过滤end-->
+
+			<div class="border clearfix">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#"><span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#user-add" id="btn_add">上传</span></a></li>
+					<li onclick="updateredact(1)"><a href="#shop"><span class="glyphicon glyphicon-pencil" data-toggle="modal" >修改</span></a></li>
+
+				</ul>
+			</div>
+
+			<!--列表展示start-->
+			<div class="table_menu_list">
+				<table id="poster-table">
+
+				</table>
+
+			</div>
+			<!--列表展示end-->
+		</div>
+
+		<!-- 新增框（Modal） -->
+		<div class="modal fade" id="user-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+					上传校徽
+				</h4>
+
+						<h4 class="modal-title" id="my_ModalLabel" style="display: none;">
+					修改校徽
+				</h4>
+					</div>
+					<div class="modal-body">
+						<form method="get" class="form-horizontal">
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label"><span style="color: red;">*</span>校徽上传:</label>
+
+								<div class="btn btn-info btn_file">
+									<span class="upto_image">点击从本地电脑选择图片上传</span>
+									<input type="file" name="file" id="file" onchange="selectImage(this);" />
+								</div>
+
+							</div>
+
+							<div class="form-group">
+								<div class="col-sm-6 maing_lift">
+
+									<div id="imgDiv">
+
+										<img id="imghead" src=''>
+
+									</div>
+									<button class="btn btn-info glyphicon glyphicon-trash" type="button" data-toggle="modal" onclick="calerImg(2)">删除</button>
+								</div>
+
+							</div>
+
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary" id="btnn_add">
+							确定
+						</button>
+
+						<button type="button" class="btn btn-primary" id="edit_add" style="display: none;">
+							确定
+						</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- 新增框（Modal）end -->
+
+		<script src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+		<script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script>
+		<script src="../../public/js/contabs.js"></script>
+		<!--<script src="js/request-ajax/classify_activit.js"></script>-->
+		<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+		<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+		<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+
+		<script type="text/javascript">
+			var imageUrl = "";
+			$(document).ready(function() {
+				$('#file').fileupload({
+					//						url: base + '/file_upload',
+					url: Qnzs.path + '/file_upload',
+					dataType: 'json',
+					autoUpload: true,
+					done: function(e, data) {
+						if (data.error == 1) {
+							alert(data.message);
+						} else {
+							//alert('上传成功');
+							imageUrl = data.result.url;
+						}
+					},
+					fail: function() {
+						alert('出错');
+					}
+				});
+			})
+			/*添加显示图片*/
+			var image = '';
+
+			function selectImage(file) {
+				if (!file.files || !file.files[0]) {
+					return;
+				}
+				var reader = new FileReader();
+				reader.onload = function(evt) {
+					document.getElementById('imghead').src = evt.target.result;
+					image = evt.target.result;
+				}
+				reader.readAsDataURL(file.files[0]);
+			}
+			/*清空图片数据*/
+			function calerImg() {
+				$('#imghead').attr('src', '');
+			}
+		</script>
+	</body>
+
+</html>

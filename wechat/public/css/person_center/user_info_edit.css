@@ -1,0 +1,73 @@
+body {
+    background: #ebebeb;
+}
+
+.info_box .img_box {height: 3.6rem;
+    padding: 0 0.6rem;
+    background: #fff;}
+
+.info_box .img_box .title {
+    height: 100%;
+    line-height: 3.6rem;
+    font-size: 0.6rem;
+    color: #333;
+    display: inline-block;
+}
+.info_box .img_box .img_content {
+    margin-top: 0.7rem;
+    float: right;
+    width: 2.2rem;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    text-align: center;
+    font-size: 0;
+    background: #ebebeb;
+}
+.info_box .img_box .img_content img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+    display: inline;
+}
+
+/* 信息列表 比如填写资料什么的 */
+.info_box {margin-bottom: 3rem;}
+.info_box .info_list {margin-top: 1.2rem;line-height: 1.2rem;}
+.info_box .info_list .info_item{margin-bottom:0.6rem;padding:0.2rem 0.6rem;background-color: #fff;overflow: hidden;}
+.info_box .info_list .info_item .title{font-size:0.6rem;color:#333;float: left;max-width: 40%;}
+.info_box .info_list .info_item .txt{margin-right: 0.9rem;float: right;position: relative;max-width: 50%;font-size:0.48rem;color:#666;}
+.info_box .info_list .info_item .arrow{padding-right: 0.9rem;float: right;position: relative;max-width: 50%;font-size:0.48rem;color:#666;}
+.info_box .info_list .info_item .arrow:before {content: '';position: absolute;right: 0;top: 50%;transform: translateY(-50%);width: 0.28rem;height: 0.52rem;background: url(../../img/arrow-right.png) no-repeat;background-size: contain;}
+.info_box .info_list .info_item_rows {padding: 0.3rem 0.6rem;background: #fff;}
+.info_box .info_list .info_item_rows .title {line-height: 1.2rem;font-size: 0.6rem;color: #333;}
+.info_box .info_list .info_item_rows .labels {overflow: hidden;}
+.info_box .info_list .info_item_rows .labels .checkbox_label {padding-left: 0.7rem;float: left;line-height: 1.1rem;font-size: 0.48rem;min-width: 2.5rem;background: url(../../img/square.png) no-repeat left center;background-size: 0.48rem;}
+.info_box .info_list .info_item_rows .labels .checkbox_label.active{background-image: url(../../img/square-active.png);}
+.info_box .info_list .info_item_rows textarea {padding: 0;width: 100%;height: 4.4rem;line-height: 0.72rem;font-size: 0.48rem;color: #333;}
+
+.info_box .info_list .info_item_input{  margin-bottom: 0.6rem;  padding: 0.2rem 0.6rem;  background-color: #fff;  overflow: hidden;  }
+.info_box .info_list .info_item_input .title{font-size:0.6rem;color:#333;float: left;max-width: 40%;}
+.info_box .info_list .info_item_input input {padding-right: 0.9rem;float: right;width: 50%;line-height: 1.2rem;text-align: right;font-size: 0.48rem;color: #333;}
+
+
+.bot_big_btn {display: block;margin: 1.6rem 0.6rem;height: 2rem;line-height: 2rem;font-size: 0.72rem;text-align: center;color: #fff;background-color: #2185cf;border-radius: 0.2rem;}
+
+/* 选择 - 弹窗 - 单列 */
+.select_popup{position: fixed;background-color:rgba(0,0,0,.3);left:0;top:0;width:100%;height:100%;z-index:9999;display:none;}
+.select_popup .select_list{position: absolute;bottom:0;left:0;background-color: #fff;width:100%;max-height:7rem;overflow-y:auto;}
+.select_popup .select_list .select_item{height:1.6rem;line-height:1.6rem;text-align: center;color:#333;font-size:0.56rem;border-bottom:1px solid #f2f2f2;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.select_popup .select_list .select_item:active{background-color: #33cc33;color:#fff;}
+.select_popup .select_list .select_item:last-child{border-bottom:0 none;}
+
+
+
+.webuploader-container .webuploader-pick {
+    width: 100%;
+    height: 100%;
+}
+.webuploader-container div input {
+    display: none;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+}

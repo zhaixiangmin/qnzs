@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>重磅项目-首页</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="css/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="css/webupload_main.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project_actPage.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/heavy_project/heavy_project_actPage.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script src="../../public/js/common/ajax2.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+</head>
+<body style="padding-bottom:0;">
+    <div class="ZB_banner bgcWhite ">
+        <section class="banner">
+            <img src="../../public/img/ZB_banner.png"/>
+        </section>
+        <p class="color000 fz36">华工附小托管志愿活动</p>
+    </div>  
+        <!-- 分类、报名、投票等等 -->
+    <section class="shuju">        
+        <div class="shuju_box bgcWhite">
+            <div class="shuju_list  fenlei">
+                <div class="list_box clearfix">
+                    <div class="fl"><img src="../../public/img/ZB_fenlei.png"/></div>
+                    <p class="fl color666 fz30">分类</p>
+                    <span class="fr color000 fz30">赛事</span>
+
+                </div>
+            </div>
+            <div class="shuju_list baoming">
+                <div class="list_box clearfix">
+                    <div class="fl"><img src="../../public/img/ZB_baoming.png"/></div>
+                    <p class="fl color666 fz30">报名</p>
+                    <span class="fr color000 fz30">02/03-02/04</span>
+                </div>
+            </div>
+            <div class="shuju_list toupiao">
+                <div class="list_box clearfix">
+                    <div class="fl"><img src="../../public/img/ZB_toupiao.png"/></div>
+                    <p class="fl color666 fz30">培训</p>
+                    <span class="fr color000 fz30">02/03-02/04</span>
+                </div>
+            </div>
+        </div>
+        <div class="bgcWhite xiangmu">
+            <a href="javascript:;">
+                <div class="list_box clearfix">
+                    <div class="fl xiangmu_img"><img src="../../public/img/ZB_xiangmu.png"/></div>
+                    <p class="fl color666 fz30">参赛项目</p>
+                    <div class="fr next color000 fz30">15</div>
+                </div>
+            </a>
+        </div> 
+    </section> 
+        <!-- 活动简介 -->
+   <section class=" jianjie bgcWhite">     
+        <div class="content color000 jianjie_box">
+            <h3 class="jianjie_title color666 fz30">活动简介</h3>
+            <p class="color333">"广东青年五四奖章"是共青团广东省委员、广东省青年联合会授予广东优秀青年的最高荣誉，旨在树立政治进步、品德高尚、贡献突出的优秀青年典型，集中反映当代青年的精神品格和价值追求。</p>
+        </div>
+   </section>
+
+    <!-- 底部按钮 -->
+    <div class="btn">
+        <div class="btn_box clearfix">
+            <a href="javascript:;" class="zixun fl bgc2185cf fz28 colorfff">在线咨询</a>
+            <a href="javascript:;" class="baoming fr bgc2185cf fz28 colorfff">我要报名</a>
+        </div>
+    </div>
+     
+    <!-- 弹窗-我要报名 -->
+    <div class="bg_black"></div>
+
+    <div class="enroll">
+        <div class="enroll_box">
+            <div class="bgcWhite enroll_rule">
+                <h3 class="fz28 color000">PC端报名</h3>
+                <input id="mailContent" type="text" placeholder="邮箱地址"/>
+                <p class="color333">活动报名指引发送到您的邮箱</p>
+                <a href="javascript:;" id="suerBtn" class="sure bgc2185cf colorfff fz30">确定</a>
+                <span></span>
+            </div>     
+        </div>
+    </div>
+</body>
+</html>

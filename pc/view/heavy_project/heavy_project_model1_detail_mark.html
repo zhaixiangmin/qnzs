@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>重磅项目-项目详情</title>
+	 <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project_common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project_model1.css" />
+ 
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/ajax/heavy_ajax_zjc.js"></script>
+    <script src="../../public/js/heavy_project/heavy_project_common.js"></script>
+    <script src="../../public/js/heavy_project/heavy_project_detail.js"></script>
+    <script src="../../public/vendor/super_slide/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script src="../../public/js/ajax/ajax.js"></script>
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="header_box">
+        <div class="w1200 header_content clearfix">
+            <div class="logo fl"><a href="heavy_project_model1_index.html"></a></div>
+            <ul class="fl clearfix header_nav">
+					<li class="nav_li">
+						<a id="project_main" href="heavy_project_model1_index.html?activityId="+activityId>首页</a>
+					</li>
+					<li class="nav_li cur">
+						<a id="project_detail" href="heavy_project_model1_detail.html">项目详情</a>
+					</li>
+					<li class="nav_li">
+						<a id="project_dynamic" href="heavy_project_model1_trends_dynamic.html">项目动态</a>
+					</li>
+					<li class="nav_li">
+						<a id="team" href="heavy_project_model1_team.html">参赛团队</a>
+					</li>
+				</ul>
+            <div class="fr header_box_r clearfix">
+                <a href="javascript:;" class="link homepage fl"></a>
+                <a href="javascript:;" class="link login fl"></a>
+            </div>
+        </div>
+    </header>
+    <!-- banner -->
+    <div class="banner_box">
+        <div id="banner_center" class="banner_center w1200" ></div>
+    </div>
+    <!-- 活动介绍 -->
+    <div class="dynamic_box" id="act_intro">
+        <div class="w1200">
+            <div class="content">
+                <h1 class="content_title">活动介绍</h1>
+                <div class="content_box">
+                    <p id="introduce" class="color333 font12"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 报名要求 -->
+    <div class="dynamic_box requirement_box">
+        <div class="content w1200">
+            <h1 class="content_title ">报名要求</h1>
+            <div class="baoming">
+                <ul class="baoming_box">
+                   <!-- <li class="neirong">
+                       <p class="font14 color333 clearfix"><span class="fl number">01</span><span class="fl">参加过省级或以上号长资格培训班并获得资格证书</span></p>
+                       <div class="font12 color666">2012年9月9日，由腾讯开放平台发起的“应用创新大赛”中首档大型创业真人秀 《腾飞之役·创业季》正式启动。全新的形式一经推出就已经引起了业界的极大关注。在经历了两个半月的筹备后11月29日《腾飞之役》携手深圳财经生活频道正式开始录制节目，栏目中共有60款应用开发者，十余位重量级投资者与企业家担当嘉宾。2013年3月31日正式登上大荧幕，每周日21:20深圳财经生活频道准时播出，腾讯视频同步播放，敬请关注。</div>
+                   </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 评选流程 -->
+    <div class="dynamic_box pingxuan">
+        <div class="content w1200">
+            <h1 class="content_title">评选流程</h1>
+            <div class="pingxuan_box">
+                <ul class="pingxuan_box_ul">
+                   <li>
+                        <p class="font14 color333 clearfix">
+                            <span class="fl">2017</span>
+                            <span class="fl date">10/02-10/02</span>
+                            <span class="fl">在图书馆三号报告厅召开大赛启动仪式</span>
+                        </p>
+                        <div class="font12 color666">2012年9月9日，由腾讯开放平台发起的“应用创新大赛”中首档大型创业真人秀 《腾飞之役·创业季》正式启动。全新的形式一经推出就已经引起了业界的极大关注。在经历了两个半月的筹备后，11月29日《腾飞之役》携手深圳财经生活频道正式开始录制节目，栏目中共有60款应用开发者。</div>
+                    </li>
+                    <li>
+                        <p class="font14 color333 clearfix">
+                            <span class="fl">2017</span>
+                            <span class="fl date">10/02-10/02</span>
+                            <span class="fl">在图书馆三号报告厅召开大赛启动仪式</span>
+                        </p>
+                        <div class="font12 color666">2012年9月9日，由腾讯开放平台发起的“应用创新大赛”中首档大型创业真人秀 《腾飞之役·创业季》正式启动。全新的形式一经推出就已经引起了业界的极大关注。在经历了两个半月的筹备后，11月29日《腾飞之役》携手深圳财经生活频道正式开始录制节目，栏目中共有60款应用开发者。</div>
+                    </li>
+                    <li>
+                        <p class="font14 color333 clearfix">
+                            <span class="fl">2017</span>
+                            <span class="fl date">10/02-10/02</span>
+                            <span class="fl">在图书馆三号报告厅召开大赛启动仪式</span>
+                        </p>
+                        <div class="font12 color666">2012年9月9日，由腾讯开放平台发起的“应用创新大赛”中首档大型创业真人秀 《腾飞之役·创业季》正式启动。全新的形式一经推出就已经引起了业界的极大关注。在经历了两个半月的筹备后，11月29日《腾飞之役》携手深圳财经生活频道正式开始录制节目，栏目中共有60款应用开发者。</div>
+                    </li>
+                    <li>
+                        <p class="font14 color333 clearfix">
+                            <span class="fl">2017</span>
+                            <span class="fl date">10/02-10/02</span>
+                            <span class="fl">在图书馆三号报告厅召开大赛启动仪式</span>
+                        </p>
+                        <div class="font12 color666">2012年9月9日，由腾讯开放平台发起的“应用创新大赛”中首档大型创业真人秀 《腾飞之役·创业季》正式启动。全新的形式一经推出就已经引起了业界的极大关注。在经历了两个半月的筹备后，11月29日《腾飞之役》携手深圳财经生活频道正式开始录制节目，栏目中共有60款应用开发者。</div>
+                    </li>
+                    <li>
+                        <p class="font14 color333 clearfix">
+                            <span class="fl">2017</span>
+                            <span class="fl date">10/02-10/02</span>
+                            <span class="fl">在图书馆三号报告厅召开大赛启动仪式</span>
+                        </p>
+                        <div class="font12 color666">2012年9月9日，由腾讯开放平台发起的“应用创新大赛”中首档大型创业真人秀 《腾飞之役·创业季》正式启动。全新的形式一经推出就已经引起了业界的极大关注。在经历了两个半月的筹备后，11月29日《腾飞之役》携手深圳财经生活频道正式开始录制节目，栏目中共有60款应用开发者。</div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 奖项设置 -->
+    <div class="dynamic_box reward">
+        <div class="w1200">
+            <div class="content">
+                <h1 class="content_title">奖项设置</h1>
+                <div class="reward_box">
+                    <div class="reward_box_t">
+                        <!--<p class="font14 color333 clearfix">
+                            <span class="fl">一等奖</span>
+                            <span class="fl amount">10名</span>
+                            <span class="fl">150平米豪宅一套</span>
+                        </p>
+                        <p class="font14 color333 clearfix">
+                            <span class="fl">一等奖</span>
+                            <span class="fl amount">10名</span>
+                            <span class="fl">150平米豪宅一套</span>
+                        </p>
+                        <p class="font14 color333 clearfix">
+                            <span class="fl">一等奖</span>
+                            <span class="fl amount">10名</span>
+                            <span class="fl">150平米豪宅一套</span>
+                        </p>
+                        <p class="font14 color333 clearfix">
+                            <span class="fl">一等奖</span>
+                            <span class="fl amount">10名</span>
+                            <span class="fl">150平米豪宅一套</span>
+                        </p>-->
+                    </div>
+                    <div class="font12 color666 reward_box_b">
+                        2012年9月9日，由腾讯开放平台发起的“应用创新大赛”中首档大型创业真人秀《腾飞之役·创业季》正式启动。全新的形式一经推出就已经引起了业界的极大关注。在经历了两个半月的筹备后，11月29日《腾飞之役》携手深圳财经生活频道正式开始录制节目，栏目中共有60款应用开发者，十余位重量级投资者与企业家担当嘉宾。2013年3月31日正式登上大荧幕，每周日21:20深圳财经生活频道准时播出，腾讯视频同步播放，敬请关注。
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <footer class="conBgc01 colorfff font14">
+        <a href="javascript:;" class="disB font14 colorfff">触屏版</a>
+        <p>版权所有 copyright 2016 广东青年之声</p>
+        <p>粤ICP备10214402号-4</p>
+    </footer>
+    <!-- 站长统计 -->
+	<div style="display:none">
+	    <script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+	</div>
+</body>
+</html>

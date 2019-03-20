@@ -1,0 +1,156 @@
+.panel.datagrid{
+    width: 100% !important;
+    margin-top: 5px;
+}
+
+.panel.datagrid .panel-header{
+    width: 100% !important;
+    box-sizing: border-box;
+}
+.panel.datagrid .panel-body{
+    width: 100% !important;
+    /*显示边框*/
+    box-sizing: border-box;
+}
+
+/*数据筛选 -- 手风琴选中时，背景色不变色*/
+.accordion .accordion-header-selected{
+    background: #E0ECFF;
+}
+
+td{
+    vertical-align: bottom;
+}
+
+/*站点管理 -- 查看详情，模态框的表格样式*/
+#fm_stationshow table{
+    width: 100%;
+    border: 1px solid #6C90CE;
+    border-collapse: collapse;
+}
+#fm_stationshow table tr{
+    width: 100%;
+}
+#fm_stationshow table tr td{
+    padding: 5px;
+    border: 1px solid #6C90CE;
+}
+#fm_stationshow table tr td:nth-of-type(1){
+    width: 20%;
+    text-align: right;
+}
+#fm_stationshow table tr td:nth-of-type(2){
+    width: 80%;
+}
+
+#fm_stationshow table tr td input{
+    width: 100%;
+    border: 0;
+}/*站点管理 -- 查看详情，模态框的表格样式*/
+
+/*站点管理 -- 筹款筹人，模态框的表格样式*/
+#fm_findhelp table{
+    width: 100%;
+    border: 1px solid #6C90CE;
+    border-collapse: collapse;
+}
+#fm_findhelp table tr{
+    width: 100%;
+}
+#fm_findhelp table tr td{
+    padding: 5px;
+    border: 1px solid #6C90CE;
+}/*站点管理 -- 筹款筹人，模态框的表格样式*/
+
+/*站点管理 -- 直接帮助，模态框的表格样式*/
+#dialog_direct table{
+    width: 100%;
+    border: 1px solid #6C90CE;
+    border-collapse: collapse;
+}
+#dialog_direct table tr{
+    width: 100%;
+}
+#dialog_direct table tr td{
+    padding: 5px;
+    border: 1px solid #6C90CE;
+}
+#dialog_direct table tr td input[type=text]{
+    /*width: 100%;*/
+    /*border: 0;*/
+}/*站点管理 -- 直接帮助，模态框的表格样式*/
+
+/*站点管理 -- 完成，模态框的表格样式*/
+#dialog_finish table{
+    width: 100%;
+    border: 1px solid #6C90CE;
+    border-collapse: collapse;
+}
+#dialog_finish table tr{
+    width: 100%;
+}
+#dialog_finish table tr td{
+    padding: 5px;
+    border: 1px solid #6C90CE;
+}
+#dialog_finish table tr td input[type=text]{
+    /*width: 100%;*/
+    /*border: 0;*/
+}/*站点管理 -- 完成，模态框的表格样式*/
+
+
+/*站点管理 -- 修改帮助，模态框的表格样式*/
+#fm_edithelp table{
+    width: 100%;
+    border: 1px solid #6C90CE;
+    border-collapse: collapse;
+}
+#fm_edithelp table tr{
+    width: 100%;
+}
+#fm_edithelp table tr td{
+    padding: 5px;
+    border: 1px solid #6C90CE;
+}
+#fm_edithelp table tr td:nth-of-type(1){
+    width: 20%;
+    text-align: right;
+}
+#fm_edithelp table tr td:nth-of-type(2){
+    width: 80%;
+}
+
+#fm_edithelp table tr td input[type=text]{
+    /*width: 100%;*/
+    /*border: 0;*/
+}/*站点管理 -- 修改帮助，模态框的表格样式*/
+
+/*去除因为自定义easyui的弹出框位置，而出现的阴影块*/
+.window-shadow{
+    display: none !important;
+}
+
+
+/*webuploader图片上传 */
+#wrapper{margin:0;width:100%;}
+#filePicker>div[id]{width:168px !important;height:44px !important;top:20px !important;left:50% !important;margin-left:-84px;}
+#uploader .placeholder{min-height:130px;padding-top:75px;background-position:center 15px;}
+#uploader .filelist li{width:80px;height:80px;}
+#uploader .filelist li p.imgWrap{width:80px;height:80px;}
+/* 弹窗编辑器(kindeditor) */
+.ke-container{width:680px !important;}
+.ke-edit{height:170px;}
+.ke-statusbar{display: none;}
+/* 上传图片 */
+.uploading  .imgL{max-width:710px;}
+.uploading  .imgL .imgdiv{/* width:65px !important;height:65px !important;overflow: hidden; */display: none;margin:0 10px 10px 0;position: relative;}
+.uploading  .imgL .imgdiv .imgdelete{position: absolute;right: -5px;top:-5px;width: 15px;z-index: 9;cursor: pointer;}
+.uploading .imgL .imgdiv .imgOut{width:65px;height: 65px;overflow: hidden;margin-bottom: 15px;position: relative;left: 0;top: 0;}
+.uploading .imgL .imgdiv .imgOut .imgShow{width: auto;height: 100%;position: absolute;left:50%;transform: translateX(-50%);}
+.uploading .imgL .imgAdd{height:65px;width:65px;}
+.uploading .imgL .imgAdd a{position: relative;overflow:hidden;width:65px;height:65px;border: 1px solid #ccc;background: url(../../images/add.png) no-repeat center center;display: block;}
+.uploading .imgL .imgAdd a input{width:65px;height:65px;cursor: pointer;box-sizing:border-box;position: absolute; right: 0;top: 0;opacity: 0; -ms-filter: 'alpha(opacity=0)';}
+.list_tanchuang.qzsqListTanchuang .uploading_l{margin-right: 19px;}
+.list_tanchuang.qzsqListTanchuang .uploading_l p{width: 72px;text-align: right;}
+/* 上传图片 end */
+

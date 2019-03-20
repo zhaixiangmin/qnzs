@@ -1,0 +1,80 @@
+
+/* 各板块下详情页公用的样式啊啊啊 */
+/* 问组织详情的 */
+.zuzhijieshao{background:#fff url(../../img/wzzBg.jpg) no-repeat center top;height: 400px;background-size:cover;}
+.zuzhijieshao.proPersonalIntro .content{padding-bottom: 60px;}
+.zuzhijieshao.proPersonalIntro .content .leftBox{padding-left: 136px;}
+.zuzhijieshao.proPersonalIntro .content .rightBox .top{border-color: #d4b899;}
+.zuzhijieshao.proPersonalIntro .content .rightBox .top.topTit{min-height: 80px;border-color: #dcdcdc;}
+.zuzhijieshao.proPersonalIntro .content .rightBox .middleTxt{padding: 18px 0;}
+.zuzhijieshao.proPersonalIntro .content .rightBox .middleTxt p{line-height: 36px;}
+.zuzhijieshao.proPersonalIntro .content .leftBox .imgDiv{padding: 60px 0 0 0;}
+.zuzhijieshao.proPersonalIntro .content .leftBox .imgDiv .imgBox{width: 200px;height: 200px;overflow: hidden;border-radius: 0;margin:0 auto;}
+.zuzhijieshao.proPersonalIntro .content .leftBox .imgDiv img{width:100%;}
+.zuzhijieshao.proPersonalIntro .content .leftBox h3{text-align: center;padding-top: 40px;font-weight: bold;}
+.zuzhijieshao.proPersonalIntro .content .rightBox .bottom a.guanzhu{border:none;background-color: #fff;}
+
+.pageNumBox.wzzxq{height: 86px;}
+.pageNumBox.wzzxq .pageNumCon{top:0;}
+
+
+/* 组织详情的 覆盖之前*/
+.zuzhijieshao02{background-image: url(../../img/wzzBg.jpg);}
+.zuzhijieshao.zuzhijieshao02 .content .rightBox .top{border-color: #dcdcdc;}
+.zuzhijieshao02.proPersonalIntro .content .rightBox .bottom a.guanzhu{color:#666;border:1px solid #dcdcdc;}
+.zuzhijieshao02.proPersonalIntro .content .rightBox .bottom a.guanzhu span{background-image: url(../../img/guanzhuHeart02.png);}
+
+
+/* 组织详情的评分 的 */
+.zuzhijieshao02 .scoreBox{line-height: 14px;text-align: center; padding-top: 18px;}
+.zuzhijieshao02 .scoreBox ol li{ float: left;margin-right: 3px;width: 12px;height: 12px;background: url(../../img/starNo.png) no-repeat;}
+.zuzhijieshao02 .scoreBox ol li span{width: 12px;height: 12px;display: block;background: url(../../img/starYes.png) no-repeat;}
+.zuzhijieshao02 .scoreBox .fenshu{margin: 0 50px 0 15px;}
+
+
+/* 已受理求助列表 */
+/*.shouliqiuzhu .content .tit h3{border-left: none;font-weight: normal;}*/
+/*.askForHelp.shouliqiuzhu .list>a .itemCon .rightTxt .longTxt{height: 44px;}*/
+
+
+/* TA的活动列表 */
+#list_big_box .content .title{margin:60px 0 30px;}
+.hd_list_box .hd_list_ul li{width:545px;height:80px;padding:20px;position:relative;margin:0 30px 30px 0;}
+.hd_list_box .hd_list_ul li:hover h4{color:#2185cf;}
+.hd_list_box .hd_list_ul li:hover p{color:#000;}
+.hd_list_box .hd_list_ul li:nth-child(2n){margin-right:0px;}
+.hd_list_box .hd_list_ul li .list_box_l{width:120px;height:80px;margin-right:20px;}
+.hd_list_box .hd_list_ul li .list_box_r .hd_time{margin:15px 0;}
+.hd_state{position:absolute;right:20px;bottom:20px;}
+
+
+/* 简介 TA的活动 TA的回答 TA的帮助 TA的服务 TA的重磅 */
+#list_big_box .title_box{padding-left:27px;}
+#list_big_box .title_box .title{float: left;padding:0 25px;border-radius:4px;line-height:30px;height:30px;color:#000;cursor:pointer;margin-right:20px;}
+#list_big_box .title_box .title.cur,
+#list_big_box .title_box .title:hover{background-color: #2185cf;color:#fff;}
+#list_big_box .list{padding-bottom:0;}
+#list_big_box .article{padding:24px 22px;margin-bottom:60px;}
+#list_big_box .article .phase{line-height:24px;font-size:14px;color:#000;margin-bottom:24px;text-indent:28px;}
+/* TA的回答 */
+#list_big_box .answer_list_box .itemBox{width:545px;margin-bottom:30px;}
+#list_big_box .answer_list_box .itemCon{padding-bottom:0;}
+/* TA的帮助 */
+#list_big_box .help_list_box .itemBox .itemCon .imgDiv{width:210px;height:140px;border-radius:0;}
+#list_big_box .help_list_box .itemBox .itemCon .rightTxt{padding-left:230px;}
+#list_big_box .help_list_box .help_list{margin-bottom:30px;}
+/* TA的服务 */
+.anli_box .anli_list{width:545px;height:80px;padding:20px;margin:0 20px 20px 0;position:relative;}
+.anli_box .anli_list:nth-child(2n){margin-right:0;}
+.anli_box .anli_list .anli_l{width:80px;height:80px;border-radius:50%;overflow: hidden;margin-right:20px;}
+.anli_box .anli_list .anli_r{width:445px;}
+.anli_box .anli_list .pic{width:100%;height:100%;}
+.anli_r .mes{margin:15px 0;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.anli_time{position:absolute;right:20px;top:20px;}
+/* TA的重磅 */
+#list_big_box .heavy_list .zbxm_box{width:546px;height:290px;padding:20px 20px 0;margin-bottom:30px;}
+#list_big_box .heavy_list .zbxm_box .xm_mes{margin-top:15px;width:545px;}
+#list_big_box .heavy_list .zbxm_box .xm_mes h4{width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#list_big_box .heavy_list .zbxm_box .xm_mes .xm_style{color:#17c0ff;margin-right:15px;}
+#list_big_box .heavy_list .zbxm_box .xm_mes .xm_state .state_l{width:18px;height:18px;line-height:18px;border-radius:2px;text-align: center;display:inline-block;background:#1795ff;margin:2px 10px 0 0;}
+

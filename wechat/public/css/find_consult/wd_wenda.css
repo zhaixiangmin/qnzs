@@ -1,0 +1,21 @@
+.wenda .content { padding-left: 0.6rem; }
+.wenda .content_in { border-bottom: 1px solid #e2e2e2; }
+.wenda .content_in .l { padding-right: 0.52rem; float: left; }
+.wenda .content_in .l .circle { width: 2.4rem; height: 2.4rem; border-radius: 50%; overflow: hidden;}
+.wenda .content_in .l .circle img { width: 2.4rem; }
+.wenda .content_in .r { box-sizing: border-box; padding-bottom: 0.24rem; padding-left: 2.88rem; }
+.wenda .content_in .r .up { padding-right: 3%; border-bottom: 1px solid #e2e2e2; padding-top: 0.2rem; padding-bottom: 0.32rem; }
+.wenda .content_in .r .up h3 { padding: 0.4rem 0; font-size: 0.6rem; color: #2185cf; }
+.wenda .content_in .r .up p { font-size: 0.48rem; color: #000; line-height: 0.64rem; }
+.wenda .content_in .r .down { padding: 0.38rem 4% 0.38rem 0; font-size: 0.48rem; }
+.wenda .content_in .r .down * { float: left; }
+.wenda .content_in .r .down .left { font-size: 0.48rem; color: #999; }
+.wenda .content_in .r .down .left * { float: left; }
+.wenda .content_in .r .down .left .span02 { padding-left: 0.36rem; padding-right: 0.24rem; }
+.wenda .content_in .r .down .left .span03 { padding-right: 0.24rem; }
+.wenda .content_in .r .down .right { float: right; }
+/* .wenda .content_in .r .down .right em { width: 18/@rtsize; } */
+.wenda .content_in .r .down .right em { padding-top: 0.12rem; }
+.wenda .content_in .r .down .right em img { width: 0.52rem; }
+.wenda .content_in .r .down .right span { color: #666; padding-left: 0.14rem; }
+@media screen and (max-width: 360px) { .wenda .content_in .r .down .right em { padding-top: 0.16rem; }}

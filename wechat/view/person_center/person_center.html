@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的-我的主页</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/person_center/person_center.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/login-register/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/PersonCenterApi.js"></script>
+    <!--公共底部栏-->
+    <script type="text/javascript" src="../../public/custom/common.js"></script>
+    <script type="text/javascript" src="../../public/js/person_center/person_center.js"></script>
+</head>
+<body>
+<div class="box">
+    <a data-url="user_info.html" class="img_box">
+        <div class="img_content"><img src="" id="photoUrl"></div>
+        <div class="info">
+            <p class="name"></p>
+            <p class="type"></p>
+        </div>
+    </a>
+    <div class="list">
+
+        <a class="item organization" style="display: none;margin-bottom: 0.6rem;">
+            <span class="icon_item">组织主页</span>
+        </a>
+
+        <div class="more_item join" style="display: none;">
+            <div class="first_item">
+                <span class="icon_item">我的参与</span>
+            </div>
+            <div class="second_item" style="display: none;">
+                <a href="Active_join.html" class="act">活动</a>
+                <a href="../heavy_project/heavy_project_my_participation.html" class="heavy">重磅项目</a>
+            </div>
+        </div>
+        <div class="more_item publish">
+            <div class="first_item">
+                <span class="icon_item">我的发布</span>
+            </div>
+            <div class="second_item" style="display: none;">
+                <a href="Active_publish.html" class="act">活动</a>
+                <a href="find_consult_issueList.html" class="consult">咨询</a>
+                <a href="release_help.html" class="help">求助</a>
+                <a href="release_offline_service.html" class="offline_service">线下服务</a>
+            </div>
+        </div>
+        <div class="more_item comment">
+            <div class="first_item">
+                <span class="icon_item">我的评价</span>
+            </div>
+            <div class="second_item" style="display: none;">
+                <a href="coment_active.html" class="act">活动</a>
+                <a href="coment_help.html" class="help">求助</a>
+                <a href="coment_service.html" class="offline_service">线下服务</a>
+            </div>
+        </div>
+        <div class="more_item focus">
+            <div class="first_item">
+                <span class="icon_item">我的关注</span>
+            </div>
+            <div class="second_item" style="display: none;">
+                <a href="person_host.html" class="host">人气主办方</a>
+                <a href="find_consult_followedExpertList.html" class="consult">咨询</a>
+                <a href="focus_help.html" class="help">求助</a>
+                <a href="focus_offline_service.html" class="offline_service">线下服务</a>
+            </div>
+        </div>
+        <div class="more_item collection">
+            <div class="first_item">
+                <span class="icon_item">我的收藏</span>
+            </div>
+            <div class="second_item" style="display: none;">
+                <a href="Active_collecet.html" class="act">活动</a>
+                <a href="find_consult_collectList.html" class="consult">咨询</a>
+            </div>
+        </div>
+
+        <a data-url="informationList.html" class="item message">
+            <span class="icon_item">我的消息</span>
+        </a>
+        <a data-url="../find_active/active_publish.html" class="item activity" style="display: none;">
+            <span class="icon_item">发布活动</span>
+        </a>
+        <a data-url="myComplaint.html" class="item roast">
+            <span class="icon_item">我要吐槽</span>
+        </a>
+        <a data-url="../second_class/second_transcripts.html" class="item second_lesson">
+            <span class="icon_item">我的第二课堂</span>
+        </a>
+        <a data-url="https://www.izyz.org.cn/account/web/personalCenterMain.html" class="item one">
+            <span class="icon_item">一号通</span>
+        </a>
+        <a data-url="../heavy_project/apply_techer.html" class="item tutor">
+            <span class="icon_item">申请成为咨询导师</span>
+        </a>
+        <a class="item switch">
+            <span class="icon_item">切换成为管理员</span>
+        </a>
+        <a class="item league">
+            <span class="icon_item">智慧团建</span>
+        </a>
+    </div>
+</div>
+
+<script src="https://qiyukf.com/script/7d27a41d9e5a1ecd20f6f55305b164b6.js"></script><!---客服系统  --->
+<style type="text/css">
+    #YSF-BTN-HOLDER {
+        max-width: 1.1rem;
+        max-height: 3.6rem;
+        right: 1.9rem;
+        bottom: 3.1rem;
+    }
+    #YSF-CUSTOM-ENTRY-1 {
+        border-radius: 0.6rem;
+    }
+
+    #YSF-CUSTOM-ENTRY-1 img {
+        width: 1.1rem;
+        height: auto;
+    }
+</style>
+
+</body>
+</html>

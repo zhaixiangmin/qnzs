@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>找问答-专家</title>
+    <!--<link rel="stylesheet" type="text/css" href="css/base.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="css/common.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="css/hd_footerNav.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="css/wd_zuzhi.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="css/wd_zhuanjia.css" />-->
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/hd_footerNav.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/wd_zuzhi.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/wd_zhuanjia.css" />
+    <script type="text/javascript" src="../../public/js/common/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/js/find_consult/wd_zhaowenda.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--日期格式化-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FindConsultApi.js"></script>
+    <script type="text/javascript" src="../../public/js/find_consult/find_consult_expert.js"></script>
+<script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    
+    <!--公共底部-->
+    <script type="text/javascript" src="../../public/custom/common.js"></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <style rel="stylesheet">
+        #category{width: 100%;background: #fff;position: absolute;top:0.5rem;}
+        #category a{ height: 1.6rem;line-height: 1.6rem;border-bottom: 1px solid #e2e2e2;display: block;font-size: 0.5rem;padding-left: 0.5rem;}
+        .wd_ask_box_alone.askBtn {
+            background: #2185cf none repeat scroll 0 0;
+            border-radius: 0.16rem;
+            bottom: 0.3rem;
+            color: #fff;
+            padding: 0.2rem 0.4rem;
+
+            right: 0.6rem;
+        }
+    </style>
+</head>
+<body class="bodyPB">
+    <!-- <header class="clearfix wd_header"><a href="javascript:;" class="back fl"></a>专家<a href="javascript:;" class="seemore fr"></a></header> -->
+    <!-- 菜单选择 -->
+    <section class="districtChoose p_0_30 bgcWhite clearfix">
+        <div class="left fl">
+            <a href="javascript:;" class="color666 fz28">
+                <div class="bdr">
+                    <div><span style="background:none;" class="tit">专家</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="right fl">
+            <a href="javascript:;" id="popupcategory" class="color666 fz28">
+                <span class="tit">类型</span>
+            </a>
+        </div>
+        <!--服务类别-->
+    </section>
+    <!--搜索-->
+    <section class="searchBox clearfix">
+        <input id="searchKeyWord" class="fl fz26 zbfInput" placeholder="搜索专家" type="text">
+        <a href="javascript:;" id="searchExpert" class="fr disB fz26 colorfff">搜索</a>
+    </section>
+    <div id="category" style="display: none;">
+        <!--插入服务类别-->
+    </div>
+    <!-- 专家列表 -->
+    <section class="professorList pl_30 bgcWhite">
+        <!--插入专家列表-->
+    </section>
+    <!--<div class="morebtn color333">查看更多</div>-->
+    <!--插入公共底部-->
+</body>
+</html>
+<!--<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>-->
+<!--<script type="text/javascript" src="js/footerChange.js"></script>-->

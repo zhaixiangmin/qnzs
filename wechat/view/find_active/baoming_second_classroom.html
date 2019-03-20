@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>活动报名</title>
+     <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/second_classroom.css" />
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+         <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+     <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/find_active/activity_enroll.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <script type="text/javascript">
+    	
+    	
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+</head>
+<body>
+    <section>
+    				<!--<div class="content_l fl">
+						<div class="question commonDiv">
+							<label for="name" class="fnt14 fl color333 left_title">报名人姓名</label>
+							<input type="text" class="border01 sign_up_name" />
+						</div>
+						<div class="question commonDiv">
+							<label for="name" class="fnt14 fl color333 left_title">联系电话</label>
+							<input type="text" class="border01 contact_phone" />
+						</div>
+						<!--<div class="company commonDiv">
+							<label for="name" class="fnt14 fl color333 left_title">公司</label>
+							<input type="text" class="border01 contact_phone" />
+						</div>
+						<div class="job_position commonDiv">
+							<label for="name" class="fnt14 fl color333 left_title">职位</label>
+							<input type="text" class="border01 contact_phone" />
+						</div>
+						<div class="email commonDiv">
+							<label for="name" class="fnt14 fl color333 left_title">企业邮箱</label>
+							<input type="text" class="border01 contact_phone" />
+						</div>--
+						<div class="wenti_shuoming clearfix commonDiv">
+							<span class="fnt14 color333 fl right_txt left_title">备注</span>
+							<!-- <textarea id="editorContent" name="content"></textarea> --
+							<textarea id="editorContent"></textarea>
+						</div>
+						<!-- 第二课堂的 --
+						<div class="second_class">
+							<!--<h1 class="title">第二课堂</h1>
+							<div class="question commonDiv">
+								<label for="name" class="fnt14 fl color333 left_title">姓名</label>
+								<input type="text" class="border01 student_name" />
+							</div>
+							<div class="question commonDiv">
+								<label for="name" class="fnt14 fl color333 left_title">学号</label>
+								<input type="text" class="border01 student_no" />
+							</div>
+							<div class="question commonDiv">
+								<label for="name" class="fnt14 fl color333 left_title">学校</label>
+								<input type="text" class="border01 school" readonly />
+							</div>
+							
+							<div class="question commonDiv">
+								<label for="name" class="fnt14 fl color333 left_title">院系</label>
+								<input type="text" class="border01 academy" readonly />
+								<select class="border01 academy" id="academy" name="academy">
+									<option name="academy" value=""></option>
+								</select>
+							</div>--
+						</div>
+						<a href="javascript:;" class="sure conBgc01 colorfff font14">确认</a>
+					</div>-->
+					
+        <div class="common_item_box mb20 clearfix">
+            <span class="left_title fl">姓名</span>
+            <div class="right">
+                <input type="text" class="fl right_input sign_up_name" placeholder="请输入姓名" />
+            </div>
+        </div>
+        <div class="common_item_box mb20 clearfix" id="contact_phone">
+            <span class="left_title fl">联系电话</span>
+            <div class="right">
+                <input type="text" class="fl right_input contact_phone" placeholder="请输入联系电话" />
+            </div>
+        </div>
+
+	    <div class="common_item_box mb20 clearfix" id="uploadEnrollFile" style="display:none;height:3.1rem;padding-top:0.8rem;">
+	        <input type="hidden" name="isAddTemplate" id="isAddTemplate" />
+	        <input type="hidden" name="fileId" id="fileId" />
+			<input type="hidden" name="fileName" id="fileName"/>
+			<input type="hidden" name="templateUrl" id="templateUrl" />
+	        <span class="left_title fl">上传附件</span>
+	        <div class="right" style="line-height: 0.6rem">
+	        	<input id="template" type="file" name="template" style="display: none;" onchange="uploadEnrollFile();" />
+	        	<input type="button" value="&nbsp;选择文件&nbsp;" onclick="$('#template').click();" style="float:left;display:inline-block;margin:13px 15px 0 0;padding:5px;">
+	        	<span id="fileNameShow" style="font-size:0.48rem;"></span><br/>
+	        	<!-- 
+	            <a href="javascript:;" class="upload_file_box" ><input type="file" name="template" id="template" class="upload_file"  onchange="uploadEnrollFile();" /><span id="fileNameShow"></span></a>
+	             -->
+	            <span style="line-hright:8px;font-size:6px;">
+                 	<font color="red" style="">建议文件后缀名为(doc,docx,xls,xlsx),图片大小限制在5MB以内</font>
+                </span> 
+	        </div>
+	    </div>
+	    
+        <!--<div class="common_item_box mb20 clearfix">
+            <span class="left_title fl">公司名称</span>
+            <div class="right">
+                <input type="text" class="fl right_input" placeholder="请输入公司名称" />
+            </div>
+        </div>
+        <div class="common_item_box mb20 clearfix">
+            <span class="left_title fl">职位</span>
+            <div class="right">
+                <input type="text" class="fl right_input" placeholder="请输入职位" />
+            </div>
+        </div>
+        <div class="common_item_box mb20 clearfix">
+            <span class="left_title fl">企业邮箱</span>
+            <div class="right">
+                <input type="text" class="fl right_input" placeholder="请输入企业邮箱" />
+            </div>
+        </div>-->
+        <div class="common_item_box mb20 clearfix note_box">
+            <span class="left_title">备注</span>
+            <textarea id="editorContent" class="textarea fz30" placeholder="请输入备注内容"></textarea>
+        </div>
+    </section>
+    <!-- 第二课堂 -->
+    <section class="second_class">
+        <div class="sec_title mb20">
+            <h1 class="fz30 color333">第二课堂</h1>
+        </div>
+        <div class="common_item_box mb20 clearfix">
+            <span class="left_title fl">姓名</span>
+            <div class="right">
+                <input type="text" class="fl right_input student_name" placeholder="请输入姓名" />
+            </div>
+        </div>
+        <div class="common_item_box clearfix mb20">
+            <span class="left_title fl">学号</span>
+            <div class="right">
+                <input type="text" class="fl right_input student_no" placeholder="请输入学号" />
+            </div>
+        </div>
+        <div class="common_item_box clearfix borderBotPub">
+            <span class="left_title fl">学校</span>
+            <div class="right">
+                <input type="text" class="fl right_input school" readonly />
+            </div>
+        </div>
+        <div class="common_item_box clearfix">
+            <span class="left_title fl">院系</span>
+            <div class="right">
+                <!--<input type="text" class="fl right_input" readonly />-->
+                <select class="border01 academy" id="academy" name="academy">
+					<option name="academy" value="">请选择</option>
+				</select>
+            </div>
+        </div>
+        <p class="kindly_reminder fz24 color333 mb20">温馨提示：第二课堂信息一旦确认后不可修改，请核对学生证上信息后填写。如填写有误，请联系学校/学院管理员更正。</p>
+    </section>
+    <section id="submitBtn">
+    	<!--<div class="p_0_30">
+            <a href="javascript:;" class="submit_btn colorfff fz30 bgc2185cf">提交</a>
+        </div>-->	
+    </section>
+</body>
+</html>

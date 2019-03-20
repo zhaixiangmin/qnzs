@@ -1,0 +1,49 @@
+
+
+.answered .content h3{line-height:30px;}
+/* 分标题列表 */
+.subTitleBox .content{width: 1218px;margin: 0 auto;padding: 20px 0;}
+.subTitleBox .content ul li{float: left;margin: 10px;}
+.subTitleBox .content ul li a{display: block;text-align: center;width: 183px;height: 50px;background-color: #eee;border-radius: 25px;font-size: 16px;color:#000;line-height: 50px;}
+.subTitleBox .content ul li a div{display: inline-block;}
+.subTitleBox .content ul li a em{float: left;width: 40px;height: 40px;background: url(../../img/fxxxSubTB.png) no-repeat 0 0;margin: 5px 0;margin-left: -5px;}
+.subTitleBox .content ul li a span{padding-left: 5px;float: left;}
+.subTitleBox .content ul li.li2 a em{background-position: -40px 0;}
+.subTitleBox .content ul li.li3 a em{background-position: -80px 0;}
+.subTitleBox .content ul li.li4 a em{background-position: -120px 0;}
+.subTitleBox .content ul li.li5 a em{background-position: -160px 0;}
+.subTitleBox .content ul li.li6 a em{background-position: -200px 0;}
+
+.subTitleBox .content ul li.li7 a em{background-position: 0 -40px;}
+.subTitleBox .content ul li.li8 a em{background-position: -40px -40px;}
+.subTitleBox .content ul li.li9 a em{background-position: -80px -40px;}
+.subTitleBox .content ul li.li10 a em{background-position: -120px -40px;}
+.subTitleBox .content ul li.li11 a em{background-position: -160px -40px;}
+.subTitleBox .content ul li.li12 a em{background-position: -200px -40px;}
+
+.subTitleBox .content ul li.li13 a em{background-position: 0 -80px;}
+.subTitleBox .content ul li.li14 a em{background-position: -40px -80px;}
+.subTitleBox .content ul li.li15 a em{background-position: -80px -80px;}
+.subTitleBox .content ul li.li16 a em{background-position: -120px -80px;}
+.subTitleBox .content ul li.li17 a em{background-position: -160px -80px;}
+.subTitleBox .content ul li.li18 a em{background-position: -200px -80px;}
+
+
+.content .list{min-height: 750px;}
+
+.answered .content{padding-top: 20px;}
+
+.siteList .listBox:nth-of-type(odd){
+    margin-right: 30px;
+}
+
+.scoreBox{margin: 14px 0;}
+.scoreBox .yiping{float: left;padding-left: 20px;}
+.scoreBox .guanzhurenshu{padding-right: 158px;}
+
+/* 地图 */
+.xianxiafuwu{margin-bottom: 60px;}
+
+/* 页码指示覆盖common */
+.pageNumBox{height: 86px;}
+.pageNumBox .pageNumCon{top: 0;}

@@ -1,0 +1,34 @@
+.contentBox {
+  background-color: #fff;
+  padding-left: 0.6rem;
+}
+.contentBox .item {
+  border-bottom: 1px solid #e2e2e2;
+  padding: 0.36rem 0.6rem 0.36rem 0;
+}
+.contentBox .item .sex {
+  padding: 0.34rem 0.8rem 0.34rem 0;
+  width: 10%;
+}
+.contentBox .item .sex img {
+  width: 0.96rem;
+}
+.contentBox .item .headImg .imgDiv {
+  width: 1.7rem;
+  height: 1.7rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.contentBox .item .headImg .imgDiv img {
+  width: 100%;
+  height: 1.7rem;
+}
+.contentBox .item .headImg h3 {
+  font-size: 0.6rem;
+  line-height: 1.7rem;
+  padding-left: 0.5rem;
+}
+.contentBox .item span.chengyuan {
+  font-size: 0.48rem;
+  line-height: 1.7rem;
+}

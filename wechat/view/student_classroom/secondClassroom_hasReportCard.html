@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>第二课堂-已有成绩单</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/second_classroom.css" />
+    <script type="text/javascript" src="../../js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js">
+    	
+    </script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+</head>
+<body class="bgcWhite">
+    <section class="report_card_box p_0_30 has_report">
+        <div class="up_txt">
+            <ul class="class_list">
+               <!-- <li class="item clearfix">
+                    <span class="fl left_title">姓名：</span>
+                    <div class="right">
+                        <p class="right_txt">张三</p>
+                    </div>
+                </li>
+                <li class="item clearfix">
+                    <span class="fl left_title">学号：</span>
+                    <div class="right">
+                        <p class="right_txt">12789</p>
+                    </div>
+                </li>
+                <li class="item clearfix">
+                    <span class="fl left_title">学校：</span>
+                    <div class="right">
+                        <p class="right_txt">中山大学</p>
+                    </div>
+                </li>
+                <li class="item clearfix">
+                    <span class="fl left_title">院系：</span>
+                    <div class="right">
+                        <p class="right_txt">计算机学院</p>
+                    </div>
+                </li>-->
+                <li class="item clearfix school_year">
+                    <span class="fl left_title">学年：</span>
+                    <div class="right">
+                        <select class="select" id="select_Year">
+                            
+                        </select>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="info_table_box">
+            <div class="table_box">
+                <table class="table" cellspacing="0";>
+                    <tr>
+                        <th>活动时间</th>
+                        <th>活动名称</th>
+                        <th>类型</th>
+                        <th>学时(h)</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="table_bottom colorfff">
+                <div class="one TypeHour">
+                    <!--<span>文体文化发展：20</span>
+                    <span>艺术设计创新：20</span>
+                    <span>创新创业：30</span>-->
+                </div>
+                <div class="one TotalHour">
+                   <!-- <span>学年总学时：70</span>
+                    <span>总学时：100</span>-->
+                </div>
+            </div>
+        </div>
+         <a href="javascript:;" id="transcript">下载成绩单</a>
+    </section>
+</body>
+</html>
+<script type="text/javascript">
+	
+	  //Qnzs.path = Qnzs.env.dev_wyh;//
+      // Qnzs.path = Qnzs.env.dev2
+       var currentAccount = "";
+	    $(document).ready(function(){
+		
+		   var date = new Date();
+				
+				var y = date.getFullYear();
+	
+				for (i = 0; i < 10; i++) {
+				
+				var oP = document.createElement("option");
+				
+				var oText = document.createTextNode(y);
+				
+				oP.appendChild(oText);
+				
+				oP.setAttribute("value", y);
+				
+				document.getElementById('select_Year').appendChild(oP);
+				
+				y = y - 1;
+				
+				}
+				
+				
+		$.ajax({
+		type: "POST",
+		url: Qnzs.path + "/commons/getSessionAccount",
+		dataType: "JSON",
+		success: function(data) {
+			alert(2);
+			if(data.status != 'OK') {
+				alert(data.msg);
+				return;
+			} else {
+				currentAccount = data.account; // 账户信息
+				console.log('currentAccount', currentAccount);
+				info_table();
+			}
+		}
+	});
+	
+	  function info_table(){
+    	var yearid=$('#select_Year option:selected').val();
+    	if(!currentAccount) {
+
+		alert('请先登录');
+		return;
+	} else {
+		
+		$.ajax({
+				type:"get",
+				url:Qnzs.path +"/personalCenter/extracurricular/list?academicYear="+yearid,
+				dataType: 'json',
+				success:function(data){
+			    var itmp=data.data;
+			    var TypeHour=data.data.perExtraTypeHour;
+					console.log(itmp);
+				var divhtml=""
+					   divhtml+='<li class="item clearfix">'
+	                   divhtml+='<span class="fl left_title">姓名：</span>'    
+	                   divhtml+='<div class="right">'
+	                   divhtml+='<p class="right_txt">'+itmp.name+'</p>'
+	                   divhtml+='</div>'
+	                   divhtml+='</li>'
+	                   divhtml+='<li class="item clearfix">' 
+	                   divhtml+='<span class="fl left_title">学号：</span>' 
+	                   divhtml+='<div class="right">'
+	                   divhtml+=' <p class="right_txt">'+itmp.stuNo+'</p>'  
+	                   divhtml+='</div>'
+	                   divhtml+='</li>'
+	                   divhtml+='<li class="item clearfix">' 
+	                   divhtml+='<span class="fl left_title">学校：</span>' 
+	                   divhtml+='<div class="right">'
+	                   divhtml+='<p class="right_txt">'+itmp.school+'</p>' 
+	                   divhtml+='</div>' 
+	                   divhtml+=' </li>'
+	                   divhtml+='<li class="item clearfix">'
+	                   divhtml+='<span class="fl left_title">院系：</span>'  
+	                   divhtml+='<div class="right">' 
+	                   divhtml+=' <p class="right_txt">'+itmp.academy+'</p>'  
+	                   divhtml+='</div>'
+	                   divhtml+='</li>'
+					$('.class_list').prepend(divhtml);
+					
+					
+					
+					
+					 var html=''
+					  var gradesList=data.data.gradesList;
+			        for (var i = 0; i < gradesList.length; i++) {
+			        	var List=gradesList[i];
+			            html+='<tr>'
+			            html+=' <td>'+List.activityTime+'</td>'
+			            html+=' <td>'+List.title+'</td>'
+			            html+=' <td>'+List.extracurricularTypeName+'</td>'
+			            html+=' <td>'+List.extracurricularHour+'</td>'
+			            html+='</tr>'
+			        };
+			        $('.info_table_box .table').append(html);
+					 $.each(TypeHour, function(index,item) {
+				  	
+				  	$('.TypeHour').append('<span">'+item.extracurricularTypeName+'：'+item.perExtraTypeHour+'&nbsp;&nbsp;&nbsp;</span>');
+				  	
+				  });
+					
+					
+				 $('.TotalHour').append('<span>学年总学时：'+itmp.academicYearTotalHour+'</span>&nbsp;&nbsp;&nbsp;<span>总学时：'+itmp.totalHour+'</span>');	
+		
+		}
+		})
+	}
+    	     
+}
+	  
+	    /*下载成绩单*/
+	  $('#transcript').on('click',function(){
+		
+		var yearid=$('#select_Year option:selected').val();
+		
+	   window.location.href = Qnzs.path+"/personalCenter/extracurricular/export?academicYear="+yearid;
+			
+		})
+
+})</script>

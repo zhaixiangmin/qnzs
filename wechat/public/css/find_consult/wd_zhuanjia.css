@@ -1,0 +1,51 @@
+/* ----------------专家列表&已服务个例-------------------------
+------- */
+section.professorList .item {
+  padding: 0.6rem 0.6rem 0.6rem 0;
+}
+section.professorList .item.borderBot {
+  border-bottom: 1px solid #ebebeb;
+}
+section.professorList .item .left {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+section.professorList .item .left img {
+  width: 100%;
+}
+section.professorList .item .right {
+  padding-left: 3.06rem;
+}
+section.professorList .item .right .p01 {
+  color: #2185cf;
+  line-height: 0.6rem;
+  padding: 0.44rem 0;
+}
+section.professorList .item .right .p02 {
+  line-height: 0.68rem;
+}
+section.professorList.yifuwu .item {
+  border-color: #f0f0f0;
+}
+section.professorList.yifuwu .item .right .p02,
+section.professorList.yifuwu .item .down {
+  padding: 0.24rem 0.6rem 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+section.professorList.yifuwu .item {
+  padding-right: 0;
+}
+section.professorList.yifuwu .item span {
+  padding: 0.2rem 0;
+}
+section.professorList.yifuwu .item .down {
+  border: 0;
+  padding-bottom: 0;
+}
+section.professorList.yifuwu .item em {
+  background-color: #2185cf;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.16rem;
+}

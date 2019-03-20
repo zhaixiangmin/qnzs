@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>发现线下-详情</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/hd_footerNav.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/young_family/detail.css" />
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <!--百度地图-->
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=ggGhWZ8zW5mGMOYCohgWNRER5m76Hxfz"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/vendor/touch_slide/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <!--公共底部栏-->
+    <script type="text/javascript" src="../../public/custom/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <!--<script type="text/javascript" src="../../public/js/common/footerChange.js"></script>-->
+    <script type="text/javascript" src="../../public/js/module/YoungFamilyApi.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/young_family/detail.js"></script>
+</head>
+<body class="bodyPB">
+<div id="bannerBox" class="tabBox">
+    <div class="hd">
+        <ul>
+            <!--页码-->
+        </ul>
+    </div>
+    <div class="bd" id="imgUrlBox">
+        <!--图片列表-->
+    </div>
+    <!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+    <a class="prev" href="javascript:void(0)"></a>
+    <a class="next" href="javascript:void(0)"></a>
+</div>
+
+
+    <section class="headTxt">
+        <div class="item clearfix">
+            <div class="right">
+                <div class="score clearfix">
+                    <ul class="clearfix fl" id="starIcon">
+                        <!--星级图标-->
+                    </ul>
+                    <span class="fenshu fl"><em id="star"></em>分</span>
+                    <span class="commented color999 fr"><em id="evaluationNum"></em>人已评</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<section class="headTxt bgcWhite mb20 clearfix">
+    <p class="color000 fz30 fl" id="fullName"></p>
+    <div class="help_edit fr" id="report">
+        <span class="report fz24">举报</span>
+    </div>
+</section>
+
+    <!-- TA的活动 -->
+    <section class="yugao clearfix bgcWhite">
+        <!--<span class="fl color999"><em id="concernNum"></em>人关注</span>-->
+        <a href="javascript:;" class="fr" id="activity">TA的活动</a>
+    </section><!-- 关注人数 -->
+    <section class="yugao clearfix bgcWhite">
+        <span class="fl color999"><em id="concernNum"></em>人关注</span>
+        <a href="javascript:;" class="fr" id="concern">关注</a>
+        <a href="javascript:;" class="fr" id="served" style="margin-right: 0.3rem;">已服务案例</a>
+    </section>
+    <!-- 地址、联系等等 -->
+    <section class="lianxi">
+        <div class="phoneAndAddress divout bgcWhite">
+            <a href="javascript:;" class="divin clearfix phone">
+                <div class="imgDiv fl"><img src="../../public/img/iconTime.png"/></div>
+                <p class="fl color333" id="serviceTime"></p>
+                
+            </a>
+            <a href="javascript:;" class="divin clearfix time" id="address_parent">
+                <div class="imgDiv fl"><img src="../../public/img/iconAddress.png"/></div>
+                <p class="fl color333" id="address"></p>
+                <div class="arrow fr"><img src="../../public/img/next.png"/></div>
+            </a>
+            <a href="javascript:;" class="divin clearfix phone02">
+                <div class="imgDiv fl"><img src="../../public/img/iconPhone02.png"/></div>
+                <p class="fl color333" id="telephone"></p>
+            </a>
+        </div>
+    </section>
+    <!-- 站点标签 -->
+    <section class="siteTag bgcWhite mb20">
+        <h2 class="color000 fz30 p_0_30">服务类别</h2>
+        <div class="content">
+            <ul class="clearfix" id="staCategoriesList">
+                <!--站点服务类别列表-->
+            </ul>
+        </div>
+    </section>
+     <!-- 站点标签 -->
+    <section class="siteTag bgcWhite mb20">
+        <h2 class="color000 fz30 p_0_30">服务群体</h2>
+        <div class="content">
+            <ul class="clearfix" id="serviceContentList">
+                <!--站点服务类别列表-->
+            </ul>
+        </div>
+    </section>
+    <!-- 此乃长长的文字@#￥%TYU -->
+    <section class="act_introduction bgcWhite mb20">
+        <h2 class="color000 fz30 p_0_30" style="line-height: 1.56rem;border-bottom: 1px solid #e8e8e8;">简要介绍</h2>
+        <div class="content bgcWhite color000">
+            <p id="serviceContent"></p>
+        </div>
+    </section>
+    <!-- 我要预约 -->
+    <section class="I_want_to_ask" >
+        <a id="reserve">我要预约</a>
+    </section>
+</body>
+</html>

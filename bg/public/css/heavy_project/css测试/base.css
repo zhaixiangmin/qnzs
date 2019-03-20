@@ -1,0 +1,111 @@
+
+
+
+
+.tableForm {
+	border-width: 1px;
+	border: 1px solid #6C90CE;
+	border-collapse: collapse;
+}
+
+.tableForm th {
+	font-weight: normal; text-align : right;
+	background-color: #F6FBFF;
+	border: solid 1px #315d8a;
+	padding: 5px;
+	text-align: right;
+}
+
+.tableForm td { /*text-align: left;*/
+	background-color: #FFF;
+	border: solid 1px #6699CC;
+	padding: 5px;
+}
+
+.tableForm tr td input {
+	text-align: left;
+}
+
+#fm #read-fm {
+	margin: 0;
+	padding: 10px 30px;
+}
+
+.ftitle {
+	font-size: 14px;
+	font-weight: bold;
+	padding: 5px 0;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+.fitem {
+	margin-bottom: 5px;
+}
+
+.fitem label {
+	display: inline-block;
+	width: 150px;
+}
+
+a:hover { /*text-decoration: underline;*/
+	
+}
+
+a,label,textarea,span,pre {
+	font-size: 12px;
+}
+
+.ftitle {
+	font-size: 12px;
+}
+
+span {
+	word-break: break-all;
+}
+
+.myDetail {
+	border: 1px
+}
+
+.muststar {
+	vertical-align: top;
+	color: red;
+}
+
+xmp,pre,plaintext {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+.spacing {
+	width: 10px;
+}
+
+.footbar {
+	height: 24px;
+	background-color: #fff;
+}
+
+
+/* blue */
+.blue {
+	color: #d9eef7;
+	border: solid 1px #0076a3;
+	background: #0095cd;
+	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+	background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');
+}
+.blue:hover {
+	background: #007ead;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+	background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0095cc', endColorstr='#00678e');
+}
+.blue:active {
+	color: #80bed6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00adee));
+	background: -moz-linear-gradient(top,  #0078a5,  #00adee);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078a5', endColorstr='#00adee');
+}

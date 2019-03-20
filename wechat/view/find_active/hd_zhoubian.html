@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>找活动-周边活动</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/hd_zhoubian.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/hd_footerNav.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+    
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+ 
+    <script type="text/javascript" src="../../public/js/find_active/footerChange.js"></script>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=13hKkYUjCLhkhnRlidP7Bmor"></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    
+    <style type="text/css">
+    	.choose_box{
+    position: fixed;
+    top: 0;
+    z-index: 200;
+    left: 0;
+    width: 100%;
+    margin-bottom: 0.266666rem;
+    	}
+    	.hot_hd .content{margin-top:30px;}
+    	#actType li,#actPrpgress li{width: 100%;height: 30px;line-height: 30px;border-bottom: 1px solid #CCCCCC;}
+    	#actType{height: 460px;position: absolute; overflow:auto}
+    </style>
+</head>
+<body class="bodyPB">
+    <div class="choose_box">
+        <div class="choose_head clearfix">
+            <div class="choose_item choose_item_l fl">
+                <div class="choose_item_con"><span class="choose_txt" id="active_tepy">活动类型</span></div>
+            </div>
+            <div class="choose_item choose_item_r fl">
+                <div class="choose_item_con"><span class="choose_txt" id="active_passty">活动状态</span></div>
+            </div>
+        </div>
+        <div class="choose_body" style="z-index: 1000;">
+            <ul class="choose_body_list" id="actType" >
+            	
+            </ul>
+            
+            <ul class="choose_body_list" id="actPrpgress" >
+            
+            </ul>
+        </div> 
+       <!--<div class="choose_head clearfix">
+			<div class="choose_item choose_item_l fl">
+				<div class="choose_item_con">
+					<select id="actType">
+						<option value="">活动类型</option>
+					</select>
+				</div>
+			</div>
+			<div class="choose_item choose_item_r fl">
+				<div class="choose_item_con">
+					<select id="actProgress">
+						<option value="">活动状态</option>
+					</select>
+				</div>
+			</div>
+		</div>-->
+    </div>
+    
+    <!-- 遮罩 -->
+    <section class="dark_cover"></section>
+    <section class="hot_hd">
+        <section class="content">
+            
+        </section>
+    </section>
+    <div class="morebtn color333">查看更多</div>
+    
+    <section style="display: none;">
+        	
+         <div id="allmap" style="width: 100%; height:5.333333rem;margin: 0.266666rem 0;"></div>
+        	
+        </section>
+    <!--<footer>
+        <ul class="clearfix">
+            <li class="myIndex">
+                <a href="../../index.html">
+                    <div class="imgDiv"></div>
+                    <h6>首页</h6>
+                </a>
+            </li>
+            <li class="myActivity cur">
+                <a href="hd_zhaohuodong.html">
+                    <div class="imgDiv"></div>
+                    <h6>找活动</h6>
+                </a>
+            </li>
+            <li class="myQuestion">
+                <a href="../../static/wd_zhaowenda.html">
+                    <div class="imgDiv"></div>
+                    <h6>找问答</h6>
+                </a>
+            </li>
+            <li class="myHelp">
+                <a href="../../static/bz_zhaobangzhu.html">
+                    <div class="imgDiv"></div>
+                    <h6>找帮助</h6>
+                </a>
+            </li>
+            <li class="myHomePage">
+                <a href="../../static/wode_wode.html">
+                    <div class="imgDiv"></div>
+                    <h6>我的</h6>
+                </a>
+            </li>
+        </ul>
+    </footer>-->
+    <script type="text/javascript" src="../../public/custom/common.js">
+    	
+    </script>
+       <script type="text/javascript" src="../../public/js/find_active/hd_zhoubian.js"></script>
+</body>
+</html>

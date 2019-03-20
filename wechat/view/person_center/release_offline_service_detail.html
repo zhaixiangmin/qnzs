@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>发现线下-详情</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/hd_footerNav.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/person_center/release_offline_service_detail.css" />
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <!--百度地图-->
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=ggGhWZ8zW5mGMOYCohgWNRER5m76Hxfz"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/PersonCenterApi.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/person_center/release_offline_service_detail.js"></script>
+</head>
+<body class="bodyPB">
+    <section class="headTxt">
+        <div class="item clearfix">
+            <div class="left fl">
+                <img src="" id="imageUrl"/>
+            </div>
+            <div class="right">
+                <h2 class="color000" id="fullName"></h2>
+                <div class="score clearfix">
+                    <ul class="clearfix fl" id="starIcon">
+                        <!--星级图标-->
+                    </ul>
+                    <span class="fenshu fl"><em id="star"></em>分</span>
+                    <span class="commented color999 fl"><em id="evaluationNum"></em>人已评</span>
+                    <!--<a class="help_edit fr" id="report" style="margin-top: 2.1rem;">-->
+                        <!--<span class="report fz24">举报</span>-->
+                    <!--</a>-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--签到/已签到-->
+    <div id="signBox" style="display: none;">
+        <section class="yugao clearfix bgcWhite">
+            <span style="color: red;">线下服务<em id="statusStr"></em></span>
+        </section>
+        <section class="yugao clearfix bgcWhite">
+            <span class="fl">服务标题：</span>
+            <span id="quesTitle"></span>
+        </section>
+        <section class="yugao clearfix bgcWhite">
+            <span class="fl">服务类别：</span>
+            <span id="categoryName"></span>
+        </section>
+        <section class="yugao clearfix bgcWhite">
+            <span class="fl">服务地点：</span>
+            <span id="stationAddress">其它</span>
+        </section>
+        <section class="yugao clearfix bgcWhite">
+            <span class="fl">服务描述：</span>
+            <span id="description"></span>
+        </section>
+
+
+        <!-- 我要预约 -->
+        <section class="I_want_to_ask" style="display: none;">
+            <a id="sign">签到</a>
+        </section>
+        <section class="I_want_to_ask" style="display: none;">
+            <a id="signed">已签到</a>
+        </section>
+        <section class="I_want_to_ask" style="display: none;">
+            <a id="evaluated">已评价</a>
+        </section>
+    </div>
+
+    <!--评分页面(非扫码/扫码签到(已预约))-->
+    <div id="evaluateBox" class="evaluateBox" style="display: none;">
+        <form class="form_evaluate">
+            <input type="hidden" name="apId" value="2860">
+            <!-- 评分 -->
+            <input type="hidden" name="score" value="">
+            <section class="pf">
+                <div class="tit clearfix">
+                    <span class="fl fz28 color333">给受理方评分</span>
+                    <em class="fr color999 fz24">满意请给五星</em>
+                </div>
+                <div class="myScoreBox">
+                    <ul class="clearfix">
+                        <li><span><em></em></span></li>
+                        <li><span><em></em></span></li>
+                        <li><span><em></em></span></li>
+                        <li><span><em></em></span></li>
+                        <li><span><em></em></span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 发表言论区 -->
+            <section class="talk">
+                <textarea class="fz28 color333" name="evaluate" id="evaluate" placeholder="请输入你的答谢感言"></textarea>
+            </section>
+        </form>
+
+        <section class="I_want_to_ask">
+            <a id="submit_appreciation">立即发表</a>
+        </section>
+    </div>
+
+    <!--评分页面(扫码评分(未预约))-->
+    <div id="evaluateBox_code" class="evaluateBox" style="display: none;">
+        <form class="form_evaluate">
+            <!-- 站点标签 -->
+            <section class="siteTag bgcWhite mb20">
+                <h2 class="color000 fz30 p_0_30">服务类别</h2>
+                <div class="content">
+                    <ul class="clearfix" id="staCategoriesList">
+                        <!--站点服务类别列表-->
+                    </ul>
+                </div>
+            </section>
+
+            <input type="hidden" name="apId" value="2860">
+            <!-- 评分 -->
+            <input type="hidden" name="score" value="">
+            <section class="pf">
+                <div class="tit clearfix">
+                    <span class="fl fz28 color333">给受理方评分</span>
+                    <em class="fr color999 fz24">满意请给五星</em>
+                </div>
+                <div class="myScoreBox">
+                    <ul class="clearfix">
+                        <li><span><em></em></span></li>
+                        <li><span><em></em></span></li>
+                        <li><span><em></em></span></li>
+                        <li><span><em></em></span></li>
+                        <li><span><em></em></span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 发表言论区 -->
+            <section class="talk">
+                <textarea class="fz28 color333" name="evaluate" id="evaluate_code" placeholder="请输入你的答谢感言"></textarea>
+            </section>
+        </form>
+
+        <section class="I_want_to_ask">
+            <a id="submit_appreciation_unreserve">立即发表</a>
+        </section>
+    </div>
+</body>
+</html>

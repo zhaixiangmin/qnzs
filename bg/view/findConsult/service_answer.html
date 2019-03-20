@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>广东青年之声后台理</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+       <link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+       <link href="../../public/css/style.css" rel="stylesheet" />
+       <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+       <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" />
+</head>
+
+<body>
+<div class="col-sm-12">
+
+ <!--数据过滤strat-->
+ <div class="datafilter">
+      <div class="search">
+          <form id="ff_question" method="post">
+                   
+                 <div class="form-group sz_height">
+                      <label class="col-sm-1 control-label">关键词</label>
+                      <div class="col-sm-3">
+                          <input id="keyword" type="text" class="form-control">
+                      </div>
+                       <label class="col-sm-1 control-label">问题标题</label>
+                      <div class="col-sm-3">
+                          <input id="title" type="text" class="form-control">
+                      </div>
+                 </div>
+         
+                 <div class="form-group sz_height">
+                      <label class="col-sm-1 control-label">所属类别</label>
+                      <div class="col-sm-3">
+                          <input id="categoryId" class="easyui-combobox" name="categoryId">
+                      </div>
+                       <label class="col-sm-1 control-label">审核状态</label>
+                      <div class="col-sm-3">
+                          <select class="form-control" id="status">
+                                <option value="2">待审核</option>
+                                <option value="0">已通过</option>
+                                <option value="1">不通过</option>
+                           </select>
+                      </div>
+                      <div class="col-sm-2">
+                         <button id="searchbtn" type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-search"></span>查询</button> <button type="button" id="clearbtn" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-refresh"></span>清空</button>
+                      </div>
+                 </div>
+           
+		 </form>
+       </div>
+ </div>
+ <!--数据过滤end-->
+<div style="clear:both"></div>
+ <div class="border clearfix">
+       <ul class="nav navbar-nav" id="toolbar">
+          <!--<li><a href="javascript：void(0);"><span class="glyphicon glyphicon-list-alt" data-toggle="modal" data-target="#user-see">查看</span></a></li>-->
+          <li id="reply_pass"><a href="#" ><span class="glyphicon glyphicon-user"  >审核通过</span></a></li>
+          <li id="reply_notPass"><a href="javascript：void(0);" ><span class="glyphicon glyphicon-ban-circle" data-toggle="modal" >审核不通过</span></a></li>
+   
+       </ul>
+  </div>
+
+
+    <!--列表展示start-->
+    <div class="table_menu_list">
+
+        <table id="mytb"></table>
+
+    </div>
+    <!--列表展示end-->
+ </div>
+ 
+<!-- 查看框（Modal） -->
+<div class="modal fade" id="user-see" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					服务详情
+				</h4>
+			</div>
+			<div class="modal-body s-height">
+				<form method="get" class="form-horizontal">
+                <div class="form-group">
+                        <label class="col-sm-2 control-label">评论人:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">评论时间:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">评论内容:</label>
+                      　 <div class="col-sm-7">
+                           
+                            <textarea name="" cols="1" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div style="clear:both"></div>
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label">主帖子链接：</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                  
+                </form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 查看框（Modal）end -->
+
+<!-- 审核通过框（Modal） -->
+<div class="modal fade" id="user-verify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					提示
+				</h4>
+			</div>
+			<div class="modal-body">
+			      确定要通过已选项目吗？
+			</div>
+            <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="yes_btn-primary">
+					确定
+				</button>
+			</div>
+
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 审核通过框（Modal）end -->
+
+ <!--审核不通过框（Modal）-->
+<div class="modal fade" id="user-verify-not" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					提示
+				</h4>
+			</div>
+			<div class="modal-body">
+			      确定取消已选项目吗？
+			</div>
+            <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="del_btn-primary">
+					确定
+				</button>
+			</div>
+
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 审核不通过框（Modal）end -->
+<!--- 分配角色 --end--->
+<script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+<!--<script type="text/javascript" src="vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>-->
+<script src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+<script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+<script type="text/javascript" src="../../public/js/module/FindConsultApi.js"></script>
+<script src="../../public/js/module/Utils.js"></script>
+<script type="text/javascript" src="../../public/js/find_consult/serviceAnswer.js"></script>
+
+<!--图片上传-->
+<!--<script type="text/javascript" src="js/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>-->
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>富文本框测试</title>
+     <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    <!--<link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="base.css" />-->
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/webuploader/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/webuploader/webupload_main.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/wangEditor-3.0.3/wangEditor.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_help/qnzs_zzx_wenzhuanjia.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_help/organization.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_help/qnzs_zzx_wenzuzhi.css" />
+     <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+   
+
+    <script type="text/javascript" src="../../public/vendor/wangEditor-3.0.3/wangEditor.js"></script>
+    <!--<script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>-->
+    <!--<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>-->
+    <!--<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>-->
+    <!--<script type="text/javascript" src="../../public/js/module/FindHelpApi.js"></script>-->
+    <style type="text/css">
+        .zuzhiList ul>li>a .listBox{padding: 20px;width: 340px;height: 80px;}
+        .zuzhiList ul>li>a .listBox .leftBox{width: 120px;height: 80px;overflow: hidden;}
+        .zuzhiList ul>li>a .listBox .leftBox img{width:100%;}
+        .zuzhiList ul>li>a .listBox .rightTxt{padding-left: 140px;margin-left: 0;width: auto;}
+        .zuzhiList ul>li>a .listBox .rightTxt p{margin:14px 0;line-height: 12px;}
+        .zuzhiList ul>li>a .listBox .rightTxt button{width:70px;line-height:20px;border-radius:4px;text-align:center;cursor:pointer;font-size: 12px;line-height: 18px;}
+    </style>
+</head>
+<body>
+<div>测试富文本框</div>
+<div id="editor" style="background: #fff;font-size: 16px;"></div>
+<script>
+    var E = window.wangEditor;
+    var editor = new E('#editor');
+    // var editor = new window.wangEditor('#editor');
+
+    // 配置服务器端地址(上传图片)
+//    editor.customConfig.uploadImgServer = FindHelpApi.fileUploadUrl;
+
+    // 监听函数(上传图片)
+//    editor.customConfig.uploadImgHooks = {
+//        // 图片上传之前触发
+//        // xhr 是 XMLHttpRequest 对象，editor 是编辑器对象，files 是选择的图片文件
+//        before: function (xhr, editor, files) {
+//            console.log('before');
+//            console.log('xhr', xhr);
+//            console.log('editor', editor);
+//            console.log('files', files);
+//        },
+//        success: function (xhr, editor, result) {
+//            // 图片上传并返回结果，图片插入成功之后触发
+//            // xhr 是 XMLHttpRequest 对象，editor 是编辑器对象，result 是服务端返回的结果
+//            console.log('success');
+//            console.log('xhr', xhr);
+//            console.log('editor', editor);
+//            console.log('result', result);
+//        },
+//        fail: function (xhr, editor, result) {
+//            // 图片上传并返回结果，当图片插入错误时触发
+//            // xhr 是 XMLHttpRequest 对象，editor 是编辑器对象，result 是服务端返回的结果
+//            console.log('fail');
+//            console.log('xhr', xhr);
+//            console.log('editor', editor);
+//            console.log('result', result);
+//            $.alert('图片插入错误');
+//        },
+//        error: function (xhr, editor) {
+//            // 图片上传错时触发
+//            // xhr 是 XMLHttpRequest 对象，editor 是编辑器对象
+//            console.log('error');
+//            console.log('xhr', xhr);
+//            console.log('editor', editor);
+//        },
+//        timeout: function (xhr, editor) {
+//            // 图片上传超时触发
+//            // xhr 是 XMLHttpRequest 对象，editor 是编辑器对象
+//            console.log('timeout');
+//            console.log('xhr', xhr);
+//            console.log('editor', editor);
+//            $.alert('图片上传超时');
+//        },
+//        customInsert: function (inserImg, result, editor) {
+//            // 图片上传并返回结果，自定义插入图片时间（而不是编辑器自动插入图片!!!）
+//            // inserImg 是 插入图片的函数，editor 是编辑器对象，result 是服务器端返回结果
+//            console.log('customInsert');
+//            console.log('result', result);
+//            console.log('editor', editor);
+//
+//            var url = result.url;
+//            inserImg(url);
+//            // result 必须是一个 JSON 格式字符串！！！否则报错
+//        }
+//    };
+
+    editor.create();
+</script>
+</body>
+</html>

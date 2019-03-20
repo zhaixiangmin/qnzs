@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+		<link href="../../public/css/common/style.css" rel="stylesheet" />
+		<link href="../../public/css/common/common.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="draftactive.css"/>
+		<!--页面重置样式-->
+
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" />
+
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+
+		<!--富文本-->
+		<link href="../../public/vendor/summernote/dist/summernote.css" rel="stylesheet" />
+
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/webuploader/webuploader.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/webuploader/webupload_main.css" />
+		<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+		<!--百度地图-->
+		<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=QFPGjsM5c3LXIDCELLaequd75vWvLcsO"></script>
+		<script type="text/javascript" src="https://api.map.baidu.com/library/SearchControl/1.4/src/SearchControl_min.js"></script>
+		<link rel="stylesheet" href="https://api.map.baidu.com/library/SearchControl/1.4/src/SearchControl_min.css" />
+		<link href="https://api.map.baidu.com/library/TrafficControl/1.4/src/TrafficControl_min.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="https://api.map.baidu.com/library/TrafficControl/1.4/src/TrafficControl_min.js"></script>
+		<!--百度地图-->
+
+		<script src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+		<script src="../../public/vendor/summernote/dist/summernote.js"></script>
+
+		<script src="../../public/vendor/summernote/dist/lang/summernote-zh-CN.js"></script>
+		<script src="../../public/custom/dialog.js"></script>
+		<!--弹出框提示-->
+		<script src="../../public/js/module/Qnzs.js"></script>
+		<!--公共js调用api-->
+
+		<script type="text/javascript" src="../../public/vendor/webuploader/webuploader.js"></script>
+		<script type="text/javascript" src="../../public/vendor/webuploader/upload.js"></script>
+
+		<script src="../../public/js/draftactive/draftactieApi.js"></script>
+
+		<script src="../../public/js/module/Utils.js"></script>
+		<script type="text/javascript" src="../../public/custom/utf.js">
+		</script>
+		<!--<script type="text/javascript" src="../../public/custom/jquery.qrcode.min.js">
+		</script>-->
+		<script type="text/javascript" src="../../public/custom/jquery.qrcode.js">
+		</script>
+		
+
+		<script src="../../public/js/ajax/ajax2.js"></script>
+		
+	</head>
+	<style>
+		.commentlist {
+			display: none;
+		}
+		
+		.btn_file {
+			position: relative;
+			margin-left: 240px;
+		}
+		
+		.btn_file input[type="file"] {
+			position: absolute;
+			top: 4px;
+			left: 0;
+			opacity: 0;
+			background: none repeat scroll 0 0 transparent;
+			cursor: inherit;
+		}
+		
+		.btn_file,
+		.upto_image {
+			display: inline-block;
+		}
+		.addglyphicon{
+			width: 60px;height: 60px;border-radius: 50%;
+			
+			
+			margin:100px 0  20px  200px;}
+		#imgDiv,
+		#imgDivlook {
+			width: 480px;
+			height: 320px;
+			border: solid 2px silver;
+		}
+		.imgDiv{width: 480px;
+			height: 320px;
+			border: solid 2px silver;
+			background-color: #f0f0f0;}
+		#imghead,
+		#imgheadlook {
+			width: 100%;
+			height: 320px;
+		}
+		
+		.act_txt {
+			width: 480px;
+			height: 300px;
+			
+		}
+		
+		.map {
+			width: 100%;
+			height: 600px;
+			border: solid 2px silver;
+		}
+		
+		#class_rooms {
+			display: none;
+		}
+		
+		.list-group li {
+			display: block;
+			float: left;
+			width: 198px;
+			height: 198px;
+			margin: 5px;
+		}
+		
+		.lingot {
+			height: 35px;
+			line-height: 35px;
+		}
+		
+		.list-group li img {
+			width: 194px;
+			height: 194px;
+			display: block;
+		}
+		
+		#imag_gpjs>input {
+			background-color: #00BFFF;
+			font-size: 16px;
+			color: white;
+		}
+		
+		.activt_ullist li {
+			display: block;
+			width: 100%;
+			height: 30px;
+			margin-top: 10px;
+		}
+		
+		.activt_ullist .text_input {
+			width: 510px;
+			height: 30px;
+		}
+		.showtexte .text_input{width: 510px;
+			height: 30px;}
+		
+	.activt_ullist	{margin-left: -40px;} 
+		.activt_ullist i {
+			margin-left:10px;
+		}
+		.showtexte i{margin-left: 10px;}
+		.activt_ullist span {
+			margin-left:10px
+		}
+		
+		.curlist {
+			border: 2px solid red;
+		}
+		
+		#img_list li {
+			display: block;
+			width: 200px;
+			height: 204px;
+			margin: 5px;
+			float: left;
+		}
+		
+		#img_list li img {
+			width: 100%;
+			height: 100%;
+		}
+		
+		.ipt {
+			border: 1px solid #ddd;
+			box-shadow: 0 0 3px rgba(0, 0, 0, 0.17) inset;
+			transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+			border-radius: 0 !important;
+			-moz-border-radius: 0 !important;
+			-webkit-border-radius: 0 !important;
+			height: 34px;
+			padding: 0px 5px;
+			line-height: 30px\9;
+		}
+		
+		* {
+			box-sizing: border-box;
+		}
+		/*备注：去掉百度copyright*/
+		
+		#map_container.map .BMap_cpyCtrl.BMap_noprint.anchorBL {
+			display: none;
+		}
+		
+		#active_omtion {
+			width: 23%;
+		}
+		
+		.minrstid {
+			width: 800px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		.fl {
+			float: left;
+		}
+		
+		.topTalk #wrapper {
+			margin: 10px 0;
+			width: 725px;
+		}
+		
+		#filePicker>div[id] {
+			width: 168px !important;
+			height: 44px !important;
+			top: 20px !important;
+			left: 50% !important;
+			margin-left: -84px;
+		}
+		
+		#uploader .filelist li {
+			width: 80px;
+			height: 80px;
+			margin: 0 5px 10px 0;
+		}
+		
+		#uploader .filelist li p.imgWrap {
+			width: 80px;
+			height: 80px;
+		}
+		
+		#uploader .placeholder {
+			min-height: 188px;
+			padding-top: 108px;
+			background-position: center 43px;
+		}
+		
+		.marck_model {
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background-color: rgba(0, 0, 0, .5);
+			z-index: 1000;
+		}
+		.coloedown{width: 80px;height: 30px;text-align: center;line-height: 30px;position: relative;top: 0; right: -1250px; color: white;cursor: pointer;font-size: 16px;}
+		#toloading {
+			width: 160px;
+			height: 120px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	</style>
+	
+	<body>
+		<div class="col-sm-12">
+			
+			<div class="datafilter actlist_hide">
+				<div class="search">
+					<form id="" method="post">
+						<div class="form-group sz_height">
+							<label class="col-sm-1">活动编号</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="activityIdQuery">
+							</div>
+							<label class="col-sm-1">活动标题</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="act_title">
+							</div>
+							<label class="col-sm-1">开始时间</label>
+							<div class="col-sm-2">
+								<input id="start_activde" type="text" class="easyui-datetimebox" editable="true" data-options="required:true">
+							</div>
+							<label class="col-sm-1">结束时间</label>
+							<div class="col-sm-2">
+								<input id="sotp_timeact" type="text" class="easyui-datetimebox" editable="true" data-options="required:true">
+							</div>
+						</div>
+						
+						<div class="form-group sz_height">
+							<label class="col-sm-1">活动状态</label>
+							<div class="col-sm-2">
+								<select class="form-control" id="contmtont_start">
+									<option value="">请选择</option>
+									<option value="0">待审核</option>
+									<option value="1">审核通过</option>
+									<option value="2">审核不通过</option>
+									<option value="3">已删除</option>
+								</select>
+							</div>
+							<!-- 
+							<label class="col-sm-1">标题标注</label>
+							<div class="col-sm-2">
+								<select class="form-control" id="titleTagQuery">
+									<option value="">请选择</option>
+									<option value="团干讲党团课">团干讲党团课</option>
+								</select>
+							</div>
+							 -->
+						</div>
+						
+						<div class="form-group sz_height" id="searchDistrict">
+			
+						</div>
+
+						<div class="col-sm-2">
+							<button type="button" class="btn btn-warning btn-sm" id="activitie_btn"><span class="glyphicon glyphicon-search"></span>查询</button>
+							<button type="button" class="btn btn-info btn-sm" id='btn_del'><span class="glyphicon glyphicon-refresh"></span>清空</button>
+						</div>
+
+					</form>
+				</div>
+			</div>
+			
+			<!--数据过滤end-->
+			<div style="clear:both;">
+				<div class="border clearfix">
+					<ul class="nav navbar-nav" >
+			        
+						<li onclick="usereditor(1)" id="activity_editDraft" >
+							<a href="#support"><span class="glyphicon glyphicon-pencil" data-toggle="modal">编辑</span></a>
+						</li>
+		                <li onclick="delnumber(2)" id="activity_removeDraft">
+							<a href="#support"><span class="glyphicon glyphicon-trash" data-toggle="modal">删除</span></a>
+						</li>
+		            </ul>
+
+					<!--列表展示start-->
+					<table id="activitie" style="width:200px;height:300px">
+
+					</table>
+
+					<!--列表展示end-->
+				</div>
+
+			</div>
+			<!-- 评论管理列表-->
+		
+		</div>
+		
+		<div class="modal fade" id="user-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width:100%;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title show_mode" id="myModalLabel"></h4>
+
+							
+						</div>
+						<div class="modal-body s-height2">
+							<!--datafilter strat-->
+							<div class="datafilter">
+								<div class="search">
+									<form id="fromadd" class="form-horizontal validator">
+
+										<!--活动标题-->
+										<div class="form-group">
+											<label for="active_title" class="col-sm-2 control-label"><span style="color: red;">*</span>活动标题:</label>
+											<div class="col-sm-2">
+												<input type="text" value='' class="easyui-validatebox" id="active_title" placeholder="请输入活动标题" data-options="required:true,missingMessage:'请输入活动标题',validType:'maxLength[20]'">
+											</div>
+										</div>
+										<!--活动标题end-->
+										
+										<!-- 活动标题标注-->
+										<div class="form-group titleTag">
+											<label class="col-sm-2 control-label">活动标题标注:</label>
+											<input type="checkbox" value="团干讲党团课" name="activity_title_tag">&nbsp;团干讲党团课&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</div>
+										 
+										<!-- 上传海报-->
+										<div class="form-group" style="height: 360px;">
+											<label class="col-sm-2 control-label">上传海报:</label>
+											<div class="col-sm-6">
+
+												<div id="imgDiv" style="display: none;">
+
+													<img id="imghead" src=''>
+													<button class="btn btn-info glyphicon glyphicon-trash" style="display:block;margin-top:10px;" type="button" data-toggle="modal" onclick="calerImg(2)">删除</button>
+												</div>
+												 <div class="imgDiv">
+
+												<button class="btn btn-info glyphicon glyphicon-plus addglyphicon" type="button" data-toggle="modal" onclick="imag_gpj(1)" style="outline: none; font-size: 18px;">
+													</button>
+												<div class="act_txt">
+
+													<p style="text-align: center;width: 100%;height: 40px;font-size: 18px;line-height: 40px;color: #000000;">图片尺寸建议为：900*525，图片小于5M </p>
+													<p style="text-align: center;width: 100%;height: 30px;font-size: 14px;line-height: 30px;color: #C0C0C0;">一张漂亮的海报，能让您的活动看起来更高大上，吸引更多的人报名</p>
+
+												</div>
+											</div>
+												
+
+											</div>
+
+											
+
+										</div>
+										<!--end-->
+
+										<!--报名时间-->
+										<div class="form-group">
+											<label class="col-sm-2 control-label"><span style="color: red;">*</span>报名时间:</label>
+
+											<div class="col-sm-2">
+												<input id="staert_time" type="text" class="easyui-datetimebox easyui-validatebox" editable="true" data-options="required:true,missingMessage:'报名开始时间应晚于当前时间'">
+											</div>
+											<label class="col-sm-1 control-label" style="text-align: center;">至</label>
+											<div class="col-sm-2">
+												<input id="staert_times" type="text" class="easyui-datetimebox easyui-validatebox" editable="true" data-options="required:true,missingMessage:'报名结束时间应早于活动结束时间'">
+											</div>
+
+										</div>
+										<!--end-->
+
+										<!--活动时间-->
+										<div class="form-group">
+											<label class="col-sm-2 control-label"><span style="color: red;">*</span>活动时间:</label>
+
+											<div class="col-sm-2">
+												<input id="stop_time" type="text" class="easyui-datetimebox easyui-validatebox" editable="true" data-options="required:true,missingMessage:'活动开始时间应晚于报名开始时间'">
+
+											</div>
+											<label class="col-sm-1 control-label" style="text-align: center;">至</label>
+											<div class="col-sm-2">
+												<input id="stop_times" type="text" class="easyui-datetimebox easyui-validatebox" editable="true" data-options="required:true,missingMessage:'活动结束时间应晚于活动开始时间'">
+											</div>
+
+										</div>
+										<!--end-->
+
+										<!-- 地图选择出行-->
+										<div class="form-group">
+
+											<label class="col-sm-2 control-label"><span style="color: red;">*</span>活动地点:</label>
+
+											<div class="col-sm-10">
+
+												
+
+												<input type='text' value='' name='sever_add' id='sever_add' style="width:300px;" class="easyui-validatebox" data-options="required:true,missingMessage:'点击地图获取当前位置地址'">
+
+											</div>
+											<p style="margin-left: 200px;color:red;">温馨提示:请谨慎填入参与者将抵达的活动举办地址，并在地图上精确点选地址坐标。否则将导致参与者无法签到.</p>
+
+										</div>
+										
+										<div class="form-group">
+										<label class="col-sm-2 control-label">地图经度:</label>
+										<div class="col-sm-2">
+											<input type="text" id='longitude_number' value="" disabled="disabled">
+										</div>
+										
+										<label class="col-sm-1 control-label">地图纬度:</label>
+										<div class="col-sm-2">
+											<input type="text" id='latitude_number' value="" disabled="disabled">
+											</div>
+											<div class="col-sm-1"><button type="button" class="btn btn-primary" onclick="theLocation()">查询</button></div>
+										</div>
+										
+										<div class="form-group">
+											<label class="col-sm-2">点击地图选择:</label>
+											<div class="col-sm-8">
+												<select id="province" name="province" class="ipt areaLists" style="width:150px;"></select>
+												<select id="city" name="city" class="ipt areaLists" style="width:150px;"></select>
+												<select id="county" name="county" class="ipt areaLists" style="width:150px;"></select>
+												<input class="ipt" id="addresslist" placeholder="请输入详细地址" style="width: 200px;">
+												<div id="map_container" class="map"></div>
+											</div>
+
+										</div>
+
+										<!-- end-->
+
+										<!--    参与者是否-->
+										<div class="form-group signTimes">
+											<label class="col-sm-2 control-label">参与者是否:</label>
+											<input type="radio" value="1" name='rd'>签到 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<input type="radio" value="2" name='rd'>签到和签退 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<input type="radio" value="0" name='rd'>不需要签到和签退 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+										</div>
+										<!--联系电话-->
+										<div class="form-group" id="phone_number">
+											<label for="active_phone" class="col-sm-2 control-label"><span style="color: red;">*</span>联系电话:</label>
+											<div class="col-sm-2">
+												<input type="text" value='' class="easyui-validatebox" id="active_phone" placeholder="请输入电话号码" data-options="required:true,validType:['number','length[0,20]'],missingMessage:'请输入正确的电话号码'">
+											</div>
+
+										</div>
+										<!--活动人数-->
+										<div class="form-group" id="people_numder">
+											<label for="active_people" class="col-sm-2 control-label">活动人数:</label>
+											<div class="col-sm-2">
+												<input type="number" class="form-control" id="active_people">
+											</div>
+											<span class="col-sm-1  lingot">人</span>
+										</div>
+
+										<!--报名收费-->
+										<div class="form-group">
+											<label for="active_money" class="col-sm-2 control-label">报名收费:</label>
+											<div class="col-sm-2">
+												<input type="number" class="form-control" id="active_money" placeholder="请输入收费金额">
+											</div>
+											<span class="col-sm-1 lingot">元</span>
+
+										</div>
+										<!--活动类别-->
+										<div class="form-group">
+											<label class="col-sm-2 control-label"><span style="color: red;">*</span>活动类别:</label>
+											<div class="col-sm-2">
+												<select class="redact_category" class="form-control easyui-validatebox" onchange="gradeChange(this)" data-options="required:true">
+
+												</select>
+											</div>
+
+										</div>
+										<!--第二课堂-->
+										<div id="class_rooms">
+											<div class="form-group">
+												<label class="col-sm-2 control-label">第二课堂类型:</label>
+												<div class="col-sm-2">
+													<select class="redact_class" class="form-control">
+
+													</select>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label">学时:</label>
+												<div class="col-sm-2">
+
+													<input type="text" placeholder="请输入学时1-100" id="period_room" class="easyui-validatebox" data-options="required:true,validType:['number','length[0,100]'],missingMessage:'请输入0-100的整数'">
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- 活动分享描述 -->
+										<div class="form-group">
+											<label class="col-sm-2 control-label"><span style="color: red;">*</span>活动分享描述:</label>
+
+											<textarea class="col-sm-6 easyui-validatebox" style="margin-left: 11px;" id="Sharing" data-options="required:true,validType:'maxLength[1000]',invalidMessage:'该项为必填'" placeholder="活动分享描述用于移动端转发分享活动链接的简要介绍"></textarea>
+
+										</div>
+
+										<!-- 活动详情  -->
+										<div class="form-group">
+											<label class="col-sm-2 control-label"><span style="color: red;">*</span>活动详情:</label>
+											<div class="col-sm-6">
+
+												<div class="minrstid">
+
+													<div id="summernote"></div>
+												</div>
+
+											</div>
+										</div>
+
+										<!-- 参与者是否需要签到  -->
+										<div class="form-group isAddTemplate">
+											<label class="col-sm-2 control-label">报名者是否:</label>
+											<input type="radio" value="1" name='isAddTemplate'>需要上传报名表 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<input type="radio" value="0" name='isAddTemplate'>不需要上传报名表
+										</div>
+										<div class="form-group templateUrl" id="scmb" style="display: none;">
+											<label class="col-sm-2 control-label">上传报名表模板:</label>
+											<input type="hidden" name="fileId" id="fileId" />
+											<input type="hidden" name="fileName" id="fileName" />
+											<input type="hidden" name="templateUrl" id="templateUrl" />
+											<!-- <input id="template" type="file" name="template" multiple="multiple" onchange="uploadImageAdd();" style="display: none;"/> -->
+											<input id="template" type="file" name="template" style="display: none;" />
+											<div class="clearfix">
+												<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="$('#template').click();" style="float:left;display:inline-block;margin:13px 15px 0 0;margin-top: -2px">选择文件</a>
+												<span id="fileNameShow"></span>
+												<span style="float:left;margin-left:80px;">
+													<font color="red" style="font-size:10px;">建议文件后缀名为(doc,docx,xls,xlsx),图片大小限制在5MB以内</font>
+													<font color="red" style="font-size:10px;">(注意：上传报名表时，请勿在报名表文件名中输入“＋”、“－”等中英文标点符号，否则将导致报名失败)</font>
+												</span>
+											</div>
+										</div>
+
+										<!--报名填写信息-->
+										<div class="form-group">
+											<label class="col-sm-2 control-label">报名填写信息:</label>
+											<div class="col-sm-8">
+												<p>报名时，默认收集参与者昵称与手机号，如需收集更多参与者信息，请<span class="btn btn-info btnnt_add">添加</span>自定义项</p>
+												<!-- <P>请点击<span class="btn btn-info btnnt_add">添加</span>自定义选项填写更多报名信息</P> -->
+												<p style="display: none;width: 100%;height: 30px;" class="showtexte"><input type="text" name="text" class="text_input itemName" placeholder="请输单行文本内容" max="200">
+														<input type="hidden" name="itemType" value="1" class="itemType" /><i class="glyphicon glyphicon-plus btn btn-primary"></i></p>
+												<ul class="activt_ullist">
+													
+														<!--<input type="button" value="保存" onclick="addActivityItem();" />-->
+												</ul>
+												<!-- <div>
+													  <input type="button" value="保存" onclick="addActivityItem();" />
+												</div> -->
+											</div>
+										</div>
+
+										<!---用户协议--->
+										<div class="form-group">
+											<label class="col-sm-2 control-label"></label>
+											<div class="col-sm-2">
+												<label style="width: 350px;">
+													<input type="checkbox" style="width: 12px;height: 12px; " checked name="" id="inp_Agreement" value="" />阅读并接受
+													<a href="user_Agreement.html" style="color: #2185cf;" target="_Blank">
+														<<青年之声活动发布协议>></a>
+
+												</label>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<div class="col-sm-3">
+												<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+												</button>
+												
+												<button type="button" class="btn btn-info" id="btn_active_edit" >
+													确定编辑
+												</button>
+												<button type="button" class="btn btn-info" id="btn_active_officia">
+													正式发布
+												</button>
+											</div>
+										</div>
+										<!--确定发布-->
+
+								</form>
+								</div>
+							
+							</div>
+							<!--datafilter end-->
+						</div>
+
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+				<!-- 遮罩加载-->
+
+				<div class="marck_model" style="display: none;">
+                    <p class="coloedown">关闭x</p>
+					<div id="toloading">
+						<img src="../../public/images/toload.gif" / style="display: block;width: 50%;height: 80px;z-index: 1100;vertical-align: middle;margin-left: 40px;">
+						<p style="color: white;font-size: 14px;width: 100%;height: 40px;line-height: 40px;text-align: center;">请稍等信息正在提交中</p>
+					</div>
+                   
+				  </div>
+
+		</div>
+			<!-- 新增框（Modal）end -->
+
+			<!--图片列表-->
+			<div class="modal fade" id="imag_gpj" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width:700px; margin-right: 150px;overflow: auto;height: 600px;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">图片海报</h4>
+						</div>
+						<div class="modal-body">
+							<form method="get" class="form-horizontal">
+
+								<div class="form-group">
+									<div class="btn btn-info btn_file">
+
+										<span class="upto_image">从本地电脑选择图片上传</span>
+										<input type="file" name="file" id="file" onchange="selectImage(this);" />
+									</div>
+
+								</div>
+
+								<div class="form-group">
+
+									<h3>从模板库选择海报图片</h3>
+
+								</div>
+
+								<!-- 图片库列表-->
+								<div class="form-group">
+
+									<ul class="list-group claerfix" id="ulist">
+
+									</ul>
+								</div>
+
+							</form>
+						</div>
+						<!--<div class="modal-footer">
+							
+                      <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				    </button>
+							<button type="button" class="btn btn-info" id="btn_seliet" onclick="uploadImage();">
+				   	确定上传
+                      		</button>
+					</div>-->
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+			</div>
+
+			<!--图片结束-->
+		
+		   <div class="modal fade" id="QRcodePub" tabindex="-1" role="dialog" aria-labelledby="myModalLabelPub" aria-hidden="true">
+				<div class="modal-dialog" style="width:262px; margin-left: 600px;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabelPub">
+								 活动发布成功！以下为活动二维码，另存后微信扫一扫，即可进行现场报名、签到及评价
+							</h4>
+						</div>
+						<div class="modal-body">
+
+							<div id="qrcode1Pub">
+
+							</div>
+
+						</div>
+
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+			</div>
+
+			<div class="modal fade" id="QRcode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width:262px; margin-left: 600px;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+								活动发布成功！以下为活动二维码，另存后微信扫一扫，即可进行现场报名、签到及评价
+							</h4>
+						</div>
+						<div class="modal-body">
+
+							<div id="qrcode1">
+
+							</div>
+
+						</div>
+
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+			</div>
+
+		
+		
+		
+	</body>
+	<script type="text/javascript" src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+			<script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script>
+			<script type="text/javascript" src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+			<script type="text/javascript" src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+			<script src="../../public/js/common/contabs.js"></script>
+
+			<!--<script type="text/javascript" src="js/request-ajax/management_activitie.js"></script>-->
+
+			<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+			<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+			<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+
+			<script type="text/javascript" src="../../public/js/find_active/area.js">
+			</script>
+			<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=QFPGjsM5c3LXIDCELLaequd75vWvLcsO"></script>
+	
+	      <script type="text/javascript">
+	      	/*富文本编译器*/
+				/*富文本编译器*/
+				/* 百度地图*/
+				function validate() {
+					var sever_add = document.getElementsByName('sever_add')[0].value;
+					if (isNull(sever_add)) {
+						alert('请选择地址');
+						return false;
+					}
+					return true;
+				}
+				var map = new BMap.Map("map_container");
+				var mk;
+				map.centerAndZoom("广州", 12); // 初始化地图,设置城市和地图级别。
+				map.enableScrollWheelZoom(); //启用滚轮放大缩小，默认禁用  
+				map.enableContinuousZoom(); //启用地图惯性拖拽，默认禁用  
+				map.enableInertialDragging();
+				var geoc = new BMap.Geocoder(); //地址解析对象  
+				var markersArray = [];
+				var geolocation = new BMap.Geolocation();
+				var point = new BMap.Point(113.23, 23.16);
+				map.centerAndZoom(point, 12); // 中心点  
+				
+				function theLocation(){
+				    if(document.getElementById("longitude_number").value != "" && document.getElementById("latitude_number").value != ""){
+				    map.clearOverlays(); 
+				   var new_point = new BMap.Point(document.getElementById("longitude_number").value,document.getElementById("latitude_number").value);
+				    var marker = new BMap.Marker(new_point);  // 创建标注
+				    map.addOverlay(marker);              // 将标注添加到地图中
+				     map.panTo(new_point);      
+			       }
+					
+				}	
+				
+				
+				geolocation.getCurrentPosition(function(r) {
+					if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+						var mk = new BMap.Marker(r.point);
+						map.addOverlay(mk);
+						map.panTo(r.point);
+						map.enableScrollWheelZoom(true);
+					} else {
+						alert('failed' + this.getStatus());
+					}
+				}, {
+					enableHighAccuracy: true
+				})
+				map.addEventListener("click", showInfo);
+				//单击获取点击的经纬度  
+				/* map.addEventListener("click", function (e) {  
+				     //alert(e.point.lng + "," + e.point.lat);  
+				     map.removeOverlay(mk);  
+				     mk = new BMap.Marker(e.point);  
+				     map.addOverlay(mk); 
+				       $('#latitude_number').val(e.point.lat);  
+				      $('#longitude_number').val(e.point.lng);  
+				 });  */
+				//清除标识  
+				function clearOverlays() {
+					if (markersArray) {
+						for (i in markersArray) {
+							map.removeOverlay(markersArray[i])
+						}
+					}
+				}
+
+				function addMarker(point) {
+					var marker = new BMap.Marker(point);
+					markersArray.push(marker);
+					clearOverlays();
+					map.addOverlay(marker);
+				}
+				//点击地图时间处理  
+				function showInfo(e) {
+					document.getElementById('longitude_number').value = e.point.lng;
+					document.getElementById('latitude_number').value = e.point.lat;
+					geoc.getLocation(e.point, function(rs) {
+						var addComp = rs.addressComponents;
+						var address = addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;
+						if (confirm("确定要地址是" + address + "?")) {
+							/* document.getElementById('allmap').style.display = 'none'; */
+							document.getElementById('sever_add').value = address;
+						}
+					});
+					addMarker(e.point);
+				}
+				// 添加带有定位的导航控件  
+				var navigationControl = new BMap.NavigationControl({
+					// 靠左上角位置  
+					anchor: BMAP_ANCHOR_TOP_LEFT,
+					// LARGE类型  
+					type: BMAP_NAVIGATION_CONTROL_LARGE,
+					// 启用显示定位  
+					enableGeolocation: true
+				});
+				map.addControl(navigationControl);
+				// 添加定位控件  
+				var geolocationControl = new BMap.GeolocationControl();
+				geolocationControl.addEventListener("locationSuccess", function(e) {
+					// 定位成功事件  
+					var address = '';
+					address += e.addressComponent.province;
+					address += e.addressComponent.city;
+					address += e.addressComponent.district;
+					address += e.addressComponent.street;
+					address += e.addressComponent.streetNumber;
+					alert("当前定位地址为：" + address);
+				});
+				geolocationControl.addEventListener("locationError", function(e) {
+					// 定位失败事件  
+					alert(e.message);
+				});
+				map.addControl(geolocationControl);
+				//删除标注
+				function deletePoint() {
+					var allOverlay = map.getOverlays();
+					for (var i = 0; i < allOverlay.length; i++) {
+						map.removeOverlay(allOverlay[i]);
+					}
+				}
+				//根据选择框或输入框获取地址
+				var _area = {
+						//keyword:'',
+						_areaLists: $(".areaLists"),
+						_address: $("#addresslist"),
+						unChecked: function(val) {
+							return (val == '' || typeof(val) == 'undefined' || val == null ||
+								val == '省份' || val == '地级市' || val == '市、县级市') ? false : true;
+						},
+						list: function() {
+							//console.log(_areaLists.length);
+							var _joinArea = '';
+							for (var i = 0; i < this._areaLists.length; i++) {
+								if (_area.unChecked(this._areaLists[i].value)) {
+									_joinArea += this._areaLists[i].value;
+								}
+							}
+							if (_area.unChecked(this._address.val())) {
+								_joinArea += ' ' + this._address.val();
+								//_joinArea=this._address.val();
+								//console.log('here');
+							}
+							//console.log(_joinArea);
+							return _joinArea;
+						},
+						init: function() {
+							//绑定百度地图
+							var _this = _area.list();
+							//console.log('_this='+_this);
+							//定义local
+							var local = new BMap.LocalSearch(map, {
+								renderOptions: {
+									map: map,
+									autoViewport: true
+								}
+							});
+							local.setSearchCompleteCallback(function(searchResult) {
+								var poi = searchResult.getPoi(0);
+								//document.getElementById("result_").value = poi.point.lng + "," + poi.point.lat;
+								//map.centerAndZoom(poi.point, 11);
+								/*gc.getLocation(poi.point, function(rs){
+								    showLocationInfo(poi.point, rs);
+								});*/
+							});
+							local.search(_this);
+						}
+					}
+					//搜索地址并赋值给form
+				$("#province,#city,#county").change(function() {
+					deletePoint();
+					_area.init();
+				});
+				//全局变量：存储address字符串长度做判断
+				var _thisLength = '';
+				$("#addresslist").keydown(function() {
+					_thisLength = $(this).val().length;
+					//console.log('鼠标按下之前：'+_thisLength);
+				})
+				$("#addresslist").keyup(function() {
+					var _newLength = $(this).val().length;
+					console.log('鼠标按下之后：' + _thisLength);
+					var timer = setTimeout(function() {
+						if (_thisLength <= _newLength) {
+							deletePoint();
+							_area.init();
+						} else {
+							clearTimeout(timer);
+						}
+					}, 3000);
+				})
+				$("#addresslist").blur(function() {
+						deletePoint();
+						_area.init();
+					})
+					/*百度地图*/
+				var imageUrl = "";
+				var EmptyButton = function(context) {
+					var ui = $.summernote.ui;
+					var button = ui.button({
+						contents: '<i class="note-icon-trash"/>',
+						tooltip: '清除全部内容',
+						click: function() {
+							context.invoke('editor.empty');
+						}
+					});
+					return button.render();
+				};
+				var CleanWordButton = function(context) {
+					var ui = $.summernote.ui;
+					var button = ui.button({
+						contents: '<i class="note-icon-square"/>',
+						tooltip: '清除Word格式',
+						click: function() {
+							//  清除img的wrap元素  
+							var str = context.invoke('code');
+							str = CleanPastedHTML(str); //  class="hidden"  
+							$('.container').append('<div id="tmp">' + str + '</div>');
+							$('#tmp table img').unwrap();
+							str = $('#tmp').html();
+							str = CleanPastedHTML(str); //  class="hidden"  
+							$('#tmp').remove();
+							context.invoke('code', str);
+						}
+					});
+					return button.render();
+				};
+				$(document).ready(function() {
+					
+					
+					/*富文本*/
+					$('#summernote').summernote({
+						height: 400,
+						tabsize: 2,
+						lang: 'zh-CN',
+						focus: true, // set focus to editable area after initializing su   
+						dialogsInBody: true,
+						dialogsFade: true, // Add fade effect on dialogs,  
+						disableDragAndDrop: true,
+						shortcuts: true,
+						/*placeholder: '在这里添加内容', */
+						toolbar: [
+							['style', ['clear', 'bold', 'italic', 'underline', 'word']],
+							['font', ['fontsize']],
+							['color', ['color']],
+							['para', ['ul', 'ol', 'paragraph', 'style', 'height']],
+							['insert', ['table', 'picture','link']],
+							['mybutton', ['empty', 'undo', 'redo']],
+							['misc', ['fullscreen', 'codeview', 'help']]
+						],
+						buttons: {
+							empty: EmptyButton,
+							word: CleanWordButton
+						},
+						callbacks: {
+							onImageUpload: function(files, editor, $editable) {
+								sendFile(files);
+							},
+							onPaste: function(ne) {
+								var bufferText = ((ne.originalEvent || ne).clipboardData || window.clipboardData).getData('Text/plain');
+								//    ne.preventDefault();    
+								ne.preventDefault ? ne.preventDefault() : (ne.returnValue = false);
+								// Firefox fix  
+								setTimeout(function() {
+									document.execCommand("insertText", false, bufferText);
+								}, 10);
+								/*  */
+							}
+						}
+					});
+					/*富文本*/
+					//海报图片上传
+					$('#file').fileupload({
+						url: Qnzs.path + '/file_upload',
+						dataType: 'json',
+						autoUpload: true,
+						done: function(e, data) {
+							imageUrl = data.result.url;
+							$('#imag_gpj').modal('hide');
+							console.log(imageUrl);
+							$('#imghead').attr('src', imageUrl)
+						},
+						fail: function() {
+							alert('出错');
+						}
+					}); //海报图片上传end
+					//报名模板上传
+					$('#template').fileupload({
+						url: Qnzs.path + '/file_uploadTwo',
+						dataType: 'json',
+						autoUpload: true,
+						done: function(e, data) {
+							data = data.result;
+							if (data.error == 0) {
+								$("#fileId").val(data.fileId);
+								$("#fileName").val(data.fileName);
+								$("#fileNameShow").text(data.fileName);
+								$("#templateUrl").val(data.url);
+								alert("上传附件成功!");
+							}
+						},
+						fail: function() {
+							alert('出错');
+						}
+					}); //报名模板上传end
+				}); //预加载结束
+				//富文本图片上传
+				function sendFile(files, editor, $editable) {
+					var data = new FormData();
+					data.append("ajaxTaskFile", files[0]);
+					$.ajax({
+						data: data,
+						type: "POST",
+						url: Qnzs.path + '/file_upload', //图片上传出来的url，返回的是图片上传后的路径，http格式  
+						cache: false,
+						contentType: false,
+						processData: false,
+						dataType: "json",
+						success: function(data) { //data是返回的hash,key之类的值，key是定义的文件名  
+							console.log(data.url);
+							$('#summernote').summernote('insertImage', data.url);
+						},
+						error: function() {
+							alert("上传失败");
+						}
+					});
+				}
+
+				function CleanPastedHTML(input) {
+					// 1. remove line breaks / Mso classes  
+					var stringStripper = /(\n|\r| class=(")?Mso[a-zA-Z]+(")?)/g;
+					var output = input.replace(stringStripper, ' ');
+					// 2. strip Word generated HTML comments  
+					var commentSripper = new RegExp('<!--(.*?)-->', 'g');
+					var output = output.replace(commentSripper, '');
+					var tagStripper = new RegExp('<(/)*(meta|link|span|\\?xml:|st1:|o:|font)(.*?)>', 'gi');
+					// 3. remove tags leave content if any  
+					output = output.replace(tagStripper, '');
+					// 4. Remove everything in between and including tags '<style(.)style(.)>'  
+					var badTags = ['style', 'script', 'applet', 'embed', 'noframes', 'noscript'];
+					for (var i = 0; i < badTags.length; i++) {
+						tagStripper = new RegExp('<' + badTags[i] + '.*?' + badTags[i] + '(.*?)>', 'gi');
+						output = output.replace(tagStripper, '');
+					}
+					// 5. remove attributes ' style="..."'  
+					var badAttributes = ['style', 'start'];
+					for (var i = 0; i < badAttributes.length; i++) {
+						var attributeStripper = new RegExp(' ' + badAttributes[i] + '="(.*?)"', 'gi');
+						output = output.replace(attributeStripper, '');
+					}
+					return output;
+				}
+				//富文本图片上传end
+				//弹出第二课程类型
+				function gradeChange() {
+					//					var setelist = $(".redact_category  option:selected").val();
+					var setelist = $(".redact_category  option:selected").text();
+					if ('第二课堂' == setelist) {
+						$('#class_rooms').show();
+					} else {
+						$('#class_rooms').hide();
+					}
+				}
+				//添加自定单行文本框
+				$('.btnnt_add').click(function() {
+					$('.showtexte').show();
+				})
+				 var j=0;
+				$('.showtexte i').click(function() {
+						if(j>6){
+						alert('最多可设置8个自定义报名信息');
+							return;
+						}
+						j++;
+						var ulli = ('<li><input type="text" name="itemName" class="text_input itemName" placeholder="请输入您必须收集的报名者信息字段，例如“单位”、“职业”、“身份证号”等"><input type="hidden" name="itemType" value="1" class="itemType" />   <span class="glyphicon glyphicon-trash btn btn-warning"></span></li>');
+						$('.activt_ullist').append(ulli);
+					})
+					//删除自己本身的文本框
+				$(document).on('click', '.activt_ullist span', function() {
+					$(this).parent().slideUp(500, function() {
+						$(this).remove();
+					});
+				});
+				//图片上传服务器
+				var image = '';
+
+				function selectImage(file) {
+					 $('.imgDiv').hide();
+					 $("#imgDiv").show();
+					
+					
+					//					var 
+					//					$('#imghead').attr('src', )
+					if (!file.files || !file.files[0]) {
+						return;
+					}
+					var reader = new FileReader();
+					reader.onload = function(evt) {
+						var img = new Image();
+						img.src = reader.result;
+						img.src = reader.result;
+						console.log('img', img);
+						console.log('img.src', img.src);
+						console.log('reader.result', reader.result);
+						document.getElementById('imghead').src = evt.target.result;
+						image = evt.target.result;
+						console.log('selectImage reader image', image)
+					}
+					reader.readAsDataURL(file.files[0]);
+				}
+				var itemIdArr = new Array();
+				var itemIds = '';
+
+				function addActivityItem() {
+					var itemNameArr = new Array();
+					var itemTypeArr = new Array();
+					var itemNames = '';
+					var itemTypes = '';
+					$('.itemName').each(function(index, item) {
+						itemNameArr.push($(item).val());
+						itemNames += $(item).val() + ',';
+					});
+					$('.itemType').each(function(index, item) {
+						itemTypeArr.push($(item).val());
+						itemTypes += $(item).val() + ',';
+					});
+					$.ajax({
+						type: "post",
+						url: Qnzs.path + "/activity/item/add",
+						data: {
+							'itemTypes': itemTypes,
+							'itemNames': itemNames,
+							'itemTypeArr': itemTypeArr,
+							'itemNameArr': itemNameArr
+						},
+						success: function(data) {
+							if (data.status == 'OK') {
+								itemIds = data.data;
+							} else {
+								alert(data.msg);
+							}
+						}
+					});
+				}
+				
+				//清空删除图片
+
+						function calerImg() {
+						
+							$("#imghead").attr('src', '');
+							$("#imgheads").attr('src', '');
+							 $('.imgDiv').show();;
+					          $("#imgDiv").hide();
+					           
+						}
+				
+				
+				
+				//图片上传
+				function uploadImageAdd() {
+					var value = $("input[name='template']").val();
+					var point = value.lastIndexOf(".");
+					var type = value.substr(point);
+					if (type != ".xls" && type != ".xlsx" && type != ".doc" && type != ".docx") {
+						alert("请上传文件后缀名为(doc,docx,xls,xlsx)的文件！");
+						return false;
+					} else {
+						//				    	var b = setInterval(uploadbanner ,300);//这个添加到单击事件的函数体里 
+						$('#template').fileupload({
+							url: Qnzs.path + '/file_upload',
+							//url: Qnzs.path + '/file_uploadTwo',
+							dataType: 'json',
+							autoUpload: true,
+							done: function(e, data) {
+								if (data.error == 0) {
+									/* $('#path2').val(data.url); */
+									$("#fileId").val(data.fileId);
+									$("#fileName").val(data.fileName);
+									alert("上传附件成功!");
+									/* $('#imagePath').attr('src',data.url).show(); */ //显示图片
+								}
+								/*imageUrl = data.result.url;
+								$('#imag_gpj').hide();
+								console.log(imageUrl);
+								$('#imghead').attr('src', imageUrl)*/
+							},
+							fail: function() {
+								alert('出错');
+							}
+						});
+						/*$.ajaxFileUpload({
+					        url: Qnzs.path + '/file_uploadTwo', //用于文件上传的服务器端请求地址
+					        secureuri: false, //是否需要安全协议，一般设置为false
+					        fileElementId: 'template', //文件上传域的ID
+					        dataType: 'JSON', //返回值类型 一般设置为json
+					        success: function (data, status) {
+					        	data = JSON.parse(data);
+					        	if (data.error == 0) {
+					        		$("#fileId").val(data.fileId);
+					        		$("#fileName").val(data.fileName);
+					        		alert("上传附件成功!");
+					        	}
+					        },
+					        error: function (data, status, e) //服务器响应失败处理函数
+					        {
+					            alert(e);
+					        }
+						});*/
+					}
+				}
+	      	//获取图片列表
+function imag_gpj(n) {
+ 
+	$('#imag_gpj').modal('show');
+      $("#ulist").empty();
+	$.ajax({
+		type: "get",
+		url: Qnzs.path + "/activity/poster/list",
+		dataType: "JSON",
+		success: function(data) {
+
+			var data = data.dataList;
+
+			$.each(data, function(index, item) {
+
+				$("#ulist").append('<li ><img src="' + item.posterUrl + '" alt=""> </li>');
+
+
+			})
+			$('#ulist li').click(function() {
+
+				$(this).addClass('curlist').siblings('li').removeClass('curlist');
+
+				var imgpurl = $("#ulist .curlist").find('img').attr('src');
+				$('#imghead').attr("src", imgpurl);
+
+			})
+
+		},
+		error: function(data) {
+
+
+		}
+	});
+
+}
+
+	      </script>
+	
+	
+	       <script type="text/javascript" src="../../public/js/draftactive/draftactive.js"></script>
+	
+</html>

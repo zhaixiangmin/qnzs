@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>青年之家</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/young_family/station_map.css" />
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <!--百度地图-->
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=ggGhWZ8zW5mGMOYCohgWNRER5m76Hxfz"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+     <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/YoungFamilyApi.js"></script>
+    <script type="text/javascript" src="../../public/js/young_family/station_map.js"></script>
+</head>
+<body class="bodyPB bgcWhite">
+<div class="toolbar">
+    <ul class="combo">
+        <li class="icon_left" id="icon_left">
+            <em></em>
+        </li>
+        <li class="category_parent">
+            <select name="category" id="category" class="category">
+                <option value="">请选择</option>
+                <!--服务类别列表-->
+            </select>
+        </li>
+        <li class="city_parent">
+            <select name="city" id="city" class="city">
+                <option value="">请选择</option>
+                <!--城市列表-->
+            </select>
+        </li>
+    </ul>
+</div>
+
+<!--地图-->
+<div id="BMap_mask"></div>
+
+<!--站点列表-->
+<div class="station_parent">
+    <div class="header" style="padding: 0.375rem; height: 0.75rem; line-height: 0.75rem; overflow: hidden; color: #fff; text-align: center; background: #2185cf;">
+        共找到 "相关<em id="station_total"></em>个结果"
+    </div>
+    <ul class="station_list" id="station_list">
+        <!--站点列表-->
+    </ul>
+</div>
+
+<!--站点详细内容-->
+<div class="station_detail" id="station_detail" style="display: none;">
+    <div class="content">
+        <p class="station_fullName"></p>
+        <div class="station_address">
+            <div class="station_address_text"></div>
+            <i class="right_icon"></i>
+        </div>
+        <p class="station_categories"></p>
+    </div>
+    <div class="button_parent">
+        <p class="button" id="submit_service" data-id="">申请线下服务</p>
+    </div>
+    <div class="produce_parent">
+        <p class="produce">站点介绍</p>
+    </div>
+    <div class="serviceContent_parent">
+        <p class="station_serviceContent"></p>
+    </div>
+</div>
+
+</body>
+</html>

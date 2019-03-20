@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>青年之声-分站导航</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/index/site_nav.css" />
+    <!--<link rel="stylesheet" type="text/css" href="css/fenzhandaohang.css" />-->
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <!--<script type="text/javascript" src="../../public/js/module/Utils.js"></script>-->
+    <script type="text/javascript" src="../../public/js/index/site_nav.js"></script>
+</head>
+<body>
+    <form action="" id="siteBox">
+        <header class="header">
+            <div class="header_btn clearfix">
+                <span class="btn cur">地市</span>
+                <span class="btn">高校</span>
+            </div>
+        </header>
+        <div class="current_area">广东</div>
+        <section class="area_list city_list">
+            <ul class="clearfix list_ul">
+            </ul>
+        </section>
+        <section class="area_list school_list">
+            <div class="area_search clearfix">
+                <div class="search_txt_box fl">
+                    <input type="text" class="search_txt fl" id="searchText" placeholder="搜索高校" />
+                    <span class="fr fangda"><em class="fangda_img"></em></span>
+                </div>
+                <input type="button" class="search_btn fr" id="submit_search" value="搜索" />
+            </div>
+            <ul class="clearfix list_ul">
+            </ul>
+        </section>
+    </form>
+</body>
+</html>
+<!--<script type="text/javascript">-->
+
+    <!--var city=['广东','广州','深圳','珠海','汕头','佛山','韶关','河源','梅州','惠州','汕尾','东莞','中山','江门','阳江','湛江','茂名','肇庆','清远','潮州','揭阳','云浮','顺德']-->
+    <!--for (var i = 0; i < city.length; i++) {-->
+        <!--$('.city_list .list_ul').append('<li class="list_item"><a href="javascript:;" class="item_link">'+city[i]+'</a></li>')-->
+    <!--};-->
+    <!---->
+    <!--var school=['中山大学','珠海城市职业技术学院','华南理工大学','暨南大学','华南农业大学','南方医科大学','广州中医药大学','华南师范大学','广东工业大学','广东外语外贸大学','汕头大学','广东财经大学','广东医科大学','广东海洋大学','仲恺农业工程学院','广东药科大学','星海音乐学院','广州美术学院','广州体育学院','广东技术师范学院','岭南师范学院']-->
+    <!--for (var i = 0; i < school.length; i++) {-->
+        <!--$('.school_list .list_ul').append('<li class="list_item"><a href="javascript:;" class="item_link">'+school[i]+'</a></li>')-->
+    <!--};-->
+
+    <!--$('.header_btn .btn').click(function(event) {-->
+        <!--$(this).addClass('cur').siblings('.btn').removeClass('cur');-->
+        <!--$('.area_list').eq($(this).index()).show().siblings('.area_list').hide();-->
+    <!--});-->
+
+<!--</script>-->

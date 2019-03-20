@@ -1,0 +1,113 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form,img,input{ margin:0; padding:0; list-style: none;}
+h1, h2, h3, h4, h5, h6{ font-size:12px; font-weight:normal;}
+img{display: block; border:0 none;}
+ul, ol { list-style:none; }
+input,button { border:0 none; outline-style:none;font-family:"Microsoft Yahei";}
+em,i{ font-style:normal;}
+b{ font-weight:normal;}
+textarea { resize:none; border:0 none;outline-style: none;}
+select{
+    appearance:none;
+-moz-appearance:none; /* Firefox */
+-webkit-appearance:none; /* Safari 和 Chrome */border: none;font-family:"Microsoft Yahei";outline-style: none;
+}
+body {font-size:12px; color:#333; background:#eee; font-family:"Microsoft Yahei";}  /*正文的字体大小和颜色*/
+.clearfix:after{content:''; height:0; line-height:0; visibility:hidden; display:block; clear:both;}
+.clearfix{zoom:1;} /*针对ie低级版本的浏览器*/
+a{ text-decoration:none; color:#666;}
+/*富文本框样式冲突-重设*/
+#editor{
+    font-size: 16px;
+}
+#editor h1{
+    font-size: 2em;line-height: 40px;
+}
+
+#editor h2{
+    font-size: 1.5em;line-height:36px;
+}
+#editor h3{
+    font-size: 1.17em;line-height:32px;
+}
+/*h4是正常大小，不用重设*/
+/*#editor h4{*/
+/*font-size: 1em;*/
+/*}*/
+
+#editor h4{line-height:30px;}
+#editor h5{
+    font-size: 0.83em; line-height:28px;
+}
+#editor h6{
+    font-size: 0.67em;line-height:24px;
+}
+#editor span{
+    float: none;
+    line-height: 24px;
+}
+
+#editor span font{ line-height: 24px;
+}
+#editor p{line-height: 40px;}
+        #editor p font{line-height: 26px;}
+#editor b{
+    font-weight: bold;
+}
+#editor i{
+    font-style: italic;
+}
+#editor .w-e-toolbar div.w-e-menu:nth-child(12){display: none;}
+#editor .w-e-toolbar .w-e-menu i.w-e-icon-happy{display: none;}
+#editor a{
+    color: -webkit-link;
+    cursor: auto;
+    text-decoration: underline;
+}
+
+#editor ol {
+float: none;
+width: auto;
+list-style-type: decimal;
+padding: 0 20px;
+}
+#editor ol li {
+float: none;
+width: auto;
+line-height: normal;
+overflow: visible;
+list-style-type: decimal;
+list-style: decimal;
+padding: 0 20px;
+white-space: normal;
+}
+#editor ul {
+float: none;
+width: auto;
+list-style-type: disc;
+padding: 0 20px;
+}
+#editor ul li {
+float: none;
+width: auto;
+line-height: normal;
+overflow: visible;
+list-style-type: disc;
+list-style: disc;
+padding: 0 20px;
+white-space: normal;
+}
+#editor img{display: block;margin: 0 auto;max-width: 800px;height: auto;}
+/*富文本框样式冲突-重设*/
+/*清除浮动*/
+
+
+.clear::after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.askcont{height: 35px;overflow: hidden;line-height: 35px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.askcont p{line-height: inherit!important;}

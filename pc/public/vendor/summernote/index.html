@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="//www.jq22.com/jquery/bootstrap-3.3.4.css">
+<link href="dist/summernote.css" rel="stylesheet"/>
+<script src="//www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="//www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+<script src="dist/summernote.js"></script>
+<script src="dist/lang/summernote-zh-CN.js"></script>    <!-- 中文-->
+
+<style>
+	.m{ width: 800px; margin-left: auto; margin-right: auto; }
+</style>
+<script>
+$(function(){
+    $('#summernote1').summernote({
+        height: 200,
+        tabsize: 2,
+        lang: 'zh-CN'
+    });
+});
+
+function fn(){
+	alert('朱朱');
+	$('#summernote1').summernote('code');
+	console.log($('#summernote1').summernote('code'));
+	$('.box').html($('#summernote1').summernote('code'));
+}
+</script>
+</head>
+
+<body>
+	<a href="https://www.baidu.com">百度</a>
+	<button onclick="fn()">阿里巴巴 </button>
+	<div class="m">		
+		<div id="summernote1">summernote 1</div>
+	</div>
+	<div class="box" style="width: 800px;height:500px ; background:yellow;">
+	  	
+	</div>
+</body>
+</html>

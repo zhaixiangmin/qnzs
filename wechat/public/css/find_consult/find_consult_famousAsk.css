@@ -1,0 +1,73 @@
+/* ���� */
+.qzxq_qiuzhu_t li { width: 100%; height: 1.6rem; line-height: 1.6rem; border-bottom: 0.02rem solid #e2e2e2; }
+.qzxq_qiuzhu_t li div { padding: 0 0.6rem; }
+.qzxq_qiuzhu_t li div span,
+.qzxq_qiuzhu_t li div input { font-size: 0.6rem; }
+.qzxq_qiuzhu_t li div span { width: 3rem; display: inline-block; }
+.qzxq_qiuzhu_t li div input { width: 76%; font-family: "微软雅黑"; }
+.bor_t { border-top: 0.02rem solid #e2e2e2; }
+/* ���?*/
+.askQchooseOL li { height: 1.6rem; line-height: 1.6rem;  border-bottom: 1px solid #e8e8e8;background: #ffffff url(../../img/next.png) no-repeat 97% center; background-size: 0.28rem 0.52rem; }
+.askQchooseOL li h6{ font-size: 0.6rem; margin-left: 0.6rem; }
+.askQchooseOL li span { font-size: 0.6rem; padding-right: 50px; }
+.askQchooseOL li span { white-space: nowrap; overflow: hidden; max-width: 8.2rem; display: inline-block; }
+/* ����  */
+.darkBg { width: 100%; height: 100%; background-color: #000; opacity: 0.2; position: absolute; z-index: 10; top: 0; left: 0; display: none; }
+.askQuestionBottom { width: 100%; background-color: #fff; position: fixed; top: 0rem; left: 0; text-align: center; z-index: 99;display:none;}
+.askQuestionBottom ul.liGt10{ height:15rem; overflow-y:auto; }
+.askQuestionUL li,
+.askQuestionUL2 li,
+.askQuestionUL3 li { line-height: 1.6rem; font-size: 0.48rem; }
+.askQuestionUL li,
+.askQuestionUL2 li,
+.askQuestionUL3 li { border-top: 1px solid #e8e8e8; }
+/*样式*/
+#quesCategory{width: 60%;height: 1.6rem;float:right;line-height: 1.6rem;font-size: 0.6rem; text-align: center;}
+#quesCategory option{text-align: center;}
+textarea { padding: 0.2rem 0; line-height: 0.68rem; height: 0.68rem; }
+/* -----------��ѡ�� ----
+-----------------------*/
+a.choose { line-height: 1.6rem; padding: 0 0.6rem; margin-bottom: 0.4rem; display: block; }
+a.choose h2 { font-size: 0.6rem; }
+a.choose span { font-size: 0.48rem; height: 1.6rem; background: url(../../img/next.png) no-repeat right center; padding-right: 0.76rem; background-size: 0.28rem; }
+/* ---------�������������--------------
+---------------- */
+section.writeQuestion { padding: 0.36rem 0.6rem 0.2rem; margin-bottom: 0.4rem; }
+section.writeQuestion h2 { font-size: 0.6rem; line-height: 1.16rem; }
+section.writeQuestion textarea { width: 100%; font-size: 0.52rem; height: auto; }
+/* ------------------------------�ϴ�ͼƬ-----------------------------------
+---------------------------------- */
+.uploadImg { padding: 0 0.3rem; }
+.uploadImg .title { line-height: 1.56rem; font-size: 0.6rem; padding-left: 0.3rem; }
+.uploadImg .imgL .imgdiv { display: none; position: relative; }
+.uploadImg .imgL .imgdiv .delete{ position: absolute; right: 0; top:0; width: 0.9rem; height: 0.9rem; z-index: 1; }
+.uploadImg .imgL .imgdiv,
+.uploadImg .imgL .imgAdd { width: 25%; padding-bottom: 0.6rem; }
+.uploadImg .imgL .imgdiv .imgOut { padding: 0 0.3rem; }
+.uploadImg .imgL .imgdiv .imgOut .imgIn { width: 3rem; height: 3rem; overflow: hidden; position: relative; }
+.uploadImg .imgL .imgdiv .imgOut .imgIn span{ position: absolute; left: 0; bottom: 0; width:100%; height: 0.8rem; font-size: 0.48rem; color: #fff; line-height: 0.8rem; text-align: center; background-color: rgba(0,0,0,.5); z-index: 2; }
+.uploadImg .imgL .imgdiv .imgOut .imgIn img { width: 100%; margin: 0 auto; border: 0 none !important; position: absolute; left:50%; width:auto; height:3rem; transform:translateX(-50%); }
+.uploadImg .imgL .imgAdd .divin { padding: 0 0.3rem; }
+.uploadImg .imgL .imgAdd .divin a { width: 3rem; height: 3rem; display: block; background: url(../../images/findInterlocution/uploadImgBg.png) no-repeat center center; background-size: 100%; }
+.uploadImg .imgL .imgAdd .divin a input { width: 100%; height: 100%; opacity: 0; }
+/* ------------------------����˵��------------
+----------------------------- */
+section.explain { padding: 0.4rem 0.6rem; margin-bottom: 0.4rem; }
+section.explain > div { line-height: 1.1rem; }
+section.explain > div * { font-size: 0.6rem; }
+section.explain > div span { color: #2185cf; }
+section.explain textarea { font-size: 0.48rem; width: 100%; height: 6.5rem; }
+/* section.submit{ padding: 0 30/@rtsize; margin-bottom: 30/@rtsize; }
+section.submit a{ display: block; width:100%; line-height: 80/@rtsize; background-color: #2185cf; color:#fff; font-size: 34/@rtsize; text-align: center; border-radius: 30/@rtsize; } */
+/* ------------------ȷ�� ȡ��-----------------------
+--------------------------- */
+.btns { padding: 0.5rem 0.6rem; margin-bottom: 0.8rem; }
+.btns a { font-size: 0.6rem; text-align: center; line-height: 1.6rem; color: #fff; border-radius: 0.6rem; width: 6.6rem; }
+#submitQuestion{ margin:0 auto; width:5rem; }
+.btns a.left { background-color: #999; }
+.btns a.right { background-color: #2185cf; }
+.btns a.sure{ width:5rem; margin:0 auto; }
+.editInput{ border:none; width:150px; height:100%; }
+
+/* 上传图片 */
+#wrapper{width:auto !important;}

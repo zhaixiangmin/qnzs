@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>找帮助_求助申请</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/hd_footerNav.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_help/help_apply.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/bz_qiuzhushenqing.css">-->
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+     <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FindHelpApi.js"></script>
+    <!--<script type="text/javascript" src="../../public/js/find_help/uploadPreview.js"></script>-->
+    <script type="text/javascript" src="../../public/js/find_help/help_apply.js"></script>
+
+    <!--<script type="text/javascript" src="js/uploadPreview.js"></script>-->
+    <!--<script type="text/javascript" src="js/zhaobangzhu.js"></script>  -->
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+
+    </script>
+
+    <!--<script>-->
+       <!--window.onload = function () { -->
+            <!--new uploadPreview({ UpBtn: "up_img", DivShow: "imgdiv", ImgShow: "imgShow" });-->
+
+        <!--}-->
+    <!--</script>-->
+
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FindHelpApi.js"></script>
+
+</head>
+<body class="bodyPB bg_1">
+    <!--<header class="clearfix wd_header">-->
+        <!--<a href="javascript:;" class="back fl"></a>-->
+        <!--求助申请-->
+        <!--<a href="javascript:;" class="seemore fr"></a>-->
+    <!--</header>-->
+
+    <!-- 求助 -->
+    <section class="qzxq_qiuzhu">
+        <ul class="qzxq_qiuzhu_t">
+            <li class="bgcWhite mb20">
+                <div>
+                    <span class="color333">标题</span>
+                    <input type="text" placeholder="请输入标题(5-49字)" id="title" maxlength="59" />
+                </div>
+            </li>
+            <li class="bgcWhite bor_t">
+                <div>
+                    <span class="color333">求助人</span>
+                    <input type="text" placeholder="请输入姓名" id="helpPeople" />
+                </div>
+            </li>
+            <li class="bgcWhite">
+                <div>
+                    <span class="color333">身份证号</span>
+                    <input type="text" placeholder="请输入身份证号码" id="idCard" />
+                </div>
+            </li>
+            <li class="bgcWhite mb20">
+                <div>
+                    <span class="color333">联系电话</span>
+                    <input type="number" placeholder="请输入联系电话" id="mobile" />
+                </div>
+            </li>           
+        </ul> 
+        <!-- 受理方  -->
+        <ul class="qzxq_qiuzhu_b askQchooseOL">
+            <li id="choose1" class="clearfix mb20 bor_t">
+                <h6 class="fl  color333">受理方</h6>
+                <span class="fr color999" id="acquirer"></span>
+            </li>
+            <li id="choose2" class="clearfix  bor_t">
+                <h6 class="fl  color333">求助类型</h6>
+                <span class="fr color999" id="helpType">贫困助学</span>
+            </li>
+            <li id="choose3" class="clearfix mb20">
+                <h6 class="fl  color333">是否需要筹款</h6>
+                <!--<input type="text" class="fr color999" id="whether" value="否" readonly style="white-space: nowrap; overflow: hidden; max-width: 4.2rem; display: inline-block; height: 42px; text-align: right;">-->
+                <span class="fr color999" id="whether">否</span>
+                <!--<span class="fr color999" id="whether">是</span>-->
+            </li>
+        </ul>
+
+        <ul class="qzxq_qiuzhu_t" id="totalAmount_parent" style="display: none;">
+            <li class="bgcWhite mb20">
+                <div>
+                    <span class="color333">筹款金额</span>
+                    <input type="number" placeholder="请输入筹款金额" id="totalAmount" />
+                </div>
+            </li>
+        </ul>
+    </section>
+    
+    <!-- 上传图片 -->
+    <section class="uploadImg bgcWhite mb20">
+        <div class="qz_title color000 clearfix"><span class="fl">上传图片</span><em class="pic_xianzhi color999 fl">(最多8张，首页为封面)</em></div>
+        <div class="imgL clearfix">
+            <!--<div id="imgdiv" class="imgdiv" style="float:left;">-->
+                <!--<div class="imgOut">-->
+                    <!--<div class="imgIn">-->
+                        <!--<img id="imgShow" class="imgShow" />-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="imgAdd fl" id="imgAdd"  onclick="$('#photo_add').click()">-->
+            <div class="imgAdd fl" id="imgAdd">
+                <div class="divin">
+                    <a href="javascript:;">
+                        <input type="text" class="photo_upload" id="up_img"/>
+                    </a>
+                </div>
+            </div>
+            <input id="photo_add" type="file" name="photo" style="display: none">
+        </div>
+    </section>
+    <!-- 问题说明 -->
+    <section class="explain bgcWhite">
+        <div class="clearfix"><h2 class="fl color000">问题说明</h2>
+        <em class="fl color000">：</em></div>
+        <textarea placeholder="请输入问题说明" id="helpContent"></textarea>
+    </section>
+    
+    
+
+
+    <!-- 提交 -->
+    <section class="qz_tijiao">
+        <a href="javascript:;" id="submit_help">提交</a>
+    </section>
+
+    <!-- 浮窗 -->
+    <div class="bgcBlackwindow">
+    </div>
+
+    <div class="askQuestionBottom">
+        <!-- 是否公开 -->
+        <!--<ul class="askQuestionUL">-->
+            <!--<li>团省委</li>-->
+            <!--<li>青少年组织委员会</li>-->
+            <!--<li>帮扶中心</li>-->
+        <!--</ul>-->
+        <!-- 所属类别 -->
+        <ul class="askQuestionUL2">
+            <li>贫困助学</li>
+            <li>重症救助</li>
+            <li>灾害救助</li>
+            <li>志愿服务</li>
+            <li>残障帮助</li>
+            <li>微心愿</li>
+            <li>其他</li>
+        </ul>
+        <!-- 受理方 -->
+        <ul class="askQuestionUL3">
+            <li>是</li>
+            <li>否</li>
+        </ul>
+    </div>
+    
+    
+    <!-- 站长统计 -->
+<div style="display:none">
+    <script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+</div>
+
+</body>
+</html>

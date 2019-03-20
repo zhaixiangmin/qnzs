@@ -1,0 +1,56 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form,img,input{ margin:0; padding:0; list-style: none;}
+h1, h2, h3, h4, h5, h6{ font-size:12px; font-weight:normal;}
+img{display: block; border:0 none;}
+ul, ol { list-style:none; }
+input,button { border:0 none; outline-style:none;font-family:"Microsoft Yahei";}
+em,i{ font-style:normal;}
+b{ font-weight:normal;}
+textarea { resize:none; border:0 none;outline-style: none;}
+select{border: none;font-family:"Microsoft Yahei";outline-style: none;
+}
+body {font-size:12px; color:#333; background:#eee; font-family:"Microsoft Yahei";}  /*正文的字体大小和颜色*/
+.clearfix:after{content:''; height:0; line-height:0; visibility:hidden; display:block; clear:both;}
+.clearfix{zoom:1;} /*针对ie低级版本的浏览器*/
+a{ text-decoration:none; color:#666;}
+.w1200{width:1200px;margin:0 auto;}
+.fl{float: left;}
+.fr{float: right;}
+
+select{ appearance:normal; 
+    -moz-appearance:normal;
+     -webkit-appearance:normal;}
+
+
+.login{ height:80px; line-height:80px; overflow:hidden; background:#eee; position:relative; box-sizing:border-box;}
+.logintop{ height:80px; background:#eee;}
+.logintop .loginL .link{display:block;width:102px;background:url(../../img/qnzs_logo.png) no-repeat left center;height:80px;}
+.logintop .loginR{ float:right;}
+.logintop span{color:#333; line-height:80px;}
+.logintop span a{ color:#2185cf;}
+.logintop span a:hover{ color:#13598c;}
+
+.register_main_container{background-color: #fff;}
+.register_main_container .content{padding:36px 50px 0;}
+.register_main_container .big_title{font-size:16px;color:#2185cf;padding-left:30px;background:url(../../img/add_ico.png) no-repeat left center;background-size:15px;margin-bottom:50px;}
+.register_main_container .info_write{padding-bottom:30px;border-bottom:1px solid #eee;}
+.register_main_container .item_common{margin-bottom:20px;}
+.register_main_container .item_common .left_title{line-height:35px;height:35px;}
+.register_main_container .item_common .left_title em{color:#ff8814;}
+.register_main_container .item_common .left_title_txt{padding-left:20px;width:85px;}
+.register_main_container .item_common .right_input,
+.register_main_container .area_choose .select{border:1px solid #ccc;padding:0 12px;width:272px;line-height:33px;height:33px;}
+.register_main_container .item_common .prompt{padding-left:34px;height:35px;line-height:35px;margin-left:12px;background-repeat:no-repeat;background-position:left center;}
+.register_main_container .item_common .prompt.yes{background-image: url(../../img/yes.png);}
+.register_main_container .item_common .prompt.no{background-image: url(../../img/no.png);color:#ff8814;}
+.register_main_container .identify_code .right_input{width:100px;background-color:transparent;}
+.register_main_container .identify_code .send_code_btn{padding:0 12px;background-color: #2185cf;border-radius:4px;height:35px;line-height:35px;color:#fff;margin-left:20px;}
+.register_main_container .area_choose #province_city{width:150px;margin-right:20px;}
+.register_main_container .area_choose #all{width:90px;}
+.register_main_container .btn_box{padding:30px 0 90px 110px;}
+.register_main_container .btn_box .submit{width:145px;line-height:35px;height:35px;background-color: #2185cf;border-radius:4px;text-align: center;color:#fff;font-size:14px;}
+.copyright{line-height:40px;height:40px;color:#999;text-align: center;}
+
+
+
+
+

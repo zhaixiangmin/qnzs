@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>广东青年之声后台理</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8"> 
+      <link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+      <link href="../../public/css/common/style.css" rel="stylesheet" />
+      <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+      <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" /> 
+      
+      <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css"/>
+      <style>
+      	
+     #checkRedFly {
+	
+	
+		color: red;
+		vertical-align:middle;
+		margin-top: 10px;
+	}
+	#form1 {
+				/*float: left;*/
+				/*margin-right: 40px;
+				margin-bottom: 40px;*/
+				width:270px;
+				height: 300px;
+			}
+      	#form1  select{
+      		
+      		width: 200px;
+      	
+      	}
+       .activeColor{
+      	  background: mistyrose;
+      		
+      	}
+      	.orgState{
+      		width:200px ;
+      		height: 50px;
+      		
+      		float: left;
+      		
+      	}
+      	.orgState >label{
+      		
+      		display: block;
+      		float: left;
+      	}
+      	div.validate-error {
+				color: #f00;
+				font-size: 12px;
+				font-weight: bold;
+		}
+		
+	    label.error {
+				color: #f00;
+			}
+      	input[type="text"], input[type="password"], input[type="radio"], input[type="checkbox"], select, textarea {
+				/*margin-bottom: 20px;*/
+				padding: 5px;
+				border-radius: 3px;
+				border: 1px solid #999;
+			}
+			input.error, select.error, textarea.error {
+				border: 1px solid red;
+				background-color: #fff6f6;
+			}
+      	    .stopBtn{
+      	    	
+      	    	
+      	    	position: fixed;
+      	    	bottom: 35px;
+      	    	right: 40px;
+      	    }
+      	    #form1 .item-box {
+      	    	
+      	    	
+      	    	overflow: hidden;
+      	    
+      	    	width: 450px;
+      	    	
+      	    }
+      	     #form1 .item-box >label, #form1 .item-box>input ,#form1 .item-box>span{
+      	     	display: block;
+      	     	float: left;
+      	     	vertical-align: middle;
+      	     }
+      	     #form1 .item-box >label {
+      	     	
+      	     	margin-top: 7px;
+      	     }
+      	    #form1 .item-box  .validator-error {
+      	    	
+      	    	display: block;
+      	    	float: right;
+      	    	
+      	    }
+      	   .item-box .box1 {
+      	   	
+      	   	height: 50px;
+      	   	
+      	   }
+      	   #box3 {
+      	   	
+      	    width: 250px;
+      	   	
+      	   }
+      	  .item-box  .box2 {
+      	   	
+      	   	height: 100px;
+      	   	margin-top: 10px;
+      	   }
+      	   #textarea11 {
+      	   	
+      	   	margin-top: 10px;
+      	   }
+      </style>
+      <!--校验插件--->
+     <script src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+     <script src="../../public/vendor/check/validator/fm.validator.js"></script>
+	   <script src="../../public/js/module/Qnzs.js"></script>
+     <script src="../../public/js/ajax/ajax2.js"></script>
+     <script src="../../public/js/module/Utils.js"></script> 
+     </head>
+     <!--<script src="js/jquery-1.8.3.min.js"></script>--> 
+
+ 
+<body>
+<div class="col-sm-12">
+ <!--数据过滤strat-->
+ <div class="datafilter">
+      <div class="search">
+          <form id="" method="post"> 
+                <div class="form-group sz_height">
+                      <label class="col-sm-1">名称</label>
+                      <div class="col-sm-2">
+                         <input type="text" class="form-control" id="sort-keyWord">
+                      </div>
+                     
+                      <div class="col-sm-7">
+                           
+                          <button type="button" class="btn btn-warning btn-sm" id="sortSearchBtn"><span class="glyphicon glyphicon-search"></span>查询</button> <button type="button" class="btn btn-info btn-sm" id="sortClearBtn"><span class="glyphicon glyphicon-refresh"></span>清空</button>
+                      </div>
+                     
+                 </div>
+		  </form>
+       </div>
+ </div>
+ <!--数据过滤end-->
+     <!--请选择： <input id="txtShouName" style="width:170px;">    
+    <input id="txtPipeRowName" style="width:150px;">       
+    <input  id="txtPipeName" style="width:150px;">  
+ -->
+ 
+ 
+<div class="border clearfix">
+       <ul class="nav navbar-nav" id="toolbar" style="display: block;">
+          <li class="active" id="role_add" onclick="orgReset()"><a href="#"><span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#user-add">新增</span></a></li>
+          <li onclick="roleUpdate(1)" id="role_update" class="active"><a href="#shop"><span class="glyphicon glyphicon-pencil" data-toggle="modal" >编辑</span></a></li>
+          <li onclick="roleDel(1)" id="role_delete"><a href="javascript:;"><span class="glyphicon glyphicon-trash">删除</span></a></li>
+          <li onclick="rolesAssign(1)" id="role_permission"><a href="#support"><span class="glyphicon glyphicon-user" data-toggle="modal" >分配权限</span></a></li>
+          <li onclick="seeRole(1)" id="role_permission_view"><a href="#support"><span class="glyphicon  glyphicon-list-alt" data-toggle="modal" >查看权限</span></a></li>
+       </ul>
+ </div>
+<!---数据列表------->
+
+<table id="sortTable" style="width:200px;height:300px">
+ 
+</table>  
+<!---数据列表--end----->
+
+
+<!-- 新增框（Modal） -->
+<div class="modal fade" id="user-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					新增角色
+				</h4>
+			</div>
+			<div class="modal-body s-height"><!--s-height =》可以控制body的高度-->
+				<form id="form1" class="validator">
+					<div class="item-box box1" >
+						<span id="checkRedFly">*</span>
+						<label>名称&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        <input type="text"  data-required id="sortName">
+			        </div>
+			        <div class="item-box box1" >
+						<span id="checkRedFly">*</span>
+						<label>类型&nbsp;&nbsp;&nbsp;</label>
+						<label><input type="radio" checked  name="radioButtons"  onclick="default_type()" value="1">默认类型</label>
+				        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"  name="radioButtons"  value="2" onclick="custom_type()">自定义类型</label>
+				      
+			        </div>
+			        <div class="item-box box1 default-type">
+						<span id="checkRedFly">*</span>
+						<label>默认类型&nbsp;&nbsp;&nbsp;</label>
+				        <select  class="form-control" id="orgType">
+                                <option value="">请选择</option>
+                                <option value="1">系统管理员</option>
+                                <option value="2">团委组织</option>
+                                <option value="3">服务站点</option>
+                                <option value="4">青年文明号</option>
+                                <option value="5">学生社团 </option>
+                                <option value="6">社会组织</option>
+                                <option value="7">合作机构</option>
+                  		</select>
+			        </div>
+			         <div class="item-box box1  default-type">
+						<span id="checkRedFly">*</span>
+						<label>默认区域&nbsp;&nbsp;&nbsp;</label>
+				        <select  class="form-control" id="didType">
+                                <option value="">请选择</option>
+                                <option value="0">省级</option>
+                                <option value="1">高校</option>
+                                <option value="2">院系</option>
+                                <option value="3">地市</option>
+                                <option value="4">区县</option>
+                  		</select>
+			        </div>
+			            
+			        <div class="item-box box2" id="textarea11">
+			        	<span id="checkRedFly">*</span>
+					    <label>描述&nbsp;&nbsp;&nbsp;</label>
+				        <textarea data-required="" cols="31" rows="9" id="sortDescribe" ></textarea>
+			        </div>
+			        
+					 <!---提交--->
+			        <div class="stopBtn">
+						<button type="button" class="btn btn-warning" id="addSortBtn" >确定</button>
+						<button id="reset1" type="reset" class="btn btn-info" onclick="Validator.removeErrors(document.getElementById('form1'));">重置</button>
+						<button type="button" class="btn btn-success" data-dismiss="modal">关闭
+				        </button>
+					</div>
+				</form>
+				
+				
+				
+		    <!--<form method="get" class="form-horizontal">
+                 　
+                    
+                   
+                   <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>名称:</label>
+                        <div class="col-sm-6">
+                              <input type="text" class="form-control" id="sorTitle">
+                        </div>  
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>描述:</label>
+                        <div class="col-sm-6">
+                              <textarea name="" class="form-control" cols="3" rows="3" id="sortDescribe"></textarea>
+                           
+                        </div> 
+                    </div>
+                </form>--->
+			</div>
+			<div class="modal-footer" style="height: 50px;">
+				<!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary"  id="addSortBtn">
+					确定
+				</button>-->
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+
+</div><!-- 新增框（Modal）end -->
+
+<!-- 编辑（Modal） -->
+<div class="modal fade" id="UpdateRoles" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					新增角色
+				</h4>
+			</div>
+			<div class="modal-body s-height"><!--s-height =》可以控制body的高度-->
+				<form id="form2" class="validator">
+					<div class="item-box box1" >
+						<span id="checkRedFly">*</span>
+						<label>名称&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				        <input type="text"  data-required id="sortName2">
+			        </div>
+			        <div class="item-box box1" >
+						<span id="checkRedFly">*</span>
+						<label>类型&nbsp;&nbsp;&nbsp;</label>
+						<label><input type="radio" checked  name="radioButtons2"  onclick="default_type()" value="1">默认类型</label>
+				        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"  name="radioButtons2"  value="2" onclick="custom_type()">自定义类型</label>
+				      
+			        </div>
+			        <div class="item-box box1 default-type">
+						<span id="checkRedFly">*</span>
+						<label>默认类型&nbsp;&nbsp;&nbsp;</label>
+				        <select  class="form-control" id="orgType2" style="width: 40%;">
+                                <option value="">请选择</option>
+                                <option value="1">系统管理员</option>
+                                <option value="2">团委组织</option>
+                                <option value="3">服务站点</option>
+                                <option value="4">青年文明号</option>
+                                <option value="5">学生社团 </option>
+                                <option value="6">社会组织</option>
+                                <option value="7">合作机构</option>
+                  		</select>
+			        </div>
+			         <div class="item-box box1  default-type">
+						<span id="checkRedFly">*</span>
+						<label>默认区域&nbsp;&nbsp;&nbsp;</label>
+				        <select  class="form-control" id="didType2"  style="width: 40%;">
+                                <option value="">请选择</option>
+                                <option value="0">省级</option>
+                                <option value="1">高校</option>
+                                <option value="2">院系</option>
+                                <option value="3">地市</option>
+                                <option value="4">区县</option>
+                  		</select>
+			        </div>
+			            
+			        <div class="item-box box2" id="textarea11">
+			        	<span id="checkRedFly">*</span>
+					    <label>描述&nbsp;&nbsp;&nbsp;</label>
+				        <textarea data-required="" cols="31" rows="9" id="sortDescribe2" ></textarea>
+			        </div>
+			        
+					 <!---提交--->
+			        <div class="stopBtn">
+						<button type="button" class="btn btn-warning" id="UpdateRoleBtn" >确定</button>
+						<button id='reset2' type="reset" class="btn btn-info" onclick="Validator.removeErrors(document.getElementById('form2'));">重置</button>
+						<button type="button" class="btn btn-success" data-dismiss="modal">关闭
+				        </button>
+					</div>
+				</form>
+				
+			</div>
+			<div class="modal-footer" style="height: 50px;">
+				<!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary"  id="addSortBtn">
+					确定
+				</button>-->
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+
+
+</div>
+<!-- 编辑（Modal）end -->
+
+<!-----分配权限 ----->
+<div class="modal fade" id="roleBistribution" tabindex="-1" data-target="bs-example-modal-sm" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content ">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					用户权限
+				</h4>
+			</div>
+			<div class="modal-body s-height">
+		        <ul id="box1" class="easyui-tree"  style="width:200px;height:300px, overflow-y: scroll;">
+ 
+                 </ul>
+		         
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="addAssBtn">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div>
+<!--- 查看权限  end--->
+
+
+
+<!-----查看权限 ----->
+<div class="modal fade" id="sort-View-permissions" tabindex="-1" data-target="bs-example-modal-sm" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content ">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					用户权限
+				</h4>
+			</div>
+			<div class="modal-body s-height "><!--s-height-->
+		         
+		         <ul id="box2" class="easyui-tree" style="width:200px;height:300px, overflow-y: scroll;"><!----分配权限表格------>
+ 
+                 </ul>
+		         
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div>
+<!--- 查看权限  end--->
+
+<script type="text/javascript" src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script> 
+<script type="text/javascript" src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js" ></script>
+<!--弹出框-->
+<script src="../../public/custom/dialog.js"></script>
+
+
+<script src="../../public/js/role/role.js"></script>
+
+
+
+</body>
+</html>
+
+
+    
+    
+    
+    
+    
+    

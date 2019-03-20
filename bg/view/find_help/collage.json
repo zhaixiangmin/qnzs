@@ -1,0 +1,526 @@
+{
+  "rows": [
+    {
+      "name": "博雅学院",
+      "fullName": "博雅学院",
+      "disabled": false,
+      "oid": "BY",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "材料科学与工程学院",
+      "fullName": "材料科学与工程学院",
+      "disabled": false,
+      "oid": "CG",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "管理学院",
+      "fullName": "管理学院",
+      "disabled": false,
+      "oid": "GL",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "化学与化学工程学院",
+      "fullName": "化学与化学工程学院",
+      "disabled": false,
+      "oid": "HH",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "化学工程与技术学院",
+      "fullName": "化学工程与技术学院",
+      "disabled": false,
+      "oid": "HJ",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "岭南学院",
+      "fullName": "岭南学院",
+      "disabled": false,
+      "oid": "LN",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "社会学与人类学学院",
+      "fullName": "社会学与人类学学院",
+      "disabled": false,
+      "oid": "SR",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "物理与天文学院",
+      "fullName": "物理与天文学院",
+      "disabled": false,
+      "oid": "WT",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "政治与公共事务管理学院",
+      "fullName": "政治与公共事务管理学院",
+      "disabled": false,
+      "oid": "ZG",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "体育部",
+      "fullName": "体育部",
+      "disabled": false,
+      "oid": "TYB",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "工学院",
+      "fullName": "工学院",
+      "disabled": false,
+      "oid": "ZDG",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "中法核工程技术学院",
+      "fullName": "中法核工程技术学院",
+      "disabled": false,
+      "oid": "ZFH",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "中山医学院",
+      "fullName": "中山医学院",
+      "disabled": false,
+      "oid": "ZSY",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "哲学系",
+      "fullName": "哲学系",
+      "disabled": false,
+      "oid": "ZXX",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "国际翻译学院",
+      "fullName": "国际翻译学院",
+      "disabled": false,
+      "oid": "GJFY",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "生命科学学院",
+      "fullName": "生命科学学院",
+      "disabled": false,
+      "oid": "SKXY",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "数学学院（珠海）",
+      "fullName": "数学学院（珠海）",
+      "disabled": false,
+      "oid": "SXZH",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "传播与设计学院",
+      "fullName": "传播与设计学院",
+      "disabled": false,
+      "oid": "ZDCS",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "地理科学与规划学院",
+      "fullName": "地理科学与规划学院",
+      "disabled": false,
+      "oid": "ZDDG",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "大气科学学院",
+      "fullName": "大气科学学院",
+      "disabled": false,
+      "oid": "ZDDK",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "电子与信息工程学院 （中山大学-卡内基梅隆大学联合工程学院）",
+      "fullName": "电子与信息工程学院 （中山大学-卡内基梅隆大学联合工程学院）",
+      "disabled": false,
+      "oid": "ZDDX",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "地球科学与地质工程学院",
+      "fullName": "地球科学与地质工程学院",
+      "disabled": false,
+      "oid": "ZDDZ",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "国际关系学院",
+      "fullName": "国际关系学院",
+      "disabled": false,
+      "oid": "ZDGG",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "国际金融学院",
+      "fullName": "国际金融学院",
+      "disabled": false,
+      "oid": "ZDGJ",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "公共卫生学院",
+      "fullName": "公共卫生学院",
+      "disabled": false,
+      "oid": "ZDGW",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "环境科学与工程学院",
+      "fullName": "环境科学与工程学院",
+      "disabled": false,
+      "oid": "ZDHG",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "护理学院",
+      "fullName": "护理学院",
+      "disabled": false,
+      "oid": "ZDHL",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "海洋学院",
+      "fullName": "海洋学院",
+      "disabled": false,
+      "oid": "ZDHY",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "光华口腔医学院·附属口腔医院",
+      "fullName": "光华口腔医学院·附属口腔医院",
+      "disabled": false,
+      "oid": "ZDKQ",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "旅游学院",
+      "fullName": "旅游学院",
+      "disabled": false,
+      "oid": "ZDLY",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "数据科学与计算机学院",
+      "fullName": "数据科学与计算机学院",
+      "disabled": false,
+      "oid": "ZDSJ",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "数学学院",
+      "fullName": "数学学院",
+      "disabled": false,
+      "oid": "ZDSX",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "物理学院",
+      "fullName": "物理学院",
+      "disabled": false,
+      "oid": "ZDWL",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "外国语学院",
+      "fullName": "外国语学院",
+      "disabled": false,
+      "oid": "ZDWY",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "心理学系",
+      "fullName": "心理学系",
+      "disabled": false,
+      "oid": "ZDXL",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "资讯管理学院",
+      "fullName": "资讯管理学院",
+      "disabled": false,
+      "oid": "ZDZG",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "肿瘤防治中心",
+      "fullName": "肿瘤防治中心",
+      "disabled": false,
+      "oid": "ZLFZ",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "中山眼科中心",
+      "fullName": "中山眼科中心",
+      "disabled": false,
+      "oid": "ZSYK",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "附属第六医院",
+      "fullName": "附属第六医院",
+      "disabled": false,
+      "oid": "ZDFSL",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "附属第三医院",
+      "fullName": "附属第三医院",
+      "disabled": false,
+      "oid": "ZDFSS",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "法学院（知识产权学院）",
+      "fullName": "法学院（知识产权学院）",
+      "disabled": false,
+      "oid": "ZDFXY",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "附属第五医院",
+      "fullName": "附属第五医院",
+      "disabled": false,
+      "oid": "ZDGSW",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "马克思主义学院",
+      "fullName": "马克思主义学院",
+      "disabled": false,
+      "oid": "ZDMKS",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "孙逸仙纪念医院",
+      "fullName": "孙逸仙纪念医院",
+      "disabled": false,
+      "oid": "ZDSYX",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "哲学系（珠海）",
+      "fullName": "哲学系（珠海）",
+      "disabled": false,
+      "oid": "ZDZXX",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "附属第一医院",
+      "fullName": "附属第一医院",
+      "disabled": false,
+      "oid": "ZDFSDY",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "中大外语学院",
+      "fullName": "中山大学外国语学院",
+      "disabled": false,
+      "oid": "zdwgyxy",
+      "sort": null,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "药学院",
+      "fullName": "药学院",
+      "disabled": false,
+      "oid": "ZDYXY",
+      "sort": 0,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "中文系",
+      "fullName": "中文系",
+      "disabled": false,
+      "oid": "ZDZW",
+      "sort": 1,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "历史学系",
+      "fullName": "历史学系",
+      "disabled": false,
+      "oid": "ZSLS",
+      "sort": 2,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "中文系（珠海）",
+      "fullName": "中文系（珠海）",
+      "disabled": false,
+      "oid": "ZDZX",
+      "sort": 3,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    },
+    {
+      "name": "历史学系（珠海）",
+      "fullName": "历学系（珠海）",
+      "disabled": false,
+      "oid": "ZDLX",
+      "sort": 4,
+      "type": 2,
+      "parentId": "ZD",
+      "did": "440100"
+    }
+  ],
+  "total": "52",
+  "status": "OK"
+}

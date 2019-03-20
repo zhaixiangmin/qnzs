@@ -1,0 +1,45 @@
+body{font-size: 14px;font-family:"微软雅黑";}
+
+.content_box{
+    margin-top: 2rem;
+    line-height: 1.4;
+    font-size: 0.68rem;
+    text-align: center;
+    color: #333;
+}
+.content_box .title{
+    margin: 0 auto;
+    font-size: 0.72rem;
+    width: 80%;
+}
+.content_box .img_box {
+    /*margin: 0.6rem 0 2.6rem 0;*/
+    margin: 0.6rem 0;
+    width: 100%;
+    text-align: center;
+}
+.content_box .img_box img {
+    width: 7.4rem;
+    display: inline;
+}
+.content_box .focus {
+    font-size: 0.72rem;
+    font-weight: bold;
+    color: #000;
+}
+.content_box .tips{
+    margin-top: 1rem;
+    font-size: 0.72rem;
+}
+
+
+.content_box .question_box {
+    margin: 4rem 0.6rem 1rem;
+    font-size: 0.6rem;
+    color: #999;
+}
+.content_box .question_box .question {
+    padding-left: 1rem;
+    background: url(../../img/question.png) no-repeat left center;
+    background-size: auto 70%;
+}

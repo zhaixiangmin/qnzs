@@ -1,0 +1,166 @@
+/* 热门活动，人气主办方   */
+.act_and_host{padding-top: 45px;padding-bottom: 20px;}
+.act_and_host .leftAct{width: 840px;}
+.act_and_host .list li{float: left;width:260px;margin: 0 20px 20px 0;height: 290px;}
+.act_and_host .list a .txt{padding: 0 10px;}
+.act_and_host .list li:hover{box-shadow: 3px 6px 5px rgba(187,187,187,.25);}
+.act_and_host .list li:hover .conTit p{color:#2185cf;}
+.act_and_host .list li:hover .address,
+.act_and_host .list li:hover .botTxt p{color:#000;}
+.act_and_host .list .imgDiv{width: 260px;height: 173px;overflow: hidden;position: relative;background-color: #e2e2e2;}
+.act_and_host .list .imgDiv .img01{position: absolute;
+    left: -30px;
+    top: 17px;
+    z-index: 2;
+    display: block;
+    width: 150px;
+    height: 30px;
+    font-size: 16px;
+    background-color: #0094ff;
+    opacity: 0.8;
+    line-height: 30px;
+    text-align: center;
+   
+    color: white;
+    -webkit-transform: rotate(-36deg);
+    -moz-transform: rotate(-36deg);
+     -ms-transform: rotate(-36deg);
+    }
+.act_and_host .list .imgDiv .img02{position: absolute;width:100%;left:0;top:50%;transform:translateY(-50%);}
+.act_and_host .list .conTit{padding: 5px 0 14px 0;}
+.act_and_host .list .conTit p{line-height: 50px;height: 50px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.act_and_host .list .address{line-height: 15px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.act_and_host .list .botTxt{line-height: 33px;}
+
+
+/* 推荐项目 */
+.tuijianxiangmu{min-height: 264px;}
+.tuijianxiangmu .tit{margin-bottom: 42px;}
+.tuijianxiangmu .content{padding-bottom: 58px;}
+.tuijianxiangmu .tit,.tuijianzhuanjia .tit{padding: 23px 0;line-height: 16px;}
+.tuijianxiangmu .tit a,.tuijianzhuanjia .tit a{padding-top: 2px;}
+#d_tab29{width: 100%;margin: 0 auto;}
+#d_tab29 ul,#d_tab29 li{margin:0;padding:0;list-style:none;}
+#d_tab29 img{border:0;vertical-align:top;}
+#d_tab29{position:relative; height:300px;background:url('../../img/bg3.jpg') no-repeat center 0;text-align:left;}
+#d_tab29 .d_img{position:relative;margin:0 auto;width:100%;height:100%;} 
+#d_tab29 .d_img li{position:absolute;display:none;z-index:0;}
+#d_tab29 .d_img li>div{position: absolute;left: 0;bottom: 0;width:100%;background-color: rgba(0,0,0,.6);height: 23%;}
+#d_tab29 .d_img li>div>div{padding: 4% 5%;}
+#d_tab29 .d_img li>div>div .left em{margin-right: 14px;}
+#d_tab29 .d_img li>div>div .right em{height: 20px;line-height: 20px;border-radius: 2px;margin-right: 8px;padding: 0 4px;}
+#d_tab29 .d_img li>div>div .color17c0ff{color:#17c0ff;}
+#d_tab29 .d_img li>div>div .bgc33cc33{background-color: #33cc33;}
+#d_tab29 .d_img li>div>div .color33cc33{color:#33cc33;}
+#d_tab29 .d_img li>div>div .bgc17c0ff{background-color: #17c0ff;}
+#d_tab29 .d_img li img{width:100%;height: 295px;display:block;}
+#d_tab29 .d_img li.d_pos1{display:block;width:460px;left:0;top:50px;z-index:1;}
+#d_tab29 .d_img li.d_pos2{display:block;width:580px;left:125px;top:25px;z-index:2;}
+#d_tab29 .d_img li.d_pos3{display:block;width:700px;left:250px;top:0;z-index:3;}
+#d_tab29 .d_img li.d_pos4{display:block;width:580px;right:125px;top:25px;z-index:2;}
+#d_tab29 .d_img li.d_pos5{display:block;width:460px;right:0;top:50px;z-index:1;}
+#d_tab29 .d_menu{position:absolute;bottom:20px;width:100%;text-align:center;}
+#d_tab29 .d_menu li{display:inline-block;zoom:1;*display:inline;background:url('../../img/btn.png') no-repeat 0 0;width:12px;height:12px;cursor:pointer;margin-right:3px;}
+#d_tab29 .d_menu li.d_select{background:url('../../img/btn.png') no-repeat 0 -18px;}
+#d_tab29 .rotateGo{position: absolute;left:0;top:140px;z-index:10;cursor:pointer;width: 30px;height: 50px;background:rgba(0,0,0,.4) url(../../img/prev.png) center center no-repeat;z-index:10;}
+#d_tab29 .d_next{left:auto;right:0;cursor:pointer;background-image: url(../../img/next.png);}
+
+
+/* 推荐专家 */
+.tuijianzhuanjia .underBox{padding-top: 38px;padding-bottom: 56px;}
+.tuijianzhuanjia .underBox .personListBox .picScroll{width: 100%;margin:0 auto;position: relative;}
+.tuijianzhuanjia .underBox .personListBox .picScroll .go{position: absolute;display: block;width: 24px;height: 44px;background: url(../../img/proPrev.png) no-repeat;left: 0;top:50%;margin-top: -22px;cursor: pointer;}
+.tuijianzhuanjia .underBox .personListBox .picScroll .next{background-image: url(../../img/proNext.png);left: auto;right:0;}
+.tuijianzhuanjia .underBox .personListBox .picScroll .bd{width: 1092px;margin: 0 auto;}
+.tuijianzhuanjia .underBox .personListBox .picScroll .bd ul li{float: left;padding: 0 10px;}
+.tuijianzhuanjia .underBox .personListBox .picScroll .bd ul li>a{border: 1px solid #e2e2e2;border-radius: 4px;width: 160px;height: 274px;display: block;text-align: center;}
+.tuijianzhuanjia .underBox .personListBox .picScroll .bd ul li>a:hover{background-color: #ededed;}
+.tuijianzhuanjia .underBox .personListBox .picScroll .bd ul li a .imgBox{padding-top: 10px;}
+.tuijianzhuanjia .underBox .personListBox .picScroll .bd ul li a .imgBox .imgDiv{width: 120px;height: 120px;border-radius: 50%;overflow: hidden;border: 3px solid #5faee9;margin: 0 auto;}
+.tuijianzhuanjia .underBox .personListBox .picScroll .bd ul li a .imgBox .imgDiv img{max-width: 100%; max-height: 100%;}
+.tuijianzhuanjia .underBox .personListBox .picScroll .bd ul li a .name{line-height: 40px;}
+.tuijianzhuanjia .underBox .personListBox .picScroll .bd ul li a .touxian{line-height: 25px;height: 50px;overflow: hidden;}
+.tuijianzhuanjia .underBox .personListBox .picScroll .bd ul li a button{border-radius: 4px;line-height: 20px;margin: 0 auto;background-color: #228ad7;}
+
+.act_and_host .pageNumBox{height: 76px;}
+.imgURl{width: 100%;height: 100%;}
+
+
+/*在线客服*/
+.wpa-container {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    margin-top: -42.5px;
+    z-index: 2000000000;
+    border-radius: 2px;
+    display: inline-block;
+    width: 253px;
+    height: 83px;
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid #dadee7;
+    box-shadow: 0 1px 3px rgba(30, 36, 49, 0.15);
+    cursor: pointer;
+}
+.avatar {
+    width: 85px;
+    height: 83px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.icon-qq {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background: url(http://combo.b.qq.com/qidian/src/wpa/dist/4.1.0/images/1_4.png) no-repeat;
+    position: absolute;
+    left: 97px;
+    top: 18px;
+}
+.title {
+    display: inline-block;
+    word-break: break-all;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 125px;
+    font-size: 20px;
+    position: absolute;
+    left: 126px;
+    top: 16px;
+    color: #1e2330;
+}
+.signature {
+    display: inline-block;
+    word-break: break-all;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 150px;
+    position: absolute;
+    left: 97px;
+    top: 50px;
+    text-align: left;
+}
+
+.backTop{
+    width: 70px;
+    position: fixed;
+    right: 0;
+    top: 80%;
+    text-align: center;
+    z-index: 10000;
+    display: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.backTop .back{
+    height: 30px;
+    background: url(../../img/back.png) no-repeat center 15px;
+    background-size: 50%;
+    padding-top: 50px;
+}

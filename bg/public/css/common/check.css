@@ -1,0 +1,94 @@
+#checkRedFly {
+	
+	
+	color: red;
+	vertical-align:middle;
+	margin-top: 10px;
+}
+	#form1 {
+				/*float: left;*/
+				/*margin-right: 40px;
+				margin-bottom: 40px;*/
+				width:300px;
+				height: 300px;
+			}
+      	#form1  select{
+      		
+      		width: 200px;
+      	
+      	}
+       .activeColor{
+      	  background: mistyrose;
+      		
+      	}
+      	.orgState{
+      		width:200px ;
+      		height: 50px;
+      		
+      		float: left;
+      		
+      	}
+      	.orgState >label{
+      		
+      		display: block;
+      		float: left;
+      	}
+      	div.validate-error {
+				color: #f00;
+				font-size: 12px;
+				font-weight: bold;
+		}
+		
+	    label.error {
+				color: #f00;
+			}
+      	input[type="text"], input[type="password"], input[type="radio"], input[type="checkbox"], select, textarea {
+				/*margin-bottom: 20px;*/
+				padding: 5px;
+				border-radius: 3px;
+				border: 1px solid #999;
+			}
+			input.error, select.error, textarea.error {
+				border: 1px solid red;
+				background-color: #fff6f6;
+			}
+      	    .stopBtn{
+      	    	
+      	    	
+      	    	position: fixed;
+      	    	bottom: 35px;
+      	    	right: 40px;
+      	    }
+      	    #form1 .item-box {
+      	    	
+      	    	
+      	    	overflow: hidden;
+      	        height: 50px;
+      	    	width: 500px;
+      	    	
+      	    }
+      	     #form1 .item-box >label, #form1 .item-box>input ,#form1 .item-box>span{
+      	     	display: block;
+      	     	float: left;
+      	     	vertical-align: middle;
+      	     }
+      	     #form1 .item-box >label {
+      	     	
+      	     	margin-top: 7px;
+      	     }
+      	    #form1 .item-box  .validator-error {
+      	    	
+      	    	display: block;
+      	    	float: right;
+      	    	
+      	    }
+      	   
+label{
+	
+	
+	display: inline-block;
+}
+ .allInputWidth{
+	
+	width: 250px;
+}

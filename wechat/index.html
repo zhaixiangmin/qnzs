@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no;">
+    <!-- No less -->
+    <title>青年之声_首页</title>
+    <link rel="stylesheet" type="text/css" href="public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="public/css/common/hd_footerNav.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/find_aitve/index.css">
+    <link rel="stylesheet" type="text/css" href="public/css/find_consult/find_consult.css" />
+    <script type="text/javascript" src="public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="public/js/common/bigDataUrl.js" ></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <!--百度地图-->
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=ggGhWZ8zW5mGMOYCohgWNRER5m76Hxfz"></script>
+    <script type="text/javascript" src="public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="public/vendor/touch_slide/TouchSlide.1.1.js"></script>
+    <script>
+        var dynamicLoading = {
+            js: function(path){
+                if(!path || path.length === 0){
+                    throw new Error('argument "path" is required !');
+                }
+                var head = document.getElementsByTagName('head')[0];
+                var script = document.createElement('script');
+                script.src = path+"/browser/0110/crossdomain.js";
+                script.type = 'text/javascript';
+                head.appendChild(script);
+            }
+        }
+
+        dynamicLoading.js(bigDataUrl);
+
+    </script>
+
+    <style>
+
+        .xm_zhuti {
+            display: block;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+        }
+        .qs_touxiang img {
+
+            width: 2.4rem;
+            height: 2.4rem;
+        }
+
+        /****  公告遮罩样式 start ******/
+
+        .gong_gao {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100000;
+            background: rgba(0, 0, 0, 0.5);
+            display: block;
+        }
+        .gong_gao_centent {
+            width: 80%;
+            height: 62%;
+            background: #fff;
+            position: absolute;
+            border-radius: 0.333333rem;
+            top: 50%;
+            left: 50%;
+            padding:20px 20px;
+            position: relative;
+            transform: translate(-50%,-50%);
+            line-height: 0.86rem;
+            overflow: hidden;
+        }
+        .ceshi_del {
+            position: absolute;
+            top: 9px;
+            right: 12px;
+            cursor: pointer;
+            background: url(public/img/del.png) no-repeat center center ;
+            width:15px ;
+            height: 15px;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: #666;
+        }
+        .ceshi_box {
+            line-height: 40px;
+            text-align: center;
+        }
+        .ceshi_box p {
+            font-size: 16px;
+            margin-left: 42px;
+        }
+
+        /****  公告遮罩样式 end ******/
+    </style>
+    <!-- 微信分享 -->
+    <script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="public/js/common/wechatShare.js"></script>
+    <!--公共底部栏-->
+    <script type="text/javascript" src="public/custom/common.js"></script>
+    <script type="text/javascript" src="public/custom/dialog.js"></script>
+    <script type="text/javascript" src="public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="public/js/find_active/common.js"></script>
+    <script type="text/javascript" src="public/js/find_active/index.js"></script>
+
+    <script type="text/javascript" src="public/js/module/FindHelpApi.js"></script>
+    <script type="text/javascript" src="public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="public/js/index/find_help.js"></script>
+    <script type="text/javascript" src="public/js/index/fes_notice.js"></script>
+    <!-- 找咨询 -->
+    <script type="text/javascript" src="public/js/module/FindConsultApi.js"></script>
+    <script type="text/javascript" src="public/js/find_consult/index.js"></script>
+    <!-- 重磅项目-->
+    <script type="text/javascript" src="public/js/heavy_project/index_zhu.js"></script>
+
+    <script type="text/javascript" src="public/js/ajax/ajax2.js"></script>
+
+</head>
+<body onload="fnOnLoad()" style="padding-bottom: 2.5rem;">
+<!-- banner上方搜索框 -->
+<div class="clearfix search_link" style="display: none;">
+    <a href="view/index/index_sousuo.html" class="fr search_btn"></a>
+</div>
+<!-- banner -->
+<section class="banner" id="banner">
+    <div class="hd"><ul></ul></div>
+    <div class="bd" id="head-banner">
+        <ul class="clearfix">
+            <!--<li><a href="view/find_consult/find_consult_famousList.html" class="disB"><img src="public/img/banner-mrwb-index.png" /></a></li>
+            <li><a href="javascript:;" class="disB"><img src="public/img/banner-cpb.jpg" /></a></li>
+            <li><a href="javascript:;" class="disB"><img src="public/img/pyjh.png" /></a></li>-->
+        </ul>
+    </div>
+</section>
+<!--<script type="text/javascript">-->
+<!--TouchSlide({-->
+<!--slideCell:"#banner",// 这里一定要是id-->
+<!--titCell:".hd ul", -->
+<!--mainCell:".bd ul",-->
+<!--autoPage:true, -->
+<!--autoPlay:true,-->
+<!--effect:"leftLoop",-->
+<!--delayTime:300,-->
+<!--interTime:3000-->
+<!--});-->
+<!--</script>-->
+<div class="address_box disB bgcWhite p_0_30 clearfix mb20">
+    <a href="view/index/site_nav.html" class="left fl">
+        <span class="disB fz26 color333 address"></span>
+    </a>
+    <div class="right">
+        <div class="con clearfix">
+            <div class="rollBox">
+                <div class="rollOut">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- i志愿\展翅网\粤团聚 -->
+<section id="picScroll" class="webLink mb20 bgcWhite picScroll">
+    <div class="hd"><ul class="clearfix"></ul></div>
+    <div class="bd">
+        <ul class="clearfix">
+            <li class="izhiyuan">
+                <a href="http://wxcs.gdzyz.cn/citiesService.do?cityid=440000&from=singlemessage&isappinstalled=0" class="disB link">
+                    <div class="con">
+                        <h2 class="fz30 title">志愿服务</h2>
+                        <!-- <p class="color999 fz24">执着  直率  白领</p> -->
+                        <img src="public/img/izhiyuan.png" class="link_img" />
+                    </div>
+                </a>
+            </li>
+            <!--<li class="hot_host">-->
+            <!--<a href="view/find_active/hd_zhubanfang.html" class="disB link">-->
+            <!--<div class="con">-->
+            <!--<h2 class="fz30 title">人气主办方</h2>-->
+            <!--&lt;!&ndash; <p class="color999 fz24">执着  直率  白领</p> &ndash;&gt;-->
+            <!--<img src="public/img/twoBlock02.png" class="link_img" />-->
+            <!--</div>-->
+            <!--</a>-->
+            <!--</li>-->
+            <li class="hot_host" id="league">
+                <a class="disB link">
+                    <div class="con">
+                        <h2 class="fz30 title">团员报到</h2>
+                        <img style="width: 1.6rem; margin-top: 0.05rem;"   src="public/img/league-badge.png" class="link_img" />
+                    </div>
+                </a>
+            </li>
+            <li class="hot_professor">
+                <a href="view/find_consult/find_consult_famousList.html" class="disB link">
+                    <div class="con">
+                        <h2 class="fz30 title">名人问吧</h2>
+                        <!-- <p class="color999 fz24">执着  直率  白领</p> -->
+                        <img src="public/img/remenzhuanjia.png" class="link_img" />
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <ul class="clearfix">
+            <li class="hot_act">
+                <a href="view/find_active/hd_zhoubian.html" class="disB link">
+                    <div class="con">
+                        <h2 class="fz30 title">热门活动</h2>
+                        <!-- <p class="color999 fz24">执着  直率  白领</p> -->
+                        <img src="public/img/rmhd02.png" class="link_img" />
+                    </div>
+                </a>
+            </li>
+            <li class="job_practice">
+                <a href="https://www.izhanchi.com/Home" class="disB link">
+                    <div class="con">
+                        <h2 class="fz30 title">就业实习</h2>
+                        <!-- <p class="color999 fz24">执着  直率  白领</p> -->
+                        <img src="public/img/yizhangwang.png" class="link_img" />
+                    </div>
+                </a>
+            </li>
+            <li class="love">
+                <a href="//www.gdtuanju.com" class="disB link">
+                    <div class="con">
+                        <h2 class="fz30 title">男生女生</h2>
+                        <!-- <p class="color999 fz24">执着  直率  白领</p> -->
+                        <img src="public/img/hunlianjiaoyou.png" class="link_img" />
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        TouchSlide({
+            slideCell:"#picScroll",
+            titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+            autoPage:true, //自动分页
+            pnLoop:"false", // 前后按钮不循环
+            switchLoad:"_src" //切换加载，真实图片路径为"_src"
+        });
+    </script>
+</section>
+
+<!-- 图片文字菜单 -->
+<section class="photoTxtMenu bgcWhite mb20 clearfix">
+    <div class="left fl">
+        <a href="view/find_active/hd_zhaohuodong.html" class="up disB">
+            <span class="tit fz32 colorfff">找·活动</span>
+            <img src="public/img/wudakuai_hd02.png" />
+        </a>
+        <a href="view/find_consult/find_consult_index.html" class="disB">
+            <span class="tit fz32 colorfff">找·咨询</span>
+            <img src="public/img/wudakuai_zx.png" />
+        </a>
+    </div>
+    <div class="right">
+        <a href="https://api.12355.net/toYounthsTao" class="up disB maage">
+            <span class="tit fz32 colorfff" style="    background-color: rgba(0,0,0,.444)">找·福利</span>
+            <img src="public/img/zyh_index2.png" />
+        </a>
+        <a href="view/heavy_project/heavy_project_index.html" class="up disB xiangmu">
+            <span class="tit fz32 colorfff">重磅项目</span>
+            <img src="public/img/262x172.jpg" />
+        </a>
+
+        <div class="down">
+            <a href="view/find_help/find_help.html" class="l disB fl">
+                <span class="tit fz32 colorfff">找·帮助</span>
+                <img src="public/img/wudakuai_bz.png" />
+            </a>
+            <a href="view/young_family/young_family.html" class="r disB fl">
+                <span class="tit fz32 colorfff">青年之家</span>
+                <img src="public/img/wudakuai_fx.png" />
+            </a>
+        </div>
+    </div>
+
+
+    <!--<div class="left_box">
+
+    	<div class="top_box">
+    		<a href="view/find_active/hd_zhaohuodong.html" class="href_activt herf_dis">
+    		<img src="public/img/activt_img.jpg" alt=""/>
+    		<span class="box_text">找·活动</span>
+    		</a>
+    	</div>
+    	 <div class="down_box">
+    	 	<div class="top_zxbox">
+    		<a href="view/find_consult/find_consult_index.html" class="herf_dis">
+    		<img src="public/img/zuxun_img.jpg" alt=""/>
+    		<span class="box_text">找·咨询</span>
+    	  	</a>
+    	  </div>
+
+    	 	<div class="top_bzbox">
+    		<a href="view/find_help/find_help.html" class="herf_dis">
+    		<img src="public/img/help_img.jpg" alt=""/>
+    		<span class="box_text">找·帮助</span>
+    		</a>
+    	</div>
+
+
+    	 </div>
+
+    </div>-->
+
+    <!--<div class="right_box">
+    	<div class="top_flbox">
+    		<a href="https://api.12355.net/toYounthsTao" class="herf_dis">
+    		<img src="public/img/ful_img.jpg" alt=""/>
+    		<span class="box_text">找·福利</span>
+    		</a>
+    	</div>
+    	<div class="top_zbbox">
+    		<a href="view/heavy_project/heavy_project_index.html" class="herf_dis">
+    		<img src="public/img/zhongbano_img.jpg" alt=""/>
+    		<span class="box_text">重磅项目</span>
+    		</a>
+    	</div>
+
+    	<div class="top_qnbox">
+    		<a href="view/young_family/young_family.html" class="herf_dis">
+    		<img src="public/img/img_fmily.jpg" alt=""/>
+    		<span class="box_text">青年之家</span>
+    		</a>
+    	</div>-->
+
+    </div>
+
+
+</section>
+
+<!-- 找活动——推荐活动 -->
+<section class="zhaohd_tuijian hd_backgroung">
+    <div class="zhaohd_title">
+        <h3 class="fl color000">推荐活动</h3>
+        <a href="../wechat/view/find_active/hd_tuijianhuodong.html" class="fr color999 see_more"></a>
+    </div>
+    <!-- 内容板块 -->
+    <div class="zhaohd_box recommend_hd_box">
+
+    </div>
+</section>
+
+<!-- 推荐项目 -->
+<section class="xiangmu hd_backgroung ">
+    <div class="zhaohd_title">
+        <h3 class="fl color000">推荐项目</h3>
+        <a href="view/heavy_project/heavy_project_index.html" class="fr color999 see_more"></a>
+    </div>
+    <!-- 内容板块 -->
+    <div class="recommend_project">
+
+    </div>
+</section>
+
+<!-- 名人问吧 -->
+<section class="question hd_backgroung ">
+    <div class="zhaohd_title">
+        <h3 class="fl color000">名人问吧<img style="display: inline;margin-left: 0.2rem;" src="public/img/hot.gif"></h3>
+        <a href="view/find_consult/find_consult_famousList.html" class="fr color999 see_more"></a>
+    </div>
+    <!-- 内容板块 -->
+    <div class="recommend_mrwbList">
+
+    </div>
+</section>
+
+<!-- 热门问答 -->
+<!--<section class="question hd_backgroung">
+    <div class=" clearfix qs_box">
+    	<h3 class="fl title_item current" data-id="1">热门</h3>
+        <h3 class="fl title_item" data-id="2">精华</h3>
+         <h3 class="fl title_item"  data-id="3">本地</h3>-->
+<!--<a href="view/find_consult/find_consult_quesList.html" class="color999 see_more fr"></a>-->
+<!--<a class="color999 see_more fr"  id="arrow_icon_find_consult"></a>-->
+<!--</div>-->
+<!--<div class="qs_content qs_content_2 hot_wenda">-->
+<!--插入热门列表-->
+<!--</div>-->
+<!--<div class="qs_content qs_content_3 hot_wenda">-->
+<!--插入精华列表-->
+<!--</div>-->
+<!--<div class="qs_content qs_content_1 hot_wenda">-->
+<!--插入本地列表-->
+<!--</div>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; 求助中\已解决\经典案例 &ndash;&gt;-->
+<!--<section class="bgcWhite mb20 case hd_backgroung">-->
+<!--<div class="title_box p_0_30 lineH78 fz28 clearfix">-->
+<!--<span class="cur fl title_item">求助中</span>-->
+<!--<span class="color000 fl title_item">已解决</span>-->
+<!--<a href="bz_shouli'anli.html" class="fr disB see_more"></a>-->
+<!--</div>-->
+<!--&lt;!&ndash; content01 &ndash;&gt;-->
+<!--<div class="content content01 pl_30">-->
+
+<!--</div>-->
+<!--&lt;!&ndash; content02 &ndash;&gt;-->
+<!--<div class="content content02 pl_30">-->
+
+<!--</div>-->
+<!--</section>-->
+
+<!-- 求助中\已解决\经典案例 -->
+<section class="bgcWhite mb20 case" style="margin-top: 0.4rem; margin-bottom: 0.2rem;">
+    <div class="title_box p_0_30 lineH78 fz28 clearfix">
+        <span class="cur fl title_item">求助中</span>
+        <span class="color000 fl title_item">已解决</span>
+        <em class="fr disB" id="arrow_icon_find_help"></em>
+    </div>
+    <!-- content01 -->
+    <div class="content content01 pl_30">
+
+    </div>
+    <!-- content02 -->
+    <div class="content content02 pl_30">
+
+    </div>
+</section>
+
+<!--  技术支持  --->
+<section style="width: 100%;background: white  ;  text-align: center; line-height: 0.933333rem;padding-top:0.4rem;padding-bottom:0.4rem ">
+
+
+    <div class="" style=" margin: 0 auto; width: 95%; border-radius:0.4rem ;text-align: center;">
+        <p style="font-family: '微软雅黑'; margin: 0 auto;  color: #999999;font-size:0.4rem;">
+            <!--<a href="javascript:;" style="font-family: '微软雅黑';color: #999999;font-size:0.4rem;">电脑版 </a>| -->
+            <a href="view/person_center/myComplaint.html" style="font-family: '微软雅黑';color: #999999;font-size:0.4rem;"> 我要吐槽 </a> |
+
+            <a href="view/logoin/login.html" style="font-family: '微软雅黑';color: #999999;font-size:0.4rem">登录 </a>|
+            <a href="view/logoin/login.html" style="font-family: '微软雅黑';color: #999999;font-size:0.4rem">注册 </a>
+
+        </p>
+        <p style="  font-family: '微软雅黑';color: #999999; margin: 0 auto;   font-size:0.4rem;">Copyright  2015-2018 广东青年之声 版权所有  </p>
+        <p style="font-family: '微软雅黑';color: #999999; margin: 0 auto;   font-size: 0.4rem;"><a href="tel:12355" style="color: #999999;font-size: 0.4rem;">客服电话：400-8308-125    青少年服务热线：<em style="font-size: 0.4rem;">12355</em></a></p>
+        <p style="font-family: '微软雅黑';color: #999999; ;margin: 0 auto;   font-size:0.4rem;">技术支持：广东汇青信息科技有限公司  </p>
+    </div>
+</section>
+
+<!---- 悬浮回到顶部图标  ----->
+<img id="return_top_img" src="public/img/reten-top-ico.png" style="display:none ;width: 1.5rem;height: 1.5rem;   position: fixed;right:0.5rem ;bottom: 5.2rem;"  />
+
+
+<!-- 遮罩 -->
+<section class="darkCover"></section>
+<!-- 选择菜单 -->
+<section class="hideSelect bgcWhite p_0_30">
+    <div class="selects clearfix">
+        <span class="fl tit color333 fz26">所属地区</span>
+        <select name="" id="select00" class="fz26">
+            <option value="">请选择</option>
+            <option value="">地市</option>
+            <option value="">高校</option>
+        </select>
+        <select name="" id="select01" class="fz26">
+            <option value="">地市</option>
+            <option value="">广州</option>
+            <option value="">深圳</option>
+            <option value="">茂名</option>
+        </select>
+        <select name="" id="select02" class="fz26">
+            <option value="">高校</option>
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+        </select>
+    </div>
+    <!-- 请输入项目名称或申报者关键字 -->
+    <div class="shuru">
+        <input type="text" placeholder="请输入关键字" class="fz26 color333" />
+    </div>
+    <!-- 搜索按钮 -->
+    <a href="javascript:;" class="searchBtn bgc2185cf fz28 colorfff disB">搜索</a>
+</section>
+
+<!-- 站长统计 -->
+<div style="display:none">
+    <script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+</div>
+
+
+<!-- 提示遮罩层  ---->
+<div class="gong_gao " id="ceshi2" style="display: none;">
+    <div class="gong_gao_centent">
+
+
+        <h2 style="text-align:center;font-size:0.9rem;padding-top: 1.13rem;  line-height: 0.333333rem; margin: 0 auto; font-weight: bold;padding-bottom: 10px;">
+            春节放假通知</h2>
+        <p style="margin-top: 20px;margin-bottom: 24px;">尊敬的各位青年之声用户：</p>
+        <p style="text-indent:2em">根据《2018年节假日安排通知》的相关规定，2018年春节放假安排具体如下：</p>
+        <p style="text-indent:2em">2018年2月14日至2月21日休息，2月22日正常上班。</p>
+        <p style="text-indent:2em">放假期间，线上客服咨询及客服热线服务暂停，如出现问题请发邮件到客服邮箱kf@12355.net，节后统一安排处理。</p>
+        <p style="text-indent:2em">如遇紧急特殊情况，请致电客服号码：400-830-8125</p></br></br>
+
+        <p style="text-align: right;width:100%;">“青年之声”系统运营团队</p>
+        <p style="text-align: right;width:100%;">2018年2月13日</p>
+
+
+        <div class="ceshi_erweima">
+        </div>
+
+
+        <a class="ceshi_del" href="javascript:;" style="text-decoration: none; font-size: 24px; color: #000000;"></a>
+
+    </div>
+</div>
+
+
+
+</body>
+
+
+
+<script src="public/js/login/login.js"></script>
+
+</html>
+
+<script>
+
+    $(document).scroll(function(e){
+
+        var st = $(this).scrollTop();
+
+        if(st>600){
+            $('#return_top_img').show()  //显示回到顶部图标
+
+        }else{
+
+            $('#return_top_img').hide()  //隐藏回到顶部图标
+
+        }
+    })
+
+    $('#return_top_img').click(function(){
+
+        $('html ,body').animate({scrollTop:0},500);
+    })
+    //取消公告遮罩
+
+    $('.ceshi_del').click(function(){
+
+        $('#ceshi2').hide()
+    })
+
+    //百度统计的代码
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?149ef6fe5d623c086adc1622cf6c0df1";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    //百度统计的代码
+
+
+</script>

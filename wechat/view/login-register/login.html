@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/login/login.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+     <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+    <script src="../../public/js/login-register/common/flexible.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+	<!--对话框-->
+	<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+	<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+	<script src="../../public/js/ajax/ajax2.js"></script>
+ 
+    
+    <style type="text/css">
+    	#imagesyanz{width: 93px;height: 40px;display: block;float: left;vertical-align: middle;margin-top: 7px;} 
+	   #imagesyanz_tow{width: 93px;height: 40px;display: block;float: right;vertical-align: middle;margin-top: 7px;} 
+    </style> 
+    <script>
+		var dynamicLoading = {
+		    js: function(path){
+				if(!path || path.length === 0){
+					throw new Error('argument "path" is required !');
+				}
+				var head = document.getElementsByTagName('head')[0];
+		        var script = document.createElement('script');
+		        script.src = path+"/browser/0110/crossdomain.js";
+		        script.type = 'text/javascript';
+		        head.appendChild(script);
+		    }
+		}
+		
+		dynamicLoading.js(bigDataUrl);
+	
+	</script>
+</head>
+<body class="login_register">
+    <header id="header">登录</header>
+    <section class="padding_com_one section_common">
+        <h1 class="max_tit">欢迎登录广东青年之声.智慧团建系统</h1>
+        <section class="input_common_box">
+            <div class="ipt"><input class="input input1" id="username"  type="text" placeholder="请输入手机号" /></div>
+            <div class="ipt pwd"><input class="input input2"  id="password" type="text" placeholder="请输入密码" /><em class="seebox"><i class="see"></i></em></div>
+            <div class="ipt tucode" style="display: none;" ><input class="input input1" id="checkCodeamg_tow"  type="text" placeholder="请输入图片验证码" />
+             <img id="imagesyanz_tow"  onclick="changeModel_tow()" src="" alt=""/>
+            </div>
+        </section>
+        <div class="submit_btn_box">
+            <div class="submit_btn" onclick="login()">登录</div>
+        </div>
+        <div class="links clearfix">
+            <a href="get-back-pwd.html" class="link fl">忘记密码？</a>
+            <a href="register.html" class="link fr">快速注册</a>
+        </div>
+        <div class="other_login">
+            <div class="title"><i class="line l"></i>其它登录方式<i class="line r"></i></div>
+            <div class="logins clearfix">
+                <div class="login_link l"><a href="https://api.12355.net/wechat/socialConnect">微信</a></div>
+                <div class="login_link r"><a href="https://www.izyz.org.cn/account/web/login.html?appId=0110&finishurl=//www.12355.net/wechat">一号通</a></div>
+            </div>
+            <div class="what"><a href="javascript:;" onclick="one_indru()">什么是一号通？</a></div>
+        </div>
+    </section>
+    
+</body>
+</html>
+<script src="../../public/js/module/Utils.js"></script>
+<script src="../../public/js/login-register/login.js"></script>
+
+ <!--获取参数值--->
+
+<script type="text/javascript">
+    $('.pwd .seebox').click(function(event) {
+        if($(this).parent().hasClass('nosee')){
+            $(this).parent().removeClass('nosee').find('input').attr('type', 'text');
+        }else{
+            $(this).parent().addClass('nosee').find('input').attr('type', 'password');
+        }
+    });
+
+
+    $(document).on('input propertychange', '.input', function(event) {
+        var input1 = $('.input1').val().trim().length;
+        var input2 = $('.input2').val().trim().length;
+        if( input1!=0 && input2!=0 ){
+            $('.submit_btn').addClass('sub');
+        }else{
+            $('.submit_btn').removeClass('sub');
+        }
+    });
+</script>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>找活动-主办方详情</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <!--<link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/hd_zhaohuodong.css" />-->
+    <link rel="stylesheet" type="text/css" href="../../public/css/organization/organization_detail.css" />
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <!--百度地图-->
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=ggGhWZ8zW5mGMOYCohgWNRER5m76Hxfz"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+     <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/OrganizationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/organization/organization_detail.js"></script>
+    <!--<script type="text/javascript" src="../../public/js/common/common.js"></script>-->
+    <style>
+    	.up  p{
+    		  width: 100%;
+    		    white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+    		
+    	}
+    	.down {
+    		border-bottom: 1px solid #e2e2e2;
+    		
+    	}
+    	
+    </style>
+</head>
+<body class="bodyPB">
+    <section class="headTxt">
+        <div class="item clearfix">
+            <div class="left fl">
+                <img id="photoUrl"/>
+            </div>
+            <div class="right">
+                <h2 class="color000" id="fullName"></h2>
+                <p class="fz24 color999 short_name">简称：<em id="shortName"></em></p>
+                <div class="scoreBox">    
+                    <ol class="score_ol clearfix fl"></ol>    
+                    <span class="fenshu fl"><em class="score_num" id="averageScore"></em>分</span>
+                    <span class="pingjia color999 fl"><em id="scoreCount"></em>人已评</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 关注人数 -->
+    <section class="yugao clearfix bgcWhite">
+        <span class="fl color999"><em id="attentionCount"></em>人关注</span>
+        <!--<a href="javascript:;" class="fr">关注</a>-->
+        <a id="submit_help" style="margin-left: 0.38rem;" class="fr">向TA求助</a>
+        <a href="javascript:;" class="fr" id="concern">关注</a>
+    </section>
+    <!-- 评分列表 -->
+    <section class="bgcWhite score_list_show">
+        <a id="score" class="show_con disB">
+            <div class="item clearfix">
+                <span class="left_title fz24 color333 fl">主办活动</span>
+                <div class="scoreBox fl">    
+                    <ol class="score_ol clearfix fl" id="activityAverageScoreIcon"></ol>
+                    <span class="fenshu fl"><em class="score_num" id="activityAverageScore"></em>分</span>
+                    <span class="pingjia color999 fl"><em id="activityScoreCount"></em>人已评</span>
+                </div>
+            </div>
+            <div class="item clearfix">
+                <span class="left_title fz24 color333 fl">求助解决</span>
+                <div class="scoreBox fl">    
+                    <ol class="score_ol clearfix fl" id="helpAverageScoreIcon"></ol>
+                    <span class="fenshu fl"><em class="score_num" id="helpAverageScore"></em>分</span>
+                    <span class="pingjia color999 fl"><em id="helpScoreCount"></em>人已评</span>
+                </div>
+            </div>
+            <div class="item clearfix">
+                <span class="left_title fz24 color333 fl">线下服务</span>
+                <div class="scoreBox fl">    
+                    <ol class="score_ol clearfix fl" id="stationAverageScoreIcon"></ol>
+                    <span class="fenshu fl"><em class="score_num" id="stationAverageScore"></em>分</span>
+                    <span class="pingjia color999 fl"><em id="stationScoreCount"></em>人已评</span>
+                </div>
+            </div>
+        </a>
+    </section>
+    <!-- 地址、联系等等 -->
+    <section class="lianxi">
+        <div class="phoneAndAddress divout bgcWhite">
+            <div class="divin clearfix time" id="address_parent">
+                <div class="imgDiv fl"><img src="../../public/img/iconAddress.png"/></div>
+                <p class="fl color333" id="address"></p>
+                <div class="arrow fr"><img src="../../public/img/next.png"/></div>
+            </div>
+            <a id="telephone_parent" class="divin clearfix phone" style="display: block;">
+                <div class="imgDiv fl"><img src="../../public/img/iconPhone.png"/></div>
+                <p class="fl color333" id="telephone"></p>
+                <div class="arrow fr"><img src="../../public/img/next.png"/></div>
+            </a>
+        </div>
+    </section>
+    <!-- 几大子版块 -->
+    <section class="" id="list_big_box">
+        <nav class="title_box bgcWhite">
+            <ul class="title_list clearfix">
+                <li class="title cur"><span class="title_con">简介</span></li>
+                <li class="title"><span class="title_con">TA的活动</span></li>
+                <li class="title"><span class="title_con">TA的回答</span></li>
+                <li class="title"><span class="title_con">TA的帮助</span></li>
+                <li class="title"><span class="title_con">TA的服务</span></li>
+                <li class="title"><span class="title_con">TA的重磅</span></li>
+            </ul>
+        </nav>
+        <div class="list_box jianjie bgcWhite" id="description">
+            <!--<p class="phase">中国青年网北京10月31日电 (记者 杜美辰) “当前社会乱象对青年影响很大，一些错误的价值观搅乱了基本的道德伦理，参与‘青年之声’成长服务联盟的工作非常有意义。”10月29日下午，中国青年政治学院原党委书记陆士桢在参加“青年之声”成长服务联盟专家座谈会时做出上述表示。</p>-->
+            <!--<p class="phase">团中央书记处书记徐晓出席了座谈会，认真听取了专家们就“青年之声”互动社交平台及成长服务联盟建设的意见建议，并不时和大家进行互动交流。</p>-->
+        </div>
+        <div class="list_box act_list_box bgcWhite">
+            <ul class="act_list zhaohd_box"></ul>
+        </div>
+        <div class="list_box answer_list_box wenda">
+            <ul class="answer_list"></ul>
+        </div>
+        <div class="list_box help_list_box case bgcWhite">
+            <ul class="help_list pl_30"></ul>
+        </div>
+        <div class="list_box service_list_box bgcWhite">
+            <ul class="service_list pl_30"></ul>
+        </div>
+        <div class="list_box zbxm_list_box bgcWhite recommend_project">
+            <ul class="zbxm_list"></ul>
+        </div>
+    </section>
+<!--<script type="text/javascript" src="../../public/custom/common.js"> </script>-->
+
+    <!-- 站长统计 -->
+<div style="display:none">
+    <script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+</div>
+
+</body>
+</html>

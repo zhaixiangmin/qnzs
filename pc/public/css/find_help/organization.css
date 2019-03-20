@@ -1,0 +1,69 @@
+/* 与问组织、组织列表公用啊啊啊 */
+/* 专家列表-分类选项*/
+.zhuanjia{padding:22px 0;}
+.zhuanjia .listBox{padding: 8px 0;line-height: 26px;}
+.zhuanjia .listBox .spanTit{padding-right: 14px;}
+.zhuanjia .listBox .listDiv{padding-left:50px;}
+.zhuanjia .listBox .listDiv .option{float: left;padding: 0 12px;line-height: 26px;border-radius: 13px;margin: 0 3px;color:#000;cursor: pointer;}
+.zhuanjia .listBox .listDiv .option:hover{background-color: #2185cf;color:#fff;}
+.zhuanjia .listBox .listDiv .option.cur{background-color: #2185cf;color: #fff;}
+
+.secondSearch.fr{padding-bottom:0;padding-top:15px;}
+
+/* 找咨询-问组织、首页-组织列表共用*/
+.zuzhiList{width: 1230px;margin:0 auto;padding-top: 60px;}
+/*.zuzhiList .zuzhiList_ul{min-height: 900px;}*/
+
+.zuzhiList .zuzhiList_ul .list_li{float: left;margin: 0 15px;margin-bottom: 30px;position: relative;}
+.zuzhiList .zuzhiList_ul .list_li a .listBox{padding: 20px;width: 340px;height: 80px;}
+.zuzhiList .zuzhiList_ul .list_li a .listBox .leftBox{width: 80px;height: 80px;line-height: 80px;text-align: center;font-size: 0; background: #f0f0f0; overflow: hidden;}
+.zuzhiList .zuzhiList_ul .list_li a .listBox .leftBox img{max-width: 100%; max-height: 100%; display: inline; vertical-align: middle;}
+
+.zuzhiList .zuzhiList_ul .list_li a .listBox .rightTxt{padding-left: 100px;margin-left: 0;width: auto;}
+.zuzhiList .zuzhiList_ul .list_li a .listBox .rightTxt .scoreBox{line-height: 14px;height: 14px;margin: 14px 0;padding: 0;}
+.zuzhiList .zuzhiList_ul .list_li a .listBox .rightTxt .scoreBox ol li{ float: left;margin-right: 3px;width: 12px;height: 12px;background: url(../../img/starNo.png) no-repeat;}
+.zuzhiList .zuzhiList_ul .list_li a .listBox .rightTxt .scoreBox ol li span{width: 12px; height: 12px;display: block;background: url(../../img/starYes.png) no-repeat;}
+.zuzhiList .zuzhiList_ul .list_li a .listBox .rightTxt .scoreBox .fenshu{margin-left: 15px;}
+.zuzhiList .zuzhiList_ul .list_li a .listBox .rightTxt .scoreBox .yiping{float: right;}
+
+.zuzhiList button.tiwenBtn{width:70px;line-height:20px;border-radius:4px;text-align:center;cursor:pointer;font-size: 12px;line-height: 18px;position: absolute;left:120px;bottom:20px;}
+
+
+/*富文本框样式冲突-重设*/
+#editor{
+    font-size: 16px;
+}
+#editor h1{
+    font-size: 2em;
+}
+#editor h2{
+    font-size: 1.5em;
+}
+#editor h3{
+    font-size: 1.17em;
+}
+/*h4是正常大小，不用重设*/
+/*#editor h4{*/
+    /*font-size: 1em;*/
+/*}*/
+#editor h5{
+    font-size: 0.83em;
+}
+#editor h6{
+    font-size: 0.67em;;
+}
+#editor span{
+    float: none;
+}
+
+#editor b{
+    font-weight: bold;
+}
+#editor i{
+    font-style: italic;
+}
+#editor a{
+    color: -webkit-link;
+    cursor: auto;
+    text-decoration: underline;
+}/*富文本框样式冲突-重设*/

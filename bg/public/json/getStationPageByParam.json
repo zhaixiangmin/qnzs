@@ -1,0 +1,26 @@
+{
+  "status": "OK",
+  "rows": [
+    {
+      "address": "广州市增城区荔城街前进路31号",
+      "capacity": 3,
+      "concernNum": 0,
+      "distance": 0,
+      "evaluationNum": 0,
+      "fullName": "广州市增城区青少年宫-都放假了撒都放假了开始打积分卡时间的浪费精神独立空间发顺丰的",
+      "imageUrl": "https://wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/qnzs/station/034.jpg",
+      "isConcerned": false,
+      "serviceContent": "青年交友、青年文化（交谊舞、形体等舞蹈培训）、少年兴趣培训、少先队活动阵地等类型的服务。",
+      "serviceGroup": "6—28岁青少年",
+      "serviceTime": "周一至周日：上午8:30至12:00，下午14:30至17:30。周五、六晚上8:00至10:00",
+      "shortName": "广州市增城区青少年宫",
+      "staCategoriesList": [ ],
+      "staId": 158,
+      "staLabelsList": [ ],
+      "star": 0,
+      "telephone": "",
+      "totalscore": 0
+    }
+  ],
+  "total": 451
+}

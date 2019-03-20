@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>广东青年之声后台理</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8"> 
+      <link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+      <link href="../../public/css/common/style.css" rel="stylesheet" />
+      <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+      <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" /> 
+      <link rel="stylesheet" type="text/css" href="../../public/css/common/check.css"/>
+      
+      <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css"/>
+
+
+</head>
+
+<body>
+
+<div class="col-sm-12">
+
+ <!--数据过滤strat-->
+ <div class="datafilter">
+      <div class="search">
+          <form id="" method="post"> 
+                <div class="form-group sz_height">
+                      <label class="col-sm-1">昵称</label>
+                      <div class="col-sm-2">
+                         <input type="text" class="form-control" id="expertName">
+                      </div>
+                      <label class="col-sm-1">手机号</label>
+                      <div class="col-sm-2">
+                          <input type="text" class="form-control" id="moblie">
+                          
+                      </div>
+                       <label class="col-sm-1">类别</label>
+                      <div class="col-sm-2">
+                           <select class="form-control" id="expertType2">
+                           	        <option value="">请选择</option>
+                                    <option value="0">情感</option>
+                                    <option value="1">职场</option>
+                                    <option value="2">创业</option>
+                            </select>
+                      </div>
+                     
+                      <div class="col-sm-2">
+                      <button type="button" class="btn btn-warning btn-sm" id="expertSearchtBtn"><span class="glyphicon glyphicon-search"></span>查询</button> <button type="button" class="btn btn-info btn-sm" id="expertClearBtn"><span class="glyphicon glyphicon-refresh"></span>清空</button>
+                      </div>
+               </div>
+               <!--<div class="form-group sz_height">
+                      <label class="col-sm-1">类别</label>
+                      <div class="col-sm-2">
+                           <select class="form-control" id="expertType2">
+                           	        <option value="">请选择</option>
+                                    <option value="0">情感</option>
+                                    <option value="1">职场</option>
+                                    <option value="2">创业</option>
+                            </select>
+                      </div>
+                     
+                      <div class="col-sm-2">
+                      <button type="button" class="btn btn-warning btn-sm" id="expertSearchtBtn"><span class="glyphicon glyphicon-search"></span>查询</button> <button type="button" class="btn btn-info btn-sm" id="expertClearBtn"><span class="glyphicon glyphicon-refresh"></span>清空</button>
+                      </div>
+             </div>-->
+		 </form>
+       </div>
+ </div>
+ <!--数据过滤end-->
+
+ <div class="border clearfix">
+       <ul class="nav navbar-nav" id="toolbar">
+            <li onclick="expertUpdate(2)" id="expert_update"><a href="#shop"><span class="glyphicon glyphicon-pencil" data-toggle="modal" >查看/修改</span></a></li>
+      	    <!--<li onclick="expertStart(2)" id="expert_disabled"><a href="#shop"><span class="glyphicon glyphicon-play" data-toggle="modal" >启用</span></a></li>
+      	    <li onclick="expertStop(2)"><a href="#shop"><span class="glyphicon glyphicon-ban-circle" data-toggle="modal" >禁用</span></a></li>-->  	  
+  	    	<li onclick="yes_pass(2)" id="expert_disabled"><a href="javascript:;"><span class="glyphicon glyphicon-ok-sign" data-toggle="modal" >审核通过</span></a></li>
+  	    	<li onclick="no_pass(2)"  id="showAndhide"><a href="javascript:;"><span class="glyphicon glyphicon-remove-sign" data-toggle="modal" >审核不通过</span></a></li>
+  	        <!--<li onclick="expertUpdate(1)" id="look_expert"><a href="#shop"><span class="glyphicon glyphicon-pencil" data-toggle="modal" >查看</span></a></li>-->
+      	   
+       </ul>
+      
+  </div>
+     
+    
+<!--列表展示start-->
+<table id="expert" style="width:200px;height:300px">
+
+
+ 
+</table>  
+
+
+   
+<!--列表展示end-->   
+ </div>
+<!-- 修改框（Modal） -->
+<div class="modal fade" id="user-modify1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width: 1200px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					修改
+				</h4>
+			</div>
+			<div class="modal-body " ><!--s-height-->
+				<form method="get" class="form-horizontal">
+                   
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>真实姓名</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="realName">
+                        </div>
+                     </div>
+                     
+                     <!--<div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>真实姓名</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="realName">
+                        </div>
+                     </div>-->
+                    
+                     <!--<div class="form-group">
+                        <label class="col-sm-2 control-label">所属机构</label>
+                        <div class="col-sm-7">
+                            <select class="input-sm form-control input-s-sm inline" id="areaType">
+                                  <option value="0">广州</option>
+                                  <option value="1">深圳</option>
+                                  <option value="2">珠海</option>
+                            </select>
+                        </div>
+                    </div>-->
+                    
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>专业类别</label>
+                        <div class="col-sm-7">
+                            <select class="input-sm form-control input-s-sm inline" id="majorType">
+                                
+                            </select>
+                        </div>
+                    </div>
+   
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>职业</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="accountExpert">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>专业特长</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="speciality">
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>手机号</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="upd_moblie" class="moblie" disabled>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>个人介绍</label>
+                        <div class="col-sm-7">
+                            <textarea rows="3" cols="90"  id="introduction"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"><span id="checkRedFly">*</span>职业（专业）技术证明</label>
+                        <div class="col-sm-7">
+                            <!--<img  id="upd_img" src="" style="max-width: 1000px; max-height: 500px;"  />-->
+                            <img id="preview" style="max-width: 1000px; max-height: 500px;"  border="0" title="" src="../../public/images/20170420.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                        <!--<input type="text" class="form-control allInputWidth" placeholder="上传图片" style="margin-top:2px; width: 300px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+	                        <div class="btn upload">建议尺寸(1900px*380px)<input type="file" name="image_file" id="image_file" class="upload_pic allInputWidth" onChange="fileSelected('preview','image_file');" /></div>
+	                        
+                            
+                            
+                        </div>
+                    </div>
+                </form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消
+				</button>
+				<button type="button" class="btn btn-primary" id="expUpdateBtn">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 修改框（Modal）end -->
+
+<!-- 启用框（Modal） -->
+<div class="modal fade" id="user-start1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					启用
+				</h4>
+			</div>
+			<div class="modal-body">
+		    您确认要启动该项目?
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="expertStartBtn">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 启用框（Modal）end -->
+
+<!-- 禁用框（Modal） -->
+<div class="modal fade" id="user-end1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					禁用
+				</h4>
+			</div>
+			<div class="modal-body">
+			你确定要禁吗？
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="expertStoptBtn">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 禁用框（Modal）end -->
+
+
+<!---- 审核通过 ---->
+<div class="modal fade" id="yes_pass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					审核通过
+				</h4>
+			</div>
+			<div class="modal-body">
+			你确定要审核通过吗？
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="yes_pass_btn">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 审核通过（Modal）end -->
+
+
+<!---- 审核不通过 ---->
+<div class="modal fade" id="no_pass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					审核不过
+				</h4>
+			</div>
+			<div class="modal-body">
+			你确定要审核不通过吗？
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" id="no_pass_btn">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 审核不通过（Modal）end -->
+
+
+<script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+
+<script type="text/javascript" src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script> 
+<script type="text/javascript" src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js" ></script>
+<script src="../../public/js/module/Utils.js"></script> 
+
+<!--弹出框-->
+<script src="../../public/custom/dialog.js"></script>
+<script src="../../public/js/module/Qnzs.js"></script>
+<script src="../../public/js/ajax/ajax2.js"></script>
+
+<script src="../../public/js/expert/expert.js"></script>
+<!--图片上传插件--->
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+
+</body>
+</html>
+
+
+    
+    
+    
+    
+    
+    

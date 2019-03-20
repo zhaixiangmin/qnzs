@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公告详情页</title>
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link href="../../public/vendor/bootstrap/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../public/css/notice/notice_base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/notice/notice_detail.css" />
+    
+    <script src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/notice/notice_detail.js"></script>
+</head>
+
+<style>
+	.th_label{margin: 200px;}
+</style>
+<body class="gray-bg">
+    <div class="turnover"><a class="btn fl" id="backPage" href="../index/welcome.html">返回</a></div>
+    <div class="header">
+        <h1 class="h1" id="title">广东青年之声V5.0用户操作指引</h1>
+        <div class="s clearfix">
+            <span class="ss" id="createTime">发布时间：2017-08-30 16:30</span>
+            <span class="ss" id="createOrg">发布者：广东共青团</span>
+            <span class="ss" id="type">公告类型：操作指引</span>
+        </div>
+    </div>
+    <!-- 正文文段 -->
+    <div class="article" id="content"></div>
+    <!-- 翻篇 -->
+    <div class="turnover clearfix">
+        <div class="fujian" id="fileUrl"></div>
+        <div class="turn clearfix">
+            <span class="btn fl" id="prev">上一篇</span>
+            <span class="btn fr" id="next">下一篇</span>
+        </div>
+    </div>
+ 
+</body>
+
+</html>

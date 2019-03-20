@@ -1,0 +1,17 @@
+.secondSearch.fr{padding-bottom:0;padding-top:15px;}
+
+/* 类型选项 */ 
+.listBox .listDiv{padding-left:50px;}
+
+/* 找咨询-问组织、首页-组织列表共用 嗷嗷啊*/
+.zuzhiList{width: 1230px;margin:0 auto;padding-top: 60px;}
+.zuzhiList .zuzhiList_ul .list_li{float: left;margin: 0 15px;margin-bottom: 30px;position: relative;}
+.zuzhiList .zuzhiList_ul .list_li .listBox{padding: 20px;width: 340px;height: 80px;}
+.zuzhiList .zuzhiList_ul .list_li .listBox .leftBox{width: 80px;height: 80px;overflow: hidden;}
+.zuzhiList .zuzhiList_ul .list_li .listBox .leftBox img{width:100%;}
+.zuzhiList .zuzhiList_ul .list_li .listBox .rightTxt{padding-left: 100px;margin-left: 0;width: auto;}
+.zuzhiList .zuzhiList_ul .list_li .listBox .rightTxt p{margin:14px 0;line-height: 12px;}
+.zuzhiList button.tiwenBtn{width:70px;line-height:20px;border-radius:4px;text-align:center;cursor:pointer;font-size: 12px;line-height: 18px;position: absolute;left:120px;bottom:20px;}
+.wzz_pageNumBox{height: 86px;}
+.wzz_pageNumBox .pageNumCon{top:0;}
+

@@ -1,0 +1,135 @@
+
+.zhaobangzhu{padding-top: 45px;}
+.zhaobangzhu .rightHost .askForHelpBtn{width: 360px;height: 60px;background-color: #fb9c37;border-radius: 4px;text-align: center;line-height: 36px;cursor: pointer;margin-top: 15px;}
+.zhaobangzhu .rightHost .askForHelpBtn span{padding-left: 36px;background: url(../../img/askForHeloIcon.png) no-repeat left center;}
+.zhaobangzhu .rightHost .askForHelpBtn.helpOthers{margin-top: 15px;background-color: #2891df;}
+.zhaobangzhu .rightHost .askForHelpBtn.helpOthers span{background-image: url(../../img/helpOthers.png);}
+
+.secondSearch{padding-top:15px;}
+
+/* 求助板块 */
+.askForHelp{padding-bottom: 40px;}
+.askForHelp .pageBox.resolved{display: none;}
+.askForHelp .list>a{padding: 0 20px;}
+.askForHelp .list>a .itemCon{padding: 20px 0;}
+.askForHelp .list>a:last-child .itemCon{border-bottom: none;}
+.askForHelp .list>a .itemCon .imgDiv{width: 210px;height: 140px;text-align: center; font-size: 0; background: #f0f0f0;overflow: hidden;}
+.askForHelp .list>a .itemCon .imgDiv img{max-width: 100%; max-height: 100%; display: inline; vertical-align: middle;}
+.askForHelp .list>a .itemCon .rightTxt{padding-left: 230px;}
+.askForHelp .list>a .itemCon .rightTxt .top{line-height: 20px;height: 20px;margin-bottom: 14px;}
+.askForHelp .list>a .itemCon .rightTxt .top span,
+/*.edit .audit_status{background:#ff8400 url(../pcImages/qzzIcon.png) right center no-repeat;width: 70px;height: 20px;text-align: center;line-height:20px;}*/
+.edit .audit_status{background:#ff8400 url(../../img/qzzIcon.png) right center no-repeat;width: 70px;height: 20px;text-align: center;line-height:20px;}
+.askForHelp .list>a .itemCon .rightTxt .top h3{padding-left: 10px;}
+.askForHelp .list>a .itemCon .rightTxt .longTxt{line-height: 22px;height:44px;overflow: hidden;}
+.askForHelp .list>a .itemCon .rightTxt .middle{line-height: 12px;padding: 17px 0;}
+.askForHelp .list>a .itemCon .rightTxt .middle .left{padding-right: 14px;}
+.askForHelp .list>a .itemCon .rightTxt .middle .right{padding-left: 14px;}
+.askForHelp .list>a .itemCon .rightTxt .bottom{padding: 2px 0;line-height: 12px;}
+.askForHelp .list>a .itemCon .rightTxt .bottom .span01{background: url(../../img/eye.png) left center no-repeat;padding-left: 24px;margin-right: 15px;}
+.askForHelp .list>a .itemCon .rightTxt .bottom .span02{background: url(../../img/pinglunIcon.png) left center no-repeat;padding-left: 16px;margin-right: 15px;}
+.askForHelp .list>a .itemCon .rightTxt .bottom button{padding:0 8px;line-height: 20px;border-radius:4px;}
+.askForHelp .rightHost .itemBox{margin-bottom: 25px;min-height: 726px;}
+.askForHelp .rightHost .itemBox ul li .rightTxt .titBox .tit{padding: 0;}
+.askForHelp .rightHost .itemBox ul li .rightTxt .botBox a{background-color: transparent;padding: 0;}
+.askForHelp .rightHost .botLink a{display: block;width: 118px;height: 166px;float: left;background: url(../../img/izhiyuan.png) center center no-repeat;}
+.askForHelp .rightHost .botLink a.a02{background-image: url(../../img/jiuyeshixi.png);}
+.askForHelp .rightHost .botLink a.a03{background-image: url(../../img/hunlianjiaoyou.png);}
+/* 求助板块 end */
+.pageBox .notContent .error_wrap{padding-top:60px;font-size:14px;background:url(../../img/jiong.png) no-repeat center top;}
+
+
+/*!*地址导航 弹出框*!*/
+/*.popup {*/
+    /*width: 900px;*/
+    /*position: fixed;*/
+    /*z-index: 9999;*/
+    /*left: 85px;*/
+    /*top: 96px;*/
+    /*!*display: none;*!*/
+    /*background: #f0f7fc url(../../img/popup.png) no-repeat right 53px;*/
+    /*border: 1px solid #b8d7ed;*/
+    /*cursor: pointer;*/
+/*}*/
+
+/*.popup .triangle-up {*/
+    /*width: 0;*/
+    /*height: 0;*/
+    /*border-left: 4px solid transparent;*/
+    /*border-right: 4px solid transparent;*/
+    /*border-bottom: 4px solid #b8d7ed;*/
+    /*position: absolute;*/
+    /*left: 95px;*/
+    /*top: -5px;*/
+/*}*/
+/*.popup dl {*/
+    /*padding: 20px 48px 20px;*/
+/*}*/
+/*.popup dl dt {*/
+    /*font-size: 16px;*/
+    /*color: #007aa3;*/
+    /*line-height: 38px;*/
+    /*border-bottom: 1px solid #b8d7ed;*/
+    /*width: 80px;*/
+    /*text-align: center;*/
+/*}*/
+/*.popup dl dd {*/
+    /*padding-top: 15px;*/
+    /*width: 750px;*/
+/*}*/
+
+/*.popup .orgslistorder_btn {*/
+    /*position: relative;*/
+    /*display: inline-block;*/
+    /*margin-left: 335px;*/
+    /*margin-top: 35px;*/
+    /*line-height: 30px;*/
+/*}*/
+/*.popup .orgslistorder_btn .orgslistorder_button {*/
+    /*width: 200px;*/
+    /*height: 32px;*/
+    /*margin-top: 0;*/
+    /*border-radius: 2px;*/
+    /*border: 1px solid rgb(238, 238, 238);*/
+    /*-moz-border-radius: 2px;*/
+    /*background-color: white;*/
+    /*cursor: pointer;*/
+    /*color: #999;*/
+    /*padding-left: 25px;*/
+/*}*/
+/*.popup .orgslistorder_btn .orgslistorder_Iconsearch {*/
+    /*background-image: url(../../img/iconfont-sousuo.png);*/
+    /*background-repeat: no-repeat;*/
+    /*width: 10px;*/
+    /*height: 10px;*/
+    /*position: absolute;*/
+    /*top: 12px;*/
+    /*left: 10px;*/
+/*}*/
+/*.popup .orgslistorder_btn .orgslistorder_searchbtn {*/
+    /*cursor: pointer;*/
+    /*position: absolute;*/
+    /*right: -56px;*/
+    /*top: 0;*/
+    /*width: 55px;*/
+    /*height: 30px;*/
+    /*background-color: #1070b6;*/
+    /*color: white;*/
+    /*border: 1px solid #1070b6;*/
+    /*border-radius: 2px;*/
+    /*-moz-border-radius: 2px;*/
+    /*line-height: 30px;*/
+/*}*/
+/*.popup .citylist a{*/
+    /*display: inline-block;*/
+    /*margin-right: 24px;*/
+    /*line-height: 30px;*/
+    /*width: 122px;*/
+    /*white-space: nowrap;*/
+    /*text-overflow: ellipsis;*/
+    /*overflow: hidden;*/
+    /*color: #333;*/
+/*}*/
+/*.popup .citylist a:hover {*/
+    /*color: #00a1d8;*/
+/*}*/

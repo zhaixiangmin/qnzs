@@ -1,0 +1,71 @@
+
+
+.main .public{margin-bottom: 10px;}
+.main h3{height: 41px;text-align: left;color:#333;line-height: 41px;position: relative;font-size: 14px;}
+/* .main div{height: 41px;text-align: left;color:#333;line-height: 41px;position: relative;font-size: 14px;} */
+.main h3 input{position: absolute;left: -24px;top:50%;width:12px;height: 12px;margin-top: -6px;}
+/* .main div.h3 input.cb{position: absolute;left: -24px;top:50%;width:12px;height: 12px;margin-top: -6px;} */
+.main .content ul li em.add{position: absolute;right: 382px;top:50%;margin-top: -11px;width: 22px;height: 22px;cursor: pointer;display: none;font-size: 22px;line-height: 22px;text-align: center;color: #ccc;}
+.main .require .content ul li em.add,
+.main .project .content ul li em.add{right: 572px;}
+.main .prize .content ul li em.add{right: 466px;}
+.main .rule .content ul li em.add{right: 572px;}
+.main .content ul li em.add:hover{color: #323232;}
+.main .content ul li.cur em.add{display: block;}
+.main .content{/* border: 1px solid #ccc; */width:100%;/* padding: 11px 0 12px 14px; */}
+.main .content p{line-height: 19px;color: #ccc;padding-left:18px;}
+
+.public02 .content{display: none;}
+.public02.cur .content{display: block;padding-top: 10px;}
+.public02 .content div *{float: left;line-height: 33px;color: #ccc;}
+.public02 .content ul li{line-height: 35px;position: relative;}
+.public02 .content ul li .delete{position: absolute;width:22px;height: 22px;font-size: 22px;right:410px;top: 50%;margin-top: -11px;display: block;cursor: pointer;line-height: 22px;text-align: center;color: #ccc;}
+.main .require .content ul li .delete,
+.main .project .content ul li .delete{right: 600px;}
+.main .prize .content ul li .delete{right: 494px;}
+.main .rule .content ul li .delete{right: 600px;}
+.public02 .content ul li:hover .delete{display: block;}
+.public02 .content ul li .delete:hover{color: #323232;}
+.public02 .content ul li i{width: 60px;text-align: left;color: #414141;}
+.public02 .content div span{width: 180px;text-align:center;}
+.public02 .content ul{padding:8px 0;}
+.public02 .content ul li{margin-bottom: 8px;}
+.public02 .content ul li:last-child{margin-bottom: 0;}
+.public02 .content ul li .combo{height:33px !important;border:1px solid #ccc;width:100px !important;position:relative;margin-right:10px;}
+.public02 .content ul li .combo input{height:33px !important;width:100px !important;}
+.public02 .content ul li .combo>span{position:absolute;right:0;}
+.public02 .content ul li .combo>span>span{height:33px !important;}
+.public02 .content ul li *{float: left;}
+.public02 .content ul li input{width:80px;border: 1px solid #ccc;height: 33px;color: #7e7e7e;padding-left: 4px;color: #333;}
+.public02 .content ul li .start{margin-right: 24px;}
+.public02 .content ul li .end{margin-right: 24px;}
+.public02 .content ul li .con{width: 298px;}
+.public ul li input{font-size: 12px;}
+
+@media \0screen\,screen\9{.public02 .content ul li input{padding-top: 6px;height: 27px;}}
+
+.wrap-placeholder{width:1000px\9 !important;padding-top:10px\9 !important;}
+
+.public textarea{line-height: 19px;overflow-y: hidden;}
+.public .content_bd{ border: 1px solid #ccc;font-size: 12px;color: #666;padding: 8px;}
+.public03 .content textarea{width:98%;border:1px solid #ccc;display: none;font-size: 12px;}
+.public03.cur .content textarea{display: block;}
+.public03 .content input{width:8%;border:1px solid #ccc;display: none; height: 30px;margin-top: 2px;font-size: 12px;padding: 5px;}
+.public03.cur .content input{display: block;}
+.public03 .content select{width:40%;border:1px solid #ccc;display: none; height: 30px;margin-top: 2px;font-size: 12px;padding: 5px;}
+.public03.cur .content select{display: block;}
+.public03 .content .newslist{display: none; padding:10px 20px;}
+.public03.cur .content .newslist{display: block;}
+.public03.cur .content .newslist .checknews{display:inline;width:13px;height:13px;}
+
+/* å¥–åŠ±è®¾ç½® */
+.prize_kind{width:100px;margin-right: 35px;}
+/*è§„åˆ™è®¾ç½®*/
+.weight{width:100px;margin-right: 35px;}
+
+.down{position: relative;}
+
+/* ä¼ªç±»ä¿®æ”¹placeholder */
+::-moz-placeholder{font-size: 12px;}
+::-webkit-placeholder{font-size: 12px;}
+

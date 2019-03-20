@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>青年之家-首页</title>
+    <meta http-equiv= "X-UA-Compatible" content = "IE=edge,chrome=1"/>
+     <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <!--分页插件css-->
+    <link rel="stylesheet" type="text/css" href="../../public/custom/page.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/young_family/young_family.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+    <link rel="stylesheet" type="text/css" href="../../public/css/young_family/yuyuefuwu_tanchuang.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+    
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/vendor/super_slide/jquery.SuperSlide.2.1.1.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <!--引入公共头部、尾部-->
+    <script src="../../public/custom/common.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+    <script src="../../public/js/module/YoungFamilyApi.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <!--分页插件 js-->
+    <script type="text/javascript" src="../../public/custom/page.js"></script>
+    <script type="text/javascript" src="../../public/js/young_family/young_family.js"></script>
+    <!---- 一号通接入  ---->
+   
+     <script>
+		var dynamicLoading = {
+		    js: function(path){
+				if(!path || path.length === 0){
+					throw new Error('argument "path" is required !');
+				}
+				var head = document.getElementsByTagName('head')[0];
+		        var script = document.createElement('script');
+		        script.src = path+"/browser/0110/crossdomain.js";
+		        script.type = 'text/javascript';
+		        head.appendChild(script);
+		    }
+		}
+		
+		dynamicLoading.js(bigDataUrl);
+	
+	</script>
+</head>
+<body class="bodyPt96">
+<!--commonjs已引入头部、尾部-->
+
+    <!-- banner -->
+    <div class="banBox" style="width:100%;">
+         <div class="hd">
+            <ul></ul>
+        </div>
+        <div class="bd" id="head-banner">
+            <ul>
+            </ul>
+        </div>
+        <a class="prev change" href="javascript:void(0)">&lt;</a>
+        <a class="next change" href="javascript:void(0)">&gt;</a>
+    </div>
+    <!-- 分标题列表 -->
+    <div class="subTitleBox bgcWhite">
+        <div class="content">
+            <ul class="clearfix typeTitle_ul">
+                
+            </ul>
+        </div>
+    </div>
+    <!-- 人气服务站点列表 -->
+    <div class="answered ask_and_answer">
+        <div class="pageBox content w1200">
+            <div class="clearfix" style="padding:17px 0;">
+                <h3 class="font16 color2185cf fl" style="cursor:inherit;">人气服务站点</h3>
+                <div class="secondSearch fr">
+                    <img src="../../public/img/secSeaIcon.png" class="fl seaIcon">
+                    <input id="sb_huodong" type="text" value="" placeholder="请输入关键字！" class="font14 fl">
+                    <a href="javascript:;" class="font14 colorfff conBgc01 fl disB" id="search_family">搜索</a>
+                </div>
+            </div>
+            <div id="pageContent">
+                <div class="list clearfix siteList">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 下面的地图 -->
+    <div class="xianxiafuwu">
+        <div class="w1200">
+            <div class="map">
+                <!--<a href="//www.12355.net/applicationMap" class="colorfff">查看更多服务站点</a>-->
+                <a href="station_map.html" class="colorfff">查看更多服务站点</a>
+                <img src="../../public/img/botMap.png" />
+            </div>
+        </div>
+    </div>
+
+     <!-- 预约服务弹窗 -->
+    <div class="bg_black">
+        <div class="list_tanchuang bgcWhite">
+            <div class=" conBgc01 clearfix service_t">
+                <span class="font14 fl colorfff">线下预约</span>
+                <span class="delete fr"></span>
+            </div>
+            <div class="service_b">
+                <div class="bgcWhite service_box_b">
+                    <div class="title clearfix publicBox">
+                        <span class="font14 color000 fl leftTitle">问题标题</span>
+                        <input type="text" class="font12 color000 fl title_r rightWrite questionTitle" id="title_register" placeholder="请输入标题" />
+                    </div>
+                    <div class="leibie clearfix publicBox">
+                        <span class="font14 color000 fl leftTitle">服务类别</span>
+                        <select name="" id="serviceType" class="rightWrite select">
+                        </select>
+                    </div>
+                    <div class="publicBox clearfix">
+                        <span class="leftTitle fl font14 color000">服务站点</span>
+                        <p class="fl font14 color000" style="line-height:36px;height:36px;" id="fullName"></p>
+                    </div>
+                    <div class="clearfix miaoshu publicBox">
+                        <span class="font14 color000 fl miaoshu_l leftTitle">服务描述</span>
+                        <textarea name="" id="description_register" class="color000 fl rightWrite serviceDescribe" placeholder="我需要组织帮我解决XXX问题"></textarea>
+                    </div>
+                    <div class="serviceTime clearfix publicBox">
+                        <span class="font14 color000 fl leftTitle">服务时间</span>
+                        <select name="" id="serviceDate" class="rightWrite fl select" style="margin-right:20px;width: 184px;background-position-x: 160px">
+                        </select>
+                        <select name="" id="serviceClock" class="rightWrite fl select">
+                        </select>
+                    </div>
+                </div>
+                <div class="serviceBottomBtns">
+                    <div class="btnsBox">
+                        <input type="button" class="fl btn apply" id="submitApply" value="申请" />
+                        <input type="button" class="fl btn cancel" value="取消" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

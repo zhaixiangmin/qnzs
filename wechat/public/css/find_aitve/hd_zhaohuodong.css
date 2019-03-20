@@ -1,0 +1,27 @@
+.bodyPB { padding-bottom: 2.24rem; }
+/**********************************************************找活动—首页banner ******************************************************************************/
+section.searchBox { background-color: #e4e4e4; padding: 0.3rem 0.6rem; }
+section.searchBox input { width: 78%; }
+/* section.searchBox a{ width:20%; line-height: 1rem; text-align: center; border-radius: 0.1rem; background-color: #2185cf; } */
+.zhaohd_banner { width: 100%; }
+.zhaohd_banner img { width: 100%; }
+/**********************************************************小导航 ******************************************************************************/
+.zhaohd_nav { width: 100%; height: 1.6rem; background: #fff; padding: 0.3rem 0; border-bottom: 1px solid #e2e2e2; }
+.zhaohd_nav_box { width: 100%; height: 1.6rem; }
+.zhaohd_nav_box .nav_l { width: 50%; height: 1.6rem; border-right: 1px solid #e2e2e2; box-sizing: border-box; }
+.zhaohd_nav_box .nav_r { width: 50%; height: 1.6rem; }
+.zhaohd_nav_box .nav_r div { width: 3.64rem !important; }
+.nav_box_in { width: 4.24rem; height: 1.4rem; background: #fff; margin: 0.1rem auto; }
+.zhaohd_nav_box img { width: 1.4rem; display: inline-block; }
+.nav_word { line-height: 1.4rem; font-size: 0.6rem; }
+
+/* ********************************人气主办方——内容板块 **********************************************************************************/
+.zhaohd_box_r{padding-left:4.4rem;}
+.zhaohd_box_r .box_r_title{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+
+.hot_sponsor_list .guanzhu { font-size: 0.48rem; }
+.hot_sponsor_list .pinglun { line-height: 1rem; }
+
+section.searchBox input {width: 78%;}
+
+

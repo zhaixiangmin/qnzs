@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no;">
+    <title>重磅项目_项目简介</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project_introduction.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project_vote.css" />
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/heavy_project/heavy_project_index.js"></script>
+    <script type="text/javascript" src="../../public/js/common/ajax2.js"></script>
+    <script>
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <style type="text/css">
+    	/***** 评论区样式0****/
+    	section.comment {
+		    margin-top: 0.4rem;
+		    border-top: 1px solid #e2e2e2;
+		}
+		.bgcWhite {
+		    background-color: #fff;
+		}
+		  section.comment .content .item .handleBox .delete {
+		    font-size: 0.48rem;
+		    color: #999;
+		    padding-left: 0.6rem;
+		    background: url(../../images/detail_07.png) no-repeat left center;
+		    background-size: 0.5rem;
+		}
+		.delect{
+			
+			float: right;
+		}
+		.delect a {
+			
+			color: #999;
+		}
+		
+		
+		.fr {
+		    float: right;
+		}  	
+    	section.comment .title {
+		    border-bottom: 1px solid #e8e8e8;
+		}
+		
+		section.comment .title h6 {
+		    font-size: 0.6rem;
+		    padding-left: 1.2rem;
+		    background: url(../../images/findact/commentIcon.png) no-repeat left center;
+		    background-size: 0.64rem;
+		}
+	    section.comment .content .item .right .tit .name {
+    color: #2185cf;
+}
+section.comment .content .item .right .tit h6 {
+    font-size: 0.48rem;
+}
+		.fl {
+		    float: left;
+		}
+		h1, h2, h3, h4, h5, h6 {
+		    font-weight: normal;
+		}
+		section.comment .title a {
+		    color: #2185cf;
+		    font-size: 0.6rem;
+		}
+
+		.fr {
+		    float: right;
+		}
+		
+		a {
+		    color: #000;
+		    text-decoration: none;
+		}
+		/******* 评论列表样式 ******/
+		section.comment .content .item .left .imgDiv, .human .imgbox {
+		    width: 2rem;
+		    height: 2rem;
+		    border-radius: 50%;
+		    overflow: hidden;
+		}
+		section.comment .content .item .left .imgDiv img, .human .imgbox img {
+		    width: 100%;
+		}
+		section.comment .content .item .right {
+			    padding-left: 2.48rem;
+			    padding-top: 0.28rem;
+			    padding-bottom: 0.54rem;
+	   }
+		.show_box {
+		    padding: 0.2rem 0 0.6rem 2rem;
+		    position: relative;
+		}
+		.clearfix {
+		    zoom: 1;
+		}
+		fr {
+    float: right;
+}
+		.color999 {
+    color: #999;
+}            
+ section.comment .content .item .right .tit {
+    font-size: 0.48rem;
+    line-height: 1.04rem;
+    height: 1.04rem;
+}
+
+  div.edit {
+    margin: 0.2rem 0 0.4rem;
+    height: 0.5rem;
+    font-size: 0.48rem;
+}    
+
+  section.comment .content .item .right p {
+    line-height: 0.68rem;
+    font-size: 0.48rem;
+}
+.color000 {
+    color: #000;
+}
+
+div.edit {
+    margin: 0.2rem 0 0.4rem;
+    height: 0.5rem;
+    font-size: 0.48rem;
+}
+div.edit span.supper, div.edit span.comment, div.edit span.browse, div.edit span.delect {
+    padding: 0.1rem;
+    padding-left: 0.7rem;
+    background-position: 3px center;
+}
+div.edit span.comment {
+    background-image: url(../images/detail_12.png);
+    background-size: 0.48rem;
+}
+div.edit span {
+    cursor: pointer;
+    margin-right: 15px;
+    color: #333;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-left: 18px;
+    background-position: left center;
+}
+
+
+div.edit span.delect:hover {
+    background-image: url(../images/detail_07.png);
+}
+div.edit span.supper, div.edit span.comment, div.edit span.browse, div.edit span.delect {
+    padding: 0.1rem;
+    padding-left: 0.7rem;
+    background-position: 3px center;
+}
+div.edit span.delect {
+    background-image: url(../images/detail_07.png);
+}
+
+a:hover {
+    text-decoration: none;
+    color: #00a1d8;
+}
+    </style>
+</head>
+<body class="bodyPB">
+	 <!--- banner图  ---->
+    <div class="head-banner">
+    	<div class="img">
+    		<img id="img" src="../../public/img/banner-mrwb-index.png">
+    	</div>
+        <div class="searchBox clearfix">
+        	 
+			<input id="key" class="fl fz26" placeholder="搜索活动" type="text">
+			 <!--<a href="javascript:;" class="fr disB fz26 colorfff">搜索</a>--> 
+			<div class="searchBox-rig">
+			 	
+			 	<a id="search" href="javascript:;">搜索</a>
+			 	<a href="javascript:;" style="display: none;">活动简介</a>
+			 	<a href="javascript:;" style="display: none;">公示评议</a>
+			</div>
+       </div>
+    </div>
+    
+    <!-- 内容区-->
+    <section class="bgcWhite jianjie_box" id="jianjie_box">
+        <div>
+            <div class="box_t">
+                <img src="../../public/img/hd_1.png" alt="" style="width: 497px;height: ;" />
+            </div>
+            <p class="fz24 color666">书籍品种多样</p>
+        </div>
+        <div>
+            <div class="box_t">
+                <img src="../../public/img/hd_2.png" alt="" />
+            </div>
+            <p class="fz24 color666">书籍品种多样</p>
+        </div>
+        <div>
+            <div class="box_t">
+                <iframe height=100% width=100% src="//player.youku.com/embed/XMTY2MTI4MTg1Ng==" frameborder=0 allowfullscreen></iframe>  
+            </div>
+            <p class="fz24 color666">传递书香之气</p>
+        </div>
+        <p class="jianjie_word color333 fz24"><span id="projec-introduction">
+            “青年地带”是共青团参与社会治理创新的品牌项目，是共青团服务青少年的专属阵地，由广州市和海珠区两级财政共同出资，委托共青团海珠区委员会进行监管，通过“政府购买公共服务”的方式，由专业的社工机构承接，为海珠区6-30岁的青少年及其家庭提供无偿服务，充分发挥共青团组织、引导、服务青少年和维护青少年合法权益的职能。“青年地带”是共青团参与社会治理创新的品牌项目，是共青团服务青少年的专属阵地，由广州市和海珠区两级财政共同出资。
+             </span>
+        </p>
+        
+    </section>
+    <!---- 评论区----->
+    <section class="comment bgcWhite">
+        <div class="title clearfix p_0_30 lineH78">
+            <h6 class="fl">评论（0）</h6>
+            <a id="sendMysay" href="sendMySay.html?projectId=351" onclick="commentProject()" class="fr">我要评论</a>
+        </div>
+       
+        <div class="content" id="comment" >
+        	<!-- 此处动态加载评论列表 -->
+        	<!--<div class="item clearfix">
+                <div class="left fl">
+                    <div class="imgDiv">
+                        <img src="//wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/qnzs/image/20160412/20160412203505_986.jpg">
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="tit">
+				        <h6 class="name fl">青年之声运营中心</h6>
+						
+                        <div class="date fr">
+                            <span class="color999">2017/07/13 22:40</span>
+                            <!-- <em class="color999">18:56</em> -->
+                        <!--</div>
+                    </div>
+                    <p class="color000">你好好啊 讹夺</p>
+                    
+                    <div class="edit fnt12">
+                      	<span class="comment showComment">评论(0)</span>
+                      	
+                      		<span class="delect"><a href="javascript:void(0);" onclick="javascript:delReply(125138)">删除</a></span>
+                      	
+                     </div>
+                </div>
+                    <div class="show_box clearfix " style="display: none;">
+                    
+                        <form action="" class="clearfix">
+                            <textarea name="" id="huifu125138" placeholder="来说两句吧！" maxlength="300"></textarea>
+                            <div class="btn_box fr">
+                                <input type="button" value="提交" class="submit_btn" onclick="huifu(14523,125138)">
+                            </div>
+                        </form>
+       				 </div>
+             </div>-->
+            <!---此处动态加载评论列表   end-->
+        </div>
+        
+    <div class="morebtn" id="moreSee" style="text-align:center; height:1rem; font-size: 0.48rem;margin: 0.2rem;"><a href="javascript:void(0)" class="color333">全部加载完啦！</a></div>
+    </section>
+    
+    <!-- 按钮 -->
+    <div class="zbxm_btn">
+        <a href="javascript:;" onclick="likesProject()" class="fz30">支持他们</a>
+    </div>
+</body>
+   <script  src="../../public/js/heavy_project/heavy_project_introduction.js"></script>
+    <!--<script>
+        	$('#sendMysay').css('href','sendMySay.html?projectId='+activityId+'');
+        	
+        </script>-->
+</html>

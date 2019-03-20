@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>重磅项目-参赛项目</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project_vote.css" />
+    <!-- swiper ---->
+    <link rel="stylesheet" href="../../public/vendor/Swiper/dist/css/swiper.min.css">
+    
+    
+    <!-- Demo styles -->
+    <style>
+    /*body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }*/
+    .swiper-container {
+        width: 100%;
+        height: 300px;
+        margin: 20px auto;
+        
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    </style>
+     <!-- swiper  end -->
+    
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+	<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+	<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/ajax/ajax2.js"></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+</head>
+<body style="padding-bottom:0;">
+	
+	<div id="listContent" style="display: none;">
+	    <!--- banner图  ---->
+	    <div class="head-banner">
+	    	<!--<div class="img">-->
+	    		<img id="img" src="">
+	    	<!--</div>-->
+	        <div class="searchBox clearfix">
+	        	 <select id="keyType" class="fl fz26" onchange="changeKeyType(this)">
+	        	 	<option value="id">编号</option>
+	        	 	<option value="name">名称</option>
+	        	 </select>
+				<input id="key" class="fl fz26" placeholder="请输入参评者编号" type="text">
+				<!--<a href="javascript:;" class="fr disB fz26 colorfff search_btn">搜索</a>-->
+				<div class="searchBox-rig">
+				 	<a id="search" href="javascript:;">搜索</a>
+				 	<a href="javascript:;" style="display: none;">活动简介</a>
+				 	<a href="javascript:;" style="display: none;">公示评议</a>
+				</div>
+	        </div>
+	    </div>
+
+
+	    <!--优秀青年/集体 -->
+	    <div class="youxiu fz28 clearfix bgcWhite">
+	        <!--<span class="fl youxiu_qn">优秀青年</span>
+	        <span class="fl">集体</span>-->
+		    <div class="swiper-container" style="width: 100%;height: 2rem; margin: 0.066666rem auto;">
+			        <div class="swiper-wrapper">
+			          
+			           
+			        </div>
+			        <!-- Add Pagination -->
+			       
+			</div>
+	    </div>
+	    <!-- 项目列表 -->
+	    <div class="XM_list clearfix" id="XM_list">
+	        <!--<div class="list_box bgcWhite">
+	            <a href="javascript:;" class="jieshao">
+	                <div class="XM_pic">
+	                    <img src="../../public/img/ask_2.png" alt="" />
+	                </div>
+	                <h3 class="fz30 color000">华工附小托管志愿活动</h3>
+	                <p>
+	                    <span class="shenbao colorfff">申报人</span>
+	                    <span class="fz24 color666">蔡亚惠</span>
+	                </p> 
+	            </a>            
+	            <a href="javascript:;" class="fz28 colorfff btn_vote bgcgrey">(<em>2665</em>/人) 点赞</a>
+	        </div>-->
+	    </div>
+	    	
+	    <!--加载更多  --->
+	    <div class="addmore"  style="width: 100%; height: 0.8rem ; text-align: center; ">
+	    	<a class="addmore-btn">
+	    		加载更多
+	    	</a>
+	    </div>
+	    	 
+	    
+	    
+	    <!-- 弹窗-点赞指引 -->
+	    <div class="bg_black"></div>
+	    <div class="guide">
+	        <div class="guide_box">
+	            <div class="bgcWhite guide_centent">
+	                <h3 class="fz28 color000">点赞指引</h3>
+	                <div class="centent">
+	                    <div class="centent_inner">
+	                        <div>
+	                            <p class="color333">1、每个微信号仅能对同一个人（集体）投一次票（可同时为多个单位和个人点赞）。</p>
+	                            <p class="color333">2、点赞时间：即刻起至4月25日24：00。</p>
+	                            <p class="color333">3、如发现候选人有弄虚作假、刷票舞弊、诬陷诽谤等行为，一经查实，取消参选资格。</p>                            
+	                        </div>                        
+	                    </div>                    
+	                </div>
+	                <a href="javascript:;" class="red bgc2185cf colorfff fz30">已阅读</a>
+	                <span></span>
+	            </div>           
+	        </div>
+	    </div>
+	
+	    <!-- 弹窗-参赛详情 -->
+	    <div class="HD_detail">
+	        <div class="detail_box">
+	            <div class="bgcWhite detail_centent">
+	                <h3  class="fz28 color000 person">项目名称</h3>
+	                <h3 class="fz24 p1"></h3>
+	                <div class="centent">
+	                    <div class="centent_inner">
+	                    	<div class="img-box-first">
+	                        </div>
+	                        <p class="p2" style="display: block; width: 100%;"></p>
+	                        <p class="p3"></p>
+	                        <div class="img-box">
+	                        </div>
+	                        <!---视频播放处 --->
+	                        <div id="iframe_box">
+	                             <iframe frameborder="0" width="100%" height="200" src="" allowfullscreen></iframe>
+	                        	
+	                        </div>
+	                      
+	                    </div>
+	                </div>
+	                <div class="btn_box clearfix">
+	                    <a href="javascript:;" id="voteBtn" class="toupiao colorfff fz30 fl" onclick="clickProjectDetail()">我要点赞</a>
+	                </div>                
+	                <span class="colse-jj"></span>
+	            </div>           
+	        </div>
+	    </div>
+	    <!-- 弹窗-报名验证-->
+	    <div class="prove">
+	        <div class="prove_box">
+	            <div class="bgcWhite prove_centent">
+	                <h3 class="fz28 color000">请完成下方验证</h3>
+	                <div class="centent">
+	                    啦啦啦啦啦
+	                </div>                               
+	                <span></span>
+	            </div>           
+	        </div>
+	    </div>
+	
+	    <!-- 弹窗-点赞成功-->
+	    <div class="success">
+	        <div class="success_box">
+	            <div class="bgcWhite success_centent">
+	                <h3 class="fz28 color000"></h3>
+	                <div class="centent">
+	                    <div>
+	                        <img src="../../public/img/BM_success.png" alt="" />
+	                    </div>
+	                    <p  class="fz30 color333">点赞成功</p>
+	                </div>                               
+	                <span></span>
+	            </div>           
+	        </div>
+	    </div>
+	    <!-- 底部菜单栏 -->
+    
+    
+    
+    
+  </div>
+  
+<!--  引导页图片//wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/temp/image/20170814/20170814212415_942opAnimate.png-->
+  <div id="guideImg"  style="display: none;">
+  	<img width="100%" src=""/>
+  </div>
+  	
+  <!-- 站长统计 -->
+<div style="display:none">
+    <script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+</div>
+</body>
+    <!--调用jsdk end-->
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/heavy_project/heavy_project_vote.js"></script>
+    
+    <!--- 轮播图插件 --->
+    <!-- Swiper JS -->
+    <script src="../../public/vendor/Swiper/dist/js/swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 30,
+        freeMode: true
+    });
+    </script>
+</html>
+  			
+									

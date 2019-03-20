@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>找活动-推荐活动</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/hd_zhoubian.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/hd_footerNav.css" />
+    <script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/find_active/activity_recommend.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <script type="text/javascript">
+        ! function(n) {
+            var e = n.document,
+                t = e.documentElement,
+                i = 750,
+                d = i / 50,
+                o = "orientationchange" in n ? "orientationchange" : "resize",
+                a = function() {
+                    var n = t.clientWidth || 320;
+                    n > 750 && (n = 750), t.style.fontSize = n / d + "px"
+                };
+            e.addEventListener && (n.addEventListener(o, a, !1), e.addEventListener("DOMContentLoaded", a, !1))
+        }(window);
+    </script>
+</head>
+
+<body class="bodyPB">
+<section class="hot_hd">
+    <section class="content"></section>
+</section>
+<div class="morebtn color333" style="display: none;">查看更多</div>
+<script type="text/javascript" src="../../public/custom/common.js"></script>
+</body>
+
+</html>

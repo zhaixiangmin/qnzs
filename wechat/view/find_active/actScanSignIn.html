@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>活动签到</title>
+      <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/actScanSignIn.css" />
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+         <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+        <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/find_active/activity_sign.js"></script>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=13hKkYUjCLhkhnRlidP7Bmor"></script>
+   
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    
+    
+   <!-- <link rel="stylesheet" type="text/css" href="../../public/css/common/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/webupload_main.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/hd_xiangqing.css" />
+    <script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+  	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/find_active/webuploader.js"></script>
+    <script type="text/javascript" src="../../public/js/find_active/upload.js"></script>
+    <script type="text/javascript" src="../../public/js/find_active/uploadPreview.js">-->
+    	
+    </script>
+   <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=13hKkYUjCLhkhnRlidP7Bmor"></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    
+</head>
+<body id="activitySign">
+	<!-- <div> -->
+	    <section class="headTxt bgcWhite mb20">
+	        <div class="item clearfix">
+	            <div class="left fl">
+	                <img src="../../public/img/liulian.png">
+	            </div>
+	            <div class="right">
+	                <h2 class="color000">中国共产主义河源职业技术学院青年之声</h2>
+	                <p class="fz24 color999 short_name">简称：河职院青年之声</p>
+	                <div class="follow_box clearfix fz24 color999">风景区</div>
+	            </div>
+	        </div>
+	    </section>
+	    
+	    <!-- 地图经纬度开始 -->
+	    <section style="display: none;">
+	    	<div id="allmap" style="width: 100%; height:5.333333rem;margin: 0.266666rem 0;"></div>
+	    </section>
+	    <!-- 地图经纬度结束 -->
+	    
+	    <!-- 报名人信息 -->
+	    <a href="javascript:;" class="person_info bgcWhite disB color333 mb20">
+	        <div class="info_in clearfix">
+	            <h1 class="title fl fz30">报名人信息</h1>
+	            <span class="fr fz30">某某(132588989)</span>
+	        </div>
+	    </a>
+	   	<!-- 确定签到 -->
+	    <div class="sure_sign_in">
+	        <a href="javascript:;" class="disB colorfff fz30 bgc2185cf sign_in_btn">确定签到</a>
+	    </div>
+    <!-- </div> --> 
+</body>
+</html>

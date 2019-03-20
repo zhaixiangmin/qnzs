@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>我的-个人资料</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <!--分页插件css-->
+    <link rel="stylesheet" type="text/css" href="../../public/custom/page.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/person_center/person_center.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <!--分页插件 js-->
+    <script type="text/javascript" src="../../public/custom/page.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+    <script type="text/javascript" src="../../public/js/module/PersonCenterApi.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FindConsultApi.js"></script>
+    <script type="text/javascript" src="../../public/js/find_consult/find_consult_myInformation.js"></script>
+    <script type="text/javascript" src="../../public/js/find_consult/find_consult_myAttention.js"></script>
+    <script type="text/javascript" src="../../public/custom/qnzsPcCommon.js"></script>
+    <script type="text/javascript" src="../../public/js/person_center/person_center.js"></script>
+    <script type="text/javascript" src="../../public/custom/common.js"></script>
+    <!---文件上传插件---->
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/upload-files-zhu/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/upload-files-zhu/webupload_main.css" />
+    <script type="text/javascript" src="../../public/vendor/upload-files-zhu/webuploader.js"></script>
+    <script type="text/javascript" src="../../public/vendor/upload-files-zhu/upload.js"></script>
+    <script type="text/javascript" src="../../public/vendor/upload-files-zhu/uploadPreview.js"></script>
+    <style type="text/css">
+        .fl {
+            float: left;
+        }
+
+        .topTalk #wrapper {
+            margin: 10px 0;
+            width: 725px;
+        }
+
+        #filePicker>div[id] {
+            width: 168px !important;
+            height: 44px !important;
+            top: 20px !important;
+            left: 50% !important;
+            margin-left: -84px;
+        }
+
+        #uploader .filelist li {
+            width: 80px;
+            height: 80px;
+            margin: 0 5px 10px 0;
+        }
+
+        #uploader .filelist li p.imgWrap {
+            width: 80px;
+            height: 80px;
+        }
+
+        #uploader .placeholder {
+            min-height: 188px;
+            padding-top: 108px;
+            background-position: center 43px;
+        }
+
+        .cererlde{display: block;border-radius: 6px;width: 110px;height: 35px;text-align: center;background-color: #2185cf;color: white;line-height: 35px;position: absolute;bottom: 10px;left: 80px;}
+
+        /******我发布的重磅项目样式 ********/
+        .imgList .zbxm_box {
+            width: 407px;
+            padding: 20px 20px;
+            margin: 0 20px 20px 0;
+        }
+        .imgList .fl {
+            float: left;
+        }
+        .imgList img {
+            display: block;
+            border: 0 none;
+        }
+        .imgList img {
+            height: 235px;
+            width: 407px;
+        }
+        .imgList   .zbxm .zbxm_b li .zbxm_box .xm_mes {
+            margin-top: 15px;
+            width: 545px;
+        }
+
+        .imgList   .clearfix {
+            zoom: 1;
+        }
+        .imgList     .xm_mes {
+            margin-top: 15px;
+            width: 545px;
+        }
+
+
+        .imgList .span01 {
+            color: #17c0ff;
+            margin-right: 15px;
+            margin-top: 10px;
+        }
+        .imgList .botTxt .font16 {
+            font-size: 13px;
+        }
+
+        .imgList   .zbxm_box .xm_mes h4 {
+            width: 70%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .imgList  .fr {
+            float: right;
+        }
+        .imgList .span02 {
+            margin-top: 10px;
+            width: 300px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .my_comonet .item{background-color: #fff;margin-bottom:30px;width: 100%;}
+
+        .my_comonet .item_con{padding:20px;}
+
+        .my_comonet .imgBox{width:80px;height:80px;overflow: hidden;border-radius:50%;}
+        .my_comonet .imgBox .pic{width:100%;height:100%;}
+        .my_comonet .rightBox{padding-left:100px;}
+        .my_comonet .rightBox .top_txt{line-height:20px;height:20px;}
+
+        .common_score  li {
+            float: left;
+            margin-right: 3px;
+            width: 12px;
+            height: 12px;
+            background: url(../../public/img/starNo.png) no-repeat;
+        }
+        .common_score  li span {
+            width: 12px;
+            height: 12px;
+            display: block;
+            background: url(../../public/img/starYes.png) no-repeat;
+        }
+
+        .imgList .span02 {
+
+            width: 250px;
+        }
+
+
+
+
+    </style>
+
+    <!---文件上传插件 end---->
+
+</head>
+
+<body class="bodyPt96">
+
+<!--commonjs已引入头部、尾部-->
+
+<!-- 个人头像区域 -->
+<div class="personalBox">
+    <div class="content w1200 colorfff position_r">
+        <div class="imgDiv" style="position: relative;">
+            <div class="imgDiv_img" style=" width: 150px; height: 150px; border-radius: 50%; position: absolute;z-index: 10; border: 4px solid #fff;">
+                <img id="imgUrl" src="" style="width: 150px; height: 150px; border-radius: 50%; "/>
+            </div>
+            <div class="check_techer" style="position: absolute;width: 30px;height: 30px;bottom: 54px;left: 10px;z-index: 100;">
+                <img src="../../public/img/zbxm_main_list/check_tercher.png"/>
+            </div>
+
+        </div>
+        <h1 class="userName font18" id="realname"></h1>
+        <p class="font14" id="orgTypeName"></p>
+        <a href="personalCenterProfile.html" target="_blank" class="setup_btn" title="设置"></a>
+    </div>
+</div>
+
+<!-- 个人各项资料 -->
+<div class="gerenBox ask_and_answer askForHelp">
+    <div class="content w1200 clearfix">
+        <div class="leftNav bgcWhite fl big_nav">
+            <a href="javascript:;" class="font18 item my_join cur">
+                <div class="divOut">
+                    <div class="divIn clearfix" >
+                        <em></em><span>我的参与</span>
+                    </div>
+                    <i></i>
+                </div>
+            </a>
+            <a href="javascript:;" class="font18 item my_release">
+                <div class="divOut">
+                    <div class="divIn clearfix">
+                        <em></em><span>我的发布</span>
+                    </div>
+                    <i></i>
+                </div>
+            </a>
+
+            <a href="javascript:;" class="font18 item my_attention">
+                <div class="divOut">
+                    <div class="divIn clearfix">
+                        <em></em><span>我的关注</span>
+                    </div>
+                    <i></i>
+                </div>
+            </a>
+            <a href="javascript:;" class="font18 item my_collection">
+                <div class="divOut">
+                    <div class="divIn clearfix" id="my_collection">
+                        <em></em><span>我的收藏</span>
+                    </div>
+                    <i></i>
+                </div>
+            </a>
+            <a href="javascript:;" class="font18 item my_msg">
+                <div class="divOut">
+                    <div class="divIn clearfix">
+                        <em></em><span>我的消息</span>
+                    </div>
+                    <i></i>
+                </div>
+            </a>
+
+            <a href="javascript:;" class="font18 item my_comment">
+                <div class="divOut">
+                    <div class="divIn clearfix">
+                        <em></em><span>我的评价</span>
+                    </div>
+                    <i></i>
+                </div>
+            </a>
+            <a href="javascript:;" class="font18 item my_tease">
+                <div class="divOut">
+                    <div class="divIn clearfix">
+                        <em></em><span>我要吐槽</span>
+                    </div>
+                    <i></i>
+                </div>
+            </a>
+            <a href="javascript:;" class="font18 item my_pwd">
+                <div class="divOut">
+                    <div class="divIn clearfix">
+                        <em></em><span>修改密码</span>
+                    </div>
+                    <i></i>
+                </div>
+            </a>
+
+            <!--https://www.izyz.org.cn-->
+            <a  style="display: block;" href="https://www.izyz.org.cn/account/bindAccount.html" class="font18 item single_number_reach">
+                <div class="divOut">
+                    <div class="divIn clearfix">
+                        <em></em><span>一号通</span>
+                    </div>
+                    <i></i>
+                </div>
+            </a>
+
+            <a  style="display: none;" href="../logoin/logoin.html" class="font18 item single_number">
+                <div class="divOut">
+                    <div class="divIn clearfix">
+                        <em style="background-image: url(../../public/img/login_pw_icon.png);"></em><span>账号认证</span>
+                    </div>
+                    <i></i>
+                </div>
+            </a>
+            <a href="javascript:;" class="font18 item second_classroom">
+                <div class="divOut">
+                    <div class="divIn clearfix" id="second_classroom">
+                        <em></em><span>第二课堂</span>
+                    </div>
+                    <i></i>
+                </div>
+            </a>
+            <a href="javascript:;" class="font18 item consultant_tutor">
+                <div id="teacher" class="divOut">
+                    <div class="divIn clearfix">
+                        <em></em><span>咨询导师</span>
+                    </div>
+                    <i></i>
+                </div>
+            </a>
+            <a href="javascript:;" class="font18 item administrator" style="display: none;">
+                <div class="divOut">
+                    <div class="divIn clearfix">
+                        <em></em><span class="changeIdentity">切换管理员</span>
+                    </div>
+                    <i></i>
+                </div>
+            </a>
+        </div>
+
+        <div class="rightBox fr">
+            <!-- ======我的参与 板块 ============= -->
+            <div class="rightBoxList rightBoxList1 my_join_content">
+                <div class="askTit clearfix tit">
+                    <h3 class="fisrt fl font16 color2185cf" id="my_join">活动</h3>
+                    <h3 class="fl font16">重磅项目</h3>
+                </div>
+                <!-- ========活动===== -->
+                <div class="zhd_list_box list01 list">
+                    <ul class="act_list">
+                    </ul>
+                </div>
+                <!--============= 重磅项目====== -->
+                <div id="zhd_list_box" class="zhd_list_box list02 list imgList">
+                    <div class="activityList">
+                        <!-- 此处动态加载活动列表 -->
+                        <ul class="activityListHtmlStatic">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- ===========我的发布板块 =========== -->
+            <div class="rightBoxList my_release_content">
+                <div class="askTit clearfix tit">
+                    <h3 class="fisrt fl font16 color2185cf">咨询</h3>
+                    <h3 class="fl font16" onclick="return_tie()">回帖</h3>
+                    <h3 class="fl font16">求助</h3>
+                    <h3 class="fl font16">线下服务</h3>
+                    <h3 class="fl font16">重磅项目</h3>
+                </div>
+                <!--   我的发布- 咨询列表 -->
+                <div class="zhd_list_box list01 list zixun fbzx_pageBoxList">
+                    <div id="list_fbzx">
+                        <!--插入数据列表-->
+                    </div>
+                </div>
+                <!-- 我的发布-回帖 -->
+                <div class="zhd_list_box list02 list fbht_pageBoxList">
+                    <div id="list_fbht">
+                        <!--插入数据列表-->
+                    </div>
+                </div>
+                <!-- 我的发布-求助列表 -->
+                <div class="zhd_list_box list02 list">
+                    <a class="pageList"></a>
+                </div>
+                <!-- 我的发布-线下服务列表 -->
+                <div class="zhd_list_box list03 list">
+                    <div class="pageList"></div>
+                </div>
+                <!--============= 重磅项目====== -->
+                <div class="zhd_list_box list04 list imgList">
+                </div>
+            </div>
+            <!--=== 我的关注板块 begin===== -->
+            <div class="rightBoxList rightBoxList3 my_attention_content">
+                <div class="askTit clearfix tit">
+                    <h3 class="fisrt fl font16 color2185cf">活动</h3>
+                    <h3 class="fl font16">咨询</h3>
+                    <h3 class="fl font16">求助</h3>
+                    <h3 class="fl font16">线下服务</h3>
+                </div>
+                <div class="zhd_list_box list01 list zixun guanzhu clearfix">
+                    <h4 class="conBgc01 colorfff font16">主办方</h4>
+                    <div class="list_box clearfix my_focus_act">
+
+                    </div>
+                </div>
+                <!-- 咨询列表 -->
+                <div class=" zhd_list_box list02 list guanzhu zixun">
+                    <div class="clearfix zixun_t">
+                        <h4 class="color000 font16 fl current">组织</h4>
+                        <h4 class=" color000 font16 fl zhuanjia ">专家</h4>
+                    </div>
+                    <!-- 咨询-组织列表 -->
+                    <div class="list_box clearfix zixun_b list_box01 my_focus_zixunzuzhi focus_pageBoxList">
+                        <div id="focusList_org">
+                            <!--插入组织列表-->
+                        </div>
+                    </div>
+                    <!-- 咨询-专家列表 -->
+                    <div class="list_box clearfix zixun_b list_box02 my_focus_zixunzhuanjia focuszj_pageBoxList">
+                        <div id="focusList_zj">
+                            <!--插入专家列表-->
+                        </div>
+                    </div>
+                </div>
+                <!-- 求助列表 -->
+                <div class="zhd_list_box list03 list guanzhu qiuzhu">
+                    <h4 class="conBgc01 colorfff font16">受理方</h4>
+                    <div class="list_box clearfix my_focus_qiuzhu">
+                    </div>
+                </div>
+                <!-- 线下服务列表 -->
+                <div class="zhd_list_box list04 list guanzhu service">
+                    <h4 class="conBgc01 colorfff font16">服务站点</h4>
+                    <div class="service_box clearfix my_focus_xxfw">
+
+                    </div>
+                </div>
+            </div>
+            <!--=== 我的关注板块 end  ===== -->
+
+            <!-- =====我的收藏板块===== -->
+            <div class="rightBoxList rightBoxList4 my_collect">
+                <div class="askTit clearfix tit">
+                    <h3 class="fisrt fl font16 color2185cf">活动</h3>
+                    <h3 class="fl font16">咨询</h3>
+                </div>
+                <!-- 我的收藏 活动 -->
+                <div class="list list01">
+                    <ul class="my_collect_act">
+                    </ul>
+                </div>
+                <!-- 我的收藏 咨询 -->
+                <div class="list list02 zixun my_collect_zixun sczx_pageBoxList">
+                    <div id="list_cszx">
+                        <!--插入我的收藏数据列表-->
+                    </div>
+                </div>
+            </div>
+            <!-- =====我的消息板块===== -->
+            <div class="rightBoxList rightBoxList5" style="margin-bottom: 20px;">
+                <div class="askTit clearfix tit">
+                    <h3 class="fisrt fl font16 color2185cf">全部</h3>
+                    <h3 class="fl font16">系统消息</h3>
+                    <h3 class="fl font16">组织消息</h3>
+                    <h3 class="fl font16">用户消息</h3>
+                </div>
+
+                <!-- 我的消息-全部 -->
+                <div class="myinformation">
+                    <div class="list01 list pageBoxList">
+                        <div class="smbutton">
+                            <button id="allRead">全部标为已读</button>
+                            <!--<button id="allDelete">清空所有消息</button>-->
+                        </div>
+                        <div class="clear list_ul" id="list_all">
+                            <!--插入数据列表-->
+                        </div>
+                        <!--<div class="itemCon borderB01 clearfix">-->
+                        <!--<div class="imgDiv fl">-->
+                        <!--<img src="../../public/img/person01.png">-->
+                        <!--</div>-->
+                        <!--<div class="rightTxt">-->
+                        <!--<p class="ptop">发件人:<span>王某</span><em>2017-06-07</em></p>-->
+                        <!--<a href="#">幸福不同于心情和稍纵即逝的情绪。幸福是回顾自己生活时的会心微笑，因为知道会有这样的时刻：孩子们不愿按时睡觉，可是过会儿再去查看</a>-->
+                        <!--<p class="pbottom">-->
+                        <!--<span class="left">系统消息</span>-->
+                        <!--<span class="left">已读</span>-->
+                        <!--<span class="delete">删除</span>-->
+                        <!--</p>-->
+                        <!--</div>-->
+                        <!--</div>-->
+
+                    </div>
+                    <!-- 我的消息-系统消息 -->
+                    <div class="list list01 pageBoxList_sys" style="display: none">
+                        <div class="smbutton">
+                            <button id="allRead_sys">全部标为已读</button>
+                            <!--<button id="allDelete_sys">清空所有消息</button>-->
+                        </div>
+                        <!--<div class="pageBoxList ">-->
+                        <div class="clearfix list_ul" id="list_sys">
+                            <!--数据列表-->
+                        </div>
+                        <!--</div>-->
+                    </div>
+                    <!-- 我的消息-组织消息 -->
+                    <div class="list list01 pageBoxList_org" style="display: none">
+                        <div class="smbutton">
+                            <button id="allRead_org">全部标为已读</button>
+                            <!--<button id="allDelete_org">清空所有消息</button>-->
+                        </div>
+                        <!--<div class="pageBoxList ">-->
+                        <div class="clearfix list_ul" id="list_org">
+                            <!--数据列表-->
+                        </div>
+                        <!--</div>-->
+                    </div>
+                    <!-- 我的消息-用户消息 -->
+                    <div class="list list01 pageBoxList_user" style="display: none">
+                        <div class="smbutton">
+                            <button id="allRead_user">全部标为已读</button>
+                            <!--<button id="allDelete_user">清空所有消息</button>-->
+                        </div>
+                        <!--<div class="pageBoxList ">-->
+                        <div class="clearfix list_ul" id="list_user">
+                            <!--数据列表-->
+                        </div>
+                        <!--</div>-->
+                    </div>
+                </div>
+                <!--查看弹出框-->
+                <div class="sysmessage" style="display:none">
+                    <div class="smcontent">
+                        <h2>查看消息<i class="iclose"><img style="width: 14px;" src="../../public/img/close_img.png"></i></h2>
+                        <table cellpadding="5" cellspacing="5" width="100%">
+                            <tbody>
+                            <tr>
+                                <td class="td_f">发件人：</td>
+                                <td id="sendName"></td>
+                            </tr>
+                            <tr>
+                                <td class="td_f">发送时间：</td>
+                                <td id="sendTime"></td>
+                            </tr>
+                            <tr>
+                                <td class="td_f">标题：</td>
+                                <td id="title"></td>
+                            </tr>
+                            <tr>
+                                <td class="td_f">内容：</td>
+                                <td id="content"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <p class="team_listld" style="margin: 20px 80px;"><label>领取数量:</label><input type="text" class="text_number" style="border: solid 1px #CCCCCC;margin-left: 20px;padding-left:8px;"></p>
+
+                        <p style="color:red; text-align: center;">领取数量:1份/家</p>
+                        <span class="cererlde" >确定</span>
+                        <button id="smclose">关闭</button>
+                    </div>
+                </div>
+                <!--弹出窗END-->
+            </div>
+            <!-- =====我的评价板块===== -->
+            <div class="rightBoxList rightBoxList6 my_comonet">
+                <div class="askTit clearfix tit">
+                    <h3 class="fisrt fl font16 color2185cf">活动</h3>
+                    <h3 class="fl font16">求助</h3>
+                    <h3 class="fl font16">线下服务</h3>
+                </div>
+                <!-- 我的收藏 活动 -->
+                <div class="list list01">
+                    <div class="my_colleactivty">
+                        <!--插入我的收藏数据列表-->
+
+                    </div>
+                </div>
+                <!-- 我的收藏 咨询 -->
+                <div class="list list02 ">
+                    <div id="list_helpe">
+                        <!--插入我的收藏数据列表-->
+
+                    </div>
+                </div>
+                <!-- 我的收藏 咨询 -->
+                <div class="list list03 ">
+                    <div id="list_sever">
+                        <!--插入我的收藏数据列表-->
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!--  我要吐槽板块 -->
+            <div class="rightBoxList my_tease_content">
+                <div class="contentBox bgcWhite" style="height: 450px;">
+                    <p class="font16 color000">亲，如果您对青年之声平台有任何意见建议，请在这里向我们吐槽拍砖。我们会珍视每一条建议，并尽可能通过站内信向您反馈 处理情况。</p>
+                    <textarea class="font14 sayBox" id="quesContent" placeholder="说两句吧"></textarea>
+                    <button class="font12 colorfff fr tijiao" id="submitComplain_tucao" style="border-radius: 4px;background:#2185cf;margin-top: 10px;padding:8px 25px;">提交</button>
+                </div>
+            </div>
+            <!-- 修改密码板块 -->
+            <div class="rightBoxList">
+                <div class="askTit clearfix">
+                    <h3 class="fisrt fl font16 color2185cf">修改密码</h3>
+                </div>
+                <div class="password_b">
+                    <div class="clearfix">
+                        <label for="oidPassword" class="font16 color333 fl">旧密码</label>
+                        <input id="oidPassword" type="text" placeholder="输入旧密码" class="border01 fl font14" />
+                    </div>
+                    <div class="clearfix">
+                        <label for="newPassword" class="font16 color333 fl">新密码</label>
+                        <input id="newPassword" type="text" placeholder="输入新密码" class="border01 fl font14" />
+                    </div>
+                    <div class="clearfix">
+                        <label for="confirmPassword" class="font16 color333 fl">确定新密码</label>
+                        <input id="confirmPassword" type="text" placeholder="再次输入新密码" class="border01 fl font14" />
+                    </div>
+                    <!--<div class="clearfix">
+                    <label for="name" class="font16 color333 fl">验证码</label>
+                    <input type="text" placeholder="输入验证码" class="border01 fl font14" />
+                </div>-->
+
+                    <div class="btn_password clearfix">
+                        <a id="updatePsd" href="javascript:;" class="font16 colorfff conBgc01 fl">确认修改</a>
+                        <a href="javascript:;" class="font16 colorfff cancel fl">取消</a>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 一号通 -->
+            <div class="rightBoxList single_number_reach">
+                <div class="askTit clearfix">
+                    <h3 class="fisrt fl font16 color2185cf">一号通</h3>
+                </div>
+            </div>
+            <!--账号认证-->
+            <div class="rightBoxList single_number">
+                <div class="askTit clearfix">
+                    <h3 class="fisrt fl font16 color2185cf">账号认证</h3>
+                </div>
+            </div>
+            <!-- 第二课堂 -->
+            <div class="rightBoxList second_classroom">
+                <div class="askTit clearfix">
+                    <h3 class="fisrt fl font16 color2185cf">第二课堂</h3>
+                </div>
+                <div class="classroom_b not_done" style="display: none;">
+                    <div class="bgcWhite up_txt">
+                        <p class="txt">1、您暂无第二课堂成绩单，请到 <a href="javascript:;">找活动</a> 报名参与第二课堂活动吧！</p>
+                        <p class="txt">2、若您参加了第二课堂活动依然没有成绩单，请联系所在学校/学院管理员。</p>
+                    </div>
+                    <div class="btn_box">
+                        <a href="../find_active/zhaohuodongIndex.html" class="btn btn_1">找活动</a>
+                        <!--<a href="javascript:;" class="btn btn_2">给管理员发私信</a>-->
+                    </div>
+                </div>
+                <div class="classroom_b be_done" style="display: none;">
+                    <div class="bgcWhite up_txt">
+                        <div class="info_list clearfix">
+                            <!--<span class="info_item">姓名：张三</span>
+                        <span class="info_item">学号：56562323</span>
+                        <span class="info_item">学校：中山大学</span>
+                        <span class="info_item">院系：计算机学院</span>-->
+                        </div>
+                        <div class="clearfix select_box">
+                            <span class="fl">学年：</span>
+                            <select id="select_Year">
+                                <option value="">请选择学年</option>
+                            </select>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button id="academicYearSearch" style="background: #2185cf;">&nbsp;&nbsp;查&nbsp;&nbsp;&nbsp;&nbsp;询&nbsp;&nbsp;</button>
+                        </div>
+
+                    </div>
+                    <div class="info_table_box">
+                        <div class="table_title_box clearfix">
+                            <div class="fl TypeHour">
+                                <!-- <h3 class="table_title fl font16 color2185cf">文体文化发展：20</h3>
+                            <h3 class="table_title fl font16 color2185cf">艺术设计创新：20</h3>
+                            </div>
+                            <div class="fr TotalHour">
+                                <h3 class="table_title fl font16 color2185cf">学年总学时：70</h3>
+                            <h3 class="table_title fl font16 color2185cf">总学时：100</h3>-->
+                            </div>
+                        </div>
+                        <div class="table_box">
+                            <table class="table" cellspacing="0" ;>
+                                <tr>
+                                    <th>活动时间</th>
+                                    <th>活动名称</th>
+                                    <th>类型</th>
+                                    <th>学时(h)</th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                        <a href="javascript:;" id="transcriptExport">下载成绩单</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="javascript:;" id="transcriptPreview">成绩单PDF预览</a>
+                    </div>
+                    <!--<div class="pageNumBox">
+                    <div class="pageNumCon clearfix">
+                        <span class="prevPage pagePrevNext fl">上一页</span>
+                        <div class="pageNum fl">
+                            <a href="javascript:;">1</a>
+                            <a href="javascript:;">2</a>
+                            <a href="javascript:;">...</a>
+                            <a href="javascript:;">100</a>
+                        </div>
+                        <span class="nextPage pagePrevNext fl">下一页</span>
+                    </div>
+                </div>-->
+                </div>
+            </div>
+            <!-- 成为咨询导师 -->
+            <div class="rightBoxList personal_profile">
+                <!-- 成为咨询导师 -->
+                <div class="become_teacher" style="display:none;">
+                    <div class="askTit clearfix">
+                        <h3 class="fisrt fl font16 color2185cf">成为咨询导师</h3>
+                    </div>
+                    <div class="pubBox bgcWhite clearfix lh38 border03">
+                        <span class="leftTit color333 font16 fl">真实姓名</span>
+                        <div class="right_box">
+                            <input class="realname" type="text" class="right_input" placeholder="亲，请输入真实姓名" />
+                        </div>
+                    </div>
+                    <div class="pubBox bgcWhite clearfix lh38 border03">
+                        <span class="leftTit color333 font16 fl">职业</span>
+                        <div class="right_box">
+                            <input class="expProfession" type="text" class="right_input" placeholder="亲，你的职业" />
+                        </div>
+                    </div>
+                    <div class="pubBox bgcWhite clearfix lh38 border03">
+                        <span class="leftTit color333 font16 fl">服务类别</span>
+                        <div class="right_box">
+                            <select  id="categoryId"  class="categoryId  select">
+                                <option value="">请选择</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="pubBox bgcWhite clearfix lh38 border03">
+                        <span class="leftTit color333 font16 fl">特长</span>
+                        <div class="right_box">
+                            <input class="speciality" type="text" class="right_input" placeholder="亲 ，请描素下你的特长" />
+                        </div>
+                    </div>
+                    <!--<div class="pubBox bgcWhite clearfix lh38 border03 sex">
+                        <span class="leftTit color333 font16 fl">性别</span>
+                        <div class="right_box">
+                            <select id="gender" class="select">
+                                <option value="">请选择</option>
+                                <option value="1">男</option>
+                                <option value="2">女</option>
+                                <option value="3">保密</option>
+                            </select>
+                        </div>
+                    </div>-->
+                    <div class="pubBox bgcWhite clearfix lh38 border03 district">
+                        <span class="leftTit color333 font16 fl">所在地区</span>
+                        <div class="right_box">
+                            <!--<select class="select select_1">
+                            <option value="">--市级--</option>
+                            <option value="">广州市</option>
+                            <option value="">茂名市</option>
+                        </select>
+                        <select class="select select_1">
+                            <option value="">--区--</option>
+                            <option value="">天河区</option>
+                            <option value="">越秀区</option>
+                        </select>
+                        <select class="select select_2">
+                            <option value="">--街道--</option>
+                            <option value="">233</option>
+                            <option value="">566</option>
+                        </select>-->
+                            <select class="select select_1" id="oidType" onchange="changeOidType(this)" style="width: 100px;">
+                                <option value="">请选择</option>
+                                <option value="1">地市</option>
+                                <option value="2">高校</option>
+                            </select>
+                            <!--2级-->
+                            <select id="cityOid" class="select select_1" name="cityOid" onchange="cityOidChange(this)" style="width: 110px;">
+                            </select>
+                            <select id="shcoolOid" class="select select_1" name="shcoolOid" onchange="schoolOidChange(this)" style="width: 110px;">
+                            </select>
+                            <!--3级-->
+                            <select id="areaOid" class="select select_2" onchange="quxuan(this)" style="width: 100px;">
+                                <option value="-1">--区/县--</option>
+                            </select>
+                            <select id="classOid" class="select select_2" onchange="quxuan(this)" style="width: 100px;">
+                                <option value="-1">--分院--</option>
+                            </select>
+                        </div>
+
+                        <div class="pubBox bgcWhite border03 ziwo">
+                            <span class="leftTit color333 font16 lh38">个人介绍</span>
+                            <div>
+                                <textarea style="width: 750px;"  class="description" placeholder="亲，请描述下自己(20-300字)" maxlength="300"></textarea>
+                            </div>
+                        </div>
+                        <div class="pubBox bgcWhite border03 upload_pic_box">
+                            <input type="hidden" name="" id="opload_img" value="" />
+                            <span class="leftTit color333 font16 lh38">上传相关职业（专业）技术证明</span>
+                            <div class="upload_main_box">
+                                <!-- 上传附件  -->
+                                <div class="show_box clearfix topTalk">
+                                    <!--<span id="saveImg"  style="display: none"></span>-->
+                                    <div id="wrapper" class="fl">
+                                        <div id="container">
+                                            <div id="uploader">
+                                                <div class="queueList">
+                                                    <div id="dndArea" class="placeholder">
+                                                        <div id="filePicker"></div>
+                                                        <p>或将照片拖到这里，单次最多可选8张</p>
+                                                    </div>
+                                                </div>
+                                                <div class="statusBar" style="display:none;">
+                                                    <div class="progress">
+                                                        <span class="text">0%</span>
+                                                        <span class="percentage"></span>
+                                                    </div>
+                                                    <div class="info"></div>
+                                                    <div class="btns">
+                                                        <div id="filePicker2"></div>
+                                                        <div class="uploadBtn">开始上传</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!---上传附件 end-->
+                            </div>
+                        </div>
+                        <p class="warm_tips font16 color000">温馨提示：提交后将由所在地区的系统管理员审核。</p>
+                        <div class="btnBox">
+                            <div class="btns font16">
+                                <button id="add_techer" class="conBgc01 colorfff submit">提交申请</button>
+                                <button id="upd_techer" class="conBgc01 colorfff submit">确认修改</button>
+                                <button class="conBgc01  colorfff cancel1">取消</button>
+                                <button class="conBgc01  colorfff cancel2">注销导师</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 取消咨询导师 -->
+                    <div class="cancel_teacher" style="display: none;">
+                        <div class="askTit clearfix">
+                            <h3 class="fisrt fl font16 color2185cf">取消咨询导师</h3>
+                        </div>
+                        <p class="phase bgcWhite">取消后，您的信息将从咨询导师列表移除，用户将无法继续邀请您回答问题，但您的问答记录将会保留。</p>
+                        <div class="btnBox">
+                            <div class="btns font16">
+                                <button class="conBgc01 colorfff submit">点错了，返回</button>
+                                <button class="colorfff conBgc01">确定取消</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <!-- 申请成为咨询导师 -->
+                <div   class="apply-teach-box" style="display: none;">
+                    <a id="apply_teacher_btn" class=" colorfff submit">申请导师</a>
+                    <a  id="apply_er" href="javascript:;" style="display: none;" class=" colorfff submit">您已经申请了,正在审核当中.....</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部 -->
+</div>
+
+</body>
+<!--3级联动插件 -->
+<script src="../../public/js/common/user-linkage-1.js"></script>
+
+<script type="text/javascript">
+    window.onload = function() {
+        //设置学年
+        var date = new Date();
+        var y = date.getFullYear();
+        for (i = 0; i < 10; i++) {
+            var oP = document.createElement("option");
+            var oText = document.createTextNode(y + '年9月~' + (y + 1) + '年8月');
+            oP.appendChild(oText);
+            //oP.setAttribute("value", y);
+            document.getElementById('select_Year').appendChild(oP);
+            y = y - 1;
+        };
+    }
+
+
+
+    /*****  3级联动 *****/
+
+    function quxuan(obj){
+        var pid = $(obj).val();
+
+    }
+
+
+</script>
+
+</html>

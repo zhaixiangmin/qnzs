@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>重磅项目-项目详情</title>
+    <!-- No less -->
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project_details.css" />
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/vendor/touch_slide/TouchSlide.1.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/ajax/ajax2.js"></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+</head>
+<body class="bodyPB">
+    <section class="banner mb20" id="head-banner"><img src=""/></section>
+    <!-- 赛事及其时间 -->
+    <section class="pub bgcWhite game mb20">
+        <a href="javascript:;" class="disB p_0_30 lineH78">
+            <h2 class="color333 fz30" id="activity_type">赛事</h2>
+        </a>
+        <a href="javascript:;" class="disB p_0_30 lineH78 time">
+            <h2 class="color333 fz30" id="activit_time">2016/02/03 - 2016/03/08</h2>
+        </a>
+    </section>
+    <!-- phone number -->
+    <section class="pub bgcWhite phoneNumber">
+        <a href="javascript:;" class="disB p_0_30 lineH78 clearfix">
+            <h2 class="color333 fz30 fl" id="activit_mobile">020-400-8888</h2>
+            <span class="next fr"></span>
+        </a>
+    </section>
+    <!-- 活动详情 -->
+    <section class="hdxq secPub">
+        <div class="tit p_0_30">
+            <h6 class="fz28 color333">活动详情</h6>
+        </div>
+        <div class="txtContent bgcWhite fz28 color333">
+            <p><span id="activit_detail">活动简介</span></p>
+            <p><a id="Learn_more"  href="wapNewDet.html">了解更多</a>>></p>
+        </div>
+    </section>
+    <!-- 报名须知 -->
+    <section class="bmxz secPub">
+        <div class="tit p_0_30">
+            <h6 class="fz28 color333">报名须知</h6>
+        </div>
+        <div class="txtContent bgcWhite fz28">
+            <div class="item" id="signUp">
+                <h6 class="fz30 color000">报名条件</h6>
+                <!--<p class="color333 fz28">重新定义用户体验，着重关注“内容”重新定义用户体验;</p>
+                <p class="color333 fz28">在内容为王的当今，体验连接着用户体验生态圈的各个环节，注重客户体验。</p>
+                <p class="color333 fz28">重新定义用户体验，着重关注“内容”重新定义用户体验;</p>-->
+            </div>
+            <!--<div class="item" id='rule'>
+                <h6 class="fz30 color000">活动规则</h6>-->
+                <!--<p class="color333 fz28">重新定义用户体验，着重关注“内容”重新定义用户体验;</p>
+                <p class="color333 fz28">在内容为王的当今，体验连接着用户体验生态圈的各个环节，注重客户体验。</p>
+                <p class="color333 fz28">重新定义用户体验，着重关注“内容”重新定义用户体验;</p>-->
+            <!--</div>-->
+            <div class="item" id="flowCheng">
+                <!--<h6 class="fz30 color000">活动流程</h6>-->
+                <!--<p class="color333 fz28">重新定义用户体验，着重关注“内容”重新定义用户体验;</p>
+                <p class="color333 fz28">在内容为王的当今，体验连接着用户体验生态圈的各个环节，注重客户体验。</p>
+                <p class="color333 fz28">重新定义用户体验，着重关注“内容”重新定义用户体验;</p>-->
+            </div>
+        </div>
+    </section>
+    <!-- 奖品设置 -->
+    <!--<section class="gift secPub mb20"  id="content">
+        <div class="tit p_0_30">
+            <h6 class="fz28 color333">奖品设置</h6>
+        </div>
+            <div id="picScroll" class="picScroll bgcWhite">
+                <div class="hd" style="display:none;"><ul></ul></div>
+                <div class="bd">
+                        <ul>-->
+                            <!--<li>
+                            <a href="#">
+                                <div>
+                                    <img src="../../public/img/gift01.png"/>
+                                    <h6 class="color333 fz28">一等奖10名</h6>
+                                    <p class="color999 fz24">iphone手机一台</p>
+                                </div>
+                            </a>
+                            </li>
+                            <li>
+                            <a href="#">
+                                <div>
+                                    <img src="../../public/img/gift02.png"/>
+                                    <h6 class="color333 fz28">二等奖30名</h6>
+                                    <p class="color999 fz24">iphone手机一台</p>
+                                </div>
+                            </a>
+                            </li>
+                            <li>
+                            <a href="#">
+                                <div>
+                                    <img src="../../public/img/gift03.png"/>
+                                    <h6 class="color333 fz28">三等奖50名</h6>
+                                    <p class="color999 fz24">iphone手机一台</p>
+                                </div>
+                            </a>
+                            </li>-->
+                        <!--</ul>-->
+
+                        <!--<ul>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <img src="../../public/img/gift04.png"/>
+                                    <h6 class="color333 fz28">一等奖10名</h6>
+                                    <p class="color999 fz24">iphone手机一台</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <img src="../../public/img/gift05.png"/>
+                                    <h6 class="color333 fz28">二等奖30名</h6>
+                                    <p class="color999 fz24">iphone手机一台</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <img src="../../public/img/gift06.png"/>
+                                    <h6 class="color333 fz28">三等奖50名</h6>
+                                    <p class="color999 fz24">iphone手机一台</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <img src="../../public/img/gift07.png"/>
+                                    <h6 class="color333 fz28">一等奖10名</h6>
+                                    <p class="color999 fz24">iphone手机一台</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <img src="../../public/img/gift03.png"/>
+                                    <h6 class="color333 fz28">二等奖30名</h6>
+                                    <p class="color999 fz24">iphone手机一台</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <img src="../../public/img/gift02.png"/>
+                                    <h6 class="color333 fz28">三等奖50名</h6>
+                                    <p class="color999 fz24">iphone手机一台</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>-->
+                       
+                <!--</div>
+            </div>
+           <script type="text/javascript">
+                
+            </script>
+        
+    </section>-->
+    <!-- 参赛项目 -->
+    <!--<section class="gameItem bgcWhite">
+        <div class="tit p_0_30 clearfix lineH78">
+            <h3 class="fl fz28">参赛项目</h3>
+             <a id="project-genduo" href="heavy_project_vote.html" class="fr fz24 color999 pr_30">更多</a> 
+        </div>
+        <div class="content pl_30" id="project_content">-->
+            <!--<a href="javascript:;" class="item clearfix disB">
+                <div class="left fl">
+                    <img src="../../public/img/huodong_1.png"  />
+                </div>
+                <div class="right">
+                    <h4 class="color000 fz30">青少年读书活动读书活动读书候总好速度</h4>
+                    <p class="fz26 color666">广州市天河区育才路天才中学</p>
+                    <div class="bot clearfix fz24 color999">
+                        <span class="fl">2016-08-10</span>
+                        <em class="fr">30</em>
+                    </div>
+                </div>
+            </a>-->
+            <!--<a href="javascript:;" class="item clearfix disB">
+                <div class="left fl">
+                    <img src="../../public/img/huodong_2.png"  />
+                </div>
+                <div class="right">
+                    <h4 class="color000 fz30">青少年读书活动读书活动读书候总好速度</h4>
+                    <p class="fz26 color666">广州市天河区育才路天才中学</p>
+                    <div class="bot clearfix fz24 color999">
+                        <span class="fl">2016-08-10</span>
+                        <em class="fr">30</em>
+                    </div>
+                </div>
+            </a>-->
+        <!--</div>
+    </section>
+    <div class="morebtn color333"><a href="heavy_project_vote.html" id="detail_maxlook">查看更多</a></div>-->
+    <!-- 底部按钮 -->
+    <section class="botBtns">
+        <!--<a href="javascript:;" class="disB fz30 colorfff fl left">在线咨询</a>-->
+        <a id="project-genduo" href="javascript:;" class="disB fz30 colorfff fl right" style="width: 100%;">去点赞</a>
+    </section>
+    <!-- 站长统计 -->
+<div style="display:none">
+    <script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+</div>
+</body>
+
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/heavy_project/heavy_project_details.js"></script>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>重磅项目三-项目动态详情页</title>
+   <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/zbxm_index_model_3.css" />
+</head>
+<body>
+    <header class="page_head">
+        <div class="content w1200 clearfix">
+            <div class="con_head clearfix">
+                <div class="fr clearfix">
+                    <a href="../../index.html" class="fl link homepage"></a>
+                    <a href="javascript:;" class="fl link login" id="head_login_img"></a>
+                </div>
+            </div>
+            <div class="con_body clearfix">
+                <a href="../../index.html" class="logo fl"><img src="../../public/img/zbxm_logo_3.png" /></a>
+                <div class="page_head_nav fr">
+                    <ul class="nav clearfix">
+                        <li class="nav_li ">
+						   <a id="project_main" href="zbxm_index_model_3.html">首页</a>
+						</li>
+						<li class="nav_li">
+							<a id="project_detalis" href="zbxm_index_model3_detail.html">项目详情</a>
+						</li>
+						<li class="nav_li">
+							<a id="project_dynamic" href="zbxm_index_model3_trends.html">项目动态</a>
+						</li>
+						<li class="nav_li cur">
+							<a id="team" href="zbxm_index_model3_team.html">参赛团队</a>
+						</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- banner -->
+    <div class="big_banner">
+        
+    </div>
+    <!-- 项目动态详情 -->
+        <div class=" DT_detail font14"><span>首页</span>><span>项目动态</span></div>
+        <div class="w1200 ">
+            <div class="DT_detail_box">
+                <h3 class="color000">大型创业真人秀 《腾飞之役·创业季》</h3>
+                <p class="font14 color666">2012年9月9日</p>
+                <div class="DT_detail_img">
+                    <img src="resources/pcImages/dtxq_pic.png" alt="" />
+                </div>
+            </div>  
+            <div class="DT_detail_nr">
+                <p class="font14 color000">腾讯开放平台应用创新大赛9日颁“腾飞季度奖”</p>
+                <p class="font14 color000 nr_explain">活动现场（腾讯科技配图）</p>
+                <p class="font14 color666 nr">知识分享之旅足迹遍海内外 与各地开发者“亲密接触”
+4月—9月，腾讯开放平台知识分享之旅足迹遍布海内外。4月28日，应用创新大赛亮相北美卡内基梅隆大学CMU峰会——将海外优秀应用引进到国内，方便海外创业者通过腾讯开放平台真正实现创业的梦想。</p>
+                <p class="font14 color666 nr">5月28日,腾讯开放平台应用创新大赛“寻找校园之星”首站活动在西安圆满落幕。腾讯开放平台助理总经理侯晓楠携手优秀开发商代表恺英网络 CEO 王悦、乐风创想 CEO 任锋走进西安电子科技大学，与学子亲密接触。6月5日，恺英网络CEO王悦、蘑菇街联合创始人魏一搏与腾讯开放平台商务市场总监胡皓一起，向南京大学的学子们分享了他们的创新经历和创业故事。6月8日，“寻找校园之星”活动走进电子科技大学。胡皓携手热酷网副总裁顾智龙、成都维动科技CEO吴澜为成电学子带来了一场APP知识盛宴。6月11日，胡皓携手华科“风云学长”动网先锋董事长宋海波、乐元素高级副总裁徐辉“重返校园”与华中科技大学的学弟、学妹们亲密互动。6月18日，“寻找校园之星”活动走进上海交通大学。腾讯社交平台部总经理郑志昊携手恺英网络CEO王悦、开心交友CEO葛旻走进校园，就学子们关心的互联网话题亲密交流。7月12日，“寻找校园之星”活动第六站在深圳大学圆满落幕。胡皓携手优秀开发商臭美网CEO唐俊勇走进校园，与学子分享APP开发心得、经验，并现场开启首期“APP特训营”。</p>
+                <p class="font14 color666 nr">主题为“APP炼金术”、“大营销时代”的两轮腾讯开放平台公开课分别于深圳、北京、上海展开，腾讯的一线产品经理们分享了产品、运营、营销经验。</p>
+            </div>
+            
+        </div>
+    
+    <!-- 底部 -->
+    <footer class="conBgc01 colorfff font14 another_bgc">
+        <a href="javascript:;" class="disB font14 colorfff">触屏版</a>
+        <p>版权所有 copyright 2016 广东青年之声</p>
+        <p>粤ICP备10214402号-4</p>
+    </footer>
+</body>
+</html>
+<script>
+	/*** 关键字查询 **/
+$('#search_btn').click(function() {
+	
+	sreachList()
+})
+
+
+//进入个人中心
+
+$('#head_login_img').click(function(){
+		//  获取当前登录者信息
+	obj.ajax('/commons/getSessionAccount',{},function(data){
+		
+		if(data.status =='OK'){
+			window.location.href = '../person_center/person_center.html'
+		}else{
+
+            $.alert('亲，请先登录')
+//		       	  $('#loginBtn').trigger("click");  //触发点击事件
+            var i =1;
+            var  time = setInterval(function(){
+            $('#loginBtn').click();
+	            if(i==1){
+	             	clearInterval(time);
+	            }
+		    },100)	
+			
+		}
+	})
+})
+
+/**** 举报弹出框  ******/
+	
+	$('.report_click').click(function(){
+		 $('#askBox_report').show()  //显示
+	})
+	
+	//关闭谈出窗
+	$('.bg_black .delete ').click(function(){
+		$('.bg_black').hide();
+		
+	})
+	
+	
+	//打开投票指引弹窗
+    function show_vote_box(n) {
+       $('.bg_black').show() //显示弹框
+       if(n == 1){  //投票
+       	
+       	 $('.voteGuide_box').show();
+       	 $('.enrollGuide_box').hide()
+       	 $('.list_tanchuang .title').html("投票指引")
+       }
+       if(n == 2){  //报名
+       	
+       	 $('.voteGuide_box').hide();
+       	 $('.enrollGuide_box').show()
+       	 $('.list_tanchuang .title').html("报名指引")
+       }
+    	
+    }
+	//举报
+	// 举报(发布)
+	$('#submit_report').click(function () {
+		
+		
+		
+		Qnzs.getSessionAccount({}).then(function (data) {
+			console.log(data)
+			if(data.status != 'OK') {
+				$.alert(data.msg);
+				return;
+			}
+            
+			var reportReason = $('#reportContent').val();//举报内容
+			var reportType = $('#reportType').val();
+			if (!reportType && reportType != 0) {
+				$.alert('请选择举报分类');
+				return;
+			}
+			
+			
+			FindConsultApi.report({
+				reportReason: reportReason,
+				reportType: reportType,
+				module: 4,
+				reportAgainstId:activityId
+			}).then(function (data) {
+				
+				$.alert(data.msg,function(){
+					
+					
+					$('#askBox_report').hide();
+				});
+				
+			
+				return;
+				// console.log('举报', data)
+			})
+		})
+	});
+	
+	// 举报(发布)
+	$('#submit_report').click(function () {
+		Qnzs.getSessionAccount({}).then(function (data) {
+			console.log(data)
+			if(data.status != 'OK') {
+				$.alert(data.msg);
+				return;
+			}
+            
+			var reportReason = $('#reportContent').val();//举报内容
+			var reportType = $('#reportType').val();
+			if (!reportType && reportType != 0) {
+				$.alert('请选择举报分类');
+				return;
+			}
+			
+			
+			FindConsultApi.report({
+				reportReason: reportReason,
+				reportType: reportType,
+				module: 4,
+				reportAgainstId:activityId
+			}).then(function (data) {
+				
+				$.alert(data.msg,function(){
+					
+					
+					$('#askBox_report').hide();
+				});
+				
+			
+				return;
+				// console.log('举报', data)
+			})
+		})
+	});
+
+</script>

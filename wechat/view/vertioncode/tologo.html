@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	 <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/register/register.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/login-register/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+
+	<script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+	<!--对话框-->
+	<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+	<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+	<style type="text/css">
+		.padiing_made{padding: 0.6rem;}
+		.box_down{width: 100%;height: auto;margin: 0 auto;}
+		.inftion_re{width: 100%;height:0.6rem;line-height: 0.6rem;font-size:0.6rem;color: #333333;padding: 0.5rem 0;}
+		.maged{width: 1.6rem;height: 1.6rem;margin: 0 auto;}
+		.maged img{width: 100%;height: 1.6rem;display: block;}
+		.go_stup{width: 100%;height: auto;line-height: 0.9rem;font-size:0.56rem;padding: 0.5rem 0;color: #666666;}
+		.bg-none{width: 100%;height: 8rem;margin: 1.2rem auto;}
+		.mgdehr{margin-bottom: 1.6rem;}
+		.goto_victiie{width:40%;display: inline-block;border: 1px solid #999999;border-radius:1rem;height: 2rem;line-height: 2rem;text-align: center;font-size: 0.72rem;color: #999999;}
+        .goto_vict{width:50%;display: inline-block;border: 1px solid #333333;border-radius:1rem;height: 2rem;line-height: 2rem;text-align: center;font-size: 0.72rem;color: #333333;margin-left: 3%;}
+	</style>
+	</head>
+	<body>
+		<section class="padiing_made">
+			
+			
+			    <div class="maged">
+			    	<img src="../../public/img/tishi.png"/>
+			    </div>
+			
+			
+			 <div class="box_down">
+				
+				<p class="inftion_re mgdehr">系统检测本手机号<span class="phone_txt" style="background: red;"></span>已绑定过其他用户，登录失败！</p>
+				
+				<p class="go_stup">如该手机号目前是你本人使用，你可通过动态短信验证码手机号重新绑定为你的账号。</p>
+			   	<p class="go_stup">如该手机号目前不是你本人使用，你可现在马上替换手机号。</p>
+				
+			</div>
+			
+			<div class="bg-none">
+				
+				<a href="verifyphoe.html" class="goto_victiie">点击去验证</a>
+				<a href="replacephoe.html" class="goto_vict">点击去替换手机号</a>
+				
+			</div>
+		</section>
+	</body>
+</html>
+<script>
+	
+	
+	
+	       var a=[];
+	       var c=[]
+            var b=[
+                {
+                    'personId':'1',
+                    'locType':'401'
+                },{
+                    'personId':'1',
+                    'locType':'411'
+                },{
+                    'personId':'1',
+                    'locType':'501'
+                },{
+                    'personId':'2',
+                    'locType':'401'
+                },{
+                    'personId':'2',
+                    'locType':'401'
+                },{
+                    'personId':'2',
+                    'locType':'601'
+                }
+            ];
+            $.each(b, function (index,loc) {
+                a.push({
+                    "name":loc.personId,
+                    "value": [ loc.locType]
+                })
+            });
+            
+            for(var i =0;i<4;i++){
+            	
+        		for(var j =0;j<6;j++){
+            			console.log(5)
+            			/*if(b[i].personId ==a[j].name){
+            				
+            				a[j].value.push(b[i].locType);
+            			}else{
+            				 a.push({
+			                    "name":b.personId,
+			                    "value": b.locType
+			                })
+            				
+            			}*/
+            		}
+            	}
+             console.log(a)
+             
+    
+</script>

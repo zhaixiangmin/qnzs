@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>发现线下-详情</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/person_center/sign_offline_service.css" />
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <!--百度地图-->
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=ggGhWZ8zW5mGMOYCohgWNRER5m76Hxfz"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <!--&lt;!&ndash;公共底部栏&ndash;&gt;-->
+    <!--<script type="text/javascript" src="../../public/custom/common.js"></script>-->
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/PersonCenterApi.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/person_center/sign_offline_service.js"></script>
+</head>
+<body class="bodyPB">
+<!--地图-->
+    <div id="all_map">
+    </div>
+
+    <section id="list" class="list">
+        <article>
+            <section>
+                <input type="hidden" name="apId" id="apId" value="6169">
+                <ul class="titleList">
+                    <li class="clearfix stationList">
+                        <div class="titleTxt">
+                            <p class="tit02" id="fullName">
+                                <!--汕头青年驿站-->
+                            </p>
+							<span class="commentxi02">
+								<em class="gray fs12" id="address">
+									<!--汕头市海滨路市委大楼信访大院6楼607-->
+								</em>
+							</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <div class="bottomBox botBox">
+                <div class="boxbtn">
+                    <a href="#" id="goOffine">签到
+                    </a>
+                </div>
+            </div>
+        </article>
+    </section>
+</body>
+</html>

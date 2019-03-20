@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/register/register.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+    <script src="../../public/js/login-register/common/flexible.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+   
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+	 <!--对话框-->
+	<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+	<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+	<script src="../../public/js/ajax/ajax2.js"></script>
+	<!--- 一号通的数据 --->
+	 <script>
+		var dynamicLoading = {
+		    js: function(path){
+				if(!path || path.length === 0){
+					throw new Error('argument "path" is required !');
+				}
+				var head = document.getElementsByTagName('head')[0];
+		        var script = document.createElement('script');
+		        script.src = path+"/browser/0110/crossdomain.js";
+		        script.type = 'text/javascript';
+		        head.appendChild(script);
+		    }
+		}
+		
+		dynamicLoading.js(bigDataUrl);
+	
+	</script>
+    
+</head>
+<body class="login_register register3">
+    <header id="header">注册</header>
+    <section class="padding_com_one section_common">
+        <h1 class="max_tit">选择你所属的类型</h1>
+        <section class="type_choose clearfix">
+            <div class="type_box type_l fl chosen"  id="areadid"   onclick="changeType(1)" >
+                <div class="type_con fr">地区<em class="checkMark"></em></div>
+            </div>
+            <div class="type_box type_r fl" onclick="changeType(2)">
+                <div class="type_con fl">高校<em class="checkMark"></em></div>
+            </div>
+        </section>
+        <div class="type_container">
+            <span class="symbol"></span>
+            <div class="select_box"><!--- 地市，高校 ---->
+            	
+                <select class="select select1" id="cityOid" onchange="cityOidChange(this)">
+                    <option value="0" style="color:#999;" disabled selected>请选择地市</option>
+                    
+                </select>
+                
+            </div>
+            <div class="select_box"><!--- 区县，学院 ---->
+                <select class="select select2" id="classOid">
+                    <option value="0" style="color:#999;" disabled selected>请选择区/县</option>
+                  
+                </select>
+              
+                
+            </div>
+        </div>
+        <div class="agreement"><span>阅读并接受<a href="user_Agreement.html">《用户服务协议》</a></span></div>
+        <div class="submit_btn_box">
+            <div class="submit_btn">确定</div>
+        </div>
+    </section>
+</body>
+</html>
+<script  src="../../public/js/login-register/register3.js"></script>
+<script src="../../public/js/module/Utils.js"></script>
+  
+<script type="text/javascript">
+    
+    $('.type_box').click(function(event) {
+        $(this).addClass('chosen').siblings('.type_box').removeClass('chosen');
+    });
+
+    $('.select').change(function(event) {
+        if($(this).children('option:selected').val()==0){
+            $(this).removeClass('selected');
+            $('.submit_btn').removeClass('sub');
+        }else{
+            var otherSel = $(this).parent().siblings('.select_box').find('option:selected').val();
+            $(this).addClass('selected');
+            if( otherSel!=0  && $('.agreement span').hasClass('chosen')){
+                $('.submit_btn').addClass('sub');
+            }else{
+                $('.submit_btn').removeClass('sub');
+            }
+
+        }
+    });
+    var server_flay =false;   //阅读并接受
+    $('.agreement span').click(function(event) {
+        if($(this).hasClass('chosen')){
+        	server_flay =false;
+            $(this).removeClass('chosen');
+            if($('.submit_btn').hasClass('sub')){
+                $('.submit_btn').removeClass('sub');
+            }
+        }else{
+            $(this).addClass('chosen');
+             server_flay  =true;
+            var sel1 = $('.select1').children('option:selected').val();
+            var sel2 = $('.select2').children('option:selected').val();
+            if( sel1!=0 && sel2!=0 ){
+                $('.submit_btn').addClass('sub');
+            }else{
+                $('.submit_btn').removeClass('sub');
+            }
+        }
+    });
+</script>

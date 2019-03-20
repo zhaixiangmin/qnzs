@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>重磅项目-参赛项目</title>
+	 <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project_common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project_model1.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/custom/page.css" />
+    <!-- 分页   -->
+    <link rel="stylesheet" type="text/css" href="../../public/custom/page.css"/>
+     <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+    
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/heavy_project/page.js"></script>
+    <script src="../../public/custom/page.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script> 
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    
+    <script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+    <!--<script src="../../public/js/heavy_project/heavy_project_common.js"></script>-->
+    <script type="text/javascript" src="../../public/vendor/super_slide/jquery.SuperSlide.2.1.1.js"></script>  
+    <!--<script type="text/javascript" src="resources/pcJs/qnzsPcCommon.js"></script>--><!-- 打开会报错 -->
+    <!--重磅项目赛事-->
+    <!--<script src="../../public/custom/common.js"></script>--><!-- 打开会报错 -->
+    <style type="text/css">
+    		.work_pic_box  {
+		   		width: 208px;
+		   		height: 130px;
+		   		line-height: 130px;
+		   		display: table-cell;
+                background: #e2d7c8;
+                vertical-align:middle;
+		   	}
+		   	.work_pic_box img {
+		   		width: 208px;
+		   		display: block;
+		   		max-height:138px ;
+		   		
+		   	}
+		   	.participator_work .work_show_box .work_vote .project_name, .participator_work .work_show_box .work_vote .txt {
+			    white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			}
+    </style>
+        <!--- 引入头部和尾部 ----->
+	    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+	    <!--  对话框-->
+	    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+	    <script type="text/javascript" src="../../public/js/heavy_project/common.js"></script>
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="header_box">
+        <div class="w1200 header_content clearfix">
+            <div class="logo fl"><a href="heavy_project_model1_index.html"></a></div>
+           <ul class="fl clearfix header_nav">
+					<li class="nav_li">
+						<a id="project_main" href="heavy_project_model1_index.html">首页</a>
+					</li>
+					<li class="nav_li">
+						<a id="project_detail" href="heavy_project_model1_detail.html">项目详情</a>
+					</li>
+					<li class="nav_li">
+						<a id="project_dynamic" href="heavy_project_model1_trends_dynamic.html">项目动态</a>
+					</li>
+					<li class="nav_li cur">
+						<a id="team" href="heavy_project_model1_team.html">参赛团队</a>
+					</li>
+				</ul>
+				<div class="fr header_box_r clearfix">
+					<a href="../../index.html" class="link homepage fl"></a>
+					<a href="javascript:;" class="link login fl" id="head_login_img"></a>
+				</div>
+        </div>
+    </header>
+    <!-- banner -->
+    <div class="banner_box">
+        <div id="banner_center" class="banner_center w1200" ></div>
+    </div>
+    
+    <!-- 参赛者作品 -->
+    <div class="section_box participator_work section_box_top">
+		<input type="hidden" id="hidden_activity_id" />
+        <div class="content clearfix">
+            <div class="w1200 content_title_box clearfix">
+                <h1 class="content_title fl">参赛者作品</h1>
+            </div>
+            <div class="select_work w1200 clearfix">
+                <div class="select_work_l fl clearfix">
+                    <!-- 地区/高校 --->
+                    <select  class="select" id="oidType2" onchange="changeOid2Type(this)">
+                                    <option value="-1">请选择</option>
+                                    <option value="1">地市</option>
+                                    <option value="2">高校</option>
+                    </select>
+                    <select id="cityOid2" class="select"  name="cityOid2" onchange="cityOid2Change(this)"></select>
+                 	<select id="areaOid2" class="select"  onchange="quxuan2(this)">
+								<option value="-1">--区/县--</option>
+		            </select>
+		            
+                 	<select id="shcoolOid2" class="select"  name="shcoolOid2"  onchange="schoolOid2Change(this)"></select>
+                    <select id="classOid2" class="select"  onchange="quxuan2(this)">
+							<option value="-1">--分院--</option>
+		            </select>
+                   <!-- 地区/高校 end --->
+                   
+                    <!--<select class="select" onchange="sreachList()">
+                        <option value="0">最近</option>
+                        <option value="1">一个月内</option>
+                    </select>-->
+                </div>
+                <div class="select_work_r fr">
+                    <input id="key" type="text" class="search fl" placeholder="请输入参赛者名称/编号" />
+                    <span class="search_btn fl"></span>
+                </div>
+            </div>
+				
+				<div class="work_show_box" id="activityList">
+					<!--报名列表 --->
+					<ul class="work_list clearfix" id="activityListHtmlStatic"></ul>
+				</div>
+				
+        <div class="w1200 clearfix">
+        </div>
+            <!--<div class="pageNumBox">
+                <div class="pageNumCon clearfix">
+                    <span class="prevPage pagePrevNext fl">上一页</span>
+                    <div class="pageNum fl">
+                        <a href="javascript:;" class="cur">1</a>
+                        <a href="javascript:;">2</a>
+                        <a href="javascript:;">3</a>
+                        <a href="javascript:;">4</a>
+                        <a href="javascript:;">5</a>
+                        <a href="javascript:;">6</a>
+                        <a href="javascript:;">7</a>
+                        <a href="javascript:;">8</a>
+                        <a href="javascript:;">...</a>
+                        <a href="javascript:;">100</a>
+                    </div>
+                    <span class="nextPage pagePrevNext fl">下一页</span>
+                </div>
+            </div>-->
+        </div>
+    </div>
+   
+    <!-- 底部 -->
+    <footer class="conBgc01 colorfff font14">
+        <a href="javascript:;" class="disB font14 colorfff">触屏版</a>
+        <p>版权所有 copyright 2016 广东青年之声</p>
+        <p>粤ICP备10214402号-4</p>
+    </footer>
+    <script type="text/javascript" src="../../public/js/heavy_project/heavy_project_team.js"></script>
+    <script type="text/javascript" src="../../public/js/common/user_linkage_heavy.js"></script>
+
+    <!-- 站长统计 -->
+	<div style="display:none">
+	    <script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+	</div>
+</body>
+</html>
+<script>
+//  $('.topBlock').hide()  //隐藏顶部
+//  $('footer').hide()  //隐藏底部
+// 	setInterval(function(){
+// 		$('.topBlock').hide()  //隐藏顶部
+// 	    $('footer').hide()  //隐藏底部
+////   	   
+// 	},1)	
+     
+	//控制弹出窗
+	$('#head_login_img').click(function(){
+			//  获取当前登录者信息
+		obj.ajax('/commons/getSessionAccount',{},function(data){
+			
+			if(data.status =='OK'){
+				window.location.href = '../person_center/person_center.html'
+			}else{
+				
+				alert('亲，请先登录')
+//		       	  $('#loginBtn').trigger("click");  //触发点击事件
+                var i =1;
+	            var  time = setInterval(function(){
+	            $('#loginBtn').click();
+		            if(i==1){
+		             	clearInterval(time);
+		            }
+			    },100)	
+				
+			}
+		})
+	})
+	
+	
+</script>

@@ -1,0 +1,48 @@
+/* --------------顶部图片文字-----
+----------------------------- */
+.headTxt {
+  padding-left: 0.6rem;
+}
+.headTxt .item {
+  padding: 0.6rem 0.6rem 0.6rem 0;
+  border-bottom: 1px solid #e2e2e2;
+}
+.headTxt .item .left {
+  width: 4rem;
+  height: 3.2rem;
+  overflow: hidden;
+}
+.headTxt .item .left img {
+  width: 4.92rem;
+}
+.headTxt .item .right {
+  padding-left: 4.48rem;
+}
+.headTxt .item .right h2 {
+  font-size: 0.6rem;
+  line-height: 0.68rem;
+}
+.headTxt .item .right .score {
+  padding-top: 0.6rem;
+  height: 0.48rem;
+  line-height: 0.48rem;
+}
+.headTxt .item .right .score ul li {
+  width: 0.46rem;
+  height: 0.44rem;
+  margin-right: 0.1rem;
+  background: url(../images/star_2.png) no-repeat;
+  background-size: 100%;
+}
+.headTxt .item .right .score ul li.cur {
+  background-image: url(../images/star_1.png);
+}
+.headTxt .item .right .score .fenshu {
+  color: #ff8814;
+  font-size: 0.48rem;
+  padding-left: 0.24rem;
+}
+.headTxt .item .right .score .commented {
+  font-size: 0.48rem;
+  padding-left: 0.4rem;
+}

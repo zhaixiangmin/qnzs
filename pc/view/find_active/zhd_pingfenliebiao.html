@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>青年之声-找活动-评分列表</title>
+    <meta http-equiv= "X-UA-Compatible" content = "IE=edge,chrome=1"/>
+     <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_active/qnzs_zhd_zhubanfangxiangqing.css" />
+     <!-- 分页   -->
+    <link rel="stylesheet" type="text/css" href="../../public/custom/page.css"/>
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+    
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/heavy_project/page.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--- 引入头部和尾部 ----->
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <!--  对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/custom/common.js"></script>
+    <script src="../../public/custom/page.js" type="text/javascript" charset="utf-8"></script>
+     <!--- 引入头部和尾部 end ----->
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+     <script>
+		var dynamicLoading = {
+		    js: function(path){
+				if(!path || path.length === 0){
+					throw new Error('argument "path" is required !');
+				}
+				var head = document.getElementsByTagName('head')[0];
+		        var script = document.createElement('script');
+		        script.src = path+"/browser/0110/crossdomain.js";
+		        script.type = 'text/javascript';
+		        head.appendChild(script);
+		    }
+		}
+		
+		dynamicLoading.js(bigDataUrl);
+	
+	</script>
+    
+  
+ 
+</head>
+<style type="text/css">
+    #list_big_box .list_box .item{background-color: #fff;margin-bottom:30px;}
+    #list_big_box .list_box .item_con{padding:20px;}
+    #list_big_box .list_box .imgBox{width:80px;height:80px;overflow: hidden;border-radius:50%;}
+    #list_big_box .list_box .imgBox .pic{width:100%;height:100%;}
+    #list_big_box .list_box .rightBox{padding-left:100px;}
+    #list_big_box .list_box .rightBox .top_txt{line-height:20px;height:20px;}
+    
+    /** 星星样式  ***/
+    #averageScoreIcon  li {
+    float: left;
+    margin-right: 3px;
+    width: 12px;
+    height: 12px;
+    background: url(../../public/img/starNo.png) no-repeat;
+}
+  #averageScoreIcon  li span {
+    width: 12px;
+    height: 12px;
+    display: block;
+    background: url(../../public/img/starYes.png) no-repeat;
+}
+
+
+   .common_score  li {
+    float: left;
+    margin-right: 3px;
+    width: 12px;
+    height: 12px;
+    background: url(../../img/starNo.png) no-repeat;
+}
+ .common_score  li span {
+    width: 12px;
+    height: 12px;
+    display: block;
+    background: url(../../public/img/starYes.png) no-repeat;
+}
+/*background-image: url(../../img/wzzBg.jpg);*/
+/*.zuzhijieshao {
+    background: #fff url(../../img/wzzBg.jpg) no-repeat center top;
+    height: 400px;
+    background-size: cover;
+}*/
+#detail_banner {
+    background:  url(../../public/img/wzzBg.jpg) no-repeat center top;
+    height: 400px;
+    background-size: cover;
+}
+
+
+</style>
+<body class="bodyPt96">
+   <!-- <div class="topBlock poFix">
+ 
+        <div class="headTopBox">
+            <header class="headTop w1200 clearfix">
+                <div class="fr clearfix">
+                    <div class="leftLink fl">
+                        <a href="//qnzs.youth.cn/" target="_blank" class="fl a01">中国青年之声</a>
+                        <a href="//www.izyz.org/" target="_blank" class="fl a02">i 志愿</a>
+                        <a href="//zcplan.cn/" target="_blank" class="fl a03">展翅网</a>
+                        <a href="//www.gdtuanju.com/" target="_blank" class="fl a04">粤团聚</a>
+                    </div>
+                    <div class="rightLink fl">
+                        <a href="//www.12355.net/servicePlatform" class="fl ">
+                            <span class="disB">在线平台</span>
+                        </a>
+                        <a href="//www.12355.net/goAboutUs" class="fl">
+                            <span class="disB">联系我们</span>
+                        </a>
+                        <a href="javascript:;" class="fl" id="tucaoBtn">
+                            <span class="disB">我要吐槽</span>
+                        </a>
+                        <a href="javascript:;" class="fl" id="registerBtn">
+                            <span class="disB borderR01">注册</span>
+                        </a>
+                        <a href="javascript:;" class="fl" id="loginBtn">
+                            <span class="disB">登录</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+       
+        <div class="navigation conBgc01 clearfix">
+            <div class="content w1200">
+                <div class="leftNav fl">
+                    <div class="bigLogoDiv fl" onclick="window.location.href='qnzs_index.html'">
+                        <img src="../../resources/pcImages/bigLogo.png" width="149"/>
+                    </div>
+                    <a href="javascript:;" class="disIB colorfff font14 didian">广东</a>
+                </div>
+                <div class="rightNav fr">
+                    <ul class="ulNav fl">
+                        <li><a href="qnzs_index.html" class="disB">首页</a></li>
+                        <li><a href="qnzs_zhaohuodongIndex.html" class="disB conBgc02">找活动</a></li>
+                        <li><a href="qnzs_zhaozixunIndex.html" class="disB">找咨询</a></li>
+                        <li><a href="qnzs_zbzIndex.html" class="disB">找帮助</a></li>
+                        <li><a href="zbxm_index.html" class="disB">重磅项目</a></li>
+                        <li><a href="fxxx_Index.html" class="disB">发现线下</a></li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+    </div>-->
+     <!-- 面包屑导航 -->
+     <div class="breadcrumbs">
+         <div class="content w1200 clearfix">
+             <a href="javascript:;">首页&nbsp;&nbsp;</a><span>&gt;&nbsp;&nbsp;</span>
+             <a href="javascript:;">找活动&nbsp;&nbsp;</a><span>&gt;&nbsp;&nbsp;</span>
+             <a href="javascript:;">发布方&nbsp;&nbsp;</a><span>&gt;&nbsp;&nbsp;</span>
+             <a href="javascript:;">广东青年之声</a>
+         </div>
+     </div>
+     <!-- 主办方介绍 -->
+     <div class="proPersonalIntro bgcWhite" id="detail_banner">
+         <div class="content w1200 clearfix detail_banner" >
+             <div class="fl zbf_l">
+                 <div class="zbf_l_box">
+                     <div class="imgBox" style="width: 180px;height: 180px; margin-left: 187px;margin-top: 64px;">
+                         <!--<ul class="imgList clearfix">
+                             <!--<li class="item"><img src="../../public/img/66.png" class="pic"  /></li>
+                             <li class="item"><img src="../../public/img/act01.png" class="pic"  /></li>
+                             <li class="item"><img src="../../public/img/000.png" class="pic"  /></li>-->
+                         <!--</ul>-->
+                         <img   id="imgBox_img" src="" style="width: 100%;height: 100%;display: block;" />
+                         <!--<span class="btn prev"></span>
+                         <span class="btn next"></span>-->
+                     </div>
+                 </div>
+             </div>
+             <div class="rightBox fr">
+                 <div class="top font14 borderB01">
+                     <h1 class="host_name" id="fullName"></h1>
+                     <div class="clearfix host_intro font14 color666">
+                         <span class="fl intro_1"><em class="color999">简称：</em><span id="name"></span></span>
+                         <span class="fl intro_2" ><em id="attentionCount_1">3000</em> 人关注</span>
+                     </div>
+                 </div>
+                 <div class="middleTxt">
+                     <div class="common_box clearfix">
+                         <div class="scoreBox position_r clearfix fl">
+                             <!--<ol class="clearfix fl score_list" id="helpAverageScoreIcon" ></ol>--> 
+                             <ol class="clearfix fl score_list"   id="averageScoreIcon" ></ol> 
+                             
+                             <span class="fl scoreColor01 font14 fenshu"><em id="activityAverageScore">4.5</em>分</span>
+                             <a href="javascript:;" class="color999 yiping" id="answerQuestionCount">65人已评</a>
+                             
+                        </div>
+                     </div>
+                     <div class="common_box clearfix act_address font14">
+                         <span class="left_title color999 fl"> 活动地点：</span>
+                         <p class="right_txt color000 fl" id="address">广东河源职业技术学院行政楼2楼</p>
+                     </div>
+                     <div class="common_box clearfix phone font14">
+                         <span class="left_title color999 fl">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：</span>
+                         <p class="right_txt color000 fl" id="telephone">020-24548712</p>
+                     </div>
+                 </div>
+                 <div class="btn_care clearfix font18 colorfff">关注</div>
+             </div>
+         </div>
+     </div>
+     <!--简介 TA的活动 TA的回答 TA的帮助 TA的服务 TA的重磅  -->
+    <div id="list_big_box" class="pingfenliebiao">
+        <div class="content w1200">
+            <div class="clearfix title_box">
+                <h3 class="font16 title cur"  onclick="all1()">全部</h3>
+                <h3 class="font16 title" onclick="all2()" >主办活动</h3>
+                <h3 class="font16 title" onclick="all3()">解决求助</h3>
+                <h3 class="font16 title" onclick="all4()">线下服务</h3>
+            </div>
+            <div class="list_box all_list_box">
+                <ul class="all_list"></ul>
+            </div>
+            <div class="list_box zhuban_list_box">
+                <ul class="zhuban_list"></ul>
+            </div>
+            <div class="list_box done_list_box">
+                <ul class="done_list"></ul>
+            </div>
+            <div class="list_box xianxia_list_box">
+                <ul class="xianxia_list"></ul>
+            </div>
+        </div>
+    </div>
+     <!-- 底部 -->
+   <!-- <footer class="conBgc01 colorfff font14">
+        <a href="javascript:;" class="disB font14 colorfff">触屏版</a>
+        <p>版权所有 copyright 2016 广东青年之声</p>
+        <p>粤ICP备10214402号-4</p>
+    </footer>-->
+</body>
+</html>
+   
+    <script type="text/javascript" src="../../public/js/find_active/qnzs_zhd_zhubanfangxiangqing.js"></script>
+
+    <!--<script type="text/javascript" src="../../public/custom/qnzsPcCommon.js"></script>-->
+

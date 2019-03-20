@@ -1,0 +1,241 @@
+/* 投票指引 */
+.zhiyin{height:1.6rem;line-height:1.6rem;}
+.zhiyin div{padding:0 0.6rem;}
+.zhiyin div span{width:0.8rem;height:0.78rem;background:url(../../img/search.png)no-repeat;background-size:100%;margin-top:0.4rem;}
+
+/* 优秀青年/集体 */
+.youxiu{width:100%;height:2.0rem;}
+.youxiu span{width:50%;height:0.76rem;line-height:0.76rem;display: inline-block;text-align: center;margin-top:0.41rem;}
+.youxiu .youxiu_qn{border-right:1px solid #e2e2e2;-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;;}
+.youxiu span{color:#666;}
+.youxiu span.cur{color:#333;}
+.list_02{display:none;}
+
+/* 头部筛选 */
+.choose_t {
+  border-bottom: 1px solid #ebebeb;
+  height: 1.6rem;
+  line-height: 1.6rem;
+}
+.choose_t .choose_box {
+  width: 33%;
+  height: 1rem;
+  line-height: 1rem;
+}
+.choose_t .choose_box a {
+  display: block;
+  width: 100%;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  margin: 0.3rem 0;
+}
+.choose_t .choose_box a .tit {
+  padding-right: 0.9rem;
+  background: url(../../img/downArrow.png) no-repeat right center;
+  background-size: 0.48rem;
+}
+.choose_t .choose_box a .tit.current {
+  background: url(../../img/up.png) no-repeat right center;
+  background-size: 0.48rem;
+  color: #228DDC;
+}
+.choose_box_m {
+  width: 34% !important;
+}
+.choose_box_m a {
+  border-left: 1px solid #e2e2e2;
+  border-right: 1px solid #e2e2e2;
+  box-sizing: border-box;
+}
+/* 筛选列表 */
+.choose_list {
+  position: relative;
+}
+.choose_list ul {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 20000;
+}
+.choose_list ul li {
+  border-bottom: 1px solid #e2e2e2;
+}
+.choose_list ul li div {
+  padding-left: 0.6rem;
+}
+.choose_list ul li a {
+  height: 1.6rem;
+  line-height: 1.6rem;
+  border-bottom: 1px solid #e2e2e2;
+  display: block;
+}
+.choose_list ul li div a:last-child {
+  border-bottom: none;
+}
+.list_1,
+.list_2,
+.list_3 {
+  display: none;
+}
+
+/* 项目列表 */
+.XM_list{padding: 0.4rem 0.3rem 0.2rem;}
+.XM_list .list_box {width:48%;padding-bottom:0.6rem;margin-bottom:0.4rem;border-bottom:1px solid #e8e8e8;}
+.XM_list .list_box:nth-child(2n-1){float: left;border-right:1px solid #e8e8e8;}
+.XM_list .list_box:nth-child(2n){float:right;border-left:1px solid #e8e8e8;}
+.XM_list .list_box .XM_pic {  overflow: hidden; vertical-align: middle; background:rgba(171, 174, 181, 0.51);  width:100%; height:4.5rem ; text-align: center; }/*260*160px*/
+
+.XM_list .list_box .XM_pic img{  height:4.5rem ; display:inline-block; margin: auto 0;}
+.XM_list .list_box h3{width:90%;line-height:0.9rem;text-align: center;margin:0.44rem auto 0.3rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.XM_list .list_box p{text-align: center;}
+.XM_list .list_box p .shenbao{padding:0.1rem 0.5rem;background:#1bce8d;font-size:0.36rem;display:inline-block;margin-right:0.32rem;}
+ .XM_list .list_box p span{display:inline-block;} 
+ 
+  .XM_list .list_box .reporterName {width:2rem;}
+/*overflow:hidden; /*超出的部分隐藏起来。*/ 
+/*white-space:nowrap;/*不显示的地方用省略号...代替*/
+/*text-overflow:ellipsis;/* 支持 IE */
+.XM_list .list_box a{display: block;}
+.XM_list .list_box .btn_vote{width:86%;height:1.1rem;line-height:1.1rem;text-align: center;margin:0.56rem auto 0;border-radius:5px;}
+.bgcgrey{background:#228ddc;}
+
+/* 弹窗—我要报名 */
+.bg_black{ position:fixed; left: 0; top: 0; width:100%; height:100%; background-color: rgba(0,0,0,.5); z-index:1000;display:none;}
+.guide,.HD_detail,.prove,.success{    
+    position:fixed;
+    left: 50%;
+    top: 50%;
+    -webkit-transform:translate(-50%, -50%);
+    -ms-transform:translate(-50%, -50%);
+    -o-transform:translate(-50%, -50%);
+    transform:translate(-50%, -50%);
+    z-index: 10000;
+    width:100%;
+    display:none;
+}
+.guide .guide_box,.HD_detail .detail_box,.prove .prove_box,.success .success_box{padding:0  1.5rem;}
+.guide .guide_box .guide_centent,.HD_detail .detail_box .detail_centent,.prove .prove_box .prove_centent,.success .success_box .success_centent{padding:0.36rem 0.6rem 0.6rem;border-radius:0.1rem;position:relative;}
+.guide .guide_box .guide_centent h3,.HD_detail .detail_box .detail_centent h3,.prove .prove_box .prove_centent h3,.success .success_box .success_centent h3{margin-bottom:1rem;}
+.guide .guide_box .guide_centent span,.HD_detail .detail_box .detail_centent span,.prove .prove_box .prove_centent span,.success .success_box .success_centent span{width:0.5rem;height:0.5rem;background:url(../../img/tanchuangClose.png) no-repeat;background-size: 100%;display:block;position:absolute;right:0.32rem;top:0.6rem;}
+.guide .guide_box .guide_centent .centent .centent_inner div p{font-size:0.36rem;margin-bottom:0.6rem;}
+.guide .guide_box .guide_centent .centent .centent_inner{
+    height:4.6rem;
+    border:1px solid #e8e8e8;
+    padding:0.32rem 0.4rem 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow-y:scroll;
+
+}
+.guide .guide_box .guide_centent .red{width:100%;height:1.2rem;line-height:1.2rem;text-align: center;display:block;border-radius:2px;margin-top:0.6rem;}
+
+/* 弹窗—参赛项目介绍*/
+ .HD_detail{    
+    display:none;
+} 
+.HD_detail .detail_box .detail_centent h3{width:90%;}
+.HD_detail .detail_box .detail_centent .centent .centent_inner{
+    height:11rem;
+    border:1px solid #e8e8e8;
+    padding:0.4rem 0.4rem 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow-y:scroll;
+
+}
+.HD_detail .detail_box .detail_centent .centent .centent_inner div{margin-bottom:0.36rem;overflow:hidden;}
+.HD_detail .detail_box .detail_centent .centent .centent_inner div img{width:100%;}
+.HD_detail .detail_box .detail_centent .centent .centent_inner p{font-size:0.6rem;margin-bottom:0.6rem;}
+
+.HD_detail .detail_box .detail_centent .btn_box{width:100%;margin-top:0.6rem;}
+.HD_detail .detail_box .detail_centent .btn_box a{width:48%;height:1.2rem;line-height:1.2rem;text-align: center;display:block;border-radius:2px;}
+.HD_detail .detail_box .detail_centent .btn_box .toupiao{background:#2185cf;} /* 投票按钮正常状态为蓝色 */
+.HD_detail .detail_box .detail_centent .btn_box .toupiao.cur{background:#999;} /* 如果投票结束，则‘我要投票’按钮为灰色 */
+.HD_detail .detail_box .detail_centent .btn_box .zhuanfa{background:#1bce8d;}
+
+/* 弹窗—投票验证*/
+.prove{display:none;}
+
+/* 弹窗—投票成功*/
+.success{display:none;}
+.success .success_box .success_centent{padding-bottom:1.2rem;}
+.success .success_box .success_centent .centent{text-align: center;}
+.success .success_box .success_centent .centent div{width:2.26rem;height:2.26rem;margin:2rem auto 0.6rem;}
+.success .success_box .success_centent .centent div img{width:2.26rem;height:2.26rem;display:block;}
+
+/*.head-banner {position: relative;  width: 100%;height: 7.4rem }*/
+/*.head-banner .img {position: absolute;z-index: 1;width: 100%;height:7.4rem ;}*/
+/*.head-banner .img img {width: 100%;height:7.4rem ; display: block;}*/
+/*.head-banner .img {position: absolute; z-index: 1; width: 100%; height: 7.4rem; line-height: 7.4rem; font-size: 0; text-align: center;}*/
+/*.head-banner .img img {max-width: 100%; max-height: 100%; vertical-align: middle; display: inline-block;}*/
+/*.head-banner .img {position: absolute; z-index: 1; width: 100%; height: 7.4rem; line-height: 7.4rem; font-size: 0; text-align: center;}*/
+.head-banner {position: relative;}
+.head-banner img {width: 100%;}
+.head-banner .searchBox{  line-height: 0.666666rem;   padding: 0.2rem 0.4rem;    position: absolute;z-index: 33; left: 15%;top: 0;}
+
+.head-banner .searchBox .searchBox-rig{ margin-left:0.066666rem; width: 25%;  float: left;height: 1rem;line-height: 1rem; }
+
+.searchBox input {
+	float: left;
+	display: block;
+    width: 70%;
+    height: 1rem;
+    border-radius: 0.2rem;
+    padding-left: 1.7rem;
+    box-sizing: border-box;
+    /*background: #f3f3f3 url(../../img/searchIcon.png) no-repeat 0.4rem center;*/
+    background-size: auto auto;
+    background-size: 0.8rem;
+}
+.searchBox a{
+	
+	display: block;
+	float: left;
+	/*width: 30%;*/
+	padding: 0 0.266666rem;
+	margin: 0 0.066666rem;
+  background-color: rgba(70, 69, 69, 0.73);
+	color:rgba(241, 241, 234, 0.94);
+	border-radius:0.133333rem ;
+	text-align: center;
+	
+	 margin-right: 0.08rem;
+}
+
+#search{
+	background: #3573e0;
+	color: white;
+}
+.vote-name {
+	
+	height: 0.533333rem;
+	line-height:  0.533333rem;
+}
+#voteBtn{
+	margin-left: 25%;
+}
+/*** 加载更多  ****/
+
+
+/*.gengduo2 {
+	
+	width: 100%;
+	padding: 10rem 0;
+	text-align: center;
+	background: yellow;
+
+}*/
+
+/*搜索*/
+.head-banner .searchBox{width:70%;padding:0;margin-top:0.4rem;}
+.head-banner .searchBox #key{width:100%;padding-right:1.5rem;font-size:0.48rem;padding-left:2.5rem;}
+.head-banner .searchBox:before{content:'';position:absolute;left:1.7rem;width:1px;height:60%;background-color: #999;top:50%;transform:translateY(-50%);}
+.searchBox #keyType{position:absolute;left:0;height:100%;border-radius:0.2rem 0 0 0.2rem;background-color:#F3F3F3;font-size:0.48rem;padding-left: 0.2rem;}
+.head-banner .searchBox .searchBox-rig{position: absolute;right:-0.1rem;width:auto;}
+.head-banner .searchBox #search{margin:0;border-radius:0 0.2rem 0.2rem 0;}

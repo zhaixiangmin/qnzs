@@ -1,0 +1,1671 @@
+<html xmlns="//www.w3.org/1999/xhtml" class="panel-fit">
+
+	<head>
+		<title>活动管理</title>
+		<link rel="stylesheet" href="../../public/js/jquery-easyui-1.3.3/themes/default/easyui.css" type="text/css">
+		<link rel="stylesheet" href="../../public/js/jquery-easyui-1.3.3/themes/icon.css" type="text/css">
+		<script type="text/javascript" src="../../public/js/jquery-easyui-1.3.3/jquery.min.js"></script>
+		<script type="text/javascript" src="../../public/js/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../public/js/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
+		<script type="application/javascript" src="../../public/js/util.js"></script>
+
+		<script type="text/javascript" src="../../public/js/commons/selectMenu.js"></script>
+		<script type="text/javascript" src="../../public/js/activity/findProject.js"></script>
+		<script type="text/javascript" src="../../public/js/commons/activity_list.js"></script>
+		<link rel="stylesheet" href="../../public/css/base.css" type="text/css">
+
+		<script type="text/javascript">
+			var oid = '001';
+			var dg_activity;
+			var ctx = '//www.12355.net';
+		</script>
+	</head>
+
+	<body class="panel-noscroll">
+		<div class="easyui-layout layout" fit="true" style="width: 667px; height: 615px;">
+			<div class="panel layout-panel layout-panel-north" style="left: 0px; top: 0px; width: 667px;">
+				<div class="panel-header panel-header-noborder" style="width: 657px;">
+					<div class="panel-title">数据过滤</div>
+					<div class="panel-tool">
+						<a class="panel-tool-collapse" href="javascript:void(0)" style="display: none;"></a>
+						<a href="javascript:void(0)" class="layout-button-up"></a>
+					</div>
+				</div>
+				<div class="datagrid-toolbar panel-body panel-body-noborder layout-body" data-options="region:'north',split:false,border:false,collapsed:false" title="" style="height: 70px; overflow: hidden; width: 663px;">
+					<form id="ff_activity" method="post">
+						<table style="margin:10px;">
+							<tbody>
+								<tr>
+									<th>
+										<label>文章标题:</label>
+									</th>
+									<td>
+										<input class="easyui-validatebox validatebox-text" type="text" name="title" id="title">
+									</td>
+									<td style="width:30px"></td>
+
+									<!-- <td>
+			        		<input id="orgId" name="orgId">
+		  	 			</td> -->
+									<th>
+										<label for="keyword">报名日期:</label>
+									</th>
+									<td>
+										<input type="text" class="easyui-datebox datebox-f combo-f" id="startTime" data-options="deltaX:100" comboname="startTime" style="display: none;"><span class="combo datebox" style="width: 171px; height: 20px;"><input type="text" class="combo-text validatebox-text" autocomplete="off" style="width: 153px; height: 20px; line-height: 20px;"><span><span class="combo-arrow" style="height: 20px;"></span></span>
+										<input
+										type="hidden" class="combo-value" name="startTime" value="">
+											</span>
+									</td>
+									<td style="width:30px"></td>
+									<th>
+										<label for="keyword">截止日期:</label>
+									</th>
+									<td>
+										<input type="text" class="easyui-datebox datebox-f combo-f" id="endTime" comboname="endTime" style="display: none;"><span class="combo datebox" style="width: 171px; height: 20px;"><input type="text" class="combo-text validatebox-text" autocomplete="off" style="width: 153px; height: 20px; line-height: 20px;"><span><span class="combo-arrow" style="height: 20px;"></span></span>
+										<input
+										type="hidden" class="combo-value" name="endTime" value="">
+											</span>
+									</td>
+									<td style="width:20px"></td>
+								</tr>
+								<tr>
+									<th>
+										<label for="keyword">所属组织:</label>
+									</th>
+									<td colspan="7">
+										<input id="oid" name="oid" type="hidden" require="true">
+										<select id="oidType" name="oidType" style="width: 90px" onchange="changeOidType(this)">
+											<option value="-1" id="option1" selected="selected">--请选择--</option>
+											<option value="1">地市</option>
+											<option value="2">高校</option>
+										</select>
+										<input id="idType" name="&quot;idType" type="hidden" require="true">
+										<select id="cityOid" name="cityOid" onchange="cityOidChange(this)" style="display: none;">
+											<option value="-1">--市级--</option>
+											<option value="001001">广州</option>
+											<option value="SHENZHEN">深圳</option>
+											<option value="ZHUHAI">珠海</option>
+											<option value="SHANTOU">汕头</option>
+											<option value="FS">佛山</option>
+											<option value="SHAOGUAN">韶关</option>
+											<option value="HY">河源</option>
+											<option value="MZ">梅州</option>
+											<option value="HZ">惠州</option>
+											<option value="SW">汕尾</option>
+											<option value="DG">东莞</option>
+											<option value="ZS">中山</option>
+											<option value="JM">江门</option>
+											<option value="YJ">阳江</option>
+											<option value="ZJ">湛江</option>
+											<option value="MM">茂名</option>
+											<option value="ZQ">肇庆</option>
+											<option value="QY">清远</option>
+											<option value="CZ">潮州</option>
+											<option value="JY">揭阳</option>
+											<option value="YF">云浮</option>
+											<option value="SD">顺德</option>
+											<option value="2017">汇青合作商家</option>
+										</select>
+										<select id="areaOid" disabled="disabled" onchange="quxuan(this)" style="display: none;">
+											<option value="-1">--区/县--</option>
+										</select>
+										<select id="shcoolOid" name="shcoolOid" onchange="schoolOidChange(this)" style="display: none;">
+											<option value="-1">--请选择--</option>
+											<option value="ZD">中大</option>
+											<option value="ZHCS">珠海城职院团委</option>
+											<option value="HG">华南理工</option>
+											<option value="JD">暨南大学</option>
+											<option value="HN">华农</option>
+											<option value="NY">南医大</option>
+											<option value="GZY">广中医</option>
+											<option value="HS">华南师大</option>
+											<option value="GG">广工大</option>
+											<option value="GW">广外</option>
+											<option value="SD1">汕大</option>
+											<option value="GC">广财大</option>
+											<option value="GY">广东医</option>
+											<option value="GH">广海大</option>
+											<option value="ZK">仲恺</option>
+											<option value="GY1">广药大</option>
+											<option value="XH">星海学院</option>
+											<option value="GM">广美</option>
+											<option value="GT">广体</option>
+											<option value="GJS">广技师</option>
+											<option value="LS">岭师院</option>
+											<option value="HS1">韩山师院</option>
+											<option value="GSY">广油</option>
+											<option value="GJ">广金</option>
+											<option value="GJX">广警</option>
+											<option value="G2S">广东二师</option>
+											<option value="GHY">广航</option>
+											<option value="GD">广大</option>
+											<option value="GYK">广医</option>
+											<option value="SZD">深圳大学</option>
+											<option value="NKD">南科大</option>
+											<option value="SGX">韶关学院</option>
+											<option value="JYX">嘉应学院</option>
+											<option value="HZX">惠州学院</option>
+											<option value="DGL">东莞理工</option>
+											<option value="WYD">五邑大学</option>
+											<option value="FSK">佛科院</option>
+											<option value="ZQ1">肇庆学院</option>
+											<option value="PZX">培正学院</option>
+											<option value="GDBY">白云学院</option>
+											<option value="GKJ">广科院</option>
+											<option value="GZS">广州商院</option>
+											<option value="DR">东软学院</option>
+											<option value="GZG">广州工商学院</option>
+											<option value="GZLG">广理工</option>
+											<option value="GZMH">民航职院</option>
+											<option value="GDQG">广东轻院</option>
+											<option value="GDWY">广外艺</option>
+											<option value="GDJD">机电职院</option>
+											<option value="GDGM">广东工贸职业技术学院</option>
+											<option value="GDZY">广东职业技术学院</option>
+											<option value="GDJS">广东建院</option>
+											<option value="GDLG">广东理工</option>
+											<option value="GDKX">科技职院</option>
+											<option value="GDJT">广交职院</option>
+											<option value="GDSL">水电职院</option>
+											<option value="GDSF">司警职院</option>
+											<option value="GDXZ">行职院</option>
+											<option value="GDTY">广东体职</option>
+											<option value="GDW">文艺职院</option>
+											<option value="GDSP">广药职院</option>
+											<option value="85">广东女院</option>
+											<option value="GDSS">松山学院</option>
+											<option value="GDNG">广农工商</option>
+											<option value="GDYD">邮电职院</option>
+											<option value="GDGC">工程职院</option>
+											<option value="GDKM">粤科贸职</option>
+											<option value="GDHJ">环保职院</option>
+											<option value="GDQN">广青院</option>
+											<option value="GDWD">广舞戏</option>
+											<option value="GDST">生态职院</option>
+											<option value="GDPY">番职院</option>
+											<option value="GZTY">广州体职</option>
+											<option value="GZGC">广州工程技术职业学院</option>
+											<option value="GZTL">广铁职</option>
+											<option value="GZCS">广城职</option>
+											<option value="GZKJ">科贸职院</option>
+											<option value="SZZY">深职院</option>
+											<option value="SZXX">深信职院</option>
+											<option value="STZY">汕头职院</option>
+											<option value="HYZY">河职院</option>
+											<option value="HZWS">惠卫院</option>
+											<option value="HZCS">惠城职院</option>
+											<option value="SWZY">汕尾职院</option>
+											<option value="ZSHJ">中山火炬</option>
+											<option value="ZSZY">中山职院</option>
+											<option value="JMZY">江职院</option>
+											<option value="FSZY">佛山职院</option>
+											<option value="YJZY">阳江职院</option>
+											<option value="MMZY">茂职院</option>
+											<option value="ZQYY">肇庆医专</option>
+											<option value="QYZY">清职院</option>
+											<option value="JYZY">揭职院</option>
+											<option value="LDZY">罗定职院</option>
+											<option value="SDZY">顺职院</option>
+											<option value="DGZY">东莞职院</option>
+											<option value="MBNH">南华工商</option>
+											<option value="SLHL">私立华联</option>
+											<option value="CSZY">潮汕职院</option>
+											<option value="GDXA">新安职院</option>
+											<option value="GDLN">岭南职院</option>
+											<option value="GDYS">亚视职院</option>
+											<option value="GDKD">康大职院</option>
+											<option value="ZHYS">珠海艺职</option>
+											<option value="GZSW">涉外职院</option>
+											<option value="GZNY">南洋职院</option>
+											<option value="GZKX">科技职院</option>
+											<option value="HZJJ">惠经院</option>
+											<option value="GDGS">广东工商</option>
+											<option value="GZHS">华南商贸</option>
+											<option value="GZHL">华立职院</option>
+											<option value="GZXD">现代工职</option>
+											<option value="GZZJ">珠江职院</option>
+											<option value="GZST">松田职院</option>
+											<option value="GDWL">文理职院</option>
+											<option value="GZCJ">广州城建职业学院</option>
+											<option value="UIC001">UIC</option>
+											<option value="GDNF">南方职院</option>
+											<option value="GZH">华商职院</option>
+											<option value="GZHX">华夏职院</option>
+											<option value="GZCX">创新职院</option>
+											<option value="GZDH">东华职院</option>
+											<option value="GDXX">信工职院</option>
+											<option value="GDBGY">碧园职院</option>
+											<option value="BSZ">北师珠</option>
+											<option value="DZKZ">电科中山</option>
+											<option value="BLZ">北理珠院</option>
+											<option value="JDZ">吉大珠院</option>
+											<option value="GGH">广工华立</option>
+											<option value="ST">广大松田</option>
+											<option value="DL">东莞城院</option>
+											<option value="ZX">中大新华</option>
+											<option value="ZN">中大南方</option>
+											<option value="HG1">华工广院</option>
+											<option value="HZ1">华农珠江</option>
+											<option value="GN">广外南商</option>
+											<option value="CS">广财华商</option>
+											<option value="CJ">广海寸金</option>
+											<option value="JT">广技天河</option>
+											<option value="HR">广大华软</option>
+										</select>
+										<input id="reporterName" name="&quot;reporterName" type="hidden">
+										<input id="reporterNames" name="&quot;reporterNames" type="hidden">
+										<select id="classOid" disabled="disabled" onchange="xueyuan(this)" style="display: none;">
+											<option value="-1">--分院--</option>
+										</select>
+										<input id="fullName" name="&quot;fullName" type="hidden">
+										<input id="fullNames" name="&quot;fullNames" type="hidden">
+									</td>
+									<td style="width:20px"></td>
+									<td>
+										<a style="vertical-align: top" id="btn_search" href="#" class="easyui-linkbutton l-btn" data-options="iconCls:'icon-search'" group=""><span class="l-btn-left"><span class="l-btn-text icon-search l-btn-icon-left">查询</span></span></a>
+										<a style="vertical-align:top;" href="#" class="easyui-linkbutton l-btn" data-options="iconCls:'icon-reload'" onclick="formClear()" group="" id=""><span class="l-btn-left"><span class="l-btn-text icon-reload l-btn-icon-left">清空</span></span></a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div class="panel layout-panel layout-panel-center" style="left: 0px; top: 100px; width: 667px;">
+				<div data-options="region:'center',split:false,border:false," style="overflow: hidden; width: 667px; height: 515px;" title="" class="panel-body panel-body-noheader panel-body-noborder layout-body panel-noscroll">
+					<div class="panel datagrid" style="width: 667px;">
+						<div class="panel-header" style="width: 655px;">
+							<div class="panel-title">活动管理</div>
+							<div class="panel-tool"></div>
+						</div>
+						<div class="datagrid-wrap panel-body" title="" style="width: 665px; height: 486px;">
+							<div id="tb_activity" class="datagrid-toolbar">
+								<a href="#" class="easyui-linkbutton l-btn l-btn-plain" onclick="openAdd()" data-options="iconCls:'icon-add',plain:true" style="vertical-align: top" group="" id=""><span class="l-btn-left"><span class="l-btn-text icon-add l-btn-icon-left">新增</span></span></a>
+								<a href="#" class="easyui-linkbutton l-btn l-btn-plain" onclick="openEdit()" data-options="iconCls:'icon-edit',plain:true" style="vertical-align: top" group="" id=""><span class="l-btn-left"><span class="l-btn-text icon-edit l-btn-icon-left">编辑</span></span></a>
+								<a href="#" class="easyui-linkbutton l-btn l-btn-plain" onclick="audited()" data-options="iconCls:'icon-recheck',plain:true" style="vertical-align: top" group="" id=""><span class="l-btn-left"><span class="l-btn-text icon-recheck l-btn-icon-left">审核</span></span></a>
+								<a href="#" class="easyui-linkbutton l-btn l-btn-plain" onclick="removeBatch()" data-options="iconCls:'icon-remove',plain:true" style="vertical-align: top" group="" id=""><span class="l-btn-left"><span class="l-btn-text icon-remove l-btn-icon-left">删除</span></span></a>
+							</div>
+							<div class="datagrid-view" style="width: 665px; height: 426px;">
+								<div class="datagrid-view1" style="width: 26px;">
+									<div class="datagrid-header" style="width: 26px; height: 24px;">
+										<div class="datagrid-header-inner" style="display: block;">
+											<table class="datagrid-htable" border="0" cellspacing="0" cellpadding="0" style="height: 25px;">
+												<tbody>
+													<tr class="datagrid-header-row">
+														<td rowspan="0">
+															<div class="datagrid-header-rownumber"></div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="datagrid-body" style="width: 26px; margin-top: 0px; height: 401px;">
+										<div class="datagrid-body-inner">
+											<table class="datagrid-btable" cellspacing="0" cellpadding="0" border="0" style="table-layout: auto;">
+												<tbody>
+													<tr id="datagrid-row-r1-1-0" datagrid-row-index="0" class="datagrid-row" style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">1</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-1" datagrid-row-index="1" class="datagrid-row" style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">2</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-2" datagrid-row-index="2" class="datagrid-row" style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">3</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-3" datagrid-row-index="3" class="datagrid-row" style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">4</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-4" datagrid-row-index="4" class="datagrid-row" style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">5</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-5" datagrid-row-index="5" class="datagrid-row" style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">6</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-6" datagrid-row-index="6" class="datagrid-row" style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">7</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-7" datagrid-row-index="7" class="datagrid-row" style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">8</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-8" datagrid-row-index="8" class="datagrid-row  " style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">9</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-9" datagrid-row-index="9" class="datagrid-row  " style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">10</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-10" datagrid-row-index="10" class="datagrid-row  " style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">11</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-11" datagrid-row-index="11" class="datagrid-row  " style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">12</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-12" datagrid-row-index="12" class="datagrid-row  " style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">13</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-13" datagrid-row-index="13" class="datagrid-row  " style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">14</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-14" datagrid-row-index="14" class="datagrid-row  " style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">15</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-15" datagrid-row-index="15" class="datagrid-row  " style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">16</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-16" datagrid-row-index="16" class="datagrid-row  " style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">17</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-17" datagrid-row-index="17" class="datagrid-row  " style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">18</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-18" datagrid-row-index="18" class="datagrid-row  " style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">19</div>
+														</td>
+													</tr>
+													<tr id="datagrid-row-r1-1-19" datagrid-row-index="19" class="datagrid-row  " style="height: 25px;">
+														<td class="datagrid-td-rownumber">
+															<div class="datagrid-cell-rownumber">20</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="datagrid-footer" style="width: 26px;">
+										<div class="datagrid-footer-inner" style="display: none;"></div>
+									</div>
+								</div>
+								<div class="datagrid-view2" style="width: 639px;">
+									<div class="datagrid-header" style="width: 639px; height: 24px;">
+										<div class="datagrid-header-inner" style="display: block;">
+											<table class="datagrid-htable" border="0" cellspacing="0" cellpadding="0" style="height: 25px;">
+												<tbody>
+													<tr class="datagrid-header-row">
+														<td>
+															<div class="datagrid-header-check">
+																<input type="checkbox">
+															</div>
+														</td>
+														<td field="id" class="">
+															<div class="datagrid-cell datagrid-cell-c1-id" style="text-align: center;"><span>编号</span><span class="datagrid-sort-icon">&nbsp;</span></div>
+														</td>
+														<td field="title" class="">
+															<div class="datagrid-cell datagrid-cell-c1-title" style="text-align: center;"><span>活动名称</span><span class="datagrid-sort-icon">&nbsp;</span></div>
+														</td>
+														<td field="remark" class="">
+															<div class="datagrid-cell datagrid-cell-c1-remark" style="text-align: center;"><span>活动简介</span><span class="datagrid-sort-icon">&nbsp;</span></div>
+														</td>
+														<td field="organization">
+															<div class="datagrid-cell datagrid-cell-c1-organization" style="text-align: center;"><span>所属组织</span><span class="datagrid-sort-icon">&nbsp;</span></div>
+														</td>
+														<td field="startTime">
+															<div class="datagrid-cell datagrid-cell-c1-startTime" style="text-align: center;"><span>报名开始时间</span><span class="datagrid-sort-icon">&nbsp;</span></div>
+														</td>
+														<td field="endTime">
+															<div class="datagrid-cell datagrid-cell-c1-endTime" style="text-align: center;"><span>报名截止时间</span><span class="datagrid-sort-icon">&nbsp;</span></div>
+														</td>
+														<td field="voteStartTime">
+															<div class="datagrid-cell datagrid-cell-c1-voteStartTime" style="text-align: center;"><span>投票开始时间</span><span class="datagrid-sort-icon">&nbsp;</span></div>
+														</td>
+														<td field="voteEndTime">
+															<div class="datagrid-cell datagrid-cell-c1-voteEndTime" style="text-align: center;"><span>投票截止时间</span><span class="datagrid-sort-icon">&nbsp;</span></div>
+														</td>
+														<td field="status">
+															<div class="datagrid-cell datagrid-cell-c1-status" style="text-align: center;"><span>审核状态</span><span class="datagrid-sort-icon">&nbsp;</span></div>
+														</td>
+														<td field="enrollCount">
+															<div class="datagrid-cell datagrid-cell-c1-enrollCount" style="text-align: center;"><span>报名数</span><span class="datagrid-sort-icon">&nbsp;</span></div>
+														</td>
+														<td field="caozuo">
+															<div class="datagrid-cell datagrid-cell-c1-caozuo" style="text-align: center;"><span>发布链接</span><span class="datagrid-sort-icon">&nbsp;</span></div>
+														</td>
+														<td field="yulan">
+															<div class="datagrid-cell datagrid-cell-c1-yulan" style="text-align: center;"><span>预览</span><span class="datagrid-sort-icon">&nbsp;</span></div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="datagrid-body" style="width: 639px; margin-top: 0px; height: 401px; overflow-x: hidden;">
+										<table class="datagrid-btable" cellspacing="0" cellpadding="0" border="0" style="table-layout: auto;">
+											<tbody>
+												<tr id="datagrid-row-r1-2-0" datagrid-row-index="0" class="datagrid-row" style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">200</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">2015—2016 年云浮市级青年文明号网络投票</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">为促进我市青年文明号创建活动深入、持久、创新发展，根据《云浮市青年文明号活动管理办法》的要求，团市委决定举办2015—2016年创市级青年文明号网络投票，网络投票占总成绩15%。时间：2017年7月8日正式开始投票，投票截止时间：2017年7月14日。详情可关注“云浮共青团”微信公众号或者登入“云浮青年之声”网页浏览。</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">云浮</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-07-06</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-07-07</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已审核</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">14</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=200</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=200" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-1" datagrid-row-index="1" class="datagrid-row" style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">199</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">学生烘焙创意技能大赛</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">为展示金平青年风采，促进金平青年在比赛中切磋技艺，增进交流，共同提高，团金平区委、广东省粤东技师学院共同主办“为爱起烘 焙有创意”学生烘焙创意技能大赛。来自近10所学校的高中和初中毕业生参加了此次比赛，在比赛中比拼技能，赛出创意。</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">汕头</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-07-04</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-07-04</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已审核</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">19</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=199</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=199" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-2" datagrid-row-index="2" class="datagrid-row" style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">198</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">南方医科大学校园彩绘</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">在学校许可下，全校范围内征集主题为“七彩青春，美丽校园”的井盖画，选出有创造性及宣扬公益文明的作品进行绘制，并对深受学生喜爱的作品作者进行表彰奖励。 该活动主要分为两个部分，一个部分是为原来上好画的沙井盖补色，这个部分主要补色的对象是那些掉了色的沙井盖，而招募的补色人员首选为原来上画的同学;另一部分是为那些还没上画的沙井盖上画，招募方式为以自愿的形式网上扫码报名，报名成功后需在规定时间内提交自己的作品，上交的作品会经由初选、复选选出最后可以作为沙井盖画的作品。
+														</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">南医大</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-30</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-07-04</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已审核</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">20</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=198</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=198" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-3" datagrid-row-index="3" class="datagrid-row" style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">197</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">ddd </div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">广东</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-30</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-06-30</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已删除</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">0</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=197</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=197" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-4" datagrid-row-index="4" class="datagrid-row" style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">196</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">2017年广东省“最美古树”青年摄影大赛</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">为进一步引导青年关注生态、参与环保，树立尊重自然、顺应自然、保护自然的生态文明理念，共同保护蕴藏着丰富自然人文价值的古树名木，发挥文化活动在青年思想道德建设中的独特作用，广东省绿化委员会、广东省林业厅、共青团广东省委员会决定联合主办2017年广东省“最美古树”青年摄影大赛。</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">广东</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-01</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-10-31</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已审核</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">2</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=196</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=196" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-5" datagrid-row-index="5" class="datagrid-row" style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">195</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">“文明汕尾·善美之城” ——寻找“最美志愿者”评选活动</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">本次评选活动立足基层，面向群众，通过寻找、发掘、宣传市民身边优秀志愿者具有代表性的先进事迹，诠释志愿服务的深刻内涵，实现汕尾文明程度和市民文明素质的双提升。通过寻找志愿服务工作中的先进典型，引导更多的人参与志愿服务活动，推动我市志愿服务事业持续发展，共同营造“我为人人、人人为我”的浓厚社会氛围，进一步推动我市文明城市和卫生城市创建。</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">汕尾职院</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-28</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-06-30</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已审核</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">2</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=195</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=195" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-6" datagrid-row-index="6" class="datagrid-row" style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">194</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">龙湖区第一届中学生校际辩论赛</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">深入开展“学习总书记讲话 做合格共青团员”教育实践活动，切实增强团员的先进性和光荣感，引导团员青年积极践行社会主义核心价值观，学习传承潮汕优秀传统文化，以奋发学习、努力工作的实际行动迎接党的十九大，推动汕头创文强管工作深入开展，打造具有影响力和号召力的青少年活动品牌，团龙湖区委、区教育局举办龙湖区第一届中学生校际辩论赛。</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">汕头</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-27</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-06-27</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已审核</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">9</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=194</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=194" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-7" datagrid-row-index="7" class="datagrid-row" style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">193</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">广州共青团青年之声系列培训</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">广州“青年之声”工作是广州共青团工作思路、工作方式和运行机制的变革，更是广州共青团深化改革的重要保障。2016年以来，我市各级团组织带领广大团员青年学习领会上级关于“青年之声”的各项工作部署，深入贯彻“四个融合”工作理念，重点抓好思想引导、服务青年和线上线下结合等工作，为进一步做了广州“青年之声”工作，现为各单位进行系统培训工作。</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">广州</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-26</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-06-28</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已审核</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">3</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=193</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=193" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-8" datagrid-row-index="8" class="datagrid-row  " style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">192</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">2017年阳江青年人才创业创富大赛投票活动</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">为深入贯彻落实党的十八届六中全会精神，加强青年创业服务，鼓励多渠道多形式创业，促进创业带动就业，根据《广东省人民政府关于大力推进大众创业万众创新的实施意见 》（粤府〔2016〕20号）的精神，市人才工作领导小组办公室、团市委决定联合举办2017年阳江青年人才创业创富大赛活动（以下简称“大赛”），营造良好创业氛围，大力发现、培育、选树青年创业人才，有效支持小微企业发展，助推青年创业圆梦。</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">阳江</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-22</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-06-23</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已审核</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">0</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=192</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=192" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-9" datagrid-row-index="9" class="datagrid-row  " style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">191</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">华南农业大学2017年6月宣传栏评比</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">校团委对各学院更新的宣传栏进行统一考评，考评结果作为校“五四”两红两优评选华南农业大学基层团委考评指标之一。 宣传栏评比要求： 1、宣传栏主题由校团委根据不同时期的工作需求统一规定。原则上所有宣传栏每月更换1次，各学院宣传栏围绕主题进行设计，在校团委规定评比时间前完成相关工作。 评比方式：在此页面报名，上传当月宣传栏文字和图片介绍，各学院广泛发动、宣传，进行投票。</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">华农</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-22</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-06-28</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已审核</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">21</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=191</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=191" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-10" datagrid-row-index="10" class="datagrid-row  " style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">190</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">2017年广东外语外贸大学科普宣讲社会实践队伍的招募</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">各单位： 为促进我省农村贫困地区农民科学素质的提升，校团委联合广东省科协推动暑期社会实践活动科普宣讲工作，通知如下： 一、参与对象 英语语言文化学院、经济贸易学院、国际商务英语学院、商学院、会计学院、金融学院、中国语言文化学院、法学院、信息科学与技术学院、西方语言文化学院、东方语言文化学院、学生处、校团委、学生社团联合会，均可申报2支服务队伍； 高级翻译学院、新闻与传播学院、艺术学院、英语教育学院、政治与公共管理学院、马克思主义学院，均可申报1支服务队。 二、物资资助和奖励机制
+															校团委审核通过的每一支学院服务队伍都将获得10-20份科普挂图，用于宣讲活动；志愿服务成果优秀的队伍将获得荣誉证书。 三、申请要求 1.申请时间：6月18日-6月21日 2.各单位填写2017年科普宣讲社会实践队伍情况汇总表（附件），由实践部（志协）汇总好后统一交至校团委青年志愿者行动指导中心。请各学院负责人把电子版申报材料汇总好在6月21日中午12点前打包发送至gwsxx2017@sina.com。 附件：2017年科普宣讲社会实践队伍情况汇总表
+
+														</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">广外</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-18</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-06-21</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已审核</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">0</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=190</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=190" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-11" datagrid-row-index="11" class="datagrid-row  " style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">189</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">东莞重磅项目测试</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">测试：青年在哪里，团工作就要做到哪里。2017年是东莞共青团深化改革的攻坚之年，归根结底就是要解决脱离青年群众的问题，真正为党团结凝聚青年。青年在哪里？青年在网上！干好互联网工作，就是贴近青年，就是践行党的群众路线。共青团要在开放平等的互联网世界中有竞争力，工作方式必然要转向互联网。大家可以看到，网上共青团考核全是数据化、精准化的，是互联网平台自动抓取和计算的，工作做得怎么样，受不受青年欢迎，有没有社会影响力，哪一项是长处，哪一项是短板，一目了然，忽悠不了。因此，大家要充分认识网上共青团工作的重要意义，有目标、有重点、有步骤地开展好各项工作。</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">东莞</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-18</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-06-30</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已删除</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">0</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=189</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=189" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-12" datagrid-row-index="12" class="datagrid-row  " style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">188</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">党的哺育伴我成长系列活动之第二届主持人大赛（决赛）</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark"> 为丰富和开拓学生的活动平台，锻炼学生的语言反应能力，思维创造力以及舞台表现能力，传递学子的党国情怀，学院广播台特承办了第二届主持人大赛。现初赛已经顺利落幕，在此进行第二届主持人大赛人气奖的投票。此次投票面向进入主持人大赛决赛的15位选手，请大家为你心仪的选手投上宝贵的一票。</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">广舞戏</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-17</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-06-20</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已审核</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">14</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=188</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=188" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-13" datagrid-row-index="13" class="datagrid-row  " style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">187</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">毕业嘉年华 | 中大最IN音乐榜—网易云音乐SYSUer专属</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">毕业，就像一个大大的句号，从此，我们告别了一段彩色青春，一段年少轻狂的岁月，一个充满幻想的时代。 在你的心中，可曾屡屡回响起一段旋律，唱着对母校、舍友、同学的难舍与眷恋？ 中山大学2017年毕业嘉年华线上彩蛋第一波——中山大学毕业季最IN音乐榜打响，邀您一起唱响青春！
+														</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">中大</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-14</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-06-20</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已审核</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">0</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=187</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=187" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-14" datagrid-row-index="14" class="datagrid-row  " style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">186</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">测试测试测试</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">爱的奉献 韦唯 歌词编辑：冷傲的化妆 这是心的呼唤 这是爱的奉献 这是人间的春风 这是生命的源泉 再没有心的沙漠 再没有爱的荒原 死神也望而却步 幸福之花处处开遍 啊··· 只要人人都献出一点爱 世界将变成美好的人间 啊··· 只要人人都献出一点爱 世界将变成美好的人间 &lt;酷我音乐，你我至爱&gt; 这是心的呼唤 这是爱的奉献 这是人间的春风 这是生命的源泉 再没有心的沙漠 再没有爱的荒原 死神也望而却步 幸福之花处处开遍 啊··· 只要人人都献出一点爱 世界将变成美好的人间
+															啊··· 只要人人都献出一点爱 世界将变成美好的人间 啊···啊··· -
+														</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">东莞</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-14</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-06-14</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已删除</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">0</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=186</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=186" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-15" datagrid-row-index="15" class="datagrid-row  " style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">185</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">共青团员先锋岗（队）创建活动</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">为深入学习贯彻习近平总书记对广东工作重要批示精神，广泛动员和引领团员青年践行“四个坚持、三个支撑、两个走在前列”的要求，根据《共青团中央关于在全团集中开展“学习总书记讲话 做合格共青团员”教育实践的通知》（中青发〔2017〕6号）和《关于开展2017年全国“共青团员先锋岗（队）”创建活动的通知》（中青明电〔2017〕12号）的有关要求，团市委决定，在全市开展“共青团员先锋岗（队）”（以下简称“团员先锋岗（队）”）创建工作。</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">汕尾</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-14</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-07-20</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已审核</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">3</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=185</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=185" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-16" datagrid-row-index="16" class="datagrid-row  " style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">184</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">关于开展2017年广东外语外贸大学暑期“三下乡”</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">各“三下乡”组织单位： 为深入学习贯彻科学发展观，落实中国共产党第十八届六中全会的精神，学习宣传贯彻习近平总书记系列重要讲话精神，开展学习型、研究型实践，在服务转型升级、参与社会管理创新、建设幸福广东的伟大实践中践行与宣传“厚于德、诚于信、敏于行”的广东精神，为我省及服务地提供有实际借鉴、参考意义的实践成果，进一步推动我校社会实践活动的专业化、项目化、日常化、国际化，决定开展2017年暑期“三下乡”社会实践活动学院应尤其加强对“三下乡”队伍开展社会调查研究工作的指导。做到联系专业老师指导学生，下乡前充分了解服务地情况、调研需求，下乡时认真做好调研走访、搜集数据，下乡后扎实做好数据分析和报告撰写工作，争取形成有实际借鉴意义的调研成果，真正做到大学生参与社会管理，为服务地建设与发展建言献策。
+														</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">广外</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-12</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-06-12</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已审核</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">0</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=184</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=184" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-17" datagrid-row-index="17" class="datagrid-row  " style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">183</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">【招聘信息】市志联招募一名社工</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">工作地点位于汕尾市青年社会创新园（市实验小学旁），主要在室内，少量时间在室外工作。每周上班5天，每月3000元（含社保等在内），如工作表现优秀可考虑薪资逐年提升，不提供食宿，试用期一个月。欢迎推荐人选，市志联将择优录取，联系电话 0660—3361700，有意者可将简历和联系电话发至swtwtwb@163.com
+														</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">汕尾</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-12</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-07-12</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已删除</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">0</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=183</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=183" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-18" datagrid-row-index="18" class="datagrid-row  " style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">182</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">投票|第十七届大学生文化艺术节之我最喜爱的文化艺术节项目</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">我校第十七届大学生文化艺术节从3月底开幕以来，在校团委、校学生会指引下，各校级团学组织、各二级学院积极承办，历时近两个月，各承办项目已经顺利完成，最后最让人期待的文化艺术节闭幕式暨优秀作品展演也将于6月22日晚在梁銶琚盛大上演。接下来，让我们一起来回顾各承办项目的精彩瞬间！届时也将进行“我最喜爱的文化艺术节项目”的颁奖哟！是不是很期待呢 快来看看有哪些 你不曾知道的 顺大文化艺术节项目
+														</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">顺职院</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-10</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-06-15</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已删除</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">0</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=182</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=182" target="_blank">预览</a></div>
+													</td>
+												</tr>
+												<tr id="datagrid-row-r1-2-19" datagrid-row-index="19" class="datagrid-row  " style="height: 25px;">
+													<td field="undefined">
+														<div style="" class="datagrid-cell-check">
+															<input type="checkbox" name="undefined" value="">
+														</div>
+													</td>
+													<td field="id">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-id">181</div>
+													</td>
+													<td field="title">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-title">“声力军”第二十七届校园十大歌手大赛 总决赛</div>
+													</td>
+													<td field="remark">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-remark">韶关学院第二十七届校园文体艺术节之 “声力军”第二十七届校园十大歌手大赛 总决赛 已加入「倒计时」豪华套餐 是时候完整地show一下进军决赛的12名选手了 到底哪一位歌唱“大佬”会是你的心之所属 动动手指 转发并投票✔ 预测你心目中的冠亚季 将好声音收入囊中
+														</div>
+													</td>
+													<td field="organization">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-organization">韶关学院</div>
+													</td>
+													<td field="startTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-startTime">2017-06-09</div>
+													</td>
+													<td field="endTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-endTime">2017-06-09</div>
+													</td>
+													<td field="voteStartTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteStartTime"></div>
+													</td>
+													<td field="voteEndTime">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-voteEndTime"></div>
+													</td>
+													<td field="status">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-status"><font>已审核</font></div>
+													</td>
+													<td field="enrollCount">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-enrollCount">12</div>
+													</td>
+													<td field="caozuo">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-caozuo">//www.12355.net/activityProject/activityShow?activityId=181</div>
+													</td>
+													<td field="yulan">
+														<div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-yulan"><a href="//www.12355.net/activityProject/activityShow?activityId=181" target="_blank">预览</a></div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="datagrid-footer" style="width: 639px;">
+										<div class="datagrid-footer-inner" style="display: none;"></div>
+									</div>
+								</div>
+								<table id="dg_activity" style="display: none;"></table>
+								<style type="text/css">
+									.datagrid-cell-c1-id {
+										width: 22px
+									}
+									
+									.datagrid-cell-c1-title {
+										width: 131px
+									}
+									
+									.datagrid-cell-c1-remark {
+										width: 270px
+									}
+									
+									.datagrid-cell-c1-organization {
+										width: 75px
+									}
+									
+									.datagrid-cell-c1-startTime {
+										width: 75px
+									}
+									
+									.datagrid-cell-c1-endTime {
+										width: 75px
+									}
+									
+									.datagrid-cell-c1-voteStartTime {
+										width: 75px
+									}
+									
+									.datagrid-cell-c1-voteEndTime {
+										width: 75px
+									}
+									
+									.datagrid-cell-c1-status {
+										width: 75px
+									}
+									
+									.datagrid-cell-c1-enrollCount {
+										width: 61px
+									}
+									
+									.datagrid-cell-c1-caozuo {
+										width: 354px
+									}
+									
+									.datagrid-cell-c1-yulan {
+										width: 61px
+									}
+								</style>
+							</div>
+							<div class="datagrid-pager pagination">
+								<table cellspacing="0" cellpadding="0" border="0">
+									<tbody>
+										<tr>
+											<td>
+												<select class="pagination-page-list">
+													<option>20</option>
+													<option>50</option>
+													<option>100</option>
+													<option>200</option>
+												</select>
+											</td>
+											<td>
+												<div class="pagination-btn-separator"></div>
+											</td>
+											<td><a href="javascript:void(0)" class="l-btn l-btn-plain l-btn-disabled l-btn-plain-disabled" group="" id=""><span class="l-btn-left"><span class="l-btn-text"><span class="l-btn-empty pagination-first">&nbsp;</span></span></span></a></td>
+											<td><a href="javascript:void(0)" class="l-btn l-btn-plain l-btn-disabled l-btn-plain-disabled" group="" id=""><span class="l-btn-left"><span class="l-btn-text"><span class="l-btn-empty pagination-prev">&nbsp;</span></span></span></a></td>
+											<td>
+												<div class="pagination-btn-separator"></div>
+											</td>
+											<td><span style="padding-left:6px;">第</span></td>
+											<td>
+												<input class="pagination-num" type="text" value="1" size="2">
+											</td>
+											<td><span style="padding-right:6px;">共9页</span></td>
+											<td>
+												<div class="pagination-btn-separator"></div>
+											</td>
+											<td><a href="javascript:void(0)" class="l-btn l-btn-plain" group="" id=""><span class="l-btn-left"><span class="l-btn-text"><span class="l-btn-empty pagination-next">&nbsp;</span></span></span></a></td>
+											<td><a href="javascript:void(0)" class="l-btn l-btn-plain" group="" id=""><span class="l-btn-left"><span class="l-btn-text"><span class="l-btn-empty pagination-last">&nbsp;</span></span></span></a></td>
+											<td>
+												<div class="pagination-btn-separator"></div>
+											</td>
+											<td><a href="javascript:void(0)" class="l-btn l-btn-plain" group="" id=""><span class="l-btn-left"><span class="l-btn-text"><span class="l-btn-empty pagination-load">&nbsp;</span></span></span></a></td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="pagination-info">显示1到20,共180记录</div>
+								<div style="clear:both;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layout-split-proxy-h"></div>
+			<div class="layout-split-proxy-v"></div>
+		</div>
+		<!-- 按钮栏  -->
+
+		<div style="display:none">
+			<script src="https://s95.cnzz.com/stat.php?id=1258031328&amp;web_id=1258031328" language="JavaScript"></script>
+			<script src="https://c.cnzz.com/core.php?web_id=1258031328&amp;t=z" charset="utf-8" type="text/javascript"></script><a href="//www.cnzz.com/stat/website.php?web_id=1258031328" target="_blank" title="站长统计">站长统计</a>
+		</div>
+
+		<div class="panel combo-p" style="position: absolute; z-index: 10; display: none; width: 180px;">
+			<div class="combo-panel panel-body panel-body-noheader" title="" style="width: 178px; height: auto; overflow: hidden;">
+				<div class="datebox-calendar-inner panel-noscroll">
+					<div class="calendar calendar-noborder" style="width: 0px; height: 178px;">
+						<div class="calendar-header">
+							<div class="calendar-prevmonth"></div>
+							<div class="calendar-nextmonth"></div>
+							<div class="calendar-prevyear"></div>
+							<div class="calendar-nextyear"></div>
+							<div class="calendar-title"><span>七月 2017</span></div>
+						</div>
+						<div class="calendar-body" style="height: 156px;">
+							<table cellspacing="0" cellpadding="0" border="0">
+								<thead>
+									<tr>
+										<th>日</th>
+										<th>一</th>
+										<th>二</th>
+										<th>三</th>
+										<th>四</th>
+										<th>五</th>
+										<th>六</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="calendar-day calendar-other-month calendar-sunday" abbr="2017,6,25">25</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,6,26">26</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,6,27">27</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,6,28">28</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,6,29">29</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,6,30">30</td>
+										<td class="calendar-day calendar-saturday" abbr="2017,7,1">1</td>
+									</tr>
+									<tr>
+										<td class="calendar-day calendar-sunday" abbr="2017,7,2">2</td>
+										<td class="calendar-day" abbr="2017,7,3">3</td>
+										<td class="calendar-day" abbr="2017,7,4">4</td>
+										<td class="calendar-day" abbr="2017,7,5">5</td>
+										<td class="calendar-day" abbr="2017,7,6">6</td>
+										<td class="calendar-day" abbr="2017,7,7">7</td>
+										<td class="calendar-day calendar-saturday" abbr="2017,7,8">8</td>
+									</tr>
+									<tr>
+										<td class="calendar-day calendar-today calendar-selected calendar-sunday" abbr="2017,7,9">9</td>
+										<td class="calendar-day" abbr="2017,7,10">10</td>
+										<td class="calendar-day" abbr="2017,7,11">11</td>
+										<td class="calendar-day" abbr="2017,7,12">12</td>
+										<td class="calendar-day" abbr="2017,7,13">13</td>
+										<td class="calendar-day" abbr="2017,7,14">14</td>
+										<td class="calendar-day calendar-saturday" abbr="2017,7,15">15</td>
+									</tr>
+									<tr>
+										<td class="calendar-day calendar-sunday" abbr="2017,7,16">16</td>
+										<td class="calendar-day" abbr="2017,7,17">17</td>
+										<td class="calendar-day" abbr="2017,7,18">18</td>
+										<td class="calendar-day" abbr="2017,7,19">19</td>
+										<td class="calendar-day" abbr="2017,7,20">20</td>
+										<td class="calendar-day" abbr="2017,7,21">21</td>
+										<td class="calendar-day calendar-saturday" abbr="2017,7,22">22</td>
+									</tr>
+									<tr>
+										<td class="calendar-day calendar-sunday" abbr="2017,7,23">23</td>
+										<td class="calendar-day" abbr="2017,7,24">24</td>
+										<td class="calendar-day" abbr="2017,7,25">25</td>
+										<td class="calendar-day" abbr="2017,7,26">26</td>
+										<td class="calendar-day" abbr="2017,7,27">27</td>
+										<td class="calendar-day" abbr="2017,7,28">28</td>
+										<td class="calendar-day calendar-saturday" abbr="2017,7,29">29</td>
+									</tr>
+									<tr>
+										<td class="calendar-day calendar-sunday" abbr="2017,7,30">30</td>
+										<td class="calendar-day" abbr="2017,7,31">31</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,8,1">1</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,8,2">2</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,8,3">3</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,8,4">4</td>
+										<td class="calendar-day calendar-other-month calendar-saturday" abbr="2017,8,5">5</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="calendar-menu" style="display: none;">
+								<div class="calendar-menu-year-inner"><span class="calendar-menu-prev"></span><span><input class="calendar-menu-year" type="text"></span><span class="calendar-menu-next"></span></div>
+								<div class="calendar-menu-month-inner"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="datebox-button">
+					<table cellspacing="0" cellpadding="0" style="width:100%">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><a href="javascript:void(0)">今天</a></td>
+								<td style="width: 50%;"><a href="javascript:void(0)">关闭</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="panel combo-p" style="position: absolute; z-index: 10; display: none; width: 180px;">
+			<div class="combo-panel panel-body panel-body-noheader" title="" style="width: 178px; height: auto; overflow: hidden;">
+				<div class="datebox-calendar-inner panel-noscroll">
+					<div class="calendar calendar-noborder" style="width: 0px; height: 178px;">
+						<div class="calendar-header">
+							<div class="calendar-prevmonth"></div>
+							<div class="calendar-nextmonth"></div>
+							<div class="calendar-prevyear"></div>
+							<div class="calendar-nextyear"></div>
+							<div class="calendar-title"><span>七月 2017</span></div>
+						</div>
+						<div class="calendar-body" style="height: 156px;">
+							<table cellspacing="0" cellpadding="0" border="0">
+								<thead>
+									<tr>
+										<th>日</th>
+										<th>一</th>
+										<th>二</th>
+										<th>三</th>
+										<th>四</th>
+										<th>五</th>
+										<th>六</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="calendar-day calendar-other-month calendar-sunday" abbr="2017,6,25">25</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,6,26">26</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,6,27">27</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,6,28">28</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,6,29">29</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,6,30">30</td>
+										<td class="calendar-day calendar-saturday" abbr="2017,7,1">1</td>
+									</tr>
+									<tr>
+										<td class="calendar-day calendar-sunday" abbr="2017,7,2">2</td>
+										<td class="calendar-day" abbr="2017,7,3">3</td>
+										<td class="calendar-day" abbr="2017,7,4">4</td>
+										<td class="calendar-day" abbr="2017,7,5">5</td>
+										<td class="calendar-day" abbr="2017,7,6">6</td>
+										<td class="calendar-day" abbr="2017,7,7">7</td>
+										<td class="calendar-day calendar-saturday" abbr="2017,7,8">8</td>
+									</tr>
+									<tr>
+										<td class="calendar-day calendar-today calendar-selected calendar-sunday" abbr="2017,7,9">9</td>
+										<td class="calendar-day" abbr="2017,7,10">10</td>
+										<td class="calendar-day" abbr="2017,7,11">11</td>
+										<td class="calendar-day" abbr="2017,7,12">12</td>
+										<td class="calendar-day" abbr="2017,7,13">13</td>
+										<td class="calendar-day" abbr="2017,7,14">14</td>
+										<td class="calendar-day calendar-saturday" abbr="2017,7,15">15</td>
+									</tr>
+									<tr>
+										<td class="calendar-day calendar-sunday" abbr="2017,7,16">16</td>
+										<td class="calendar-day" abbr="2017,7,17">17</td>
+										<td class="calendar-day" abbr="2017,7,18">18</td>
+										<td class="calendar-day" abbr="2017,7,19">19</td>
+										<td class="calendar-day" abbr="2017,7,20">20</td>
+										<td class="calendar-day" abbr="2017,7,21">21</td>
+										<td class="calendar-day calendar-saturday" abbr="2017,7,22">22</td>
+									</tr>
+									<tr>
+										<td class="calendar-day calendar-sunday" abbr="2017,7,23">23</td>
+										<td class="calendar-day" abbr="2017,7,24">24</td>
+										<td class="calendar-day" abbr="2017,7,25">25</td>
+										<td class="calendar-day" abbr="2017,7,26">26</td>
+										<td class="calendar-day" abbr="2017,7,27">27</td>
+										<td class="calendar-day" abbr="2017,7,28">28</td>
+										<td class="calendar-day calendar-saturday" abbr="2017,7,29">29</td>
+									</tr>
+									<tr>
+										<td class="calendar-day calendar-sunday" abbr="2017,7,30">30</td>
+										<td class="calendar-day" abbr="2017,7,31">31</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,8,1">1</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,8,2">2</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,8,3">3</td>
+										<td class="calendar-day calendar-other-month" abbr="2017,8,4">4</td>
+										<td class="calendar-day calendar-other-month calendar-saturday" abbr="2017,8,5">5</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="calendar-menu" style="display: none;">
+								<div class="calendar-menu-year-inner"><span class="calendar-menu-prev"></span><span><input class="calendar-menu-year" type="text"></span><span class="calendar-menu-next"></span></div>
+								<div class="calendar-menu-month-inner"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="datebox-button">
+					<table cellspacing="0" cellpadding="0" style="width:100%">
+						<tbody>
+							<tr>
+								<td style="width: 50%;"><a href="javascript:void(0)">今天</a></td>
+								<td style="width: 50%;"><a href="javascript:void(0)">关闭</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="panel window" style="display: block; width: 1381px; left: 0px; top: 0px; z-index: 9002;">
+			<div class="panel-header panel-header-noborder window-header" style="width: 1381px;">
+				<div class="panel-title">发布活动</div>
+				<div class="panel-tool">
+					<a class="panel-tool-collapse" href="javascript:void(0)"></a>
+					<a class="panel-tool-min" href="javascript:void(0)"></a>
+					<a class="panel-tool-max" href="javascript:void(0)"></a>
+					<a class="panel-tool-close" href="javascript:void(0)"></a>
+				</div>
+			</div>
+			<div id="win_button_activity" title="" class="panel-body panel-body-noborder window-body" style="width: 1379px; height: 579px;">
+				<iframe src="//www.12355.net/activity/add" width="100%" height="100%" frameborder="0"></iframe>
+			</div>
+		</div>
+		<div class="window-shadow" style="display: block; left: 0px; top: 0px; z-index: 9001; width: 1393px; height: 615px;"></div>
+		<div class="window-mask" style="width: 1393px; height: 615px; display: block; z-index: 9000;"></div>
+	</body>
+
+</html>

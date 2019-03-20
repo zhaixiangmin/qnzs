@@ -1,0 +1,37 @@
+.header_box .nav_li:hover a, .header_box .nav_li.cur a{background-color: #0ba903;}
+.header_box .logo a{background-image: url(../pcImages/zbxm_logo_2.png);}
+/* banner */
+.banner_box{background-color: #0ba903;}
+/* ----各板块共用部分----- */
+.section_box .content_title_box .more_btn{font-size:14px;color:#333;width:auto;border:none;}
+/* 项目动态板块 */
+.section_box.dynamic_box .content_l .content_title{background-image: url(../pcImages/zbxm_dy_icon_2.png);}
+.section_box.dynamic_box .content_r .content_title{background-image: url(../pcImages/zbxm_prize_bg.png);}
+/* 参赛者作品 */
+.participator_work .content_title{background-image: url(../pcImages/zbxm_pxlc_icon_2.png);}
+.more_btn:hover{background-color:transparent;color:#ff8814!important;}
+.participator_work .select_title.cur{background-color: #0ba903;}
+.participator_work .work_show_box .work_vote .vote_btn:hover{background-color: #0ba903;}
+
+.sponsor_partner .contact_us{line-height:35px;height:35px;padding-left:55px;background:url(../pcImages/contact_us_icon.png) no-repeat left center;color:#333;font-size:20px;margin-bottom:50px;}
+
+.body_right_nav .item_con:hover,.body_right_nav .item_con.cur{background-color: #0ba903;}
+
+
+
+/* 重磅项目二--项目详情页 */
+/* 活动介绍 */
+.dynamic_box .content .content_title{background-image:url(../pcImages/zbxm_prize_bg.png);}
+/* 报名要求 */ 
+.mar_b{margin-bottom:30px;}
+.requirement_box .content .content_title{background-image:url(../pcImages/zbxm_re_icon.png);}
+
+
+/* 重磅项目二--参赛团队页面 */
+.mar_t{padding-top:69px;}
+.pageNumBox .pageNumCon .pageNum a.cur{background-color:#0ba903;color:#fff;border-color:#0ba903;}
+
+/* 项目动态页面 */
+.xmdt .content .content_title{background-image:url(../pcImages/zbxm_dy_icon_2.png);}
+/* 重磅项目二--项目动态详情页面 */
+.DT_detail{color:#0ba903;}

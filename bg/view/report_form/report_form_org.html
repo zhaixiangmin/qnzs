@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>组织日/周/月/季/年报表-后台管理</title>
+    <link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../public/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" /> 
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/heavy_project.css" />
+    <link rel="stylesheet" href="../../public/css/common/check.css" />
+
+	<script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+</head>
+<body>
+    <div class="col-sm-12">
+        <!-- 数据过滤 -->
+        <div class="datafilter">
+          <div class="search">
+              <form id="" method="post" class="form-inline"> 
+                    <table style=" margin-left: 30px; width: 100%;" class="form_table">
+                      <tr>
+                      	<th style="width:40px;">报表类型</th>
+                        <td style="width:60px;">
+                          <select class="form-control2 select" id="reportType" onchange="changeReportType(this)">
+                              <option value="D" selected>日</option>
+                              <option value="W">周</option>
+                              <option value="M">月</option>
+                              <option value="S">季</option>
+                              <option value="Y">年</option>
+                          </select>
+                        </td>
+                        <th style="width:40px; text-align: right;">报表日期&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <td style="width:60px;">
+                        	<span class="startTime" id="startTimeDay"><input id="startTime" type="text" class="easyui-datebox"/></span>
+                        	<select class="form-control2 select startTime" id="startTimeWeek" style="display: none;">
+	    					</select>
+                          	<select class="form-control2 select startTime" id="startTimeMonth" style="display: none;">
+                              <option value="2017-">2017年</option>
+                          	  <option value="2018-" selected>2018年</option>
+                          	</select>
+                          	<select class="form-control2 select startTime" id="startTimeSeason" style="display: none;">
+                              <option value="2017-">2017年</option>
+                          	  <option value="2018-" selected>2018年</option>
+                          	</select>
+                          	<select class="form-control2 select startTime" id="startTimeYear" style="display: none;">
+                              <option value="2017-01-01 00:00:00" selected>2017年</option>
+                              <option value="2018-01-01 00:00:00">2018年</option>
+                          	</select>
+                        </td>
+                        <td style="width:60px;">
+                            <select class="form-control2 select startTime" id="startTimeMonthD" style="display: none;">
+                              <option value="01-01 00:00:00" selected>1月</option>
+                              <option value="02-01 00:00:00">2月</option>
+                              <option value="03-01 00:00:00">3月</option>
+                              <option value="04-01 00:00:00">4月</option>
+                              <option value="05-01 00:00:00">5月</option>
+                              <option value="06-01 00:00:00">6月</option>
+                              <option value="07-01 00:00:00">7月</option>
+                              <option value="08-01 00:00:00">8月</option>
+                              <option value="09-01 00:00:00">9月</option>
+                              <option value="10-01 00:00:00">10月</option>
+                              <option value="11-01 00:00:00">11月</option>
+                              <option value="12-01 00:00:00">12月</option>
+                          	</select>
+                          	<select class="form-control2 select startTime" id="startTimeSeasonM" style="display: none;">
+                              <option value="01-01 00:00:00">1月 - 3月</option>
+                              <option value="04-01 00:00:00">4月 - 6月</option>
+                              <option value="07-01 00:00:00">7月 - 9月</option>
+                              <option value="10-01 00:00:00">10月 - 12月</option>
+                          	</select>
+                        </td>
+                        <td colspan="3" >
+                        </td>
+                      </tr>
+                      <tr style="height:10px;"></tr>
+                      <tr>
+                        <th style="width:40px;">组织类型</th>
+                        <td style="width:60px;">
+                          <select class="form-control2 select" id="orgType">
+                              <option value="-1" selected>--请选择--</option>
+                              <option value="2">团委组织</option>
+                              <option value="3">服务站点</option>
+                              <option value="4">青年文明号</option>
+                              <option value="5">学生社团</option>
+                              <option value="6">社会组织</option>
+                              <option value="7">合作机构</option>
+                          </select>
+                        </td>
+                        <th style="width:40px; text-align: right;">组织名称/编码&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <td style="width:100px;"><input type="text" class="form-control" id="keyWord"></td>
+                        <td colspan="3" >
+                        </td>
+                      </tr>
+                      <tr style="height:10px;"></tr>
+                      <tr>
+                        <th style="width:40px;">归属地区</th>
+                        <td style="width:60px;">
+                          <select  class="form-control" id="oidType2" onchange="changeOid2Type(this)">
+                                    <option value="" selected>--请选择--</option>
+                                    <option value="1">地市</option>
+                                    <option value="2">高校</option>
+                  		  </select>
+                        </td>
+                        <!--<th id="show1">组织地区</th>-->
+                        <td style="width:100px;">
+                            <select id="cityOid2" class="form-control"  name="cityOid" onchange="cityOid2Change(this)">
+		                 	</select>
+		                 	<select id="shcoolOid2" class="form-control"  name="shcoolOid"  onchange="schoolOid2Change(this)">
+		                 	</select>
+                        </td>
+                        <!--<th id="show2">组织地区</th>-->
+                        <td style="width:100px;">
+                            <select id="areaOid2" class="form-control"  onchange="quxuan(this)">
+								<option value="-1">--区/县--</option>
+			                </select>
+	                        <select id="classOid2" class="form-control"   onchange="xueyuan(this)">
+								<option value="-1">--分院--</option>
+			                </select>
+                        </td>
+                        <td style="width:30px;"></td>
+                        <td style="width:150px;">
+                          <button type="button" class="btn btn-warning btn-sm" id="searchBtn"><span class="glyphicon glyphicon-search"></span>查询</button>
+                          <button type="button" class="btn btn-info btn-sm" id="clearBtn"><span class="glyphicon glyphicon-refresh"></span>清空</button>
+                          <button type="button" class="btn btn-info btn-sm" id="exportBtn"><span class="glyphicon glyphicon-refresh"></span>导出</button>
+                        </td>
+                      </tr>
+                    </table>
+              </form>
+          </div>
+        </div>
+        <!-- 数据过滤 end -->
+        
+       <!-- 列表展示 end -->
+       <table id="project-partake"></table>
+       <!-- 列表展示 end -->
+    </div>
+    
+</body>
+</html>
+    <script src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js" ></script>
+    <script src="../../public/js/common/user-linkage.js"></script>
+    <script src="../../public/js/module/Utils.js"></script> 
+    <script src="../../public/js/report_forms/report_form_org.js"></script>
+    
+
+  
+

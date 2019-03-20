@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>青年之声-找活动-详情页</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		 <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/layer/layer.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/webuploader/webuploader.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/webuploader/webupload_main.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/css/find_active/qnzs_zhd_xiangqing.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/custom/page.css"/>
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+		 <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+	    
+		<script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+		<script type="text/javascript" src="../../public/vendor/layer/layer.js"></script>
+		<script type="text/javascript" src="../../public/vendor/layer/layui.js"></script>
+		<script type="text/javascript" src="../../public/custom/qnzsPcCommon.js"></script>
+		<script type="text/javascript" src="../../public/vendor/super_slide/jquery.SuperSlide.2.1.1.js"></script>
+		<script type="text/javascript" src="../../public/vendor/webuploader/webuploader.js"></script>
+		<script type="text/javascript" src="../../public/vendor/webuploader/upload.js"></script>
+	
+		<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+		<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+		<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+		
+		<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+         <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+             
+        <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+		<script type="text/javascript" src="../../public/custom/common.js"></script>
+		<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+		<script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+ 		<script type="text/javascript" src="../../public/custom/page.js"></script><!--分页js-->
+		<script type="text/javascript" src="../../public/js/find_active/zhd_xiangqing.js"></script>
+	
+	
+	
+		<script type="text/javascript">
+			var uploadUrl = '';
+			
+			jQuery(document).ready(function($) {
+				$(".linebar_nav a").on("click", function(event) {
+					$(this).addClass('current').siblings('a').removeClass('current');
+				})
+				$(".linebar_nav a").eq(0).click(function(event) {
+					var offsetTop = $(".activity_l .txtbox").offset().top
+					$('html,body').stop().animate({
+						scrollTop: offsetTop - 120
+					}, 800);
+				});
+				$(".linebar_nav a").eq(1).click(function(event) {
+					var offsetTop = $(".offset01").offset().top
+					$('html,body').stop().animate({
+						scrollTop: offsetTop - 120
+					}, 800);
+				});
+				$(".linebar_nav a").eq(2).click(function(event) {
+					var offsetTop = $(".offset02").offset().top
+					$('html,body').stop().animate({
+						scrollTop: offsetTop - 120
+					}, 800);
+				});
+				$(".linebar_nav a").eq(3).click(function(event) {
+					var offsetTop = $(".offset03").offset().top
+					$('html,body').stop().animate({
+						scrollTop: offsetTop - 120
+					}, 800);
+					
+				});
+				$(".linebar_nav a").eq(4).click(function(event) {
+					var offsetTop = $(".offset04").offset().top
+					$('html,body').stop().animate({
+						scrollTop: offsetTop - 120
+					}, 800);
+				});
+			});
+		</script>
+	</head>
+	
+	<style type="text/css">
+		  /** 星星样式  ***/
+    #averageScoreIcon  li {
+    float: left;
+    margin-right: 3px;
+    width: 12px;
+    height: 12px;
+    background: url(../../public/img/starNo.png) no-repeat;
+}
+
+  #averageScoreIcon  li span {
+    width: 12px;
+    height: 12px;
+    display: block;
+    background: url(../../public/img/starYes.png) no-repeat;
+}
+
+	</style>
+
+	<body class="bodyPt96">
+		
+		<!-- 面包屑导航 -->
+		<div class="breadcrumbs">
+			<div class="content w1200 clearfix">
+				<a href="../../index.html">首页&nbsp;&nbsp;</a><span>&gt;&nbsp;&nbsp;</span>
+				<a href="zhaohuodongIndex.html">找活动&nbsp;&nbsp;</a><span>&gt;&nbsp;&nbsp;</span>
+				<a href="zhaohuodongIndex.html" id="actType">运动&nbsp;&nbsp;</a><span>&gt;&nbsp;&nbsp;</span>
+				<a href="javascript:;" id="title">高雅艺术进校园《雨花台》原创大型史诗话剧</a>
+			</div>
+		</div>
+		<!-- 专家个人介绍 -->
+		<div class="proPersonalIntro bgcWhite">
+			<div class="content w1200 clearfix">
+				<div class="fl zbf_l">
+					<div class="zbf_l_box">
+						<div class="imgBox">
+							<ul class="imgList" id="imgList">
+							 <!--<li><img src="../../resources/pcImages/zbf_1.png"  /></li>
+                             <li><img src="../../resources/pcImages/zhd_1.png" /></li>
+                             <li><img src="../../resources/pcImages/zhd_2.png" /></li>
+                             <li><img src="../../resources/pcImages/zhd_3.png" /></li>-->
+							</ul>
+							<!--<span class="btn prev"></span>
+							<span class="btn next"></span>-->
+							<div class="botDiv clearfix">
+								<span class="pageState font16 fl"></span>
+								<span class="fangda fr"></span>
+							</div>
+						</div>
+						<div class="detailImgEnlarge">
+							<img src="" alt=""   style="display: block;"/ >
+							<span class="prev btn"></span>
+							<span class="next btn"></span>
+							<em class="close_img"></em>
+						</div>
+					</div>
+					<div class="scoreBox clearfix"id="averageScoreIcon">
+						<!--<ol class="clearfix fl" >
+							<li><span></span></li>
+							<li><span></span></li>
+							<li><span></span></li>
+							<li><span></span></li>
+							<li><span></span></li>
+						</ol>-->
+						<!--<span class="fl scoreColor01 font14 fenshu"><em>6</em>分</span>
+                     <span class="yiping font14 color999 fr">65人评论</span> -->
+					</div>
+				</div>
+				<script type="text/javascript">
+					var srcFirst = $('#imgList li:first img').attr('src');
+					$('.detailImgEnlarge img').attr('src', srcFirst);
+					jQuery(".zbf_l_box").slide({
+						mainCell: ".imgBox ul",
+						autoPlay: false,
+						effect: 'fold',
+						autoPage: true,
+						delayTime: 300,
+						pnLoop: false
+					});
+					$('#imgList li:first').addClass('cur');
+					$('.zbf_l_box .next').click(function(event) {
+						if (!$('.zbf_l_box .imgList li:last').hasClass('cur')) {
+							$('.imgList .cur').removeClass('cur').next().addClass('cur');
+							var thisSrc = $('.imgList .cur img').attr('src');
+							$('.zbf_l_box .detailImgEnlarge img').attr('src', thisSrc);
+						}
+					});
+					$('.zbf_l_box .prev').click(function(event) {
+						if (!$('.zbf_l_box .imgList li:first').hasClass('cur')) {
+							$('.imgList .cur').removeClass('cur').prev().addClass('cur');
+							var thisSrc = $('.imgList .cur img').attr('src');
+							$('.zbf_l_box .detailImgEnlarge img').attr('src', thisSrc);
+						}
+					});
+					$('.botDiv span.fangda').click(function(event) {
+						$('.detailImgEnlarge').fadeIn(200);
+						$('body').addClass('overflow_h');
+					});
+					$('.detailImgEnlarge .close_img').click(function(event) {
+						$('.detailImgEnlarge').fadeOut(200);
+						$('body').removeClass('overflow_h');
+					});
+				</script>
+				<div class="rightBox fr activetitle">
+				<!-- 
+				<div class="box_top">
+					<h3>不知道哪里有万圣节大派对？赶快来参加鬼马好玩万圣节体验课吧！</h3> 
+					<p class="clearfix">
+						<span><strong>类型：</strong>培训</span>
+                        <span>距离报名开始还剩5天</span>
+                        <span class="endtxt">活动预告</span>
+                    </p>
+                </div>
+                <div class="box_bottom">
+                    <p>
+                        <span class='attr'>活动时间：</span>
+                        <span>2016.8.1—2016.8.30</span>
+                    </p>
+                    <p>
+                        <span class='attr'>活动地点：</span>
+                        <span class="two">广州市越秀区寺贝通津一号大院</span>
+                    </p>
+                    <p>
+                        <span class='attr'>费<em></em>用：</span>
+                        <span>免费</span>
+                    </p>
+                    <p>
+                        <span class='attr'>报名人员：</span>
+                        <span>已有1人报名</span>
+                    </p>
+                    <p>
+                        <span class='attr'>活动电话：</span>
+                        <span>233333</span>
+                    </p>
+                </div>
+                <div class="btn_box clearfix">
+                    <a class="btn1 sign_up" href="javascript:;">立即报名</a>
+                    <a class="btn2" href="javascript:;">收藏</a>
+                </div>
+               -->
+
+				</div>
+			</div>
+		</div>
+		<!-- 中部导航 -->
+		<div class="w1200">
+			<div class="clearfix linebar_nav">
+				<a href="javascript:;" class="current">活动介绍</a>
+				<a href="javascript:;">报名人员</a>
+				<a href="javascript:;">互动评论</a>
+				<a href="javascript:;">互动照片</a>
+				<a href="javascript:;">活动现场</a>
+			</div>
+		</div>
+		
+		<!-- 详细信息 -->
+		<div class="bgcWhite">
+			<div class="w1200 clearfix">
+				<!-- 活动信息左盒子 -->
+				<div class="activity_l" >
+					<!-- <div class="txtbox">-->
+					<!--<h4 class="title_h4">◆关注微信公众号：dpchwl，中奖率翻一倍! </h4>
+                    <h4 class="title_h4">◆持券活动，中奖确认流程： </h4>
+                    <p>1. 若中奖您的手机上会收到确认短信； </p>
+                    <p>2. 到点评APP，了解活动详情即时间确认是否能参加； </p>
+                    <p>3. 确认参与则不需要回复信息，如不能参与请点击“有事放弃”按键。 </p>
+                    <h4 class="title_h4">◆ 注意事项： </h4>
+                    <p>1. 一人一号参加活动，如发现一人多号或替代，该账号取消活动资格并拉黑； </p>
+                    <p>2. 请看清楚活动确认操作，一旦按键无法恢复或者调整； </p>
+                    <p>3. 活动一旦确认请按体验时间内参加，如果确认参与后不体验不写点评则拉黑半年； </p>
+                    <p>4. 如果被抽中没时间参加，请在规定的时间内在点评APP端放弃或者客服取消，不影响中奖率。 </p>
+                    <h4 class="title_h4">◆酸菜大师·外卖 价值150元酸菜鱼2人大餐餐单： </h4>
+                    <p>150元酸菜鱼大餐：</p>
+                    <p>大师酸菜鱼2人份</p>
+                    <p>辣卤鸡肾拼盘</p>  
+                    <p>辣炒藕丁 </p>
+                    <p>蒜香菜心 </p>
+                    <p>玉米白饭2个 </p>
+                    <p>王老吉2盒</p>
+                    <h4 class="title_h4">◆活动说明</h4>
+                    <p>1. 中奖会员需预约在配送范围内用餐 </p>
+                    <p>2. 请大家尽早预约哦，如因活动快结束了才致电商户，可能会出现预约不到的情况哟 </p>
+                    <h4 class="title_h4">◆预约信息</h4>
+                    <p>1. 请提前1天预约</p>
+                    <p>2. 预约电话13539469242</p>
+                    <h4 class="title_h4">◆温馨提示</h4>
+                    <p>霸王餐内容不可与商户其他优惠同时使用 </p>
+                    <p>活动体验结束后1周内不写点评者将做拉黑处理，影响下次抽中几率！ </p>
+                    <p>关注微信公众号：dpchwl，中奖率翻一倍，活动上新、中奖信息将会在此第一时间get到！</p>-->
+					<!-- </div>-->
+					
+					<h5 class="offset01 title_h5">报名人员</h5>
+					<div class="bgcWhite zhd_list_box"> 
+						<ul class="Number clearfix">
+						
+						</ul>
+					</div>
+					
+					<h5 class="offset02 title_h5">互动评论</h5>
+					<div class="comment talk_each_ohter">
+						<ul class="talk_comment"></ul>
+						<a href="javascript:;" class="hascomment">我要评论</a>
+						<div class="show_box clearfix topTalk">
+							<form action="">
+								<textarea name="" placeholder="来说两句吧！"></textarea>
+								<div class="btn_box">
+									<input type="button" value="提交" class="submit_btn" />
+									<a href="javascript:;" class="cancel">取消</a>
+								</div>
+							</form>
+							<div class="uploading_l fl" style="margin:40px 19px 0 0;">
+								<p class="font14 color333">上传图片</p>
+								<p class="font12 color999 uploading_num">(最多8张)</p>
+							</div>
+							<div id="wrapper" class="fl">
+								<div id="container">
+									<div id="uploader">
+										<div class="queueList">
+											<div id="dndArea" class="placeholder">
+												<div id="filePicker"></div>
+												<p>或将照片拖到这里，单次最多可选8张</p>
+											</div>
+										</div>
+										<div class="statusBar" style="display:none;">
+											<div class="progress">
+												<span class="text">0%</span>
+												<span class="percentage"></span>
+											</div>
+											<div class="info"></div>
+											<div class="btns">
+												<div id="filePicker2"></div>
+												<div class="uploadBtn">开始上传</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+                    		<div id="imgUrl" style="display: none;"></div>
+						</div>
+					</div>
+					
+					<h5 class="offset04 title_h5">互动照片</h5>
+					<img src="" id="imgMagnify" alt=""> 
+					<div class="imgpohot">
+						<ul class="img_ul clearfix">
+						
+						</ul>
+					</div>
+					
+					<h5 class="offset03 title_h5">活动回顾图片</h5>
+					<img src="" id="imglocale" alt=""> 
+					<div class="pageContent">
+					 	<ul class="claerfix reviewImg">
+					 	
+					 	</ul> 	
+					</div>
+
+					<!-- <h5 class="offset05 title_h5" style="margin-top: 450px;">活动回顾视频</h5>
+					<div class="review_video_list">
+					 	<ul class="claerfix1 reviewVideo">
+					 	
+					 	</ul> 	
+					</div> -->
+					
+				</div>
+				
+				<!-- 活动信息右盒子 -->
+				<div class="activity_r">
+					<!-- 
+					<div class="imgbox">
+	                    <img src="../../resources/pcImages/ask01.png" alt="" />
+	                </div>
+	                <p class="name">中山大学团委</p>
+	                <p class="txt">
+	                    <span class="attr">4.1分</span>
+	                    <span>7人已评</span>
+	                </p>
+	                <div class="box_b clearfix">
+	                    <div class="box_l">
+	                        <p class="attr">214</p>
+	                        <p class="val">TA的活动</p>
+	                    </div>
+	                    <div class="box_r">
+	                        <p class="attr">5423</p>
+	                        <p class="val">关注</p>
+	                    </div>
+	                </div>
+	                -->
+					<!--<a href="javascript:;" class="jinruzuzhi">进入组织</a>-->
+				</div>
+			</div>
+		</div>
+		
+		<!-- 底部 -->
+		<!--
+		<footer class="conBgc01 colorfff font14">
+			<a href="javascript:;" class="disB font14 colorfff">触屏版</a>
+			<p>版权所有 copyright 2016 广东青年之声</p>
+			<p>粤ICP备10214402号-4</p>
+		</footer>
+		-->
+		
+		<!-- 弹窗 -->
+		<div class="bg_black zzxIndex">
+			<div class="list_tanchuang">
+				<div class="list_tanchuang_t conBgc01 clearfix">
+					<span class="name font14 fl"><em class=" colorfff">报名信息</em></span>
+					<span class="delete fr"></span>
+				</div>
+				<div class="list_tanchuang_b bgcWhite clearfix">
+					<div class="content_l fl">
+						<div class="question commonDiv">
+							<label for="name" class="fnt14 fl color333 left_title">报名人姓名<em style="color:red;" >*</em></label>
+							<input type="text" class="border01 sign_up_name" />
+						</div>
+						<div class="question commonDiv">
+							<label for="name" class="fnt14 fl color333 left_title">联系电话<em style="color:red;" >*</em></label>
+							<input type="text" class="border01 contact_phone" />
+						</div>
+						<div class="item_div">
+							<!--<div class="company commonDiv">
+								<label for="name" class="fnt14 fl color333 left_title">公司</label>
+								<input type="text" class="border01 contact_phone" />
+							</div>
+							<div class="job_position commonDiv">
+								<label for="name" class="fnt14 fl color333 left_title">职位</label>
+								<input type="text" class="border01 contact_phone" />
+							</div>
+							<div class="email commonDiv">
+								<label for="name" class="fnt14 fl color333 left_title">企业邮箱</label>
+								<input type="text" class="border01 contact_phone" />
+							</div>-->
+						</div>
+						<div class="question commonDiv" id="uploadEnrollFile" style="display:none;">
+	        				<input type="hidden" name="isAddTemplate" id="isAddTemplate" />
+	                  	    <input type="hidden" name="fileId" id="fileId"/>
+							<input type="hidden" name="fileName" id="fileName"/>
+							<input type="hidden" name="templateUrl" id="templateUrl" />
+							<label for="name" class="fnt14 fl color333 left_title">上传附件<em style="color:red;" >*</em></label>
+							
+	                  		<input id="template" type="file" name="template" style="display: none;" onchange="uploadEnrollFile();" />
+				        	<input type="button" value="选择文件" onclick="$('#template').click();" style="width:100px;padding-right:10px;">
+				        	
+				        	<span id="fileNameShow"></span>
+	                    	<p style="padding-left:15px;margin-left:110px;">
+	                    		<font color="red">建议文件后缀名为(doc,docx,xls,xlsx),图片大小限制在5MB以内</font>
+	                    		<font color="red">(注意：上传报名表时，请勿在报名表文件名中输入“＋”、“－”等中英文标点符号，否则将导致报名失败)</font>
+	                    	</p>
+	                    </div>
+						<div class="wenti_shuoming clearfix commonDiv">
+							<span class="fnt14 color333 fl right_txt left_title">备注</span>
+							<!-- <textarea id="editorContent" name="content"></textarea> -->
+							<textarea id="editorContent"></textarea>
+						</div>
+						<!-- 第二课堂的 -->
+						<div class="second_class">
+							<!--<h1 class="title">第二课堂</h1>
+							<div class="question commonDiv">
+								<label for="name" class="fnt14 fl color333 left_title">姓名</label>
+								<input type="text" class="border01 student_name" />
+							</div>
+							<div class="question commonDiv">
+								<label for="name" class="fnt14 fl color333 left_title">学号</label>
+								<input type="text" class="border01 student_no" />
+							</div>
+							<div class="question commonDiv">
+								<label for="name" class="fnt14 fl color333 left_title">学校</label>
+								<input type="text" class="border01 school" readonly />
+							</div>
+							
+							<div class="question commonDiv">
+								<label for="name" class="fnt14 fl color333 left_title">院系</label>
+								<input type="text" class="border01 academy" readonly />
+								<select class="border01 academy" id="academy" name="academy">
+									<option name="academy" value=""></option>
+								</select>
+							</div>-->
+						</div>
+						<a href="javascript:;" class="sure conBgc01 colorfff font14">确认</a>
+					</div>
+
+					<!-- 专家信息 -->
+					<!-- <div class="content_r fr">
+                    <div class="zhuanjia_head">
+                        <img src="resources/pcImages/zhuanjia_head.png" alt="" />
+                    </div>
+                    <h3 class="color000 font16">王娟</h3>
+                    <p class="font14 color999">国家二级心理咨询师</p>
+                
+                    <div class="clearfix zhuanjia_box">
+                        <span class="fl zhuanjia_box_l borderR01">
+                            <p class="font22 color000">85</p>
+                            <p class="font12 color000">已解答问题</p>
+                        </span>
+                        <span class="fl zhuanjia_box_l borderR01">
+                            <p class="font22 color000">10</p>
+                            <p class="font12 color000">关注</p>
+                        </span>
+                
+                    </div>
+                    <button href="" class="chakan conBgc01 colorfff font14">查看</button>
+                </div> -->
+				</div>
+			</div>
+		</div>
+		
+		
+	   <!-- 举报弹出-->
+		
+		<div class="bgg_black zzxIndex">
+			<div class="list_tanchuang">
+				<div class="list_tanchuang_t conBgc01 clearfix">
+					<span class="name font14 fl"><em class=" colorfff">举报</em></span>
+					<span class="delete fr"></span>
+				</div>
+		<div class="list_acssty claerfix">
+          	
+          	<h3 class="litle">举报分类</h3>
+          	<select id="list_option">
+          		
+          		<option value="">请选择</option>
+          		<option value="0">其他</option>
+          		<option value="1">欺诈</option>
+          		<option value="2">色情</option>
+          		<option value="3">诱导行为</option>
+          		<option value="4">不实信息</option>
+          		<option value="5">违法犯罪</option>
+          		<option value="6">骚扰</option>
+          		<option value="7">侵权</option>
+          	</select>
+          </div>
+          <div class="list_acssty claerfix">
+          	
+          		<h3 class="litle">举报理由</h3>
+          		<textarea id="text_vomt"></textarea>
+          	
+          	
+          	
+          </div>
+          <div class="list_acssty claerfix">
+          	
+          	<span id="inform_push">
+          		发布
+          	</span>
+          	<span id="inform_del">
+          		取消
+          	</span>
+          	
+          </div>
+          
+          
+          </div>
+         
+		</div>
+		
+		
+		 <!-- 站长统计 -->
+  <div style="display:none">
+	<script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+</div>
+		
+	</body>
+	
+	<script>
+		  
+		
+	</script>
+
+</html>

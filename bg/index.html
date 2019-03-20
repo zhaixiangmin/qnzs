@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <title>广东青年之声后台管理</title>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       <link rel="stylesheet" type="text/css" href="public/css/common/style.css">
+       <link rel="stylesheet" type="text/css" href="public/css/common/houtai.css">
+       <link rel="stylesheet" type="text/css" href="public/css/common/menuleft.css">
+       <link rel="stylesheet" href="public/vendor/easyui/themes/default/easyui.css"/>
+       <link rel="stylesheet" type="text/css" href="public/vendor/bootstrap/bootstrap.min.css"/>
+       <link rel="stylesheet" type="text/css" href="public/css/common/check.css"/>
+
+       <script src="public/vendor/jquery/jquery-1.8.3.min.js"></script>
+       <script src="public/vendor/easyui/jquery.easyui.min.js"></script>
+       <script src="public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+       <script src="public/vendor/bootstrap/bootstrap.min.js"></script>
+       <script src="public/js/contabs.js"></script>
+       <!--<script src="public/js/ajax/ajax2.js"></script>-->
+       <!--弹出框-->
+       <script src="public/custom/dialog.js"></script>
+       <script type="text/javascript" src="public/js/module/Qnzs.js"></script>
+       <script type="text/javascript" src="public/js/module/IndexApi.js"></script>
+       <script type="text/javascript" src="public/js/index/index.js"></script>
+       <style>
+       	/****** 菜单样式调整 start ***********/
+       	.panel-title{
+       		
+       		color: white;
+       		text-indent: 35px;
+       	}
+       	.accordion-body ul li {
+       		display: block;
+       		
+       		height: 20px;
+       		line-height: 20px;
+       		margin: 6px 0;
+       		text-align: left;
+       		padding-left: 25px;
+       	}
+       	
+       	.panel{
+       		margin-bottom: 0;
+       		border:0;
+       	}
+       
+       
+       	.accordion .accordion-header-selected {
+       		
+       		background: #384454;
+       		
+       	}
+       	
+       	.accordion .accordion-header-selected   .panel-title {
+       		
+       		color: white;
+       		height: 25px;
+       		line-height: 25px;
+       	}
+       	#nav  .accordion-body{
+       		
+       		background: #4e5e6e;
+       	}
+       	#nav  .accordion-body ul li  a{
+       		color: white;
+       		font-size: 14px;
+       		
+       	}
+       
+       	#left {
+       	  background: #4e5e6e;
+       	}
+       	.accordion .accordion-header{
+       		
+       		background: #384454;
+       	}
+       	.ad-top-comment .ad-sub-nav-box{
+       		
+       		background: #384454;
+       	}
+       	/****** 菜单样式调整 end ***********/
+       </style>
+</head>
+<body style="overflow-y:hidden;">
+
+
+<div class="container-fluid" id="content">
+
+
+
+    <!-- left start -->
+    <div id="left" style="overflow-y: scroll;">
+        <div style="height:65px; color:#fff; width: 65px;margin: 0 auto;margin-top: 20px;" class="orange_ment"><!--<img src="" alt=""/ width="100%" height="100%" style="display: block;">--></div>
+        <!-- menu start -->
+        <!--<div class="menu" style="background: #000;border: none;">-->
+            <!--<ul>
+                <li><a href="javascript:void(0)">应用支持平台管理</a>
+                    <ul class="sub_menu" style="display:block">-->
+                        <!--<li><a class="J_menuItem" href="view/organization/Organization-management.html" target="mainFrame" data-index="2"><span class="glyphicon glyphicon-file"></span>组织管理</a></li>-->
+                        <!--<li><a class="J_menuItem" href="view/role/role.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>角色管理</a></li>-->
+                        <!--<li><a class="J_menuItem" href="view/menu/menu.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>菜单管理</a></li>-->
+                        <!--<li><a class="J_menuItem" href="view/user/user.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>用户管理</a></li>-->
+                        <!--&lt;!&ndash;  <li><a class="J_menuItem" href="日志管理.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>日志管理</a></li>&ndash;&gt;-->
+                        <!--<li><a class="J_menuItem" href="view/banner/banner.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>首页banna管理</a></li>-->
+                        <!--<li><a class="J_menuItem" href="view/expert/expert.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>专家管理</a></li>-->
+                        <!--<li><a class="J_menuItem" href="view/offline_service_station/offline_service_station.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>线下服务站管理</a></li>-->
+                        <!--<li><a class="J_menuItem" href="view/findConsult/service_category.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>服务类别管理</a></li>-->
+                        <!--<li><a class="J_menuItem" href="view/findConsult/service_question.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>在线问题管理</a></li>-->
+                        <!--<li><a class="J_menuItem" href="view/findConsult/service_answer.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>在线回答管理</a></li>-->
+                        <!--&lt;!&ndash; <li><a class="J_menuItem" href="创投项目管理.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>创投项目管理</a></li>&ndash;&gt;-->
+                        <!--<li><a class="J_menuItem" href="view/find_active/management_activitie.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>找活动管理</a></li>-->
+                        <!--<li><a class="J_menuItem" href="view/find_active/PosterActive.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>活动海报管理</a></li>-->
+                        <!--<li><a class="J_menuItem" href="view/find_help/find_help.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>找帮助管理</a></li>-->
+                        <!--<li><a class="J_menuItem" href="view/find_active/classify_activit.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>找活动分类</a></li>-->
+                        <!--<li><a class="J_menuItem" href="view/find_active/Class_Teaching.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>第二课堂类型管理</a></li>-->
+                        <!--&lt;!&ndash;   <li><a class="J_menuItem" href="view/find_active/Resultsdetail.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>第二课堂成绩明细</a></li>&ndash;&gt;-->
+                        <!--<li><a class="J_menuItem" href="view/find_active/StudentMentag.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>第二课堂活动管理</a></li>-->
+                        <!--&lt;!&ndash; <li><a class="J_menuItem" href="view/find_active/PersonneleMent.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>第二课堂报名人员管理</a></li>&ndash;&gt;-->
+                        <!--<li><a class="J_menuItem" href="view/find_active/StudentInfo.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>第二课堂学生信息管理</a></li>-->
+                        <!--<li><a class="J_menuItem" href="view/find_active/StatisticsActive.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>找活动统计</a></li>-->
+                        <!--<li><a class="J_menuItem" href="view/offline_service/offline_service.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>线下服务管理</a></li>-->
+                       <!-- <li><a class="J_menuItem" href="view/find_active/report_ative.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>举报管理</a></li>-->
+                        <!--<li><a class="J_menuItem" href="view/heavy_project/heavy_project.html" target="mainFrame" data-index="2"><span class="glyphicon glyphicon-file"></span>重磅项目管理</a></li>-->
+
+
+                        <!--<li><a class="J_menuItem" href="view/heavy_project/heavy_project_partake.html" target="mainFrame" data-index="2"><span class="glyphicon glyphicon-file"></span>重磅项目参与者管理</a></li>-->
+                    <!--</ul>
+                </li>
+                
+                    	
+            </ul>-->
+            
+    
+        <!--</div>-->
+            <div id="nav" class="easyui-accordion" data-options="border:false, animate: false, multiple: true" style="margin-top: 27px;">
+				<!--菜单导航-->
+			</div>
+       <!--  menu end -->
+    </div>
+    <!-- left end -->
+
+    <!-- right start -->
+    <div class="right">
+    	
+  
+        <div style="height:70px; background-color:#f2f2f2; position:relative;">
+        	<img style="display: block;padding-top: 10px; height:65px; width: 240px;"  src="public/images/12355.png"/>
+            <div style="position: absolute; right: 30px; top: 15px; color: #428bca;">你好<em id="orgName"></em></div>
+            <div class="return" style="width: 500px;">
+                <ul>
+                    <li style="float: right;"><a id="backPc" style="cursor: pointer;"><span class="glyphicon glyphicon-home">返回首页</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- topbar start -->
+        <div id="topbar">
+            <div class="topbar_left">
+                <div class="ad-top-comment" >
+                    <div class="ad-sub-nav-box content-tabs" >
+                        <a href="javascript:;" class="scm jian-a sub-sel pre j_tabBg J_tabLeft"></a>
+                        <div class="ad-sub-wraper page-tabs J_menuTabs" >
+                            <ul class="ad-sub-list page-tabs-content">
+                                <li class="active J_menuTab" data-id="welcome.html">首页</li>
+                            </ul>
+                        </div>
+                        <a href="javascript:;" class="scm jian-a next j_tabBg J_tabRight"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- topbar end -->
+
+        <!-- iframe start -->
+        <div class="ad-main-comment J_mainContent" id="ad-iframe">
+            <iframe class="J_iframe" name="mainFrame" width="100%" height="100%" src="view/index/welcome.html" frameborder="0" data-id="welcome.html" seamless></iframe>
+        </div>
+        <!-- iframe start -->
+    </div>
+    <!-- right end -->
+</div>
+
+</body>
+</html>
+<script type="text/javascript">
+	//百度统计的代码
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?149ef6fe5d623c086adc1622cf6c0df1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+//百度统计的代码
+</script>

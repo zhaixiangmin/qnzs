@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>用户注册</title>
+    <meta http-equiv= "X-UA-Compatible" content = "IE=edge,chrome=1"/>
+     <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/user_register/user_register.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    
+    <style type="text/css">
+    	/*** 验证样式  ***/
+    	*{
+		      padding: 0;
+			  margin: 0;}
+			form {
+				width: 570px;
+				height: 300px;
+				margin: 100px auto;
+			}
+			label{
+				width: 64px;
+				float: left;
+				 clear: left;
+				 height: 36px;
+				line-height: 36px;
+				margin-top: 10px;
+			     }
+			input {
+				width: 300px;
+				height: 36px;
+				line-height: 36px;
+				margin-top: 10px;
+				text-indent: 8px;
+				font-size: 12px;
+				font-family: "微软雅黑";
+				border: 1px solid #ccc;
+				float: left;
+			}
+			#sub{
+				width: 302px;
+				height: 40px;
+				border: 1px solid #ccc;
+				background: #888;
+				color: #fff;
+				font-size: 18px;
+				text-indent: 0;
+				}
+			.spa{
+				height: 36px;
+				line-height: 36px;
+				width: 204px;
+				display: inline-block;
+				float: left;
+				font-size: 12px;
+				color: #BD362F;
+				text-indent: 10px;
+				margin-top: 10px;
+				}
+				#imagesyanz{width: 120px;height: 40px;display: block;float: left;vertical-align: middle;cursor: pointer;margin: 5px 0  0  10px;}
+				.span4{float: left;}
+    	/*** 验证样式 end  ***/
+    </style>
+     <script src="../../public/js/common/bigDataUrl.js"></script>
+    <!--<script src="//183.63.252.158:8080/browser/0110/crossdomain.js" type="text/javascript"></script><!---- 安全连接---->
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+   
+    <script>
+		var dynamicLoading = {
+		    js: function(path){
+				if(!path || path.length === 0){
+					throw new Error('argument "path" is required !');
+				}
+				var head = document.getElementsByTagName('head')[0];
+		        var script = document.createElement('script');
+		        script.src = path+"/browser/0110/crossdomain.js";
+		        script.type = 'text/javascript';
+		        head.appendChild(script);
+		    }
+		}
+		
+		dynamicLoading.js(bigDataUrl);
+	
+	</script>
+</head>
+<body>
+    <header class="header">
+      <section class="login">
+        <article class="w1200">
+          <div class="logintop">
+            <div class="loginL fl">
+                <a href="//www.12355.net" class="link">
+                </a>
+            </div>
+          </div>
+        </article>
+      </section>
+    </header>
+    <div class="register_main_container w1200">
+        <div class="content">
+            <div class="info_write">
+                <h1 class="big_title"  style="display: inline-block;  "><a href="javascript:;"  style="  color: #2185cf; font-weight: 600;border-bottom: 2px solid #2185cf;"> 用户注册  </a></h1>
+                 <h1  style="display: inline-block;font-size:16px;color: #2185cf;padding-left:30px;margin-bottom:50px;"><a href="orange_register.html" style="border-bottom: 2px solid white; color: #2185cf; font-weight: 600;">组织注册 </a></h1>
+                <div class="item_common clearfix">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">昵称</span>
+                    </span>
+                    <div class="right_box fl clearfix">
+                        <input id="userName" type="text" class="right_input fl" placeholder="昵称支持中英文，长度不能超过7个中文字符" /><span class="spa spa1"></span>
+                        <p class="prompt fl"></p>
+                    </div>
+                </div>
+                <div class="item_common clearfix">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">手机号</span>
+                    </span>
+                    <div class="right_box fl">
+                        <input id="mobile" type="text" class="right_input fl"  maxlength="11" placeholder="请输入正确的手机号码" /><span class="spa spa2"></span>
+                        <p class="prompt fl"></p>
+                    </div>
+                </div>
+                
+                 <div class="item_common clearfix identify_code">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">图片验证码</span>
+                    </span>
+                    <div class="right_box fl clearfix">
+                        <input id="checkCodeiamge"  type="text" class="right_input fl" placeholder="请输入图片验证码"style="width: 112px;" />
+                          <img id="imagesyanz" onclick="changeModel()" src="" alt=""> <span class="spa span4"></span>
+                    </div>
+                </div>
+                <div class="item_common clearfix identify_code">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">短信验证码</span>
+                    </span>
+                    <div class="right_box fl clearfix">
+                        <input id="checkCode"  type="text" class="right_input fl" placeholder="请输入短信验证码" style="width: 112px;"/>
+                        <a id="yangzheng" style="margin-top:10px; background: #c8c8c8;" href="javascript:;" class="send_code_btn fl" onclick="sendYanzhengCode()">发送验证码</a><span class="spa spa3"></span>
+                    </div>
+                </div>
+                
+                
+               
+                
+                <div class="item_common clearfix">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">密码</span>
+                    </span>
+                    <div class="right_box fl clearfix">
+                        <input id="userPassword" type="password" class="right_input fl" placeholder="请输入６位以上的英文/数字密码" /><span class="spa spa4"></span>
+                        <p class="prompt fl"></p>
+                    </div>
+                </div>
+                <div class="item_common clearfix">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">确认密码</span>
+                    </span>
+                    <div class="right_box fl clearfix">
+                        <input id="confirmPassword" type="password" class="right_input fl" placeholder="须与以上输入的密码一致" /><span class="spa spa5"></span>
+                        <p class="prompt fl"></p>
+                    </div>
+                </div>
+                <div class="item_common clearfix area_choose" style="margin-bottom: 0;">
+                    <span class="fl left_title clearfix">
+                        <em class="fl">*</em>
+                        <span class="left_title_txt fl">所属地区</span>
+                    </span>
+                    <div class="" style="width: 500px;">
+                       
+                        <!--<select  class="select fl" id="oidType" onchange="changeOidType(this)" style="width: 100px;">
+                                    <option value="-1">请选择</option>
+                                    <option value="1">地市</option>
+                                    <option value="2">高校</option>
+                  	    </select>
+                  	    <!--2级-->
+                         <!--<select id="cityOid" class="select fl"  name="cityOid" onchange="cityOidChange(this)" style="width: 110px;">
+		                 </select>
+	                 	<select id="shcoolOid" class="select fl"  name="shcoolOid"  onchange="schoolOidChange(this)" style="width: 110px;">
+	                 	</select>-->
+		                 <!--3级-->
+                         <!--<select id="areaOid" class="select fl"  onchange="quxuan(this)" style="width: 100px;">
+								<option value="-1">--区/县--</option>
+			             </select>-->
+	                    <!--<select id="classOid"  class="select fl"  onchange="quxuan(this)" style="width: 100px;">
+								<option value="-1">--分院--</option>
+			            </select>-->
+			            <select  class="select fl" id="oidType" onchange="changeOidType(this)" style="width: 100px;">
+                                    <option value="-1">请选择</option>
+                                    <option value="1">地市</option>
+                                    <option value="2">高校</option>
+                  		</select>
+			            <select id="cityOid" class="select fl"  name="cityOid" onchange="cityOidChange(this)" style="width: 110px;">
+	                 	         <option value="-1">请选择</option>
+						</select>
+	                 	<select id="shcoolOid" class="select fl" name="shcoolOid"  onchange="schoolOidChange(this)" style="width: 110px;">
+	                 	          <option value="-1">请选择</option>
+	                 	</select>
+                        <select id="areaOid" class="select fl"  onchange="quxuan(this)" style="width: 100px;">
+								<option value="-1">--区/县--</option>
+			            </select>
+	                    <select id="classOid" class="select fl"   onchange="quxuan(this)" style="width: 100px;">
+								<option value="-1">--分院--</option>
+			            </select>
+                        <span id="spa8" class="spa spa8"></span>
+                    </div>
+
+                </div>
+	            <div style="padding-left: 30px;">
+	               <label style="width: 350px;"><input type="checkbox" style="width: 12px;height: 12px; " checked  name="" id="inp_Agreement" value="" />阅读并接受
+	                      <a href="user_Agreement.html" style="color: #2185cf;" target="_Blank"><<青年之声用户服务协议>></a>
+	               	      <a href="javascript:;" style=" margin-left:20px ; color: #2185cf;" onclick="show_yangzhengcode_info()"> 收不到验证码？</a>
+	               </label>
+	          
+	            </div>
+            </div>
+            <div class="btn_box clearfix" >
+                <a href="javascript:;" class="submit fl" id="registerBtn">确认</a>
+            </div>
+        </div>
+    </div>
+    <footer class="copyright">
+        <p>版权所有 copyright 2016 广东青年之声</p>
+    </footer>
+    <!-- 站长统计 -->
+	<div style="display:none">
+	    <script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+	</div>
+
+</body>  
+<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script src="../../public/js/ajax/ajax.js"></script>
+    <script src="../../public/js/register/yan-zheng.js"></script>
+    <script src="../../public/js/register/user_register.js"></script>
+    <script type="text/javascript" src="../../public/vendor/super_slide/jquery.SuperSlide.2.1.1.js"></script>
+    
+
+</html>
+<script>
+	console.log($.cookie('__accessToken'))
+	
+	
+	$(function() { 
+	  var xmlhttp;
+	   
+	xmlhttp=new XMLHttpRequest();
+	//xmlHttp = createXMLHttpRequest();
+	xmlhttp.open("GET",Qnzs.path+"/pc/account/validCode",true);
+	xmlhttp.setRequestHeader("POWERED-BY-MENGXIANHUI", "Approve");  
+	xmlhttp.setRequestHeader("Content-Type", "application/xml"); 
+	xmlhttp.withCredentials = true;
+	xmlhttp.responseType = "blob";
+	xmlhttp.onload = function(){
+	    console.log(this);
+	    if (this.status == 200) {
+	        var blob = this.response;
+	        var img = document.getElementById("imagesyanz");
+	        img.onload = function(e) {
+	            window.URL.revokeObjectURL(img.src); 
+	        };
+	        img.src = window.URL.createObjectURL(blob);
+	        
+	        
+	    }
+	}
+	xmlhttp.send();
+});
+
+		
+	function  changeModel(){
+		
+var xmlhttp;
+   
+xmlhttp=new XMLHttpRequest();
+//xmlHttp = createXMLHttpRequest();
+xmlhttp.open("GET",Qnzs.path+"/pc/account/validCode",true);
+xmlhttp.setRequestHeader("POWERED-BY-MENGXIANHUI", "Approve");  
+xmlhttp.setRequestHeader("Content-Type", "application/xml"); 
+xmlhttp.withCredentials = true;
+xmlhttp.responseType = "blob";
+xmlhttp.onload = function(){
+    console.log(this);
+    if (this.status == 200) {
+        var blob = this.response;
+        var img = document.getElementById("imagesyanz");
+        img.onload = function(e) {
+            window.URL.revokeObjectURL(img.src); 
+        };
+        img.src = window.URL.createObjectURL(blob);
+        
+        
+    }
+}
+xmlhttp.send();
+		
+	}
+	
+ //收不到验证码
+   function show_yangzhengcode_info(){
+
+   	
+   	 $.alert("<strong  >没有收到验证码？</strong><br/><p style='margin-top:10px;'>1.请确认您已经输入了图形验证码并点击了<strong>【发送验证码】</strong>按钮；</p><p style='margin-top:10px;'>2. 点击发送短信验证码后，需隔60秒后才能再次发送验证码；</p><p style='margin-top:10px;'>3.同一手机号码一天只能发送5次验证码，如果尝试发送2-3次后仍然收不到验证码，可能处于注册高峰期，请间隔一段时间后再尝试发送。")
+   	
+   }
+   //校验手机号是否已经注册 
+    $('#mobile').bind('input propertychange',function(){
+    	
+    	  
+    	if($('#mobile').val().length ==11){
+			    
+	    	obj.ajax('/commons/checkMobile',{'mobile':$('#mobile').val()},function(data){
+					  console.log(data)
+					    if(data.status =='ERROR'){
+				           $.alert('该手机号已经注册');
+							$(".spa2").text("该手机号已经注册");
+							 $('#yangzheng').css('background','#c8c8c8');//验证码高亮
+						}else{
+							
+						  $(".spa2").html('<img style="width:20px;height:20px;margin-top:8px;margin-left:5px;  " src="//wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/temp/image/20171207/20171207163742_598duigou.png">');
+								 $('#yangzheng').css('background','#3ebb2b');//验证码高亮
+						}
+			})
+			  
+	    } 
+    })
+    
+   
+   
+</script>

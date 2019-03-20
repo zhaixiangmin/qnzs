@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>站内管理</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+		<link href="../../public/css/common/style.css" rel="stylesheet" />
+		<link href="../../public/css/common/common.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="instation.css"/>
+	   <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" />
+
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+
+		<link href="../../public/vendor/summernote/dist/summernote.css" rel="stylesheet" />
+			<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+			
+		</script>
+		<script src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+		<script src="../../public/vendor/summernote/dist/summernote.js"></script>
+
+		<script src="../../public/vendor/summernote/dist/lang/summernote-zh-CN.js"></script>
+		<script src="../../public/custom/dialog.js"></script>
+		<!--弹出框提示-->
+		<script src="../../public/js/module/Qnzs.js"></script>
+		<script src="../../public/js/module/Utils.js"></script>
+		<script type="text/javascript" src="../../public/js/instation/InstationApi.js">
+
+
+		</script>
+		
+		
+
+	</head>
+	<body>
+		<div class="col-sm-12">
+			
+			<!--数据筛选-->
+			<div class="datafilter>
+				    
+						<div class="form-group sz_height">
+							<label class="col-sm-1">标题关键字</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="act_title">
+							</div>
+							<!--<label class="col-sm-1">所属地区</label>
+							<div class="col-sm-1">
+								<select class="form-control" id="oidType" >
+									<option value="">请选择</option>
+									<option value="1">广州</option>
+									<option value="2">深圳</option>
+								</select>
+							</div>-->
+							<label class="col-sm-1">发送日期</label>
+							<div class="col-sm-2" >
+								<input id="start_activde" type="text"   class="easyui-datebox" editable="true" >
+								
+							</div>
+							<label class="col-sm-1">至</label>
+							  <div class="col-sm-2" >
+								<input id="stop_activde" type="text"   class="easyui-datebox" editable="true" >
+								
+							</div>
+                            <label class="col-sm-1">审核状态</label>
+							<div class="col-sm-2">
+								<select class="form-control" id="status_tepy" >
+									<option value="">请选择</option>
+									<option value="2">通过</option>
+									<option value="1">不通过</option>
+									<option value="0">待审核</option>
+									
+								</select>
+							</div><br/>
+							<div class="tr_tow" style="padding-top: 40px;">
+								    <label class="col-sm-1">发送者</label>
+									<div class="col-sm-2">
+										<input type="text" class="form-control" id="send_people">
+									</div>
+								
+							</div>
+							
+							
+						</div>
+						
+							
+							
+					
+                       <div class="form-group" >
+                       	 
+						<div class="col-sm-2" >
+							<button type="button" class="btn btn-warning btn-sm" id="activitie_btn"><span class="glyphicon glyphicon-search"></span>查询</button>
+							<button type="button" class="btn btn-info btn-sm" id='btn_del'><span class="glyphicon glyphicon-refresh"></span>清空</button>
+						</div>
+                   </div>
+			
+			</div>
+			<!--数据筛选end-->
+			<div style="clear:both;">
+			   <div class="border clearfix">
+					<ul class="nav navbar-nav" id="toolbar" >
+						<li  onclick="addtion(4)" id="message_add">
+							<a href="#support"><span class="glyphicon glyphicon-plus" data-toggle="modal">添加</span></a>
+						</li>
+						<li onclick="usereditor(0)" id="message_edit">
+							<a href="#support"><span class="glyphicon glyphicon-pencil" data-toggle="modal">编辑</span></a>
+						</li>
+						<li onclick="actaudit(1)"  id="message_audit">
+							<a href="#support"><span class="glyphicon glyphicon-user" data-toggle="modal">审核</span></a>
+						</li>
+						<li onclick="sendback(2)" id="message_find_return">
+							<a href="#support"><span class="glyphicon glyphicon-off" data-toggle="modal">退回</span></a>
+						</li>
+						<li onclick="check(3)"  id="message_find">
+							<a href="#support"><span class="glyphicon glyphicon-eye-open" data-toggle="modal">查看</span></a>
+						</li>
+						
+					</ul>
+
+					<!--列表展示start-->
+					<table id="activitie" style="width:200px;height:300px">
+
+					</table>
+
+					<!--列表展示end-->
+				</div>
+
+			
+			</div>
+      </div>
+			
+			<!--新增、编辑-->
+			<div class="modal fade" id="user-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width:100%;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title show_mode" id="myModalLabel"></h4>
+
+
+						</div>
+						<div class="modal-body s-height2">
+							<!--datafilter strat-->
+							<div class="datafilter">
+								<div class="search">
+									<form id="fromadd" class="form-horizontal validator">
+                                          <!--活动标题-->
+										<div class="form-group">
+											<label for="active_title" class="col-sm-2 control-label"><span style="color: red;">*</span>标题:</label>
+											<div class="col-sm-2">
+												<input type="text" value='' class="easyui-validatebox" id="active_title" placeholder="请输入站内信标题" data-options="required:true,missingMessage:'请输入站内信标题',validType:'maxLength[20]'">
+											</div>
+										</div>
+										<!--活动标题end-->
+										
+
+										<!-- 活动详情  -->
+										<div class="form-group">
+											<label class="col-sm-2 control-label"><span style="color: red;">*</span>内容:</label>
+											<div class="col-sm-6">
+
+												<div class="minrstid">
+
+													<div id="summernote"></div>
+												</div>
+
+											</div>
+										</div>
+										
+										<!--指定对象-->
+										<div class="form-group">
+											<label class="col-sm-2 control-label"><span style="color: red;">*</span>发送给:</label>
+											<div class="col-sm-8">
+
+									<label class="checkbox-inline">
+										<input type="checkbox" name="Checkbox1" id="inlineCheckbox2" value="0"> 公众用户
+									</label>
+									<label class="checkbox-inline">
+									  <input type="checkbox" name="Checkbox1" id="inlineCheckbox2" value="1"> 咨询导师
+									</label>
+									<label class="checkbox-inline">
+									  <input type="checkbox" name="Checkbox1"  id="inlineCheckbox3" value="2"> 系统管理员
+									</label>
+									<label class="checkbox-inline">
+                                     <input type="checkbox" name="Checkbox1" id="inlineCheckbox4" value="3"> 团委组织
+									</label>
+									<label class="checkbox-inline">
+									  <input type="checkbox" name="Checkbox1" id="inlineCheckbox5" value="4">服务站点
+									</label>
+									<label class="checkbox-inline">
+									  <input type="checkbox" name="Checkbox1"  id="inlineCheckbox6" value="5"> 青年文明号
+									</label>
+									<label class="checkbox-inline">
+                                     <input type="checkbox" name="Checkbox1" id="inlineCheckbox7" value="6"> 学生社团
+									</label>
+									<label class="checkbox-inline">
+									  <input type="checkbox" name="Checkbox1" id="inlineCheckbox8" value="7"> 社会组织
+									</label>
+		
+								 </div>                                         	
+								</div>
+								
+								<!--指定区域-->
+								<div class="form-group">
+									<label class="col-sm-2 control-label"></label>
+                                   <div class="col-sm-10 claerfix">
+                                    <label class="radio-inline radioarea username">
+                                     <input type="radio" name="radioarea" value="0" checked>指定区域:
+                                     </label>
+                                   	  <div  class="area-type">
+                                   	  	    <ul class="ullist" id="ullist">
+                                   	  	    	<!--<li>番禺区<em class="glyphicon glyphicon-remove"></em></li>
+                                   	  	    	<li>番禺区<em class="glyphicon glyphicon-remove"></em></li>
+                                   	  	    	<li>番禺区<em class="glyphicon glyphicon-remove"></em></li>
+                                   	  	    	<li>番禺区<em class="glyphicon glyphicon-remove"></em></li>
+                                   	  	    	<li>番禺区<em class="glyphicon glyphicon-remove"></em></li>
+                                   	  	    	<li>番禺区<em class="glyphicon glyphicon-remove"></em></li>-->
+                                   	  	    </ul>
+                                   	  </div>
+                                   </div>
+                                   
+								</div>
+								
+								<div class="form-group">
+									
+									<label class="col-sm-2 control-label" style="margin-right:83px;"></label>
+									
+									 <div class="col-sm-8 ">
+									 	<div class="mold_type">
+									 		<span class="ative">地市</span><span onclick="getschol()">高校</span>
+									 	</div>
+									 	<!--地市-->
+									 	<div class="typemold show">
+									 		<div class="choose_ctiy claerfix" >
+									 			
+									 			<label>所选地区:</label>
+									 			<select  id="schooe_dare"  onchange="getctiy()" >
+														<option value="">请选择</option>
+														
+								                </select>
+												<label style="margin-left: 288px;">全选以下:</label>
+												<input type="checkbox" value="1"  id="allselcet" name="allselcet" onchange="allselcet1(this)">
+
+									 		</div>
+									 		<ul class="ullistctiy" id="schloolarea">
+									 			<!--<li><span>天河区</span> <input type="checkbox" name="ctiy" value=""></li>-->
+									 			
+									 		
+									 	</div>
+									 	
+									 	<!--高校-->
+									 	<div class="typemold">
+									 		    <div class="choose_ctiy claerfix" >
+									 			
+									 			<label>所选高校:</label>
+									 			<select id="schooe_school"  onclick="getscholl()">
+														<option value="">请选择</option>
+														
+									
+								                </select>
+													<label style="margin-left: 150px;">全选以下:</label>
+													<input type="checkbox" value="2"  id="allselcetShool" name="allselcetShool" onclick="selectShool()">
+
+												</div>
+									 		<ul class="ullistctiy" id="schoolusfity">
+									 			<!--<li><span>广大</span> <input type="checkbox" name="ctiy" value=""></li>-->
+									 			
+									 		</ul>
+									 	</div>
+									 	
+									 </div>
+									
+								</div>
+								
+								<div class="form-group">
+									<label class="col-sm-2 control-label"></label>
+									
+									 <div class="col-sm-8 ">
+									 	<label class="radio-inline radiouser  username">
+                                      <input type="radio" name="radioarea" value="1">指定用户:
+                                     </label>&nbsp;&nbsp;&nbsp;&nbsp;
+									 <button class="btn btn-large btn-primary" type="button" id="addinput">点击添加手机用户</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									 <ul class="box_divlist" style="padding-left: 100px;">
+								
+									  <!--<li>
+                                      <input type="text" class="iphoenumber" placeholder="请输入用户手机号" >
+                                             <span  type="button" class="btn_rmove" >X</span>
+                                     </li>-->
+									</ul>
+									 
+									 
+									 </div>
+								
+								</div>
+								
+									
+							
+								
+								
+								
+								
+				
+							<div class="form-group">
+											<div class="col-sm-2" style="margin-left: 75%;">
+												<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+												</button>
+												<button type="button" class="btn btn-info" id="btn_active" style="display: none;">
+													确定发布
+												</button>
+												<button type="button" class="btn btn-info" id="btn_active_edit" style="display: none;">
+													编辑提交
+												</button>
+											</div>
+										</div>
+										<!--确定发布-->
+
+									</form>
+								</div>
+							</div>
+							<!--datafilter end-->
+						</div>
+
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			
+		
+			<!--新增、编辑end-->
+			
+			<!-- 审核框（Modal） -->
+			<div class="modal fade" id="user-verify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+					审核通过
+				</h4>
+						</div>
+						<div class="modal-body">
+							审核通过后该站内信将自动发送，确定要审核通过吗？
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+							</button>
+							<button type="button" class="btn btn-primary" id="comit_audit">
+								确定并发送
+							</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- 审核框（Modal）end -->
+			
+			<!-- 退回框（Modal） -->
+			<div class="modal fade" id="user-user-back" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+					退回
+				</h4>
+						</div>
+						<div class="modal-body" style="height: 150px;">
+							<div class="form-group">
+								<label class="col-sm-2 control-label">退回意见:</label>
+
+								<textarea class="col-sm-6 " id="donw_adave" placeholder="请输入退回意见:" style="height: 95px;"></textarea>
+
+							</div>
+
+							<div class="form-group">
+
+								<span class="col-sm-10" style="color:red;">注：退回意见将通过模板消息发送给该站内信发送申请者，请认真填写！</span>
+
+							</div>
+						</div>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+							</button>
+							<button type="button" class="btn btn-primary" id="user-back">
+								确定
+							</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- 查看回框（Modal）end -->
+			
+			
+			<div class="modal fade" id="user-start" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+					查看
+				</h4>
+						</div>
+						<div class="modal-body" style="height: 400px;overflow-y: auto;">
+						   <div class="form-group">
+								<label class="col-sm-2 control-label"><span style="color: red;">*</span>标题:</label>
+
+								<h4 class="col-sm-10 titltes"></h4>
+
+							</div>
+						     <div class="form-group">
+								<label class="col-sm-2 control-label"><span style="color: red;">*</span>内容:</label>
+
+								<div class="col-sm-10 contentr" style="height:250px;"></div>
+
+							</div>
+						     <div class="form-group">
+						     	<label class="col-sm-2 control-label"><span style="color: red;">*</span>发送给<em class="Region">指定区域</em>:</label>
+						     	<div class="col-sm-10 aderessses"><span>天河区、</span><span>番禺区、</span><span>毓秀区、</span></div>
+						     	
+						     </div>
+						    
+						</div>
+						
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- 查看框（Modal）end -->
+			
+	</body>
+	   <script type="text/javascript" src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+			<script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script>
+			<script type="text/javascript" src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+			<script type="text/javascript" src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+			<script src="../../public/js/common/contabs.js"></script>
+			
+			<script type="text/javascript">
+				
+				var EmptyButton = function(context) {
+					var ui = $.summernote.ui;
+					var button = ui.button({
+						contents: '<i class="note-icon-trash"/>',
+						tooltip: '清除全部内容',
+						click: function() {
+							context.invoke('editor.empty');
+						}
+					});
+					return button.render();
+				};
+				var CleanWordButton = function(context) {
+					var ui = $.summernote.ui;
+					var button = ui.button({
+						contents: '<i class="note-icon-square"/>',
+						tooltip: '清除Word格式',
+						click: function() {
+							//  清除img的wrap元素  
+							var str = context.invoke('code');
+							str = CleanPastedHTML(str); //  class="hidden"  
+							$('.container').append('<div id="tmp">' + str + '</div>');
+							$('#tmp table img').unwrap();
+							str = $('#tmp').html();
+							str = CleanPastedHTML(str); //  class="hidden"  
+							$('#tmp').remove();
+							context.invoke('code', str);
+						}
+					});
+					return button.render();
+				};
+				
+				
+				$(document).ready(function() {
+					/*富文本*/
+					$('#summernote').summernote({
+						
+						height: 400,
+						tabsize: 2,
+						lang: 'zh-CN',
+						focus: true, // set focus to editable area after initializing su   
+						dialogsInBody: true,
+						dialogsFade: true, // Add fade effect on dialogs,  
+						disableDragAndDrop: true,
+						shortcuts: true,
+						/*placeholder: '在这里添加内容', */
+						toolbar: [
+							['style', ['clear', 'bold', 'italic', 'underline', 'word']],
+							['font', ['fontsize']],
+							['color', ['color']],
+							['para', ['ul', 'ol', 'paragraph', 'style', 'height']],
+							['insert', ['table', 'picture','link']],
+							['mybutton', ['empty', 'undo', 'redo']],
+							['misc', ['fullscreen', 'codeview', 'help']]
+						],
+						buttons: {
+							empty: EmptyButton,
+							word: CleanWordButton
+						},
+						callbacks: {
+							onImageUpload: function(files, editor, $editable) {
+								sendFile(files);
+							},
+							onPaste: function(ne) {
+								var bufferText = ((ne.originalEvent || ne).clipboardData || window.clipboardData).getData('Text/plain');
+								//    ne.preventDefault();    
+								ne.preventDefault ? ne.preventDefault() : (ne.returnValue = false);
+								// Firefox fix  
+								setTimeout(function() {
+									document.execCommand("insertText", false, bufferText);
+								}, 10);
+								/*  */
+							}
+						}
+					
+					});
+					
+					
+					/*teb换切js*/
+					$('.mold_type span').click(function(){
+						
+						var index=$(this).index();
+						
+						$(this).addClass("ative").siblings().removeClass("ative");
+						$(".typemold").eq(index).addClass("show").siblings().removeClass("show");
+					})
+					
+				})
+				
+				
+				/*富文本上传*/
+				function sendFile(files, editor, $editable) {
+					var data = new FormData();
+					data.append("ajaxTaskFile", files[0]);
+					$.ajax({
+						data: data,
+						type: "POST",
+						url: Qnzs.path + '/file_upload', //图片上传出来的url，返回的是图片上传后的路径，http格式  
+						cache: false,
+						contentType: false,
+						processData: false,
+						dataType: "json",
+						success: function(data) { //data是返回的hash,key之类的值，key是定义的文件名  
+							console.log(data.url);
+							$('#summernote').summernote('insertImage', data.url);
+						},
+						error: function() {
+							alert("上传失败");
+						}
+					});
+				}
+				//富文本图片上传end
+				
+				
+			</script>
+			
+			
+			<script src="../../public/js/instation/instation.js"></script>
+</html>

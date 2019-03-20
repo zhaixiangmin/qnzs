@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/webuploader-0.1.5/webuploader.css">
+    <link rel="stylesheet" type="text/css" href="demo2.css">
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <!--<script type="text/javascript" src="../../public/vendor/webuploader-0.1.5/webuploader.js"></script>-->
+    <script type="text/javascript" src="../../public/vendor/webuploader-0.1.5/webuploader.html5only.js"></script>
+
+    <!--<script type="text/javascript" src="../../resources/pcJs/webuploader.js"></script>-->
+    <script type="text/javascript" src="demo2.js"></script>
+</head>
+<body>
+
+
+
+<div id="uploader" class="wu-example">
+    <div class="queueList">
+        <div id="dndArea" class="placeholder">
+            <div id="filePicker"></div>
+            <p>或将照片拖到这里，单次最多可选300张</p>
+        </div>
+    </div>
+    <div class="statusBar" style="display:none;">
+        <div class="progress">
+            <span class="text">0%</span>
+            <span class="percentage"></span>
+        </div><div class="info"></div>
+        <div class="btns">
+            <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // 添加全局站点信息
+    var BASE_URL = '/webuploader';
+</script>
+
+</body>
+</html>

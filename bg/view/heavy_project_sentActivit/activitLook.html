@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<link rel="stylesheet" href="activitLook-CSS/common_style.css" />
+
+		<link rel="stylesheet" href="activitLook-CSS/activity.css" />
+		<link rel="stylesheet" href="activitLook-CSS/activity02.css" />
+		<link rel="stylesheet" href="activitLook-CSS/base_style.css" />
+
+		<link rel="stylesheet" href="activitLook-CSS/pcActivityShow.css" />
+
+		<link rel="stylesheet" href="../../public/js/jquery-easyui-1.3.3/themes/default/easyui.css" type="text/css">
+		<link rel="stylesheet" href="../../public/js/jquery-easyui-1.3.3/themes/icon.css" type="text/css">
+
+		<style type="text/css">
+			h4 {
+				width: 80px;
+			}
+			
+			.btn_buzhou {
+				background: #fff;
+				padding: 20 0 20 0px;
+			}
+			
+			.buzhou_box {
+				width: 358px;
+				margin: 0 auto;
+			}
+			
+			.buzhou_box a {
+				width: 174px;
+				height: 40px;
+				display: inline-block;
+				background: #00A1D8;
+				border-radius: 50px;
+				color: #fff;
+				line-height: 40px;
+				text-align: center;
+			}
+			
+			.btn_sure {
+				background: #2185CF !important;
+			}
+			
+			.wrap {
+				width: 1200px;
+				margin: 0 auto;
+			}
+		</style>
+		<script type="text/javascript">
+			var oid = '001';
+			var activity_oid = 'MM';
+			var dg_activity;
+			var ctx = '//www.12355.net';
+
+			$(function() {
+				//活动的组织跟登录用户的组织一样，则是本级组织
+				$('input[name="shenhe"]').each(function() {
+					if(oid != activity_oid && $(this).val() == 'one') {
+						$(this).attr('checked', 'checked');
+						$('input[name="shenhe"]').change();
+					}
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+
+		<!-- 预览板块begin -->
+		<section class="step_div" style="">
+
+			<div id="templateDiv">
+				<!-- banner图 -->
+				<div class="top_banner">
+					<img id="bannerUrl2" src="../../public/images/20170420.png" alt="">
+				</div>
+				<!--  小导航 -->
+				<div class="tel_time">
+					<ul class="nav_small clearfix" id="nav_small_w" style="width: 186px;">
+						<li class="fl font16 color000 bgcWhite current" lang="1">首页</li>
+					</ul>
+				</div>
+				<div class="list_box">
+					<div class="list01 list">
+						<div class="tel_time mGreen">
+							<div class="tel_time_in clearfix">
+								<div class="tel clearfix">
+									<span>
+		                    <img src="img/phone_Green.png" height="28" width="26" alt="">
+		                </span>
+									<div>
+										<h3>热线电话</h3>
+										<p id="askMobile">06682910876</p>
+									</div>
+								</div>
+								<div class="time clearfix">
+									<span>
+		                    <img src="img/clock_Green.png" height="32" width="33" alt="">
+		                </span>
+									<div>
+										<h3>活动时间</h3>
+										<p id="activityDate">2017/07/20 - 2017/08/04</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- 奖励设置 -->
+						<!-- 参赛项目 -->
+						<div class="show" style="display:none;">
+							<div class="content w1200">
+								<h1>参评项目</h1>
+								<ul class="clearfix projectList2">
+								</ul>
+								<div class="more clearfix" id="moreSee2">
+									<a href="javascript:void(0);" onclick="showMoreProjects()">查看更多&gt;&gt;</a>
+								</div>
+							</div>
+						</div>
+						<!-- 活动流程 -->
+						<div class="act_flow liucheng mGreen">
+							<div class="content clearfix w1200">
+								<h1>活动流程</h1>
+								<ul class="clearfix">
+									<li>
+										<div class="li_con">
+											<div class="imgDiv"><img src="img/00_process.png" height="42" width="31" alt="" class="a01"></div>
+											<h3>07/20 - 07/24</h3>
+											<p>市级报名及上传资料</p>
+										</div>
+									</li>
+									<li>
+										<div class="li_con">
+											<div class="imgDiv"><img src="img/01_process.png" height="42" width="31" alt="" class="a01"></div>
+											<h3>07/25 - 07/28</h3>
+											<p>投票</p>
+										</div>
+									</li>
+									<li>
+										<div class="li_con">
+											<div class="imgDiv"><img src="img/02_process.png" height="42" width="31" alt="" class="a01"></div>
+											<h3>07/29 - 07/30</h3>
+											<p>综合考评</p>
+										</div>
+									</li>
+									<li>
+										<div class="li_con">
+											<div class="imgDiv"><img src="img/03_process.png" height="42" width="31" alt="" class="a01"></div>
+											<h3>07/31 - 08/04</h3>
+											<p>公示</p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- 活动介绍 -->
+						<div class="act_detail mGreen">
+							<div class="content w1200">
+								<h1>活动介绍/详情</h1>
+								<p class="p01" id="activityRemark">为深入学习贯彻习近平总书记对广东工作重要批示精神，广泛动员和引领团员青年践行“四个坚持、三个支撑、两个走在前列”的要求，根据团中央、团省委的有关工作部署，团市委决定，在全市开展“共青团员先锋岗（队）”（以下简称“团员先锋岗（队）”）创建工作。</p>
+								<!-- 参与要求 -->
+								<div class="ask clearfix enroll_yaoqiu">
+									<h2>报名要求</h2>
+									<ul class="ask_item clearfix">
+									</ul>
+								</div>
+								<div class="project clearfix project_yaoqiu">
+									<h2>项目要求</h2>
+									<ul class="ask_item clearfix">
+										<li>
+											<em>1</em>
+											<span>项目广泛动员和引领团员青年能践行“四个坚持、三个支撑、两个走在前列”</span>
+										</li>
+									</ul>
+								</div>
+								<!-- 评选规则 -->
+								<div class="rule clearfix huodong_guize">
+									<h2>评选规则</h2>
+									<ul>
+										<li>
+											<em>1</em>
+											<span>在线投票</span>
+										</li>
+										<li>
+											<em>2</em>
+											<span>综合考评</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- 合作单位 -->
+						<div class="danwei">
+							<div class="content w1200">
+								<div class="clearfix zhuban">
+									<h3>主办单位</h3>
+									<span>茂名团市委</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="list02 list ">
+						<div class="act_detail">
+						</div>
+					</div>
+					<div class="list03 list">
+						<div class="act_detail">
+						</div>
+					</div>
+					<div class="list04 list">
+						<div class="word">
+						</div>
+					</div>
+
+					<div class="list05 list ">
+						<div class="word">
+						</div>
+					</div>
+					<div class="list06 list">
+						<div class="show mGreen" style="">
+							<div class="content w1200">
+								<!-- 项目搜索 -->
+								<section class="hideSelect p_0_30">
+									<div class="selects clearfix m_bot10">
+										<span class="fl tit color333 ">所属地区:</span>
+										<input id="oid" name="oid" type="hidden" require="true">
+										<select id="oidType" class="fz26" onchange="changeOidType(this)">
+											<option value="-1" selected="selected">--请选择--</option>
+											<option value="1">地市</option>
+											<option value="2">高校</option>
+											<option value="SHENGZHI">省直团工委</option>
+											<option value="GUANGTIE">广铁集团</option>
+											<option value="MHZNGLJ">民航中南管理局</option>
+											<option value="NANHANG">南航</option>
+											<option value="GDGZW">省国资委</option>
+											<option value="1">地市</option>
+											<option value="2">高校</option>
+										</select>
+										<select id="cityOid" class="fz26 displayNone" onchange="cityOidChange(this)">
+										</select>
+										<select id="areaOid" class="fz26 displayNone" disabled="disabled" onchange="if(this.value != '-1'){$(this).css('color','#333');}else{$(this).css('color','#999');}">
+											<option value="-1">--区/县--</option>
+										</select>
+										<select id="shcoolOid" class="fz26 displayNone" onchange="schoolOidChange(this)">
+										</select>
+										<select id="classOid" class="fz26 displayNone" disabled="disabled" onchange="if(this.value != '-1'){$(this).css('color','#333');}else{$(this).css('color','#999');}">
+											<option value="-1">--分院--</option>
+										</select>
+										<input id="keyWord" type="text" placeholder="请输入项目名称或申报者关键字" class="color333 shuru">
+										<a href="javascript:searchProjectList();" class="searchB bgc2185cf fz28 colorfff disB">搜索</a>
+									</div>
+								</section>
+								<!-- 项目搜索 -->
+								<ul class="clearfix projectList">
+									<!--<li>
+							<div>
+								<img src="images/show01.png" alt="" />
+							</div>
+							<p class="p01">
+								名称：超级环保项目
+							</p>
+							<p class="p02">
+								申报人：华南理工大学
+							</p>
+							<button>
+								5000人投票
+							</button>
+						</li>-->
+								</ul>
+								<div id="moreSee" class="gengduo">
+									<a href="javascript:void(0);" onclick="showMoreProject(206)">查看更多</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- 按钮 -->
+			<div class="btn_buzhou">
+				<div class="wrap">
+					<div class="buzhou_box clearfix">
+						<a href="javascript:void(0);" class="fl fnt14 last_step">上一步</a>
+						<a href="javascript:void(0);" class="fl fnt14 m_left10 btn_sure" id="edit_btn">确认发布</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- 预览板块end -->
+
+		
+		
+		<!--<script type="text/javascript" src="../../public/js/commons/activity_titleModify.js"></script>-->
+
+		
+	
+	
+	</body>
+
+</html>

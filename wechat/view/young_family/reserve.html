@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>青年之家-预约线下服务</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/young_family/report.css" />
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+     <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/common/footerChange.js"></script>
+    <script type="text/javascript" src="../../public/js/module/YoungFamilyApi.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/young_family/reserve.js"></script>
+</head>
+<body class="bodyPB bgcWhite">
+
+
+<div class="reserve">
+    <ul style="padding-left: 10px;">
+        <li style="margin-bottom: 0.4rem; padding: 0.3rem 0.6rem;height: 1.875rem; line-height: 1.875rem; border-bottom: solid 1px #dfdfdf;">
+            <span class="fz30 disIB" style="margin-right: 0.375rem;">问题标题</span>
+            <input class="fz30" type="text" placeholder="请输入标题" id="title">
+        </li>
+        <li style="margin-bottom: 0.4rem; padding: 0.3rem 0.6rem;height: 1.875rem; line-height: 1.875rem; border-bottom: solid 1px #dfdfdf;">
+            <span class="fz30 disIB" style="margin-right: 0.375rem;">服务类别</span>
+            <select class="fz30" name="category" id="category" style="padding-right: 0.6rem;padding-left: 0.1875rem;width: 6rem;height: 1rem;line-height: 1rem; border: 1px solid #e2e2e2;">
+                <!--服务类别列表-->
+            </select>
+        </li>
+        <li style="margin-bottom: 0.4rem; padding: 0.3rem 0.6rem;height: 3.75rem; border-bottom: solid 1px #dfdfdf;">
+            <span class="fz30 disB" style="margin-right: 0.375rem; line-height: 1.875rem;">服务时间</span>
+            <select class="fz30" name="serviceDay" id="serviceDay" style="width: 8rem;height: 1rem;line-height: 1rem; padding-right: 0.6rem;border: 1px solid #e2e2e2;">
+                <!--服务日期列表-->
+            </select>
+            <select class="fz30" name="serviceTime" id="serviceTime" style="width: 5rem; height: 1rem;line-height: 1rem;padding-right: 0.6rem;border: 1px solid #e2e2e2;">
+                <!--服务时间列表-->
+            </select>
+        </li>
+        <li style="margin-bottom: 0.4rem; padding: 0.3rem 0.6rem;height: 8rem; line-height: 1.875rem; border-bottom: solid 1px #dfdfdf;">
+            <span class="fz30 disB" style="margin-right: 0.375rem;">服务描述</span>
+            <textarea id="description" style="width: 100%; height: 6rem; border: 0; font-size: 0.56rem; outline-style: none;" maxlength="300" placeholder="我需要组织帮我解决XXX问题,最多可输入300字"></textarea>
+        </li>
+
+        <!-- 按钮  -->
+        <div class="hd_btn" id="submit_reserve">
+            <div class="hd_btn_box clearfix">
+                <div class="sure fl">
+                    <span id="sureReportBtn"><a href="javascript:;">提交</a></span>
+                </div>
+            </div>
+        </div>
+    </ul>
+</div>
+
+</body>
+</html>

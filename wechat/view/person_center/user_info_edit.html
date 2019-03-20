@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人资料编辑</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/person_center/user_info_edit.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/login-register/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/vendor/webuploader/webuploader.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/PersonCenterApi.js"></script>
+    <script type="text/javascript" src="../../public/custom/uploader_single_custom_control.js"></script>
+    <script type="text/javascript" src="../../public/js/person_center/user_info_edit.js"></script>
+</head>
+<body>
+<div style="position: relative;height:1.76rem;line-height:1.76rem;text-align: center;font-size:0.72rem;color:#fff;background-color: #333;">
+    <a href="user_info.html" style="position: absolute;left:0;width:1.68rem;height:100%;background: url(../../public/img/arrow-left.png) no-repeat center;background-size: 0.34rem 0.58rem;"></a>
+    个人资料编辑
+</div>
+<div class="info_box">
+    <div class="img_box">
+        <div class="title">头像</div>
+        <div class="img_content" id="img_content"><img src="../../public/img/default_avator.png" id="photoUrl"></div>
+    </div>
+    <ul class="info_list">
+        <li class="info_item_input"><!-- 呢称 -->
+            <span class="title">呢称</span>
+            <input type="text" id="realname" placeholder="请输入昵称" />
+            <!--<span class="txt" id="realname"></span>-->
+        </li>
+        <li class="info_item" style="margin-bottom: 1px;"><!-- 用户类型 -->
+            <span class="title">用户类型</span>
+            <span class="txt" id="type"></span>
+        </li>
+        <li class="info_item"><!-- 所属地区/高校 -->
+            <span class="title">所属地区/高校</span>
+            <span class="txt" id="district"></span>
+        </li>
+        <li class="info_item"><!-- 绑定手机号 -->
+            <span class="title">绑定手机号</span>
+            <a class="arrow" href="edit_phone.html" style="padding-left: 0.4rem; color: #cf7721;">修改</a>
+            <!--<span class="arrow" id="mobile_edit" style="padding-left: 0.4rem; color: #cf7721;">修改</span>-->
+            <span class="txt" id="mobile" style="margin-right: 0;"></span>
+        </li>
+        <li class="info_item" id="gender_box"><!-- 性别 -->
+            <span class="title">性别</span>
+            <span class="arrow" id="gender">请选择性别</span>
+        </li>
+        <li class="info_item_input"><!-- 邮箱 -->
+            <span class="title">邮箱</span>
+            <input type="text" id="email" placeholder="请输入邮箱"/>
+            <!--<span class="txt" id="email"></span>-->
+        </li>
+        <li class="info_item_input"><!-- 联系地址 -->
+            <span class="title">联系地址</span>
+            <input type="text" id="address" placeholder="请输入联系地址"/>
+            <!--<span class="txt" id="address"></span>-->
+        </li>
+        <li class="info_item_rows">
+            <p class="title">个性标签</p>
+            <div class="labels"></div>
+        </li>
+        <li class="info_item_rows" style="margin-top: 0.4rem;">
+            <p class="title">自我描述</p>
+            <textarea placeholder="请输入描述内容" id="description"></textarea>
+        </li>
+    </ul>
+</div>
+
+<a class="bot_big_btn" id="confirm" style="position: fixed; bottom: 0; margin: 0; width: 100%;">保存</a>
+
+
+<!-- 选择 - 弹窗 -->
+<section class="select_popup">
+    <ul class="select_list"></ul>
+</section>
+<!-- 选择 - 弹窗 -->
+
+</body>
+</html>

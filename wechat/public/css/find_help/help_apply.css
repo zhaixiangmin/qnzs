@@ -1,0 +1,170 @@
+/* 标题 */
+.bg_1 {
+  position: relative;
+}
+/* 求助 */
+.qzxq_qiuzhu_t li {
+  width: 100%;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  border-bottom: 0.02rem solid #e2e2e2;
+}
+.qzxq_qiuzhu_t li div {
+  padding: 0 0.6rem;
+}
+.qzxq_qiuzhu_t li div span,
+.qzxq_qiuzhu_t li div input {
+  font-size: 0.6rem;
+}
+.qzxq_qiuzhu_t li div span {
+  width: 3rem;
+  display: inline-block;
+}
+.qzxq_qiuzhu_t li div input {
+  width: 76%;
+  font-family: "微软雅黑";
+}
+.bor_t {
+  border-top: 0.02rem solid #e2e2e2;
+}
+/* 受理方 */
+.askQchooseOL li {
+  height: 1.6rem;
+  line-height: 1.6rem;
+  background: #ffffff url('../../img/next.png') no-repeat 97% center;
+  background-size: 0.28rem 0.52rem;
+  padding: 0 1.2rem 0 0.6rem;
+  border-bottom: 1px solid #e8e8e8;
+}
+.askQchooseOL li h6,
+.askQchooseOL li span {
+  font-size: 0.6rem;
+}
+.askQchooseOL li span {
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 4.2rem;
+  display: inline-block;
+}
+/* -----------------------------上传图片-----------------------------------
+---------------------------------- */
+.uploadImg {
+  padding: 0 0.3rem;
+}
+.pic_xianzhi {
+  font-size: 0.48rem;
+  margin-left: 0.3rem;
+}
+.uploadImg .qz_title {
+  line-height: 1.56rem;
+  font-size: 0.6rem;
+  padding-left: 0.3rem;
+}
+.uploadImg .imgL .imgdiv {
+  /*display: none;*/
+}
+.uploadImg .imgL .imgdiv,
+.uploadImg .imgL .imgAdd {
+  width: 25%;
+  padding-bottom: 0.6rem;
+}
+.uploadImg .imgL .imgdiv .imgOut {
+  padding: 0 0.3rem;
+}
+.uploadImg .imgL .imgdiv .imgOut .imgIn {
+  width: 3rem;
+  height: 3rem;
+  overflow: hidden;
+}
+.uploadImg .imgL .imgdiv .imgOut .imgIn img {
+  width: 100%;
+  margin: 0 auto;
+  border: 0 none !important;
+}
+.uploadImg .imgL .imgAdd .divin {
+  padding: 0 0.3rem;
+}
+.uploadImg .imgL .imgAdd .divin a {
+  width: 3rem;
+  height: 3rem;
+  display: block;
+  background: url(../../img/uploadImgBg.png) no-repeat center center;
+  background-size: 100%;
+}
+.uploadImg .imgL .imgAdd .divin a input {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+/* -------------------------问题说明-----------------
+----------------------------- */
+section.explain {
+  padding: 0.4rem 0.6rem;
+  margin-bottom: 0.8rem;
+}
+section.explain > div {
+  line-height: 1.1rem;
+}
+section.explain > div * {
+  font-size: 0.6rem;
+}
+section.explain > div span {
+  color: #2185cf;
+}
+section.explain textarea {
+  font-size: 0.48rem;
+  width: 100%;
+  height: 11.56rem;
+}
+/* -=-------提交 -------
+-------*/
+.qz_tijiao {
+  padding: 0 0.6rem;
+  margin-bottom: 1.2rem;
+}
+.qz_tijiao a {
+  display: block;
+  text-align: center;
+  line-height: 1.6rem;
+  color: #fff;
+  font-size: 0.68rem;
+  background-color: #2185cf;
+  border-radius: 0.6rem;
+}
+/* 浮窗 */
+.bgcBlackwindow {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.2;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.askQuestionBottom {
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  z-index: 99;
+}
+.askQuestionUL,
+.askQuestionUL2,
+.askQuestionUL3 {
+  display: none;
+}
+.askQuestionUL li,
+.askQuestionUL2 li,
+.askQuestionUL3 li {
+  line-height: 1.6rem;
+  font-size: 0.48rem;
+}
+.askQuestionUL li,
+.askQuestionUL2 li,
+.askQuestionUL3 li {
+  border-bottom: 1px solid #e8e8e8;
+}

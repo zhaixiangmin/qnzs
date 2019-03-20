@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>评论求助</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no;">
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/person_center/my_cometer.css">
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+</head>
+<body>
+<section class="my_comment" id="activityList"></section>
+</body>
+<script>
+    var MycomentApi= {};
+    var pageIndex = 1;
+    var pageSize = 6;
+    MycomentApi.Mycomentlist = function (data) {
+        return Qnzs.ApiProxy('/personalCenter/mark/list', data, '获取评论列表');
+    };
+    $(document).ready(function() {
+
+        var loadedFlag = false; // 加载完成标识(全局变量，true：加载完成，false：正在加载)
+        var finishFlag = true; // 全部列表数据查询完毕标识(全局变量，true：加载完毕，false：尚有数据)
+
+        var params = {
+            type:1,
+            pageIndex: pageIndex, // 当前页码(可不传，默认为1)
+            pageSize: pageSize // 每页记录数(可不传，默认为10)
+        };
+
+        function renderList($listContent, list, isClear) {
+            var html = '';
+
+            for(var i =0;i<list.length;i++) {
+                var temp = list[i];
+
+                html+='<a href="../find_help/find_help_detail.html?id='+temp.objectId+'" class="clearfix coemt_urel">';
+                html+='<div class="imgphot">';
+                html+='<img src="'+ Utils.compressByAli(temp.markAccPhoto, 100, 100) +'" alt="">';
+                html+='</div>';
+                html+='<div class="coment_deil">';
+                html+='<p class="comt_time">'+temp.markTime+'</p>';
+                html+='<p class="comt_mark">'+temp.score+'分</p>';
+                html+='<div class="comt_bandwidth">'+temp.remark+'</div>';
+                html+='<h3 class="commet_title">活动:'+temp.title+'</h3>';
+                html+='</div>';
+                html+='</a>';
+
+            }
+            if(isClear) {
+                $listContent.html(html); // 替换当前内容
+                return;
+            }
+            $listContent.append(html); // 向后添加当前内容
+
+        }
+
+        function loadList(fun, params, $listContent, isClear) {
+            // 获取推荐服务帮助列表
+            fun(params).then(function (data) {
+                var list = data.rows;
+                renderList($listContent, list, isClear); // 渲染帮助列表
+                if(list && list.length >= params.pageSize) { // 全部列表数据尚未查询完毕
+                    finishFlag = false; // 全部列表数据尚未查询完毕，可以继续查询(全局变量)
+                    return;
+                }
+
+                finishFlag = true; // 全部列表数据查询完毕，禁止继续查询(全局变量)
+                // 全部列表数据查询完毕
+                $listContent.append('<div style="text-align: center;color: #333;">全部数据加载完毕</div>');
+
+            }).always(function () {
+                params.pageIndex++; // 页码自增
+                loadedFlag = true; // 设置加载完成(全局变量)
+            });
+        }
+
+
+        loadList(MycomentApi.Mycomentlist, params, $('#activityList')); // 加载帮助列表并渲染页面
+
+        // var loadedFlag = true; // 加载完成标识(true：加载完成，false：正在加载)
+        // 监控窗口滚动事件(滑动滚动条自动加载事件)
+        $(window).scroll(function(){
+            var scrollTop = $(this).scrollTop(); // 滚动高度(范围：0 ~ 内容高度-可见高度)
+            var scrollHeight = $(document).height(); // 内容高度(可见高度+可滚动高度)
+            var windowHeight = $(this).height(); // 可见高度
+            // 滑动滚动条 大于等于 80%，并且加载完成为true时，执行接口
+            if (scrollTop/(scrollHeight - windowHeight) >= 0.8 && loadedFlag && !finishFlag) {
+                loadedFlag = false; // 设置正在加载，避免重复
+
+
+                loadList(MycomentApi.Mycomentlist, params, $('#activityList')); // 加载帮助列表并渲染页面
+
+            }
+        })
+    })
+
+
+</script>
+
+</html>

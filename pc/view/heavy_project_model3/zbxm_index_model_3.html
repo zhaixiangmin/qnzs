@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>重磅项目三-首页</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/zbxm_index_model_3.css" />
+      <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/findConsult.css"/>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/super_slide/jquery.SuperSlide.2.1.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+    <!--<script type="text/javascript" src="resources/pcJs/zbxm_index3.js"></script>-->
+    <style>
+    	.r_news_title{
+    		display: block;
+    		height: 40px;
+    		width: 381px;
+    		
+    	}
+    	.process_list .item{
+    		width: 272px;
+    	}
+    	.process_text{
+    		display: block;
+    		width: 272px;
+    		height: 40px;
+    		white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+    	}
+    	/********* 参赛作品  ********/
+    	
+    	#team_list .item {
+		    margin: 0 20px 27px;
+		}
+		
+		p {
+		    display: block;
+		    -webkit-margin-before: 1em;
+		    -webkit-margin-after: 1em;
+		    -webkit-margin-start: 0px;
+		    -webkit-margin-end: 0px;
+		}
+		.fl {
+		    float: left;
+		}
+		#team_list li {
+		    display: list-item;
+		    text-align: -webkit-match-parent;
+		}
+	    #team_list .item_con {
+		    width: 208px;
+		    height: 280px;
+		    background-color: floralwhite;
+		}
+		#team_list .work_pic_box {
+		    height: 138px;
+		    overflow: hidden;
+		    /*width: 208px;
+		    height: 130px;
+		    line-height: 130px;
+		    display: table-cell;
+		    background: #e2d7c8;
+		    vertical-align: middle;*/
+		}
+		#team_list .work_vote {
+		    text-align: center;
+		    background-color: rgba(232, 226, 226, 0.09);
+		    height: 150px;
+		}
+		#team_list .work_vote .txt {
+		    white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		   
+		}
+		#team_list .work_vote .project_name, #team_list .work_vote .txt {
+		    white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		     line-height: 25px;
+            font-size: 14px;
+		}
+		#team_list .work_vote .vote_btn {
+		    width: 150px;
+		    height: 35px;
+		    line-height: 35px;
+		    background-color: #ccc;
+		    border-radius: 17.5px;
+		    cursor: pointer;
+		    color: #fff;
+		}
+		#team_list .work_pic_box img {
+		    width: 208px;
+		    display: block;
+		    max-height: 138px;
+		}
+		.competition_team .team_list {
+		    height: 740px;
+		    width: 1300px;
+		}
+		/** 底部参与方 **/
+		
+
+		.section_box .content_title_box .content_title {
+		    font-size: 22px;
+		    line-height: 35px;
+		    height: 35px;
+		    color: #010201cc;
+		    padding-left: 50px;
+		    background-repeat: no-repeat;
+		    background-position: left center;
+		    font-weight: bold;
+		}
+		.section_box .content_title_box .unit_list {
+		    font-size: 16px;
+		    line-height: 36px;
+		    margin-left: 36px;
+		}
+		
+		
+		.section_box span {
+		    color: #777474;
+		}
+    </style>
+</head>
+<body>
+    <header class="page_head">
+        <div class="content w1200 clearfix">
+            <div class="con_head clearfix">
+                <div class="fr clearfix">
+                    <a href="../../index.html" class="fl link homepage"></a>
+                    <a href="javascript:;" class="fl link login" id="head_login_img"></a>
+                </div>
+            </div>
+            <div class="con_body clearfix">
+                <a href="../../index.html" class="logo fl"><img src="../../public/img/zbxm_logo_3.png" /></a>
+                <div class="page_head_nav fr">
+                    <ul class="nav clearfix">
+                      
+                        <li class="nav_li cur">
+						   <a id="project_main" href="zbxm_index_model_3.html">首页</a>
+						</li>
+						<li class="nav_li">
+							<a id="project_detalis" href="zbxm_index_model3_detail.html">项目详情</a>
+						</li>
+						<li class="nav_li">
+							<a id="project_dynamic" href="zbxm_index_model3_trends.html">项目动态</a>
+						</li>
+						<li class="nav_li">
+							<a id="team" href="zbxm_index_model3_team.html">参赛团队</a>
+						</li>
+	                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- banner -->
+    <div class="big_banner" id="banner_center">
+        
+    </div>
+    <!-- 项目动态 -->
+    <div class="project_dynamic sections">
+        <div class="content w1200">
+            <div class="content_title_box clearfix">
+                <h1 class="fl content_title">项目动态</h1>
+                <a href="zbxm_index_model3_trends.html" class="more_btn active_more_btn fr">more</a>
+            </div>
+            <div class="content_body">
+                <div class="content_body_con clearfix">
+                    <div class="fl body_l clearfix">
+                        <div class="body_l_pic fl"><img src="" alt="" class="pic" /></div>
+                        <div class="body_r_news">
+                            <!--<a href="javascript:;" class="r_news_title">大型创业真人秀 《腾飞之役·创业季》</a>
+                            <p class="r_news_text">2012年9月9日，由腾讯开放平台发起的“应用创新大赛”中首档大型创业真人秀 《腾飞之役·创业季》正式启动。全新的形式一经推出就已经引起了业界的极大关注。在经历了两个半月……</p>
+                            <a href="zbxm_index_model3_trends_detail.html" class="more_btn clearfix"><span class="fl">more</span><em class="fl "></em></a>-->
+                        </div>
+                    </div>
+                    <div class="fr body_r">
+                        <ul class="body_r_list"></ul>
+                        <div class="info_roll" style="display: none;">
+                            <ul class="info_roll_list" > 
+                                
+                            </ul>
+                        </div>
+                        <script type="text/javascript">
+                            function info_roll_list(){
+                                    var num=2;
+                                    var html=''
+                                    for (var i = 0; i < num; i++) {
+                                        html+='<li class="item" style="display:none;">'
+                                        html+=' <div class="item_con clearfix">'
+                                        html+='  <span class="fl user_pic_box"><img src="../../public/img/head_7.png" class="user_pic" /></span>'
+                                        html+='  <span class="fl user_name">尤弥尔</span>'
+                                        html+='  <p class="fl user_do">为中国华西企业第一建筑工程公司团队投了一票。</p>'
+                                        html+=' </div>'
+                                        html+='</li>'
+                                    };
+                                    $('.info_roll_list').append(html)
+                                }
+                                info_roll_list();
+                            jQuery(".info_roll").slide({
+                                mainCell:".info_roll_list",
+                                autoPage:true,
+                                effect:"topLoop",
+                                autoPlay:true,
+                                vis:1,
+                                delayTime:500,
+                                interTime:3000
+                                });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 活动介绍 -->
+    <div class="sections act_introduction">
+        <div class="content w1200">
+            <div class="content_title_box clearfix" style="padding-top:50px;">
+                <h1 class="fl content_title">活动介绍</h1>
+                <a href="zbxm_index_model3_detail.html" class="more_btn active_more_btn  fr">more</a>
+            </div>
+            <p class="introduction_text"><span id="introduction_text"></span></p>     
+            <div class="sign_up_box clearfix"><a href="../heavy_project/openEnroll.html" class="sign_up fr">我要报名</a></div>
+        </div>
+    </div>
+    <!-- 报名要求 -->
+    <div class="sections sign_up_requirement">
+        <div class="content w1200">
+            <div class="content_title_box clearfix">
+                <h1 class="fl content_title">报名要求</h1>
+            </div>
+            <ul class="requirement_list  clearfix">
+                <!--<li class="item">
+                    <div class="item_con">
+                        <p class="item_con_txt">参加过省级或以上号长资格培训班并获得资格证书。</p>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="item_con">
+                        <p class="item_con_txt">负责人中至少有1人年龄 不超过35周岁</p>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="item_con">
+                        <p class="item_con_txt">创建集体人数一般为10- 200人</p>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="item_con">
+                        <p class="item_con_txt">5周岁以下青年人数不少 于集体总人数60%</p>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="item_con">
+                        <p class="item_con_txt">5周岁以下青年人数不少 于集体总人数60%</p>
+                    </div>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+    <!-- 评选流程 -->
+    <div class="sections selection_process">
+        <div class="content w1200">
+            <div class="content_title_box clearfix">
+                <h1 class="fl content_title">评选流程</h1>
+            </div>
+            <div class="process_list_box">
+                <ul class="process_list clearfix">
+                    <!--<li class="item">
+                        <div class="item_con">
+                            <span class="step_date"><em class="date_year">2016</em><i class="month">1/18-3/23</i></span>
+                            <div class="dot_line_up dot_line_bg"></div>
+                            <h1 class="process_title">征集期</h1>
+                            <div class="dot_line_down dot_line_bg"></div>
+                            <p class="process_text">关注重磅项目官网，上传作品。</p>
+                        </div>
+                    </li>-->
+                    <!--<li class="item">
+                        <div class="item_con">
+                            <span class="step_date"><em class="date_year">2016</em><i class="month">1/18-3/23</i></span>
+                            <div class="dot_line_up dot_line_bg"></div>
+                            <h1 class="process_title">评选期</h1>
+                            <div class="dot_line_down dot_line_bg"></div>
+                            <p class="process_text">每个id每日可投票3次，</p>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="item_con">
+                            <span class="step_date"><em class="date_year">2016</em><i class="month">1/18-3/23</i></span>
+                            <div class="dot_line_up dot_line_bg"></div>
+                            <h1 class="process_title">入围作品展示</h1>
+                            <div class="dot_line_down dot_line_bg"></div>
+                            <p class="process_text">在重磅项目官网上公布获奖 名单。</p>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="item_con">
+                            <span class="step_date"><em class="date_year">2016</em><i class="month">1/18-3/23</i></span>
+                            <div class="dot_line_up dot_line_bg"></div>
+                            <h1 class="process_title">大奖公示</h1>
+                            <div class="dot_line_down dot_line_bg"></div>
+                            <p class="process_text">奖品将在15个工作日快递送达。</p>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 参赛团队 -->
+    <div class="sections competition_team">
+        <div class="content">
+            <div class="w1200" style="margin-bottom:20px;">
+                <div class="content_title_box clearfix">
+                    <h1 class="fl content_title">参赛团队</h1>
+                </div>
+                <div class="select_work clearfix">
+                    <div class="select_work_l fl clearfix">
+                        <span class="select_title fl cur">团队</span>
+                        <span class="select_title fl">个人</span>
+                       
+                    </div>
+                    <div class="select_work_r fr">
+                        <input type="text" class="search fl" placeholder="请输入关键字搜索" />
+                        <span class="search_btn fl"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="team_list_box">
+                <ul class="team_list clearfix" id="team_list"></ul>
+                
+            </div>
+        </div>
+    </div>
+    <!-- 联系我们 -->
+    <div class="sections contact_us_box">
+        <div class="content w1200">
+            <div class="content_title_box clearfix" style="padding-top:50px;">
+                <h1 class="fl content_title">联系我们</h1>
+            </div>
+            <p class="contact_phone">64555555554153</p>
+        </div>
+    </div>
+ 
+    <!-- 赞助商、合作伙伴 -->
+	<div class="section_box sponsor_partner">
+		<div class="content w1200">
+			<div class="content_title_box clearfix">
+				<h2 class="content_title fl">主办单位：</h2>
+				<span class="sponsor_unit_list unit_list" ></span>
+			</div>
+			<div class="content_title_box clearfix">
+				<h2 class="content_title fl">协办单位：</h2>
+				<span class="assist_unit_list unit_list" ></span>
+			</div>
+			<div class="content_title_box clearfix content_last">
+				<h2 class="content_title fl">承办单位：</h2>
+				<span class="undertake_unit_list unit_list" ></span>
+			</div>
+		</div>
+	</div>
+	 <!--- 投票指引 ，报名指引弹窗  ----->
+    <div class="bg_black" style="display:none;">
+        <div class="list_tanchuang" >
+            <div class="list_tanchuang_t conBgc01 clearfix" style="width: 700px!important;">
+                <span class="name font14 fl title">投票指引</span>
+                <span class="delete fr"></span>
+            </div>
+
+            <div class="list_tanchuang_b bgcWhite clearfix" style="width: 749px;">
+                <div class="content_l fl" style="width: 700px;">
+                   
+                    <div class="wenti_shuoming clearfix voteGuide_box" style=";height: 296px;" id="look_img_box">
+                        <div  class="vote_content" style=" text-indent: 20px;line-height: 30px;   width: 675px;height: 251px; border: 1px solid #eee; display: inline-block; padding: 10px 3px;overflow: hidden;">
+                        	
+                        </div>
+                    </div>
+                    <div class="wenti_shuoming clearfix enrollGuide_box" style=";height: 296px;display:none;">
+                        <div  class="enrollGuide_content" style=" text-indent: 20px;line-height: 30px; width: 675px;height: 251px; border: 1px solid #eee; display: inline-block; padding: 10px 3px;overflow: hidden;">
+                        	
+                        </div>
+                    </div>
+                    <div id="imgUrl" style="display: none;"></div>
+                    <a  style="margin-top: 43px;" href="javascript:void (0);" class="delete  sure conBgc01 colorfff font14" id="submit_help">关闭</a>
+                </div>
+
+              
+            
+            </div>
+        </div>
+    </div>
+   
+    <!--举报弹出框-->
+	<div class="askBox2" id="askBox_report" style="display:none;">
+	    <span class="closed" onclick="$('#dark_report').hide(); $('#askBox_report').hide();"></span>
+	    <div class="askBox2_H">
+	        <h3>举报</h3>
+	    </div>
+	    <div class="askBox2_Con">
+	        <form id="form_report" method="" action="">
+	            <input id="module" name="module" value="2" type="hidden">
+	            <input id="reportAgainstId" name="reportAgainstId" value="9025147" type="hidden">
+	            <div class="clearfix jubao_fenlei">
+	                <label class="fl">举报分类</label>
+	                <select name="reportType" id="reportType" class="fl">
+	                    <!--<option value="0">请选择</option>-->
+	                    <option value="1">欺诈</option>
+	                    <option value="2">色情</option>
+	                    <option value="3">诱导行为</option>
+	                    <option value="4">不实信息</option>
+	                    <option value="5">违法犯罪</option>
+	                    <option value="6">骚扰</option>
+	                    <option value="7">侵权(冒充他人、侵犯名誉等)</option>
+	                    <option value="0">其他</option>
+	                </select>
+	            </div>
+	            <div class="clearfix pinghjia_box">
+	                <div class="pingjia_world">
+	                    <span class=" pingjia fl">举报理由</span>
+	                    <!-- 	                    <span class="zifu fl">(至少5个字符)</span>  -->
+	                </div>
+		                <span>
+		                    <textarea class="inputyxxi2 fr" name="content" id="reportContent"></textarea>
+		                </span>
+	            </div>
+	        </form>
+	    </div>
+	    <div class="askBox2_Btn">
+	        <ul>
+	            <li class="fabu2"><a href="javascript:void(0);" id="submit_report">发布</a></li>
+	            <li class="quxiao"><a href="javascript:void(0);" onclick="$('#dark_report').hide(); $('#askBox_report').hide();">取消</a></li>
+	        </ul>
+	    </div>
+	</div>	
+	<!--举报弹出框 end-->
+    <!-- 右侧悬浮导航 -->
+    <div class="body_r_nav">
+        <ul class="nav">
+            <li class="item cur mb20">
+                <a href="../heavy_project/openEnroll.html" class="item_con" id="sign_up">我要报名</a>
+            </li>
+            <li class="item vote_item">
+                <a href="javascript:;" class="item_con" onclick="show_vote_box(1)" style="background: #f8274b;"> 
+                    <span class="item_con_txt">投票指引</span>
+                </a>
+            </li>
+            <li class="item en_item" >
+                <a href="javascript:;" class="item_con" onclick="show_vote_box(2)" style="background: #f8274b;">
+                    <span class="item_con_txt" >报名指引</span>
+                </a>
+            </li>
+            <li class="item" id="load_file_box"  >
+                <a id="load_file" href="javascript:;" class="item_con" style="background: #f8274b;">
+                    <span class="item_con_txt">下载附件</span>
+                </a>
+            </li>
+           
+            <li class="item">
+                <a href="javascript:;" class="item_con" style="background: #f8274b;">
+                    <span class="item_con_txt report_click">举报</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 底部 -->
+    <footer class="conBgc01 colorfff font14 another_bgc">
+        <a href="javascript:;" class="disB font14 colorfff">触屏版</a>
+        <p>版权所有 copyright 2016 广东青年之声</p>
+        <p>粤ICP备10214402号-4</p>
+    </footer>
+    <script type="text/javascript" src="../../public/js/heavy_project_model3/heavy_project_modex3_common.js"></script>
+</body>
+</html>
+<script>
+	/*** 关键字查询 **/
+$('#search_btn').click(function() {
+	
+	sreachList()
+})
+
+
+//进入个人中心
+
+$('#head_login_img').click(function(){
+		//  获取当前登录者信息
+	obj.ajax('/commons/getSessionAccount',{},function(data){
+		
+		if(data.status =='OK'){
+			window.location.href = '../person_center/person_center.html'
+		}else{
+
+            $.alert('亲，请先登录')
+//		       	  $('#loginBtn').trigger("click");  //触发点击事件
+            var i =1;
+            var  time = setInterval(function(){
+            $('#loginBtn').click();
+	            if(i==1){
+	             	clearInterval(time);
+	            }
+		    },100)	
+			
+		}
+	})
+})
+
+/**** 举报弹出框  ******/
+	
+	$('.report_click').click(function(){
+		 $('#askBox_report').show()  //显示
+	})
+	
+	//关闭谈出窗
+	$('.bg_black .delete ').click(function(){
+		$('.bg_black').hide();
+		
+	})
+	
+	
+	//打开投票指引弹窗
+    function show_vote_box(n) {
+       $('.bg_black').show() //显示弹框
+       if(n == 1){  //投票
+       	
+       	 $('.voteGuide_box').show();
+       	 $('.enrollGuide_box').hide()
+       	 $('.list_tanchuang .title').html("投票指引")
+       }
+       if(n == 2){  //报名
+       	
+       	 $('.voteGuide_box').hide();
+       	 $('.enrollGuide_box').show()
+       	 $('.list_tanchuang .title').html("报名指引")
+       }
+    	
+    }
+	//举报
+	// 举报(发布)
+	$('#submit_report').click(function () {
+		
+		
+		
+		Qnzs.getSessionAccount({}).then(function (data) {
+			console.log(data)
+			if(data.status != 'OK') {
+				$.alert(data.msg);
+				return;
+			}
+            
+			var reportReason = $('#reportContent').val();//举报内容
+			var reportType = $('#reportType').val();
+			if (!reportType && reportType != 0) {
+				$.alert('请选择举报分类');
+				return;
+			}
+			
+			
+			FindConsultApi.report({
+				reportReason: reportReason,
+				reportType: reportType,
+				module: 4,
+				reportAgainstId:activityId
+			}).then(function (data) {
+				
+				$.alert(data.msg,function(){
+					
+					
+					$('#askBox_report').hide();
+				});
+				
+			
+				return;
+				// console.log('举报', data)
+			})
+		})
+	});
+	
+	// 举报(发布)
+	$('#submit_report').click(function () {
+		Qnzs.getSessionAccount({}).then(function (data) {
+			console.log(data)
+			if(data.status != 'OK') {
+				$.alert(data.msg);
+				return;
+			}
+            
+			var reportReason = $('#reportContent').val();//举报内容
+			var reportType = $('#reportType').val();
+			if (!reportType && reportType != 0) {
+				$.alert('请选择举报分类');
+				return;
+			}
+			
+			
+			FindConsultApi.report({
+				reportReason: reportReason,
+				reportType: reportType,
+				module: 4,
+				reportAgainstId:activityId
+			}).then(function (data) {
+				
+				$.alert(data.msg,function(){
+					
+					
+					$('#askBox_report').hide();
+				});
+				
+			
+				return;
+				// console.log('举报', data)
+			})
+		})
+	});
+
+</script>

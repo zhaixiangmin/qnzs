@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+		<link href="../../public/css/common/style.css" rel="stylesheet" />
+
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+		<script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+		<script src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+		<script src="../../public/custom/dialog.js"></script>
+		<script src="../../public/js/module/Qnzs.js"></script>
+		<script type="text/javascript" src="../../public/js/common/common.js"></script>
+		<script src="../../public/js/find_active/signedAccList.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<div class="col-sm-12">
+
+			<div class="border clearfix">
+				<ul class="nav navbar-nav">
+
+					<li onclick="exportData(1)">
+						<a href="javascript:;"><span class="glyphicon glyphicon-share" data-toggle="modal">导出  (每页最多导出500条，超过500请翻页)</span></a>
+					</li>
+
+				</ul>
+			</div>
+
+			<!--列表展示start-->
+			<div class="table_menu_list">
+				<table id="signedAccList">
+
+				</table>
+
+			</div>
+
+		</div>
+	</body>
+	<script src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script>
+
+</html>

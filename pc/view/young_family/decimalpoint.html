@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>decimalpoint</title>
+     <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+<div>测试小数点</div>
+<script>
+//    var num = '123.456';
+    var num = '123.0';
+    var arr = num.split('.');
+    console.log('arr', arr);
+    var one = undefined;
+    if(arr && arr.length>1) {
+        one = arr[1].substring(0, 1);
+    }
+    console.log('one', one);
+
+</script>
+</body>
+</html>

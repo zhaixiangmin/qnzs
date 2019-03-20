@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+/* no less */
+.lists{padding: 0.4rem;}
+.lists ul li {
+  width: 50%;
+}
+.lists ul li a{display: block;padding: 0.2rem;}
+.lists ul li a div.divout {
+  line-height: 1.28rem;
+  border: 1px solid #e8e8e8;
+}
+.lists ul li a div.divout .divin {
+  display: inline-block;
+  height: 1.28rem;
+  background-size: 0.8rem;
+  width:100%;
+  margin: 0 auto;
+}
+.lists ul li a div.divout .divin h6 {
+  /* padding-left: 1.2rem; */
+  text-align: center;
+}

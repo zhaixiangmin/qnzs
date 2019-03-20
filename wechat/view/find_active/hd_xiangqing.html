@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>找活动-活动详情</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/webupload_main.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/hd_xiangqing.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="../../public/js/find_active/webuploader.js"></script>
+    <script type="text/javascript" src="../../public/js/find_active/upload.js"></script>
+    <script type="text/javascript" src="../../public/js/find_active/uploadPreview.js">
+
+    </script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=13hKkYUjCLhkhnRlidP7Bmor"></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+
+</head>
+<body class="bodyPB">
+<div class="main_content_box">
+    <header class="head_link_box" style="display:block;">
+        <div class="head_link_con">
+            <a href="../../index.html" class="head_logo fl"></a>
+            <a href="hd_zhaohuodong.html" class="head_link_title fl">找活动</a>
+        </div>
+    </header>
+    <!--  <header class="head_link_box_cloud" style="display:block;width:100%;height:30px;"> -->
+    <header class="head_link_box_cloud" style="display:none;">
+        <!--
+        <img src="../../public/img/youth_cloud_img.jpg" width="40" height="40" style="float:left;">
+        <div class="head_link_con_cloud" style="float:left;">
+            <!-- <a href="../../index.html" class="head_logo_cloud fl"></a> --
+            <a href="#" class="head_link_title_cloud fl">青年之家</a>
+        </div>
+        -->
+        <div class="head_link_con_cloud">
+            <a href="#" class="head_logo_cloud fl"></a>
+            <a href="#" class="head_link_title_cloud fl">找活动</a>
+        </div>
+    </header>
+    <section class="xiangqing_banner">
+        <span class="numShow colorfff fz24">1</span>
+        <!--<a href="hd_xiangce.html" class="banner_img disB"><img src="images/hd_xiangqing_banner.png"/></a>-->
+    </section>
+    <section class="collect clearfix bgcWhite">
+        <!--<p class="color000 fl">#汇聚爱 中秋月更圆#连州市西江镇大田 村孤儿探访</p>
+        <div class="col_star fr">
+            <div class="star"><img src="images/collect_star.png"/></div>
+            <span class="color333">收藏</span>
+        </div>-->
+    </section>
+
+    <section class="act_status clearfix bgcWhite">
+        <!-- <a href="javascript:;" class="fl status_show" style="margin-right:0.2rem;">报名中</a>
+         <a href="javascript:;" class="fl status_show">下载附件</a>
+         <div class="fr">
+             <span class="fl color999 left_time">距离开始剩5天</span>
+             <span class="fl report">举报</span>
+         </div>-->
+    </section>
+    <!--    状态进度-->
+    <!--<section class="lianxi presdder">
+
+        <div id="presser">
+
+        </div>
+        <div id="status-text">
+            <span>活动预告</span>
+            <span>报名中</span>
+            <span>已满员</span>
+            <span>报名结束</span>
+            <span>活动中</span>
+            <span>活动结束</span>
+
+        </div>
+    </section>-->
+    <!-- 地址、联系等等 -->
+    <section class="lianxi">
+        <div class="timeAndAddress divout bgcWhite">
+            <!--<div class="divin clearfix time">
+                <div class="imgDiv fl"><img src="images/iconTime.png"/></div>
+                <p class="fl color333">2016/02/03 - 2016/03/08</p>
+            </div>
+            <div class="divin clearfix address">
+                <div class="imgDiv fl"><img src="images/iconAddress.png"/></div>
+                <p class="fl color333">广州市越秀区寺贝通津一号大院</p>
+                <div class="arrow fr"><img src="images/next.png"/></div>
+            </div>-->
+        </div>
+        <div class="free divout bgcWhite">
+            <!-- <div class="divin clearfix">
+                 <div class="imgDiv fl"><img src="images/iconFree.png"/></div>
+                 <p class="fl color333">免费</p>
+             </div>-->
+        </div>
+        <div class="divout item3 bgcWhite  divoutsdd">
+            <!--<div class="divin holder clearfix">
+                <a href="hd_zhubanfangxiangqing.html">
+                    <div class="imgDiv fl"><img src="images/iconHolder.png"/></div>
+                    <div class="txt fl">
+                        <p>广东共青团</p>
+                        <p>广州国税系统共青团志愿者服务队</p>
+                    </div>
+                    <div class="arrow fr"><img src="images/next.png"/></div>
+                </a>
+            </div>
+            <div class="divin clearfix phone">
+                <div class="imgDiv fl"><img src="images/iconPhone.png"/></div>
+                <p class="fl color333">15236459876</p>
+                <div class="arrow fr"><img src="images/next.png"/></div>
+            </div>
+            <div class="divin clearfix peixun act_type" style="line-height:0.8rem;">
+                <div class="imgDiv fl"><img src="images/iconPeixun.png"/></div>
+                <p class="fl color333 class_info">第二课堂</p>
+                <span class="fl color333 class_type class_info fz24">创新</span>
+                <span class="fl color333 class_hour class_info fz24">10学时</span>
+            </div>-->
+        </div>
+    </section>
+    <!-- 活动人数 -->
+    <section class="actPeopleNum bgcWhite">
+        <div class="divin clearfix  divincdf">
+            <div class="imgDiv fl"><img src="../../public/img/huodongrenshu.png"/></div>
+            <!--<p class="fl color333">活动人数（100）</p>-->
+            <!--<div class="fr color999"><span class="yibaoming">已有60人报名</span><div class="arrow fr"><img src="images/next.png"/></div></div>-->
+        </div>
+        <div class="photos" style="display:none;">
+            <ul class="clearfix">
+                <li class="fl"><a href="javascript:;"><div><img src="../../public/img/girl.png" /></div></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!--  地图经纬度-->
+    <section style="display: none;">
+
+        <div id="allmap" style="width: 100%; height:5.333333rem;margin: 0.266666rem 0;"></div>
+
+    </section>
+    <!--  地图经纬度-->
+    <!-- 活动介绍 -->
+    <section class="act_introduction" >
+        <div class="title">
+            <div class="imgDiv fl"><img src="../../public/img/jieshao.png" /></div>活动介绍
+        </div>
+        <!-- <div class="content bgcWhite color000 ">
+
+         </div>-->
+    </section>
+    <!-- 评论 -->
+    <section class="comment_big_box bgcWhite">
+        <div class="title clearfix">
+            <div class="imgDiv fl"><img src="../../public/img/commentIcon.png"/></div>
+            <h6 class="fl tit_1" id="commentsNum">评论（0）</h6>
+            <p class="Puhto_url"><!--<a href="hd_xiangce.html" class="fl tit_2 color2185cf">图片</a>--></p>
+            <span class="fr user_to_talk color2185cf">我要评论</span>
+        </div>
+        <div class="content">
+            <!-- <div class="item clearfix">
+                <div class="left fl">
+                    <div class="imgDiv">
+                        <img src="images/pinglun01.png"/>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="tit">
+                        <h6 class="name fl">ヾ零下１°C的心</h6>
+                        <div class="date fr">
+                            <span class="color999">2016/02/03</span>
+                            <em class="color999">18:56</em>
+                        </div>
+                    </div>
+                    <p class="color000 long_txt">高中同学聚会，临别时拍了张合影，用素素手机拍的，约好了回去发同学群里，馋馋那帮没来的。 然而</p>
+                    <div class="edit clearfix">
+                        <span class="showComment fl edit_btn">评论(0)</span>
+                        <span class="delete fl edit_btn color999">删除</span>
+                    </div>
+                    <div class="show_box clearfix ">
+                        <div class="human clearfix">
+                            <div class="imgbox fl">
+                                <img src="images/pinglun01.png" />
+                            </div>
+                            <div class="txtbox">
+                                <p class="one color2185cf">
+                                    <span class="name">zjc</span>
+                                    <span class="time">2017/06/14 11:06</span>
+                                </p>
+                                <p class="two color333 long_txt">121212</p>
+                            </div>
+                        </div>
+                        <form action="" class="clearfix">
+                            <textarea class="write_txt" placeholder="来说两句吧！" maxlength="300"></textarea>
+                            <div class="btn_box clearfix">
+                                <input type="button" value="提交" class="submit_btn fr color2185cf" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+    <!-- 底部菜单 -->
+
+
+    <!--<a href="hd_baoming.html" class="to_sign_up">立即报名</a>-->
+    <a href="javascript:activityOperate()" class="to_sign_up">立即报名</a>
+</div>
+<!-- 我要举报 -->
+<div class="report_box common_pupop_box contshow">
+
+    <div class="upper_box">
+        <form action="" class="report_type">
+            <span class="fl fz32 color000">举报分类</span>
+            <select name="" id="report_select" class="report_select fl fz26">
+                <option value="">请选择</option>
+                <option value="0">其他</option>
+                <option value="1">欺诈</option>
+                <option value="2">色情</option>
+                <option value="3">诱导行为</option>
+                <option value="4">不实信息</option>
+                <option value="5">违法犯罪</option>
+                <option value="6">骚扰</option>
+                <option value="7">侵权</option>
+            </select>
+        </form>
+        <h3 class="report_reason fz30 color000" style="margin:0.3rem 0;">举报理由：</h3>
+        <div class="report_write_box"><textarea class="report_write fz28" placeholder="请填写举报理由" id="report_writes"></textarea></div>
+    </div>
+    <div class="sure_btn_box">
+        <a href="javascript:;" class="disB fz30 colorfff bgc2185cf sure_btn btn" id="resuf_sure">确定</a>
+        <a href="javascript:;" class="disB fz30 colorfff bgc2185cf   resushu">取消</a>
+    </div>
+</div>
+<!-- 我要评论 -->
+<div class="common_pupop_box user_comment_pupop">
+    <div class="upper_box">
+        <h3 class="fz30 color000" style="margin-bottom:0.3rem;">我要评论：</h3>
+        <div class="comment_write_box"><textarea class="comment_write fz28" placeholder="评论一下"></textarea></div>
+    </div>
+    <p class="fz24 color999" style="padding:0.3rem 0.6rem;text-align:right;">文明上网，遵守"七条底线"</p>
+    <div id="wrapper">
+        <div id="container">
+            <div id="uploader">
+                <div class="queueList" >
+                    <div id="dndArea" class="placeholder">
+                        <!-- <!-- <div id="filePicker"></div>-->
+                        <!-- <p>单次最多可选8张</p>-->
+                        <div class=" btn_file">
+                            <span class="upto_image">选择图片上传</span>
+                            <input type="file" name="file" id="file" />
+                        </div>
+                    </div>
+                </div>
+                <div class="statusBar" style="display:none;">
+                    <div class="progress">
+                        <span class="text">0%</span>
+                        <span class="percentage"></span>
+                    </div><div class="info"></div>
+                    <div class="btns">
+                        <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sure_btn_box clearfix">
+        <a href="javascript:;" class="disB fz30 colorfff bgc2185cf sure_btn btn fl">确定</a>
+        <a href="javascript:;" class="disB fz30 cancel btn fr colorfff">取消</a>
+    </div>
+</div>
+<!-- 第二课堂类型的弹窗 -->
+<div class="sec_class_pupop">
+    <div class="pupop_content bgcWhite">
+        <p class="fz28 color666">对不起，您的当前用户暂未通过本校实名认证审核。在审核通过前，参与“第二课堂”活动将无法获得相应学时，是否继续？</p>
+        <div class="btn_box clearfix">
+            <a href="javascript:;" class="btn continue bgc2185cf fl colorfff fz28">确定</a>
+            <a href="hd_zhaohuodong.html" class="btn no bgc2185cf fr colorfff fz28">再逛逛</a>
+        </div>
+    </div>
+</div>
+
+<!--弹出层、遮罩-->
+
+
+</body>
+<script type="text/javascript" src="../../public/js/find_active/hd_xiangqing.js"></script>
+</html>
+
+

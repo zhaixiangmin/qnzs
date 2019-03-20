@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>验证手机号</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	 <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/register/register.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/login-register/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+
+	<script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+	<!--对话框-->
+	<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+	<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+	
+	<script src="../../public/js/ajax/ajax2.js"></script>
+	<!--一号通-->
+	<script>
+    
+		var dynamicLoading = {
+		    js: function(path){
+				if(!path || path.length === 0){
+					throw new Error('argument "path" is required !');
+				}
+				var head = document.getElementsByTagName('head')[0];
+		        var script = document.createElement('script');
+		        script.src = path+"/browser/0110/crossdomain.js";
+		        script.type = 'text/javascript';
+		        head.appendChild(script);
+		    }
+		}
+		
+		dynamicLoading.js(bigDataUrl);
+	
+	</script>
+	
+	<style type="text/css">
+		.padd_box{padding: 1.2rem 0.52rem 0 0.52rem;}
+		.htgih{width:30%;height: 1.2rem;line-height: 1.2rem;display: inline-block;font-size: 0.62rem;}
+		.set_pawwd{margin-bottom: 0.4rem;padding-bottom: 0.4rem;}
+      #suerpaserd {width: 65%;height: 1.2rem;line-height: 1.2rem;display: inline-block;padding-left: 0.32rem;font-size:0.64rem;
+color: #999999;}
+		#suernumber{width: 70%;height: 1.2rem;line-height: 1.2rem;display: inline-block;padding-left: 0.32rem;font-size: 0.64rem;
+color: #999999;}
+		.showtexte{width: 10%;height: 1.2rem;line-height: 1.2rem;display: inline-block;font-size: 0.48rem;text-align: center;color: rgb(0, 0, 204)}
+		.suergur{width: 80%;height: 2rem;line-height: 2rem;color: white;font-size: 0.72rem;
+color: #FFFFFF;margin: 1.6rem auto;text-align: center;background: #2185CF;
+border-radius:1rem}
+		.shownumber{display: inline-block;width: 20%;height: 1.2rem;line-height: 1.2rem;color: white;background-color: #169BD5;font-size:0.48rem;text-align: center;border-radius: 0.2rem;}
+   .noneboe{margin-bottom: 2rem;margin-top: 2rem;}
+		.tenxhigt{height: 0.6rem;line-height:0.6rem;color: #333333;font-size: 0.6rem;}
+		.tendeder{display: block;width: 100%;font-size: 0.56rem;color: #2185CF;height: 0.56rem;height: 0.56rem;text-align: right;}
+	</style>
+	</head>
+	<body>
+		
+		<section class="padd_box">
+			
+			<div class="set_pawwd noneboe">
+				<p class="tenxhigt">您验证的手机号是: <span style="color: red;" class="phone_txt"></span></p>
+			</div>
+			
+	        <div class="set_pawwd">
+				<input type="text" id="suerpaserd" placeholder="请输入图片验证码"><img id="imagesyanz" onclick="changeModel()"  class="htgih"  src="" alt="验证码">  
+			</div>
+			
+			<div class="set_pawwd">
+				<input type="text" id="suernumber" placeholder="请输入短信验证码"><span class="shownumber msgCode" style="float: right;" onclick="sendYanzhengCode()">获取验证码</span>
+			</div>
+			<!--<a href="notcode.html" class="tendeder">收不到验证码，点击这里</a>-->
+			
+			
+			<p class="suergur">提交 </p>
+			
+		</section>
+		
+	</body>
+</html>
+<script src="../../public/js/vertioncode/getUserNameID.js"></script>
+<script src="../../public/js/vertioncode/verifyphoe.js"></script>

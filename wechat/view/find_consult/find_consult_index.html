@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>找咨询</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/find_consult.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/hd_footerNav.css" />
+    <!--<link rel="stylesheet" type="text/css" href="../../public/css/hd_sousuo00.css">-->
+    <script type="text/javascript" src="../../public/js/common/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <!--<script type="text/javascript" src="../../public/js/find_consult/wd_zhaowenda.js"></script>-->
+    <!--日期格式化-->
+    <script type="text/javascript" src="../../public/vendor/touch_slide/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FindConsultApi.js"></script>
+    <script type="text/javascript" src="../../public/js/find_consult/find_consult_index.js"></script>
+<script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    
+    <!--公共底部-->
+    <script type="text/javascript" src="../../public/custom/common.js"></script>
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <style>
+        .wenda .content{display: none;}
+        .wenda .content_in .r .down .right em{padding: 0.2rem 0.1rem 0 0;}
+        /*section.searchBox input{width: 77%;}*/
+       
+       #content_in{
+       	
+       	border-bottom: 1px solid #e2e2e2;
+       }
+    </style>
+</head>
+<body class="bodyPB">
+    <!-- 搜索框 -->
+    <!--<section class="searchBox clearfix">-->
+        <!--<input type="text"  onclick="toSearch()"  class="fl fz26 search_input" placeholder="搜索问题"/>-->
+        <!--<a href="javascript:;" class="fr disB fz26 colorfff sure_search" style="display:none;">搜索</a>-->
+    <!--</section>-->
+    <section class="searchBox clearfix">
+        <input id="searchText" class="fl fz26" placeholder="搜索问题" onclick="toSearch()" type="text">
+        <a href="javascript:;" class="fr disB fz26 colorfff" id="ridiv" style="display:none" onclick="searchActs()">搜索</a>
+    </section>
+    <section class="recentHotSearch none">
+        <div class="recentSearch searchPub">
+            <div class="tit clearfix">
+                <span class="fl fz26">最近搜索</span>
+                <a href="javascript:;" class="fr fz26 color2185cf">清除</a>
+            </div>
+            <div class="list clearfix" id="lastest">
+                <div><a href="javascript:;" class="fz26">交流会</a></div>
+                <div><a href="javascript:;" class="fz26">苏迪曼杯</a></div>
+                <div><a href="javascript:;" class="fz26">交流会</a></div>
+            </div>
+        </div>
+        <div class="hotSearch searchPub" >
+            <div class="tit clearfix">
+                <span class="fl fz26">热门搜索</span>
+            </div>
+            <div class="list clearfix" id="hotSc">
+                <div><a href="javascript:;" class="fz26">交流会</a></div>
+                <div><a href="javascript:;" class="fz26">苏迪</a></div>
+                <div><a href="javascript:;" class="fz26">交流会</a></div>
+            </div>
+        </div>
+    </section>
+        <!--名人问吧banner-->
+    <section style="padding: 0 0.1rem 0.2rem 0.1rem;">
+       <a href="find_consult_famousList.html"> <img style="width: 100%;" src="../../public/img/banner-mrwb-index.png"></a>
+    </section>
+        <!-- 三大问 -->
+        <section class="threeAsk bgcWhite mb20">
+            <ul class="clearfix">
+                <li class="fl">
+                    <a href="javascript:void (0)" onclick="askEvery()">
+                        <div class="divout">
+                            <div class="divin clearfix">
+                                <div class="imgDiv clearfix fl"><img src="../../public/img/threeAsk01.png" class="fr" /></div>
+                                <h6 class="fl color000">问大家</h6>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="javascript:void (0)" onclick="askOrg()">
+                        <div class="divout">
+                            <div class="divin clearfix">
+                                <div class="imgDiv clearfix fl"><img src="../../public/img/threeAsk02.png" class="fr" /></div>
+                                <h6 class="fl color000">问组织</h6>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="javascript:void (0)" onclick="askExpert()">
+                        <div class="divout">
+                            <div class="divin clearfix">
+                                <div class="imgDiv clearfix fl"><img src="../../public/img/threeAsk03.png" class="fr" /></div>
+                                <h6 class="fl color000">问专家</h6>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <!-- 网络医院，找法网 -->
+        <!-- <section class="twoBlcok clearfix bgcWhite mb20">
+            <div class="left fl">
+                <a href="javascript:;">
+                    <div>
+                        <p class="p01">网络医院</p>
+                        <p class="p02 color999">执着&nbsp;直率&nbsp;白领</p>
+                        <div class="imgDiv"><img src="images/twoBlock01.png"/></div>
+                    </div>
+                </a>
+            </div>
+            <div class="right fl">
+                <a href="javascript:;">
+                    <div>
+                        <p class="p01">找法网</p>
+                        <p class="p02 color999">团省委&nbsp;青年组织</p>
+                        <div class="imgDiv"><img src="images/twoBlock02.png"/></div>
+                    </div>
+                </a>
+            </div>
+        </section> -->
+        <!-- 问答分类导航 -->
+        <section class="menu bgcWhite mb20">
+            <ul class="clearfix menu_list" id="category">
+                <li class="item">
+                    <a href="find_consult_categoryList.html" class="color000">
+                        <img src="../../public/img/zhaowendaMenu05.png" />
+                        <h6>更多</h6>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <!-- 名人问吧 -->
+        <section class="professor bgcWhite mb20">
+            <a href="find_consult_famousList.html" class="title clearfix disB">
+                <h2 class="fl color000">名人问吧<img style="display: inline;margin-left: 0.2rem;" src="../../public/img/hot.gif"></h2>
+                <div class="next fr"><img src="../../public/img/next.png" /></div>
+            </a>
+            <ul class="clearfix recommend_mrwbList">
+                <!--热门名人问吧帖子列表-->
+            </ul>
+        </section>
+        <!--    热门问答 -->
+        <section class="wenda mb20" >
+            <div class="title clearfix">
+                <div class="l clearfix" id="qType">
+                      <span class="title_item cur" data-id="1">热门</span>
+                      <span class="title_item" data-id="2">精华</span>
+                       <span class="title_item" data-id="3">本地</span>
+                </div>
+
+                <em class="fr disB" id="arrow_icon_find_consult" style="width: 0.28rem; background: url(../../public/img/next.png) no-repeat right center; background-size: 100%; height: 1.56rem;"></em>
+                <!--<div class="r clearfix">-->
+                   <!--<a href="find_consult_quesList.html"><img src="../../public/img/next.png"/></a>-->
+                <!--</div>-->
+            </div>
+            <section class="content hot_ask" style="display: block;">
+            </section>
+            <section class="content best_ask">
+            </section>
+           
+                <section class="content local_ask" >
+            </section>
+
+        </section>
+        <!-- 热门专家 -->
+        <section class="professor bgcWhite mb20">
+            <a href="find_consult_expert.html" class="title clearfix disB">
+                <h2 class="fl color000">热门专家</h2>
+                <div class="next fr"><img src="../../public/img/next.png" /></div>
+            </a>
+            <ul class="clearfix professor_list">
+                <!--热门专家列表-->
+            </ul>
+        </section>
+        <!-- 活跃组织 -->
+        <section class="huoyuezuzhi bgcWhite mb20">
+            <a href="find_consult_askOrganization.html" class="title clearfix disB">
+                <h2 class="fl color000">活跃组织</h2>
+                <div class="next fr"><img src="../../public/img/next.png" /></div>
+            </a>
+            <section class="content activityOrg_ul">
+                <!--活跃组织列表-->
+
+                <!--<div class="item clearfix">-->
+                    <!--<div class="item_l fl"><img src="../../public/img/huodong_1.png" class="img01" /><img src="../../public/img/baoming.png" class="img02" /></div>-->
+                    <!--<div class="item_r">-->
+                        <!--<h2 class="color000">广东青年之声</h2>-->
+                        <!--<p class="p01 color999">知乎说:“假如把知乎比喻成一座城市，以前的这里只有市民和游客。</p>-->
+                        <!--<p class="fl p02">问答问题1000次</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </section>
+        </section>
+        <!--<div class="morebtn color333">查看更多</div>-->
+        <!--插入公共底部-->
+        <!--<footer>-->
+            <!--<ul class="clearfix">-->
+                <!--<li class="myIndex">-->
+                    <!--<a href="index.html">-->
+                        <!--<div class="imgDiv"></div>-->
+                        <!--<h6>首页</h6>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="myActivity">-->
+                    <!--<a href="hd_zhaohuodong.html">-->
+                        <!--<div class="imgDiv"></div>-->
+                        <!--<h6>找活动</h6>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="myQuestion cur">-->
+                    <!--<a href="wd_zhaowenda.html">-->
+                        <!--<div class="imgDiv"></div>-->
+                        <!--<h6>找咨询</h6>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="myHelp">-->
+                    <!--<a href="bz_zhaobangzhu.html">-->
+                        <!--<div class="imgDiv"></div>-->
+                        <!--<h6>找帮助</h6>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="myHomePage">-->
+                    <!--<a href="wode_wode.html">-->
+                        <!--<div class="imgDiv"></div>-->
+                        <!--<h6>我的</h6>-->
+                    <!--</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</footer>-->
+    </section>
+</body>
+</html>

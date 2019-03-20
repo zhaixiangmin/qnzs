@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>智慧团建团员报到二维码</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/focus/youth.css" />
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+</head>
+<body>
+    <div class="content_box">
+        <div class="title" style="font-size: 0.56rem">根植南方的青年价值观察和生活叙事</div>
+        <div class="tips">广东共青团权威消息及资讯发布</div>
+        <div class="img_box"><img src="../../public/img/communist_youth.jpg"/></div>
+        <div class="focus">长按二维码关注</div>
+        <div class="tips">进入智慧团建系统</div>
+        <div class="question_box"><span class="question">重复出现此页面？</span></div>
+    </div>
+    <!--极少用户如遇此页面循环的情况，请取消关注“广东共青团”公众号，5分钟后，再重新操作一次相关业务即可。-->
+</body>
+<script type="text/javascript">
+    $(function () {
+        $('.question').click(function () {
+            $.alert('极少用户如遇此页面循环的情况，请取消关注“广东共青团”公众号，5分钟后，再重新操作一次相关业务即可。<br/>关注后出现如下所示欢迎信息即可： <div style="text-align: center;"><img style="width: 80%;" src="../../public/img/focus_welcome.png" /></div>');
+        });
+    });
+</script>
+</html>

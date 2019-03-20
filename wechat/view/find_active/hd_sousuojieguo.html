@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>找活动-搜索结果</title>
+    <!-- no less -->
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_aitve/hd_sousuojieguo.css" />
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js">
+    	
+    </script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js">
+    	
+    </script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+</head>
+<body>
+    <!-- 搜索框 -->
+    <section class="searchBox clearfix">
+    	<button  id="seraher"></button>
+        <input type="text" class="fl fz26 keywordes"  maxlength="15" size="15" autocomplete="off" placeholder="关键词搜索"/>
+    </section>
+    <!-- 内容列表 -->
+    <section class="lists">
+        <!--<a href="javascript:;" class="clearfix">
+            <div class="left fl">
+                <img src="images/huodong_2.png" />
+            </div>
+            <div class="right">
+                <div class="tit clearfix">
+                    <p class="fl fz28 color333">广东青年之声活动交流</p>
+                    <span class="fr fz24 color2185cf">报名中</span>
+                </div>
+                <p class="color999 fz24">类型：培训</p>
+                <p class="date fz24 color666">2016.8.15-2016.8.20</p>
+                <div class="address fz24 color666">
+                    <p class="fl">英国伦敦市贝克街221b</p><span class="fr">&lt;500m</span>
+                </div>
+            </div>
+        </a>-->
+    </section>
+    
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    	$('#seraher').on('click',function(){
+    		 var actStatus= {
+                      '1': '活动预告',
+                      '2': '报名中',
+                      '3': '已满员',
+                      '4': '报名结束',
+                      '5': '活动中',
+                      '6': '活动结束'
+                    }; 
+    		var keywords=$(".keywordes").val();
+    		     
+    	    $.ajax({
+    	    	type:"get",
+    	    	url:Qnzs.path+"/activity/search/searchActivities?keywords="+keywords,
+    	    	dataType :"JSON",
+    	    	success:function(data){
+    	
+    	    		var data=data.dataList;
+    	    		
+    	    		 $.each(data, function(index,item) {
+    	    		
+      		   	$('.lists').append('<a href="javascript:;" class="clearfix"><div class="left fl"><img src="'+item.imageUrl+'" /></div><div class="right"><div class="tit clearfix"><p class="fl fz28 color333">'+item.title+'</p><span class="fr fz24 color2185cf">'+actStatus[item.actStatus]+'</span></div><p class="color999 fz24">类型：'+item.type+'</p><p class="date fz24 color666">'+item.activityTime+'</p><div class="address fz24 color666"><p class="fl">'+item.address+'</p><span class="fr"></span></div></div></a>')
+   
+    	    		 });
+    	    		
+    	    	}
+    	    });
+    		
+    	});
+    	
+    	
+    	});
+    </script>
+</body>
+</html>

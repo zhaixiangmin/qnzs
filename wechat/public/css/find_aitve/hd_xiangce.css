@@ -1,0 +1,26 @@
+.hd_xiangce {
+  padding: 0.6rem 0.3rem 0;
+}
+.pic_box {
+  width: 50%;
+}
+.pic_box .boxCon {
+  padding: 0 0.3rem 0.6rem;
+}
+.pic_box:nth-of-type(2n-1) {
+  float: left;
+}
+.pic_box:nth-of-type(2n) {
+  float: right;
+}
+.pic_box img {
+  width: 100%;
+  height: 5.333333rem;
+}
+.pic_box .boxCon div {
+  height: 1.6rem;
+  text-align: center;
+  line-height: 1.6rem;
+  font-size: 0.52rem;
+  background: #FFF;
+}

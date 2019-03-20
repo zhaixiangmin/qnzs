@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+		<link href="../../public/css/common/style.css" rel="stylesheet" />
+
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" />
+		<link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+		<script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+		<script src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+		<script src="../../public/custom/dialog.js"></script>
+		<script src="../../public/js/module/Qnzs.js"></script>
+		<script type="text/javascript" src="../../public/js/common/common.js"></script>
+
+		<script src="../../public/js/module/Utils.js"></script>
+
+		<script type="text/javascript" src="../../public/js/instation/InstationApi.js"></script>
+	</head>
+
+	<body>
+			<div class="col-sm-12">
+			<!--数据过滤strat-->
+			<div class="datafilter">
+				<div class="search">
+					<form id="" method="post">
+						<div class="form-group sz_height">
+							<label class="col-sm-1">昵称</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="key_Word">
+							</div>
+							<label class="col-sm-1">手机号</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="send_phone">
+							</div>
+							<label class="col-sm-1">消息状态</label>
+							<div class="col-sm-2">
+								<select class="form-control" id="is_Use">
+									<option value="">全部</option>
+									<option value="0">未读</option>
+									<option value="1">已读</option>
+									<option value="2">已删</option>
+									<option value="3">发送成功</option>
+									<option value="4">发送失败</option>
+								</select>
+							</div>
+
+							<div class="col-sm-2">
+								<button type="button" class="btn btn-warning btn-sm" id="classy_actit"><span class="glyphicon glyphicon-search"></span>查询</button>
+								<button type="button" class="btn btn-info btn-sm" id="btn_empty"><span class="glyphicon glyphicon-refresh"></span>清空</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!--数据过滤end-->
+
+			<div class="border clearfix">
+				<ul class="nav navbar-nav" >
+					<li onclick="senddata(1)"><a href="#"><span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#user-add" >一键重新发送(仅发送失败部分)</span></a></li>
+					
+				</ul>
+			</div>
+
+			<!--列表展示start-->
+			<div class="table_menu_list">
+				<table id="statistics_table">
+
+				</table>
+
+			</div>
+			<!--列表展示end-->
+			
+			
+			<!-- 一键重发（Modal） -->
+			<div class="modal fade" id="user-verify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+					一键重新发送
+				</h4>
+						</div>
+						<div class="modal-body">
+					你需要一键重新发送吗？
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+							</button>
+							<button type="button" class="btn btn-primary" id="comit_audit">
+								确定
+							</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- 一键重发（Modal）end -->
+			
+			
+		</div>
+	</body>
+	
+	<script src="../../public/vendor/bootstrap/bootstrap.min.js "></script>
+	<script type="text/javascript " src="../../public/vendor/easyui/jquery.easyui.min.js "></script>
+	<script type="text/javascript " src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js "></script>
+	<script type="text/javascript " src="../../public/vendor/layer/1.9.3/layer.js "></script>
+	<script type="text/javascript " src="../../public/js/instation/sendpeople.js "></script>
+</html>

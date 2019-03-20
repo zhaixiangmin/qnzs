@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>找问答-提问</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/hd_footerNav.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/wd_tiwenPub.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/webupload_main.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/wd_zzxqtiwen.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/find_consult.css" />
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <script type="text/javascript" src="../../public/js/common/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/vendor/touch_slide/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+<script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    
+    <!--公共底部-->
+    <!--<script type="text/javascript" src="../../public/custom/common.js"></script>-->
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FindConsultApi.js"></script>
+    <script type="text/javascript" src="../../public/js/find_consult/find_consult_question_detail.js"></script>
+
+    <style>
+        select#quesCategory{padding: 0.5rem 2%;border: none;font-size: 0.5rem!important;}
+        select#quesCategory:active{border: none;}
+        select#quesCategory option{padding: 1rem 0; text-align: right;display: block;width: 100%;}
+        section.explain textarea{height: 5rem;}
+        i.smallImg {
+            margin: 0.04rem 0.3rem 0 0.4rem;
+            width: 0.5rem;
+        }
+        #askContent{padding: 0.3rem 0.6rem;}
+        #image_url{width: 100%;}
+        .delete{background-position: left center; background-image: url(../../public/img/talk_delete.png);background-repeat: no-repeat; background-size: 16px auto; color: #333; cursor: pointer; margin-left: 0.375rem; overflow: hidden; padding-left: 0.675rem;}
+    
+       .head_link .head_box a.head_logo {
+		    background: url(../../public/img/head_logo.png) no-repeat;
+		    background-size: 2.8rem;
+		    height: 0.72rem;
+		    width: 3.4rem;
+		    border-right: 1px solid #91b9d6;
+		    text-align: center;
+		}
+		    .head_link .head_box a.head_title {
+		    font-size: 0.48rem;
+		    width: 3.6rem;
+		    text-align: center;
+		    color: #fff;
+		}
+    </style>
+</head> 
+<body class="bodyPB" id="container" style="margin: 0; position: relative;">
+	
+<div class="body1" style="display: block; position: absolute; z-index: 10;width: 100%;">
+	
+
+		<!--<div class="head_link">
+		    <div class="clearfix head_box">
+		        <a href="../../index.html" class="head_logo fl"></a>
+		        <a href="find_consult_index.html" class="head_title colorfff fl">找咨询</a>
+		    </div>
+		</div>-->
+		<div class="head_link" style="width: 100%; background: #2185cf; padding: 0.4rem 0;">
+	        <div class="clearfix head_box" style="height: 0.72rem; line-height: 0.72rem; padding: 0 0.68rem;">
+	            <a href="../../index.html" class="head_logo fl"></a>
+	            <a href="find_consult_index.html" class="head_title colorfff fl" style="width:2.2rem;">找咨询</a>
+	        </div>
+	    </div>
+		<!--顶部END-->
+		<section class="mine bgcWhite">
+		<div class="content bgcWhite">
+		    <div class="headTitle clearfix p_0_30">
+		        <div class="left fl">
+		            <img id="exp_photoUrl" src="" >
+		        </div>
+		        <div class="right">
+		            <a href="javascript:;" id="title" class="color2185cf fz30 disB"></a>
+		            <div>
+		                <p id="username" class="color999 fz24 fl"></p>
+		                <!-- 删除帖子 -->
+		                <p id="askTime" class="color999 fz24 fr"></p>
+		            </div>
+		        </div>
+		    </div>
+		    <div class="con">
+		        <div id="askContent" class="color000 fz28"></div>
+		
+		        <style>
+		            /*banner样式*/
+		            #bannerBox{
+		                position: relative;
+		                background: #f0f0f0;
+		            }
+		            #bannerBox .hd{
+		                position: absolute;
+		                bottom: 0;
+		                width: 100%;
+		                z-index: 1;
+		            }
+		            #bannerBox .hd ul {
+		                width: 100%;
+		                text-align: center;
+		            }
+		            #bannerBox .hd ul li{
+		                display: inline-block;
+		                width: 0.5625rem;
+		                height: 0.5625rem;
+		                line-height: 0.5625rem;
+		                background: #fff;
+		                text-align: center;
+		                margin: 0 0.075rem;
+		                font-size: 0.45rem;
+		            }
+		            #bannerBox .hd ul li.on{
+		                background: #f00;
+		                color: #fff;
+		            }
+		            #bannerBox .bd ul li {
+		                width: 100%;
+		                height: 5.625rem;
+		                line-height: 5.625rem;
+		                text-align: center;
+		                font-size: 0;
+		            }
+		            #bannerBox .bd ul li img {
+		                display: inline-block;
+		                max-width: 100%;
+		                max-height: 100%;
+		                vertical-align: middle;
+		            }
+		            #bannerBox .prev, #bannerBox .next{
+		                position:absolute; left:3%; top:50%; margin-top:-0.9375rem; display:block; width:1.2rem; height:1.5rem; background:url(../../public/img/slider-arrow.png) -110px 5px no-repeat; filter:alpha(opacity=50);opacity:0.5;
+		            }
+		            #bannerBox .next{
+		                left:auto; right:3%; background-position:8px 5px;
+		            }
+		            .huifuqu em{
+		            	width: 250px;
+		            	overflow: hidden;
+		            }
+		            
+		            
+		            
+		            section.mine .content .con .down .downCon > div .report {
+                     background-size:15px 15px ;
+                     padding-left: 0.7rem;
+                    }
+		            
+		            
+		        </style>
+		
+		        <div id="bannerBox" class="tabBox">
+		            <div class="hd">
+		                <ul>
+		                    <!--页码-->
+		                </ul>
+		            </div>
+		            <div class="bd" id="imgUrlBox">
+		                <!--图片列表-->
+		            </div>
+		            <!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+		            <a class="prev" href="javascript:void(0)"></a>
+		            <a class="next" href="javascript:void(0)"></a>
+		        </div>
+		
+		        <div class="down">
+		            <div class="downCon clearfix">
+		                <!--<p class="fl color999 fz24">上传了1张图片</p>-->
+		                <div class="fr clearfix">
+		                    <span id="report" class="report fl fz24" style="padding-right: 0.4rem;">举报</span>
+		                    <span class="delete fl" style="margin-left: 0;margin-right: 0.375rem;display: none;" id="deleteQuestion">删除</span>
+		                    <span class="fl smallImg" id="likeOrCollectCommit" >
+		                        <img alt="收藏" style="width: 15px;height: 15px;" class="collectimg" src="../../public/img/collectStarCur.png"/>
+		                    </span>
+		                    <font class="gray wqd_fnt fl"><span id="collectsNum" style="padding-left: 0.3rem;"></span></font>
+		                    <i class="fl smallImg" id="collectGood">
+		                        <img alt="点赞" style="width: 15px;height: 15px;" class="fl collectGoodimg" src="../../public/img/collectGood.png"/>
+		                    </i>
+		                    <font class="gray wqd_fnt fl" style="padding-right:1rem;"><span id="likesNum"  ></span></font>
+		                    <em class="fl smallImg" id="one_reply">
+		                        <img alt="回复" style="width: 15px;height: 15px;" class="fl" src="../../public/img/collectDiscussCur.png">
+		                    </em>
+		                    <font class="gray wqd_fnt fl "><span id="commentsNum" style="padding-left: 0.3rem;"></span></font>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		</section>
+		<!--回复列表-->
+		<section class="mine bgcWhite" id="quesList">
+		    <!--插入回复类别-->
+		
+		</section>
+		<!--举报弹窗-->
+		<div class="report_pop" style="display: none;">
+		    <div class="rpcontent">
+		    <h2>举报</h2>
+		    <div class="cont">
+		        <dl class="clearfix">
+		            <dd>举报分类</dd>
+		            <dt>
+		                <select name="reportType" id="reportType">
+		                    <!--<option value="0">请选择</option>-->
+		                    <option value="1">欺诈</option>
+		                    <option value="2">色情</option>
+		                    <option value="3">诱导行为</option>
+		                    <option value="4">不实信息</option>
+		                    <option value="5">违法犯罪</option>
+		                    <option value="6">骚扰</option>
+		                    <option value="7">侵权(冒充他人、侵犯名誉等)</option>
+		                    <option value="0">其他</option>
+		                </select>
+		            </dt>
+		        </dl>
+		        <dl class="clearfix">
+		            <dd>举报理由</dd>
+		            <dt><textarea id="reportContent"></textarea></dt>
+		        </dl>
+		
+		    </div>
+		        <ul class="bottom clearfix">
+		            <li id="submit_report">举报</li>
+		            <li id="report_cancel">取消</li>
+		        </ul>
+		    </div>
+		</div>
+		<!--问题回复-->
+		<section class="sayMyWords clearfix" id="sayMyWords" style="display: none;">
+		    <!-- <textarea class="fl fz24" placeholder="我也说一句.." id="messageText"></textarea> -->
+		    <div class="container" style="height: 120px;margin-bottom: 10px;background: #fff;">
+		        <textarea id="messageText" name="remark" style="width: 100%;height: 120px; " placeholder="我也说一句.."></textarea>
+		        <!--<div class="wangEditor-mobile-txt" contenteditable="true"><p><br></p></div>-->
+		    </div>
+		    <p style="text-align:right;color: #999;font-size:0.48rem;padding-bottom:10px; ">文明上网，遵守"七条底线"</p>
+		    <input id="qId" value="9025147" type="hidden">
+		    <button class="fl fz24 colorfff bgc2185cf" id="closeSayMyWords">取消</button>
+		    <button class="fr fz24 colorfff bgc2185cf" id="toReply" >发表</button>
+		</section>
+		<!--评论回复-->
+		<section class="sayMyWords clearfix" id="sayMyWords_reply" style="display: none;">
+		    <!-- <textarea class="fl fz24" placeholder="我也说一句.." id="messageText"></textarea> -->
+		    <div class="container" style="height: 120px;margin-bottom: 10px;background: #fff;">
+		        <textarea id="messageText_reply" style="width: 100%;height: 120px; " placeholder="我也说一句.."></textarea>
+		        <!--<div class="wangEditor-mobile-txt" contenteditable="true"><p><br></p></div>-->
+		    </div>
+		    <p style="text-align:right;color: #999;font-size:0.48rem;padding-bottom:10px; ">文明上网，遵守"七条底线"</p>
+		    <input id="qIdd" value="9025147" type="hidden">
+		    <button class="fl fz24 colorfff bgc2185cf" id="closeSayMyWords_reply">取消</button>
+		    <button class="fr fz24 colorfff bgc2185cf" onclick="toReply_reply()" id="toReply_reply" >发表</button>
+		</section>
+		   <!--插入公共底部-->
+
+
+</div>	
+		<div class="box-showAndshow" style=" display: none; position: fixed;z-index: 100; background: black; width: 100%;height: 100%;text-align: center;vertical-align: middle; line-height: 100%;opacity:0.5;" >
+		   
+		   	
+			<img style=";  display: block;margin: 0 auto;margin-top: 252px" src="../../public/img/u=1622234011,1126488716&fm=27&gp=0.gif"/>
+		 
+		</div>
+</body>
+</html>
+<!--<script type="text/javascript" src="../../public/vendor/webuploader/webuploader.js"></script>-->
+<!--<script type="text/javascript" src="../../public/vendor/webuploader/upload.js"></script>-->
+<!--<script type="text/javascript" src="../../public/vendor/xss/xss.js"></script>-->
+<script>
+
+    $('#one_reply').click(function () {
+        $('#sayMyWords').toggle()
+    });
+    $('#closeSayMyWords').click(function () {
+        $('#sayMyWords').hide()
+    });
+    $('#quesList').on('click','.huifuBtn',function(){
+
+        $('#sayMyWords_reply').toggle()
+    });
+    function huifu(id) {
+//        alert(id);
+        reply = id;
+    }
+   
+    $('#closeSayMyWords_reply').click(function () {
+        $('#sayMyWords_reply').hide()
+    })
+//    举报
+    $('#report').click(function () {
+        $('.report_pop').show();
+    })
+    $('#report_cancel').click(function () {
+        $('.report_pop').hide();
+    })
+</script>

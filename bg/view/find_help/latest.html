@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>广东青年之声后台理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/webuploader/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/webuploader/webupload_main.css" />
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/css/find_help/find_help.css">
+	<!--<link rel="stylesheet" href="../../public/vendor/jqueryfileupload_2/css/ssi-uploader.css"/>-->
+    
+    
+    
+    <!--百度地图-->
+    <!--<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=ggGhWZ8zW5mGMOYCohgWNRER5m76Hxfz"></script>-->
+	<!--<script src="//www.jq22.com/jquery/jquery-1.10.2.js"></script>-->
+    <script src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>
+    
+    <!--<script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>-->
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <!--<script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>-->
+    <!--防xss -- 跨站脚本攻击-->
+    <script type="text/javascript" src="../../public/vendor/xss/xss.js"></script>
+    <!--富文本框-->
+    <script src="../../public/vendor/wangEditor-3.0.3/wangEditor.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/layer/1.9.3/layer.js"></script>
+    <script src="../../public/js/common/contabs.js"></script> <!--主界面的左侧选项卡事件-->
+    <!--弹出框-->
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script src="../../public/js/module/FindHelpApi.js"></script>
+    <!--图片上传-->
+    <script type="text/javascript" src="../../public/vendor/webuploader/webuploader.js"></script>
+    <script type="text/javascript" src="../../public/vendor/webuploader/upload.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/find_help/find_help.js"></script>
+    <!---  富文本编辑器  测试  带图片------>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <link rel="stylesheet" type="text/css" href="//www.jq22.com/jquery/bootstrap-3.3.4.css">
+	<link href="../../public/vendor/summernote/summernote.css" rel="stylesheet"/>
+	<!--<script src="//www.jq22.com/jquery/jquery-1.10.2.js"></script>-->
+	<script src="//www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+	<script src="../../public/vendor/summernote/dist/summernote.js"></script>
+    <script src="../../public/vendor/summernote/dist/lang/summernote-zh-CN.js"></script>     <!--中文-->
+     <script src="../../public/js/common/common.js"></script>
+    <!---  upload 多个 ----->
+    
+    
+    <!---  upload end ----->
+	
+    <style>
+	 .m{ width: 850px; margin-left: 77px; }
+	 ul li {
+	 	list-style: none;
+	 	
+	 }
+	.list_tanchuang .list_tanchuang_b .content_l {
+		
+		width: 774px;
+	}
+	
+	.datagrid-header-check, .datagrid-cell-check {
+	    padding: 0;
+	    width: 27px;
+	    height: 22px;
+	    font-size: 1px;
+	    text-align: center;
+	    overflow: hidden;
+	    margin-bottom: 4px;
+	}
+    
+    #help_direct .icon-off{
+    	
+    	background:  beige url(../../public/images/find-hple.png) no-repeat;
+    	background-size:20px 20px ;
+    	
+    }
+	#help_finish .icon-off{
+		background:  beige url(../../public/images/find_hple_alert.png) no-repeat;
+    	background-size:20px 20px ;
+		
+	}
+	</style>
+	<!------jqueryfileupload_2 css  start 图片上传  ------>
+	<link rel="stylesheet" type="text/css" href="../../public/vendor/jqueryfileupload_2/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../../public/vendor/jqueryfileupload_2/css/style.css">
+	<link rel="stylesheet" href="../../public/vendor/jqueryfileupload_2/css/ssi-uploader.css"/>
+
+	
+	
+	
+	<!------jqueryfileupload_2  css  end   图片上传  ------>
+	<script>
+	$(function(){
+	    $('.summernote1').summernote({
+		        height: 350,
+		        width:850,
+		        tabsize: 2,
+		        lang: 'zh-CN',
+		        callbacks: {  
+		            onImageUpload: function(files, editor, $editable) {  
+		                sendFile1(files);  
+		            }  
+		        }  
+		});
+	});
+	function sendFile1(files, editor, $editable) {  
+        var data = new FormData();  
+        data.append("ajaxTaskFile", files[0]);  
+        $.ajax({  
+            data : data,  
+            type : "POST",  
+            url : base+"/file_upload", //图片上传出来的url，返回的是图片上传后的路径，http格式  
+            cache : false,  
+            contentType : false,  
+            processData : false,  
+            dataType : "json",  
+            success: function(data) {//data是返回的hash,key之类的值，key是定义的文件名  
+            	
+            	console.log(data.url);
+      
+                $('.summernote1').summernote('insertImage', data.url);  
+            },  
+            error:function(){
+                $.alert("上传失败");
+            }  
+        });  
+    }  
+//	
+	</script>
+    
+    <!---  富文本编辑器  测试  带图片-  end----->
+    
+    
+    
+    
+    
+    
+    
+</head>
+
+<body style="margin-left: 36px; margin-right: 20px;margin-bottom: 42px;">
+<div class="box" style="width: 100%;padding: 50px  30px;">
+
+
+
+   
+    <form style="width:900px; overflow: hidden; background:rgb(238, 238, 238); text-align: center;padding-top: 20px; margin: 0 auto;">
+        <table>
+            
+           
+            
+             
+            <tr>
+                <td style="vertical-align: top;">请输入最新进展：</td>
+                <td>
+                   <textarea id="content_finish" style="width: 550px;height: 250px;" placeholder="请输入本次求助的总结，如筹款总额、求助结果、后续反馈等。"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle;">附件上传：</td>
+                <td>
+                   <div id="upload_file_margin" class="telephone upload_file_margin" style="width: 500px;  margin-top: 40px;" >
+							<p class="fl prompt"><b></b></p>
+							<!--<span class="tit" style="margin-top: 10px;">报名附件</span>-->
+		                    <div class="content">
+								<div class="step photoUpload clearfix ">
+									<a class="upload"> <!-- accept="application/msword,aplication/zip" --> 
+						                <input type="file" class="uploadFileBtn" id="up_file_2"  name="up_file_2" multiple="multiple" onchange="uploadFile()"/>
+						            	<!--<input type="hidden" name="fileUrl" id="fileUrl" />-->
+						            </a>
+									<p id="pickFileBtnNext_2" class="fl prompt" style="color:#333; padding-top: 2px; padding-left: 5px;"><em style="color: red; ">非必填（文件名中勿带有","、"/"、"+"等中英文标点符号，否则将会上传失败。）</em></p>
+								</div>
+							</div>
+					</div>
+                </td>
+            </tr>
+           
+           
+            <tr>
+                <td style="vertical-align: middle;">上传照片：</td>
+                <td>
+                    
+                    
+					<div class="imgMain clearfix uploading">
+                        <div class="imgL clearfix">
+                            <div class="uploading_l fl">
+                                <!--<p class="font14 color333">上传图片</p>-->
+                                <p class="font12 color999 uploading_num">(上传图片,最多8张)</p>
+                            </div>
+                            <div id="wrapper" class="fl">
+                                <div id="container">
+                                    <div id="uploader">
+                                        <div class="queueList">
+                                            <div id="dndArea" class="placeholder">
+                                                <div id="filePicker"></div>
+                                                <p>或将照片拖到这里，单次最多可选8张</p>
+                                            </div>
+                                        </div>
+                                        <div class="statusBar" style="display:none;">
+                                            <div class="progress">
+                                                <span class="text">0%</span>
+                                                <span class="percentage"></span>
+                                            </div><div class="info"></div>
+                                            <div class="btns">
+                                                <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="imgUrl" style="display: none;"></div>
+                    
+                </td>
+            </tr>
+        </table>
+        
+        
+         <div class="" style="width: 100%;height: 50px; text-align: center; margin-top:20px ;padding-left: 400px;">
+        	<a class="J_menuItem" disable="true" href="view/find_help/find_help.html?limit=help_accept,help_back,help_collecting,help_direct,help_finish,help_delete,help_update,help_view,help_disabled,help_modification" target="mainFrame" data-index="3">
+        		
+        		<span class="l-btn-text" id="cancl"   style="  color:white ;float: left;    display: block; width: 50px; height: 30px;  padding: 5px 10px; background: rgb(62, 177, 172);">取消</span>
+        	</a>
+        	<a href="#">
+        		<span class="l-btn-text" id="latest_btn" style=" color:white ;float: left;   display: block; width: 50px; height: 30px;  padding: 5px 10px; background: rgb(62, 177, 172);">确定</span>
+        	</a>
+        </div>
+        
+    </form>
+    
+    
+
+</div>
+
+
+
+</body>
+</html>
+
+<!--<script type="text/javascript" src="../../public/vendor/wangEditor-3.0.3/wangEditor.js"></script>-->
+<!--<script type="text/javascript" src="../../public/vendor/xss/xss.js"></script>-->
+<!------jqueryfileupload_2 js   start 图片上传  ------>
+ 
+<script src="../../public/vendor/jqueryfileupload_2/js/ssi-uploader.js"></script>
+<script type="text/javascript">
+	
+</script>
+ 
+<!------jqueryfileupload_2 js   start 图片上传  ------>
+ <script>
+ 	
+	    //文件上传
+ 	/**** 上传图片-朱  *****/
+//    图片上传处理 start
+	   var image = '';
+	    var file_name ='' ;           
+		   function selectImage(file) {
+			if(!file.files || !file.files[0]) {
+				return;
+			}
+			var reader = new FileReader();
+			reader.onload = function(evt) {
+				document.getElementById('preview').src = evt.target.result;
+				image = evt.target.result;
+			
+			}
+			reader.readAsDataURL(file.files[0]);
+		};
+		////192.168.100.49:8080/qnzs/file_upload
+	    $(document).ready(function(){
+	    	
+	    	
+			//完成   -附件上传
+			$('#up_file_2').fileupload({
+				url: base + '/file_upload',
+				dataType: 'json',
+				autoUpload: true,
+				done: function(e, data) {
+		//		
+                    $.alert("上传成功");
+					
+					$('#pickFileBtnNext_2').html("上传成功");
+					console.log(data.result.url)
+					 finish_file= data.result.url;
+//					 alert(finish_file)
+                    var file_attr = finish_file.split('/');  //获取文件命
+					 
+					file_name = file_attr[file_attr.length-1];      
+				},
+				fail: function() {
+                    $.alert('出错');
+				}
+			});
+		
+	    });
+	
+    
+	
+	
+	
+ </script>
+ <!---- 文件上传  js zhu  start----->
+    <!--图片上传插件--->
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+
+ 
+
+  <!---- 文件上传  js zhu  end----->
+  		<script>
+  		//直接帮助
+  		
+  		var finish_file='';
+  		var imgUrls ='' ;
+  		
+  		var  complate_btn_flay =true ;
+  		$('#latest_btn').click(function(){
+			
+  			    var id = getUrlParam('hpid');
+	  			 imgUrls = $('#imgUrl').text();
+	  			 
+	  			 if(complate_btn_flay){
+	  			 	complate_btn_flay =false;
+	  			 	
+		  			obj.ajax('/bg/help/addSchedule',{
+		  				'hpId': id,
+//		  				'status': 2,
+		  				'content':$('#content_finish').val(), 
+		  				'fileUrl':finish_file,
+		                'imageUrl':imgUrls,
+		                'fileName':file_name
+		  				 
+		  			},function(data){
+		  				complate_btn_flay =true ;
+		  				console.log(data)
+		  				if(data.status =='OK'){
+                            $.alert(data.msg);
+		  					
+			    	    window.location.href = 'find_help.html?limit=help_accept,help_back,help_collecting,help_direct,help_latest,help_delete,help_update,help_view,help_disabled,help_modification';
+							
+		  				}
+		  				
+		  			})
+	  			 }
+					
+	  		
+  		})
+  		//取消
+  	    $('#cancl').click(function(){
+  	    	
+	    	window.location.href = 'find_help.html?limit=help_accept,help_back,help_collecting,help_direct,help_finish,help_delete,help_update,help_view,help_disabled,help_modification';
+  	    })
+  	</script>
+  
+  

@@ -1,0 +1,18 @@
+/* 
+no less
+*/
+
+body{background-color: #fff;}
+/* 搜索框 */
+section.searchBox{background-color: #e4e4e4;padding: 0.3rem 0.6rem;}
+section.searchBox input{width: 77%;height: 1rem;border-radius: 0.2rem;padding-left: 1.7rem;background:#f3f3f3 url(../../images/findInterlocution/searchIcon.png) no-repeat 0.4rem center;background-size: 0.8rem;}
+
+/* 内容列表 */
+section.lists>a{display: block;border-bottom: 1px solid #e4e4e4;padding: 0.6rem;}
+section.lists>a .left{width: 4rem;height: 3.2rem;overflow: hidden;}
+section.lists>a .left img{width: 4rem;}
+section.lists>a .right{padding-left: 4.6rem;}
+section.lists>a .right .tit{line-height: 0.56rem;height: 0.56rem;}
+section.lists>a .right p.date{background: url(../images/iconTime02.png) no-repeat left center;background-size: 0.6rem;padding-left: 0.8rem;}
+section.lists>a .right .address p{width: 70%;text-overflow:ellipsis;overflow: hidden;white-space:nowrap;background: url(../../images/findInterlocution/iconAddress02.png) no-repeat left center;background-size: 0.48rem;padding-left: 0.8rem;}
+section.lists>a .right>p,section.lists>a .right .address{line-height: 0.92rem;}

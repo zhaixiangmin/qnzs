@@ -1,0 +1,91 @@
+.header_box .nav_li:hover a, .header_box .nav_li.cur a{background-color: #0ba903;}
+.header_box .logo a{background-image: url(../../img/zbxm_main_list/head-logo2.png;}
+/* banner */
+.banner_box{background-color: #0ba903;}
+/* ----各板块共用部分----- */
+.section_box .content_title_box .more_btn{font-size:14px;color:#333;width:auto;border:none;}
+/* 项目动态板块 */
+.section_box.dynamic_box .content_l .content_title{background-image: url(../../img/zbxm_dy_icon_2.png);}
+.section_box.dynamic_box .content_r .content_title{background-image: url(../../img/zbxm_prize_bg.png);}
+/* 参赛者作品 */
+.participator_work .content_title{background-image: url(../../img/zbxm_pxlc_icon_2.png);}
+.more_btn:hover{background-color:transparent;color:#ff8814!important;}
+.participator_work .select_title.cur{background-color: #0ba903;}
+.participator_work .work_show_box .work_vote .vote_btn:hover{background-color: #0ba903;}
+
+.sponsor_partner .contact_us{line-height:35px;height:35px;padding-left:55px;background:url(../../img/contact_us_icon.png) no-repeat left center;color:#333;font-size:20px;margin-bottom:50px;}
+
+.body_right_nav .item_con:hover,.body_right_nav .item_con.cur{background-color: #0ba903;}
+
+
+
+/* 重磅项目二--项目详情页 */
+.dynamic_box .content .content_title_detail {
+    font-size: 24px;
+    line-height: 35px;
+    height: 35px;
+    color: #333;
+    padding-left: 50px;
+    background-position: left center;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;}
+.dynamic_box_reward {
+    margin-bottom: 30px;
+}
+
+/* 重磅项目二--参赛团队页面 */
+.mar_t{padding-top:69px;}
+.pageNumBox .pageNumCon .pageNum a.cur{background-color:#0ba903;color:#fff;border-color:#0ba903;}
+
+/* 项目动态页面 */
+.xmdt .content .content_title{background-image:url(../../img/zbxm_dy_icon_2.png);}
+/* 重磅项目二--项目动态详情页面 */
+.DT_detail{color:#0ba903;}
+
+			.section_box.selection_process .item_con .process_date {
+				text-align: left;
+			}
+			
+			.participator_work .work_show_box .work_vote .project_name,
+			.participator_work .work_show_box .work_vote .txt {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		   #div_activity_remark p {
+		   	  
+                width: 390px;
+		          
+		        height: 241px;
+		        
+		        /*多行文本省略*/
+		        overflow : hidden;
+		        text-overflow: ellipsis;
+		        display: -webkit-box;
+		        -webkit-line-clamp: 10;
+		        -webkit-box-orient: vertical;
+		
+		        display: -moz-box;
+		        -moz-line-clamp: 10;
+		        -moz-box-orient: vertical;
+		        text-indent: 27px;
+
+		   	}
+		   	.work_pic_box  {
+		   		width: 208px;
+		   		height: 130px;
+		   		line-height: 130px;
+		   		display: table-cell;
+                background: #e2d7c8;
+                vertical-align:middle;
+		   	}
+		   	.work_pic_box img {
+		   		width: 208px;
+		   		display: block;
+		   		max-height:138px ;
+		   		
+		   	}
+		   	.section_box span {
+		   		color:#777474 ;
+		   	}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>我要吐槽</title>
+
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/hd_footerNav.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/find_consult.css" />
+    <!--<link rel="stylesheet" type="text/css" href="../../public/css/find_consult/wd_wendafenlei.css" />-->
+    <script type="text/javascript" src="../../public/js/common/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <!--<script type="text/javascript" src="../../public/js/find_consult/wd_zhaowenda.js"></script>-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <!--<script type="text/javascript" src="../../public/js/find_consult/wd_zhaowenda.js"></script>-->
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FindConsultApi.js"></script>
+    <script type="text/javascript" src="../../public/js/find_consult/find_consult_myAttention.js"></script>
+    <script type="text/javascript" src="../../public/custom/common.js"></script>
+    <script src="../../public/js/ajax/ajax2.js"></script>
+    <!--公共底部-->
+    <!--<script type="text/javascript" src="../../public/custom/common.js"></script>-->
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <style rel="stylesheet">
+        body{background: #fff;font-size: 0.6rem;}
+.myComplaint{background: #fff;color: #333;padding: 0.4rem;}
+.myComplaint textarea{min-height:5rem;border: 1px solid #ccc;border-radius: 4px;width: 95%;padding: 0.3rem;margin-top: 1rem;}
+        #submitComplain_tucao{background: #2185cf;color: #fff;display: block;width: 40%;padding: 0.4rem 0;margin: 0 auto;margin-top: 0.3rem;border-radius: 0.2rem;}
+    </style>
+</head>
+<body id="container">
+  <section class="myComplaint">
+     <p>亲，如果您对青年之声平台有任何意见建议，请在这里向我们吐槽拍砖。我们会珍视每一条建议，并尽可能通过站内信向您反馈 处理情况。</p>
+      <textarea id="quesContent"></textarea>
+      <button id="submitComplain_tucao">提交</button>
+  </section>
+</body>
+</html>
+<script>
+    $(function () {
+        $('.close').click(function () {
+            $('.information_popup').hide();
+        })
+    })
+    
+    
+    
+    obj.ajax('/commons/getSessionAccount',{},function(data){
+    	
+    	
+    	if(data.status == 'ALERT') { // 用户没有登录
+           
+              	alert('请登录后再吐槽！')
+            window.location.href = '../logoin/login.html'; // 跳转到登录页面
+           
+           
+        }
+    	
+    })
+    
+    
+</script>

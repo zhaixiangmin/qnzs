@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>验证成功设置密码</title>
+		 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	 <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/register/register.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/login-register/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+
+	<script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+	<!--对话框-->
+	<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+	<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+	<style type="text/css">
+		.padss{padding: 1.6rem 0.52rem 0 0.52rem;}
+		.titlerd{font-size: 0.58rem;color: #333333;height: 0.6rem;line-height: 0.6rem;}
+		.suergur{width: 90%;height: 2rem;line-height: 2rem;color: white;background-color: #2185CF;font-size: 0.72rem;margin: 1.6rem auto;text-align: center;border-radius:1rem;display: block;}
+		.tiletlr{height: auto;font-size: 0.6rem;color: #D94453;line-height: 0.9rem;margin-top: 0.6rem;}
+	</style>
+	</head>
+	<body>
+		
+		<section class="padss">
+			
+			<p class="titlerd">手机号<span class="phone_txt"></span>动态验证码通过！</p>
+			
+			<p class="tiletlr">系统检测到该手机账号的密码设置过于简单，请重新设置新密码</p>
+			<a href="newpasswrd.html"  class="suergur">设置新密码</a>
+		</section>
+	</body>
+</html>
+<script>
+	
+		//获取手机号
+var phone =JSON.parse( $.cookie('getpsd')).mobile
+var s = phone.slice(0,phone.length-4);
+$('.phone_txt').html(s+"****");
+
+</script>

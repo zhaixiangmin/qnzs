@@ -1,0 +1,47 @@
+.headTit{padding: 0.6rem;border-bottom: 1px solid #e2e2e2;}
+.headTit .headTit_con{background: url(../images/next.png) no-repeat right center;background-size: 0.28rem;}
+.headTit .headTit_con .txt{padding-left:3rem;}
+.headTit .imgDiv{width:2.4rem;height: 2.4rem;overflow: hidden;border-radius: 50%;}
+.headTit .imgDiv img{width:2.4rem;}
+.headTit .txt h3{padding: 0.4rem 0 0.3rem 0;}
+.headTit .txt p{line-height: 0.64rem;}
+/* 公共样式 */
+.pub .tit{border-bottom: 1px solid #e2e2e2;}
+.pub .tit .title{background-size: 0.8rem;padding-left: 1.2rem;background-repeat:no-repeat;background-position:left center;}
+.has_second_menu .tit span{height: 1.56rem;background: url(../images/downArrow.png) no-repeat right center;background-size: 0.48rem;width: 0.48rem;}
+.has_second_menu .tit.cur span{background-image: url(../images/up.png);}
+.has_second_menu .menu{display:none;}
+.has_second_menu .tit.cur+.menu{display:block;}
+.has_second_menu .menu ul li{float: left;width:25%;}
+.has_second_menu .menu ul li a{padding-top: 0.56rem;padding-bottom: 0.3rem;}
+.has_second_menu .menu ul li a h6{text-align: center;line-height: 1rem;}
+.has_second_menu .menu ul li a span{height: 0.88rem;margin: 0 auto;position: relative;}
+.has_second_menu .menu ul li:first-child a span{width: 0.8rem;}
+.has_second_menu .menu ul li:nth-of-type(2) a span{width: 0.76rem;}
+.has_second_menu .menu ul li:nth-of-type(3) a span{width: 0.7rem;}
+.has_second_menu .menu ul li:nth-of-type(4) a span{width: 0.76rem;}
+.has_second_menu .menu ul li a span img{width:100%;}
+.has_second_menu .menu ul li a span em{position: absolute;width:0.6rem;height: 0.6rem;border-radius: 50%;background-color: #FF0000;text-align: center;line-height: 0.6rem;font-size: 0.4rem;right: -0.48rem;top: -0.2rem;display:none;}
+/* 我的主页 */
+.my_homepage .tit .title{background-image: url(../images/wodecanyu.png);}
+/* 我的参与 */
+.myJoin .tit .title{background-image: url(../images/wodecanyu.png);}
+
+/* 我的发布 */
+.my_publish .title{background-image: url(../images/wodefabu.png);}
+
+/* 我的收藏 */
+.my_collection .title{background-image: url(../images/wodeshoucang.png);}
+
+/* 我的关注 */
+.my_attention .title{background-image: url(../images/guanzhu.png);}
+
+
+/* 我的消息\我要吐槽 */
+.my_message .tit .title{background-image: url(../images/wodexiaoxi.png);}
+.my_tucao .tit .title{background-image: url(../images/wodetiwen.png);}
+.no_second_menu .tit span{background:url(../images/next.png) no-repeat right center;width:0.28rem;height:1.56rem;background-size:0.28rem;}
+
+.my_second_class .tit .title{background-image: url(../images/my_2nd_class.png);}
+.apply_for_teacher .title{background-image: url(../images/apply_teacher.png);}
+.administrator .title{background-image: url(../images/administrator.png);}

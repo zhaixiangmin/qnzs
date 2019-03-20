@@ -1,0 +1,65 @@
+/* no less */
+section.huodongmingcheng{padding: 0.36rem 0.6rem 0.2rem;margin-bottom: 0.4rem;}
+section.huodongmingcheng h2{font-size: 0.6rem;line-height: 1.16rem;}
+section.huodongmingcheng textarea{width:100%;line-height: 0.68rem;height: 0.68rem;}
+
+/* -----------------------------上传图片-----------------------------------
+---------------------------------- */
+.uploadImg{padding:0 0.3rem;}
+.uploadImg .title{padding-left: 0.3rem;}
+.uploadImg .imgL .imgdiv{display: none;}
+.uploadImg .imgL .imgdiv,.uploadImg .imgL .imgAdd{width:25%;padding-bottom: 0.6rem;}
+.uploadImg .imgL .imgdiv .imgOut{padding: 0 0.3rem;}
+.uploadImg .imgL .imgdiv .imgOut .imgIn{width: 3rem;height: 3rem;overflow: hidden;}
+.uploadImg .imgL .imgdiv .imgOut .imgIn img{width:100%;margin: 0 auto;border:0 none !important;}
+.uploadImg .imgL .imgAdd .divin{padding: 0 0.3rem;}
+.uploadImg .imgL .imgAdd .divin a{width: 3rem;height: 3rem;display: block;background: url(../../img/uploadImgBg.png) no-repeat center center;background-size: 100%;}
+.uploadImg .imgL .imgAdd .divin a input{width: 100%;height: 100%;opacity: 0;}
+
+/* 报名时间，活动时间、费用denghdeng */
+section.sectionPub .item{display: block;}
+section.sectionPub .item.borderBot{border-bottom: 1px solid #e8e8e8;}
+section.sectionPub .item span{padding-right: 0.92rem;}
+section.sectionPub .item span.next{background: url(../../img/next.png) no-repeat right center;background-size: 0.28rem;}
+
+/* 活动介绍 */
+section.explain{padding: 0.4rem 0.6rem;margin-bottom: 0.8rem;}
+section.explain>div{line-height: 1.1rem;}
+section.explain>div *{font-size: 0.6rem;}
+section.explain>div span{color:#2185cf;}
+section.explain textarea{width:100%;height: 7.2rem;}
+
+.fabuBtn{margin-bottom: 0.8rem;}
+.fabuBtn a{width:100%;line-height: 1.6rem;text-align: center;border-radius: 0.6rem;position: relative;}
+.maring_right{margin-right: 0.4rem;}
+#sever_add,#suggestId,#active_money,#active_people,#iphonpeo,#zhubangf,#extracurricularHour{border:1px solid #CCCCCC;height: 1rem; width:66%;}
+.item .combo{border:1px solid #CCCCCC;}
+#allmap{width: 99%;height:10.666666rem;border: solid 1px silver;margin-top: 0.533333rem;}
+#searchResultPanel{border:1px solid #C0C0C0;width:150px;height:auto; display:none;padding: 0 0.6rem;}
+#r-result{position: absolute;top:18.6rem;left: 0.666666rem;z-index: 999;width:95%;};
+.item .choose_body_list{width:30%;border:1px solid #C0C0C0;display:inline-block;height: 0.8rem;}
+
+.maring_right{width: 30%;height: 0.8rem;line-height:1.8rem;}
+
+.mafess{width: 100%;height: 0.8rem;line-height:0.8rem;}
+.activt_ullist{width: 100%;margin:0.666666rem 0}
+.activt_ullist li{display: block; margin: 0.4rem 0;}
+.text_input {width: 75%;height: 0.8rem; display: inline-block;margin-left: 6%;}
+.glyphicon-trash,.glyphicon-plus{margin-left: 5%;}
+
+.showDiv{position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    left: 0;
+    top: 0;
+     z-index: 999;}
+     .maincton{width:65%;height:11rem;position: absolute; top:4rem ;left: 21%;z-index: 10000;}
+.rubrt_title{width: 100%;height: 2.066666rem;background-color: #FFFFFF;}
+.rubrt_title span{display: inline-block; float: left;}
+.rubrt_title span:first-child{width:90%;}
+
+
+
+.del_rubsh{width: 0.8rem;height: 0.8rem;line-height:0.8rem;text-align: center;background-color:#00B7EE;border-radius: 50%;color: white;position: absolute;top:0 ;right: 0;}
+#qrcode1 canvas{margin-left: 0.666666rem;}

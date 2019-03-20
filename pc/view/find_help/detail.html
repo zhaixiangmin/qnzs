@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>青年之声-找帮助-详情页</title>
+     <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    <meta http-equiv= "X-UA-Compatible" content = "IE=edge,chrome=1"/>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/layer/layer.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/custom/page.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_help/detail.css" />
+       <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+    
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script src="../../public/vendor/layer/layer.js"></script>
+    <script src="../../public/vendor/super_slide/jquery.SuperSlide.2.1.1.js"></script>
+    <script src="../../public/custom/common.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <!--富文本-->
+    <script type="text/javascript" src="../../public/vendor/wangEditor-3.0.3/wangEditor.js"></script>
+    <script type="text/javascript" src="../../public/vendor/xss/xss.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FindHelpApi.js"></script>
+    <script type="text/javascript" src="../../public/custom/page.js"></script>
+    <script type="text/javascript" src="../../public/js/find_help/detail.js"></script>
+    <style>
+    	
+    	/*****  弹窗样式  start ******/
+    	.bg_black, .report_popup {
+		    width: 100%;
+		    height: 100%;
+		    background: rgba(0,0,0,0.5);
+		    position: fixed;
+		    left: 0;
+		    top: 0;
+		    bottom: 0;
+		    z-index: 10000;
+		    display: none;
+		   
+		}
+    	.list_tanchuang {
+		    position: absolute;
+		    left: 50%;
+		    top: 50%;
+		    -webkit-transform: translate(-50%,-50%);
+		    -moz-transform: translate(-50%,-50%);
+		    -ms-transform: translate(-50%,-50%);
+		    -o-transform: translate(-50%,-50%);
+		    transform: translate(-50%,-50%);
+		}
+		.list_tanchuang .list_tanchuang_t {
+		    width: 975px!important;
+		}
+		
+		.list_tanchuang .list_tanchuang_t {
+		    width: 1035px;
+		    height: 40px;
+		    line-height: 40px;
+		    padding: 0 20px 0 19px;
+		}
+		.list_tanchuang .list_tanchuang_t .name {
+		    color: #80c9ff;
+		}
+		
+		.font14 {
+		    font-size: 14px;
+		}
+		
+		.fl {
+		    float: left;
+		}
+		.list_tanchuang .list_tanchuang_t .delete {
+		    width: 10px;
+		    height: 10px;
+		    background: url(../../public/img/delete.png) no-repeat;
+		    margin-top: 15px;
+		    cursor: pointer;
+		}
+		
+		.fr {
+		    float: right;
+		}
+		
+		.list_tanchuang .list_tanchuang_b .content_l {
+		    width: 750px;
+		}
+		
+		.list_tanchuang .list_tanchuang_b .content_l {
+		    width: 810px;
+		    height: 380px;
+		    padding: 30px 0 37px 20px;
+		    overflow-y: auto;
+		}
+		.content_l label {
+		    margin-right: 20px;
+		}
+		
+		.color333 {
+		    color: #333;
+		}
+		.bg_black .question input {
+		    width: 550px;
+		    height: 35px;
+		    line-height: 35px;
+		    padding: 0 15px;
+		    margin: 10px 0;
+		}
+		
+		.border01 {
+		    border: 1px solid #e2e2e2;
+		}
+		/***  弹窗样式  end ****/
+    </style>
+</head>
+<body class="bodyPt96">
+
+    <!--插入公共头部    -->
+
+    <!-- 面包屑导航 -->
+    <div class="breadcrumbs">
+         <div class="content w1200 clearfix">  
+             <a href="javascript:;">首页&nbsp;&nbsp;</a><span>&gt;&nbsp;&nbsp;</span>
+             <a href="find_help.html">找帮助&nbsp;&nbsp;</a><span>&gt;&nbsp;&nbsp;</span>
+             <a href="javascript:;">详情&nbsp;&nbsp;</a><span>&gt;&nbsp;&nbsp;</span>
+             <a href="javascript:;" class="title"></a>
+         </div>
+    </div>
+
+    <!-- 求助人介绍 -->
+    <div class="proPersonalIntro bgcWhite zuzhijieshao zuzhijieshao02">
+         <div class="content w1200 clearfix">
+             <div class="leftBox fl">
+                 <div class="imgDiv">
+                     <style type="text/css">
+                         /* 本例子css */
+                         .slideBox { width:400px; height:266px;overflow:hidden; position:relative;background: #f0f0f0; }
+                         .slideBox .hd{ height:15px; overflow:hidden; position:absolute; right:5px; bottom:5px; z-index:1; }
+                         .slideBox .hd ul{ overflow:hidden; zoom:1; float:left;  }
+                         .slideBox .hd ul li{ float:left; margin-right:2px;  width:15px; height:15px; line-height:14px; text-align:center; background:#fff; cursor:pointer; }
+                         .slideBox .hd ul li.on{ background:#f00; color:#fff; }
+
+                         .slideBox .bd{ position:relative; width: 100%; height:100%; z-index:0;  }
+                         .slideBox .bd li{ zoom:1; width:400px; height:266px;vertical-align:middle;line-height: 266px; text-align: center; font-size: 0; cursor: pointer; background: #f0f0f0; overflow: hidden; }
+                         .slideBox .bd img{ max-width:100%; max-height:100%; display:inline-block; vertical-align: middle; }
+
+                         /* 下面是前/后按钮代码，如果不需要删除即可 */
+                         .slideBox .prev,
+                         .slideBox .next{ position:absolute; left:3%; top:50%; margin-top:-25px; display:block; width:27px; height:40px; background:url(../../public/img/left.png) no-repeat; filter:alpha(opacity=50);opacity:0.5;   }
+                         .slideBox .next{ left:auto; right:3%; background:url(../../public/img/right.png) no-repeat; }
+                         .slideBox .prev:hover,
+                         .slideBox .next:hover{ filter:alpha(opacity=100);opacity:1;  }
+                     </style>
+
+                     <div id="slideBox" class="slideBox" style="display: none;">
+                         <div class="hd">
+                             <ul></ul>
+                         </div>
+                         <div class="bd">
+                             <ul></ul>
+                         </div>
+                         <!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+                         <a class="prev" href="javascript:void(0)"></a>
+                         <a class="next" href="javascript:void(0)"></a>
+                     </div>
+
+                 </div>
+             </div>
+
+             <div class="rightBox fr">
+                 <div class="top font18 borderB01 topTit">
+                     <p class="title"></p>
+                     <div class="edit clearfix">
+                         <span class="report fl font14" id="report">举报</span>
+                         <!--帮助状态-->
+                         <em class="audit_status fl font14 colorfff"></em>
+                     </div>
+                 </div>
+                 <div class="middleTxt font14">
+                     <p class="p01 color000"><span class="color999">求助人：</span><span class="helpPeople"></span></p>
+                     <p class="p02 color000"><span class="color999">求助类型：</span><span class="helpType"></span></p>
+                     <p class="p03 color2185cf"><span class="color999">需筹款：</span><span class="totalAmount"></span>元</p>
+                 </div>
+                 <div class="bottom clearfix">
+                     <a href="javascript:;" id="help_people" class="fl font18 ask colorfff" style="display: none;">我要帮TA</a>
+                     <a href="javascript:;" id="appreciation" class="fl font18 ask colorfff" style="display: none;">发表答谢感言</a>
+                 </div>
+             </div>
+         </div>
+    </div>
+
+    <!--    活动介绍、处理进度什么的 -->
+    <div class="act_jieshao">
+        <div class="content">
+            <div class="tit clearfix w1200">
+                <span class="fl font16 cur span_tit">求助详情</span>
+                <span class="fl font16 span_tit">处理进度</span>
+                <span class="fl font16 span_tit">评论</span>
+                <span class="fl font16 span_tit">受助者感言</span>
+            </div>
+            <div class="liuchengBox bgcWhite">
+                <div class="w1200 clearfix">
+                    <div class="left fl">
+                        <!--求助详情-->
+                        <div class="huodongjieshao clearfix commonTab">
+                            <div class="leftBox fl font14">
+                                <div class="part">
+                                    <!--求助详情内容-->
+                                    <p class="helpContent"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 处理进度 -->
+                        <div class="chulijindu commonTab">
+                            <div class="liuchengtu">
+                                <ul class="rightP">
+                                    <!--处理进度内容-->
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 评论 -->
+                        <div class="pinglun commonTab">
+                            <div class="comment talk_each_ohter">
+                                <!--<a href="javascript:;" class="hascomment">我要评论</a>-->
+                                <div id="evaluate" style="font-size: 16px;color: #2185cf;text-align: right;"><p style="display: inline-block; cursor: pointer;">我要评论</p></div>
+                                <div class="show_box clearfix topTalk">
+                                    <div class="userHead clearfix">
+                                        <span class="imgSpan fl">
+                                            <img src="" id="photoUrl_account"/>
+                                        </span>
+                                        <em class="userName fl color2185cf" id="realname_account"></em>
+                                    </div>
+                                    <form action="">
+                                        <textarea name="content_comment" id="content_comment" placeholder="来说两句吧！"></textarea>
+                                        <div class="btn_box">
+                                            <input type="button" value="提交" class="submit_btn" />
+                                            <a href="javascript:;" class="cancel">取消</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!--分页插件-->
+                            <!--评论区-->
+                            <div class="pageBox">
+                                <ul class="pageDiv clearfix">
+                                    <!--评论列表-->
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 受助感言 -->
+                        <div class="shouzhuganyan commonTab">
+                            <!--受助感言内容-->
+                            <textarea class="ganyanBox" disabled="disabled"></textarea>
+                        </div>
+                    </div>
+
+                    <!--受理方内容模块-->
+                    <div class="activity_r">
+                        <div class="imgbox">
+                            <img src="" alt="" id="photoUrl_acquirer">
+                        </div>
+                        <p class="name">受理方：<em id="name_acquirer"></em></p>
+                        <p class="txt">
+                            <span class="attr"><em id="helpAverageScore_acquirer"></em>分</span>
+                            <span><em id="helpScoreCount_acquirer"></em>人已评</span>
+                        </p>
+                        <div class="box_b clearfix">
+                            <div class="box_l">
+                                <p class="attr" id="solveHelpCount_acquirer"></p>
+                                <p class="val">已受理求助</p>
+                            </div>
+                            <div class="box_r">
+                                <p class="attr" id="attentionCount_acquirer"></p>
+                                <p class="val">关注</p>
+                            </div>
+                        </div>
+                        <a href="javascript:" class="jinruzuzhi" id="concern"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 举报弹窗 -->
+    <div class="report_popup">
+        <div class="list_tanchuang bgcWhite">
+            <div class="list_tanchuang_t conBgc01 clearfix">
+                <span class="name font14 fl"><em class=" colorfff">举报</em></span>
+                <span class="delete fr"></span>
+            </div>
+            <div class="report_popup_b">
+                <div class="report_write">
+                    <div class="write_box clearfix">
+                        <span class="left_title fl">举报分类</span>
+                        <div class="right_text fl">
+                            <select name="" id="report_type">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="write_box clearfix">
+                        <span class="left_title fl">举报理由</span>
+                        <div class="right_text fl">
+                            <textarea class="write_area" id="reason_report"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn_box">
+                    <div class="btns clearfix">
+                        <input type="button" class="btn ok" id="submit_report" value="发布" />
+                        <input type="button" class="btn cancel" value="取消" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--发表答谢感言-->
+    <div class="bg_black">
+        <div class="list_tanchuang qzsqListTanchuang">
+            <div class="list_tanchuang_t conBgc01 clearfix" style="width: auto;">
+                <span class="name font14 fl">发表答谢感言</span>
+                <span class="delete fr"></span>
+            </div>
+            <!--<form id="">-->
+            <div class="list_tanchuang_b bgcWhite clearfix">
+                <div class="content_l fl">
+                    <div class="wenti_shuoming inputDiv clearfix qzxqBox">
+                        <span class="fnt14 color333 fl">求助详情</span>
+                        <div id="editor" style="width: 680px; display: inline-block;"></div>
+                    </div>
+
+                    <div class="myScoreBoxParent">
+                        <span class="fnt14 color333 fl title_left">评分</span>
+                        <input type="hidden" name="score" value="">
+                        <div class="myScoreBox">
+                            <ul class="clearfix">
+                                <li><span><em></em></span></li>
+                                <li><span><em></em></span></li>
+                                <li><span><em></em></span></li>
+                                <li><span><em></em></span></li>
+                                <li><span><em></em></span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                    <a class="sure conBgc01 colorfff font14" id="submit_help" style="cursor: pointer;">确认</a>
+                </div>
+            </div>
+            <!--</form>-->
+
+        </div>
+    </div>
+
+
+    <style type="text/css">
+        /* 本例子css */
+        #slideBox_Big{ width:80%; height:80%;line-height: 80%;overflow:hidden; position:relative;background: #f0f0f0;display: inline-block;margin-top: 10px; }
+        #slideBox_Big .hd{ height:15px; overflow:hidden; position:absolute; right:5px; bottom:5px; z-index:1; }
+        #slideBox_Big .hd ul{ overflow:hidden; zoom:1; float:left;  }
+        #slideBox_Big .hd ul li{ float:left; margin-right:2px;  width:15px; height:15px; line-height:14px; text-align:center; background:#fff; cursor:pointer; }
+        #slideBox_Big .hd ul li.on{ background:#f00; color:#fff; }
+
+        #slideBox_Big .bd{ position:relative; width: 100%; height:100%; z-index:0;  }
+        #slideBox_Big .bd li{ zoom:1; vertical-align:middle;text-align: center; font-size: 0; cursor: pointer; background: #f0f0f0; overflow: hidden; }
+        #slideBox_Big .bd img{ max-width:100%; max-height:100%; display:inline-block; vertical-align: middle; }
+
+        /* 下面是前/后按钮代码，如果不需要删除即可 */
+        #slideBox_Big .prev,
+        #slideBox_Big .next{ position:absolute; left:3%; top:50%; margin-top:-25px; display:block; width:27px; height:40px; background:url(../../public/img/left.png) no-repeat; filter:alpha(opacity=50);opacity:0.5;   }
+        #slideBox_Big .next{ left:auto; right:3%; background:url(../../public/img/right.png) no-repeat; }
+        #slideBox_Big .prev:hover,
+        #slideBox_Big .next:hover{ filter:alpha(opacity=100);opacity:1;  }
+        /*#slideBox_Big .prevStop{ display:none;  }*/
+        /*#slideBox_Big .nextStop{ display:none;  }*/
+    </style>
+
+    <div id="mask_slideBox_Big" style="position: fixed; width: 100%; height: 100%;line-height: 100%; background-color: rgba(0,0,0,.8); left: 0; top: 0; z-index: 9999;text-align: center;display: none;">
+        <div id="slideBox_Big">
+            <div class="hd">
+                <ul></ul>
+            </div>
+            <div class="bd">
+                <ul></ul>
+            </div>
+            <!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+            <a class="prev" href="javascript:void(0)"></a>
+            <a class="next" href="javascript:void(0)"></a>
+        </div>
+    </div>
+
+    <!----- 弹窗 ------>
+    <div class="bg_black" style="display: none;">
+        <div class="list_tanchuang">
+            <div class="list_tanchuang_t conBgc01 clearfix">
+                <span class="name font14 fl">进度详情</span>
+                <span class="delete fr"></span>
+            </div>
+
+            <div class="list_tanchuang_b bgcWhite clearfix">
+                <div class="content_l fl">
+                    <div class="huati_fenlei clearfix" style="" id="load_file_box">
+                        <label class="fnt14 color333 "  style=" display: inline-block;height: 30px;width: 50px;float: left;padding-top: 20px; ">附件下载</label>
+                        <span  id="file_name"  style="display: block; float: left;padding-top: 20px;"></span>
+                        <a class="locad_file"  href="" ><span style="width: 60px;height: 60px; display:inline-block;background: url(../../public/img/common.png)no-repeat 10px -51px  "></span></a>
+                    </div>
+
+                   
+                    <div class="wenti_shuoming clearfix" style="margin-top: 20px;" id="look_img_box">
+                        <span class="fnt14 color333 fl right_txt">查看图片</span>
+                        <!--<textarea id="editorArea"></textarea>-->
+                       
+                        <!--<div  style="border: 1px solid black">
+                        	
+                        </div>-->
+                        <div  class="img_list" style="width: 700px;height: 150px; border: 1px solid #eee; display: inline-block; padding: 20px 3px;overflow: hidden;">
+                        	
+                        	<!--<div class="img_box" style="width: 150px;height: 150px; float: left;margin-left: 20px;" >
+                        		<img src="../../public/img/act02.png" style="display: block; width: 100%; height: 100%;"/>
+                        		
+                        	</div>
+                        	<div class="img_box" style="width: 150px;height: 150px;float: left;margin-left: 20px;" >
+                        		<img src="../../public/img/act03.png" style="display: block; width: 100%; height: 100%;"/>
+                        		
+                        	</div>
+                        	<div class="img_box" style="width: 150px;height: 150px;float: left;margin-left: 20px;" >
+                        		<img src="../../public/img/act02.png" style="display: block; width: 100%; height: 100%;"/>
+                        		
+                        	</div>
+                        	<div class="img_box" style="width: 150px;height: 150px;float: left;margin-left: 20px;" >
+                        		<img src="../../public/img/act02.png" style="display: block; width: 100%; height: 100%;"/>
+                        		
+                        	</div>-->
+                        	
+                        </div>
+                    </div>
+                <!-- 上传图片 -->
+                    <!--<div class="imgMain clearfix uploading">
+                        <div class="imgL clearfix">
+                            <div class="uploading_l fl">
+                                <p class="font14 color333">上传图片</p>
+                                <p class="font12 color999 uploading_num">(最多8张)</p>
+                            </div>
+                            <div id="wrapper" class="fl">
+                                <div id="container">
+                                    <div id="uploader">
+                                        <div class="queueList">
+                                            <div id="dndArea" class="placeholder">
+                                                <div id="filePicker" class="webuploader-container"><div class="webuploader-pick">点击选择图片</div><div id="rt_rt_1buv47li41nb41b28ae91ftmu5q1" style="position: absolute; top: 20px; left: 266px; width: 168px; height: 44px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" multiple="multiple"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div></div>
+                                                <p>或将照片拖到这里，单次最多可选8张</p>
+                                            </div>
+                                        <ul class="filelist"></ul></div>
+                                        <div class="statusBar" style="display:none;">
+                                            <div class="progress" style="display: none;">
+                                                <span class="text">0%</span>
+                                                <span class="percentage" style="width: 0%;"></span>
+                                            </div><div class="info">共0张（0B），已上传0张</div>
+                                            <div class="btns">
+                                                <div id="filePicker2" class="webuploader-container"><div class="webuploader-pick">继续添加</div><div id="rt_rt_1buv47li61guhrdmv5c11d115bq6" style="position: absolute; top: 0px; left: 0px; width: 38px; height: 2px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" multiple="multiple"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div></div><div class="uploadBtn state-pedding">开始上传</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div id="imgUrl" style="display: none;"></div>
+                    <a  style="margin-top: 20px;" href="javascript:void (0);" class="delete  sure conBgc01 colorfff font14" id="submit_help">关闭</a>
+                </div>
+
+              
+            
+            </div>
+        </div>
+    </div>
+    <!----- 进度详情  -图片 放大 -------->
+    <div class="back_box_jingduxianqing"  style="   position: fixed; display: none; width: 100%; height: 100%;line-height: 100%; background-color: rgba(0,0,0,.8); left: 0; top: 0; z-index: 119999;text-align: center;">
+        <div id="slideBox_Big" style="margin-top: 100px;position: relative; ">
+        	<span id="cancel_big_box" style=" font-size: 20px; color: white; cursor: pointer;  width: 50px; height: 30px;background: black; opacity: 0.2; line-height: 30px; text-align: center;  position: absolute;top: 10px;right: 20px;">
+               x
+        	</span>
+            <div class="hd" style="width: 700px;height: 500px; position: absolute;top: 10%;left: 22%;">
+                <img id="big_img" src="" style="width: 700px;height: 500px;"/>
+            </div>
+            
+            <!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+            <a class="prev  prev1" href="javascript:void(0)"></a>
+            <a class="next  next1" href="javascript:void(0)"></a>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+	function f2(id){
+		
+		
+		for(var i =0 ;i<helpAudit_html.length;i++){
+			if(helpAudit_html[i].fileUrl!=''||helpAudit_html[i].fileUrl!=null){
+				
+				if(helpAudit_html[i].auditId ==id){
+				
+//					console.log(helpAudit_html[i].imgUrl.split(','));   //字符串转数组
+                    var  img_attr = helpAudit_html[i].imgUrl.split(',');   //字符串转数组
+                    big_img_box = img_attr;
+                    if(big_img_box!=null){
+		
+							$('#big_img').attr('src' ,big_img_box[0]);  //初始化图片
+					}
+					$('.locad_file').attr('href' ,helpAudit_html[i].fileUrl)   //文件下载
+					$('#file_name').html(helpAudit_html[i].fileName)   //文件名
+					if(!helpAudit_html[i].fileUrl){   //判断文件是否为空
+						 
+						  $('#load_file_box').hide()  //隐藏下载框
+					}   
+					
+					if(!big_img_box){   //判断图片是否为空
+						
+						  $('#look_img_box').hide()  //隐藏下载框
+					}
+					var html='';
+					for(var j =0 ;j<img_attr.length;j++){
+						if(j>3){
+							
+							break;
+						}
+					
+						html +=	'<div class="img_box" style="width: 150px;height: 150px;float:left;margin-left:12px;" >'
+                        	html +=	'<img src="'+img_attr[j]+'" style="display: block; width: 100%; height: 100%;float: left;margin-left: 20px;"/>'
+                        		
+                        	html +=	'</div>'
+                        	
+					}
+					$('.img_list').html(html);
+					
+					//点击框里的小图片进行放大
+					
+					$('.img_box').click(function(){
+							$('.back_box_jingduxianqing').show() //显示进度详情背景框
+						
+					})
+					
+					
+				}
+			}
+		}
+		
+		
+	}
+	var s = ['../../public/img/act02.png','../../public/img/act03.png','../../public/img/act04.png','../../public/img/act04.png'];
+	
+	
+	//点击向前一张
+	var k = 0 ;
+	$('.next1').click(function(){
+		++k ;
+		if(k >=big_img_box.length){
+			k =big_img_box.length-1;
+		}
+		if(k<big_img_box.length){
+			
+			$('#big_img').attr('src' ,big_img_box[k]);
+		}
+		
+		
+	})
+	//点击向后后一张
+	$('.prev1').click(function(){
+		--k ;
+		if(k<0){
+			k =0 ;
+		}
+	   $('#big_img').attr('src' ,big_img_box[k]);
+		
+	})
+	//关闭 进度闲情  -背景框
+	$('#cancel_big_box').click(function(){
+		
+		$('.back_box_jingduxianqing').hide() //隐藏进度详情背景框
+	})
+</script>

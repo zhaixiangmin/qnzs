@@ -1,0 +1,58 @@
+
+
+/* é’æ¿†îé–æœ‡SS  é–²å¶‡ç–†å¨´å¿šîé£ã„¦ç‰±å¯®ï¿½/
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form,img,input{ margin:0; padding:0;list-style: none; border: 0 none;}
+h1, h2, h3, h4, h5, h6{ font-size:12px; font-weight:normal;}
+img{display: block; border:0 none;}
+ul, ol { list-style:none; }
+input {  font-family:"å¯°î†¿è’‹é—†å‘´ç²¦";} 
+textarea { resize:none;border:0 none;}   
+em,i{ font-style:normal;}
+body {font-size:12px; color:#3C3C3C; font-family:"å¯°î†¿è’‹é—†å‘´ç²¦"; background-color: #F1F1F1;}  /*å§ï½†æžƒé¨å‹«ç“§æµ£æ’³ã‡çå¿“æ‹°æ£°æ»†å£Š*/
+.clearfix:after{content:''; height:0; line-height:0; visibility:hidden; display:block; clear:both;}
+.clearfix{zoom:1;} /*é–½å î‡®ieæµ£åº£éª‡é—å Ÿæ¹°é¨å‹¬ç¥»ç‘™å æ«’*/
+a{text-decoration: none;color:#999;}
+.w1200{width: 1200px;margin:0 auto;}
+.fl{float:left;}
+
+body{background-color: #EBEBEB;}
+
+/* æ¾¶æ’®å„´å¨´ä½ºâ–¼é‚å›§ç“§ */
+.act_tit ul{float: right;width: ;}
+.act_tit li{float: left;position: relative;padding: 26px 0;}
+.act_tit ul .last_li a{width: 72px;}
+.act_tit ul li a{height: 30px;color: #999;width: 122px;display: block;line-height: 30px;}
+.act_tit ul i{float: left;width: 30px;height: 30px;border-radius: 50%;background-color: #ccc;font-size: 14px;text-align: center;}
+.act_tit ul li span{float: left;padding-left: 7px;font-size: 14px;}
+.act_tit ul i.cur{background-color: #2185cf;color: #fff;}
+.act_tit ul li span.cur{color: #2185cf;}
+@media \0screen\,screen\9{.act_tit ul i{background: #EBEBEB url(../images/act_tit_bg.png) no-repeat;}
+                          .act_tit ul i.cur{background: #EBEBEB url(../images/act_tit_bg_cur.png) no-repeat;}}
+
+/* æ´æ›¢å„´éŽ¸å¤æŒ³éå³°ç´¡ */
+ .downBtn{height: 115px;background-color: #F7F7F7;position: relative;}
+ .downBtn .btn{position: absolute;left: 184px;bottom: 40px;}
+ .downBtn .btn a{float: left;margin-right: 12px;width: 120px;height: 35px;color: #fff;text-align: center;line-height: 35px;font-size: 14px;border-radius: 2px;}
+ .downBtn .btn .next_step{background-color: #2185CF; }
+ .downBtn .btn .last_step{background-color: #2185CF; }
+ .downBtn .btn .cancel{background-color: #989898;}
+
+/* æµ¼î„åŽ“ç»±çŠ³æ•¼é™æ¦™ateç»«è¯²ç€·inputå¦—å—™æ®‘æ¦›æ¨¿î…»éå³°ç´¡ç€¹ç‚°ç·¥æ¤¤ç”¸æ½° */
+ /* ::-webkit-datetime-edit-fields-wrapper { background-color: #eee; } */
+::-webkit-datetime-edit-text { color: #4D90FE; padding: 0 .3em; }
+::-webkit-datetime-edit-year-field { color: gold; }
+::-webkit-datetime-edit-month-field { color: blue; }
+::-webkit-datetime-edit-day-field { color: green; }
+::-webkit-inner-spin-button { visibility: hidden; }
+
+::-moz-datetime-edit-text { color: #4D90FE; padding: 0 .3em; }
+::-moz-datetime-edit-year-field { color: purple; }
+::-moz-datetime-edit-month-field { color: blue; }
+::-moz-datetime-edit-day-field { color: green; }
+::-moz-inner-spin-button { visibility: hidden; }
+
+::-ms-datetime-edit-text { color: #4D90FE; padding: 0 .3em; }
+::-ms-datetime-edit-year-field { color: purple; }
+::-ms-datetime-edit-month-field { color: blue; }
+::-ms-datetime-edit-day-field { color: green; }
+::-ms-inner-spin-button { visibility: hidden; }

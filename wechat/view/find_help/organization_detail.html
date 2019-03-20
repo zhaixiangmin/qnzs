@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>找帮助_组织详情</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/hd_footerNav.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_help/organization_detail.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/bz_xiangqing.css">-->
+    
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+
+    <!--百度地图-->
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=ggGhWZ8zW5mGMOYCohgWNRER5m76Hxfz"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+     <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FindHelpApi.js"></script>
+    <script type="text/javascript" src="../../public/custom/common.js"></script>
+    <script type="text/javascript" src="../../public/js/find_help/organization_detail.js"></script>
+
+</head>
+<body class="bodyPB">
+    <!--<header class="clearfix wd_header">-->
+        <!--<a href="javascript:;" class="back fl"></a>-->
+        <!--组织详情-->
+        <!--<a href="javascript:;" class="seemore fr"></a></header>-->
+
+    <section class="xq_headTxt">
+        <div class="item clearfix">
+            <div class="left fl">
+                <img src="" id="photoUrl"/>
+            </div>
+            <div class="right">
+                <h2 class="color000" id="fullName"></h2>
+                <div class="score clearfix">
+                    <ul class="clearfix fl">
+                        <li class="fl cur"></li>
+                        <li class="fl cur"></li>
+                        <li class="fl cur"></li>
+                        <li class="fl"></li>
+                        <li class="fl"></li>
+                    </ul>
+                    <span class="fenshu fl"><em id="helpAverageScore"></em>分</span>
+                    <span class="commented color999 fl"><em>65</em>人已评</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关注人数 -->
+    <section class="yugao clearfix bgcWhite xq_num">
+        <span class="fl color999"><em id="attentionCount"></em>人关注</span>
+        <a id="submit_help" style="margin-left: 0.38rem;" class="fr">向TA求助</a>
+        <a href="javascript:;" class="fr" id="concern">关注</a>
+    </section>
+    <!-- 受理案例 -->
+    <section class="xq_anli clearfix bgcWhite xq_num">
+        <span class="fl color999">已解决<em id="solveHelpCount"></em>次</span>
+        <a href="javascript:;" class="fr"><img src="../../public/img/next.png"/></a>
+    </section>
+
+    <!-- 地址和联系方式 -->
+    <section class="xq_lianxi">
+        <div class="phoneAndAddress divout bgcWhite"> 
+            <a href="javascript:;" class="divin clearfix time" id="address_parent">
+                <div class="imgDiv fl xq_adress"><img src="../../public/img/iconAddress.png"/></div>
+                <p class="fl color333" id="address"></p>
+                <div class="arrow fr"><img src="../../public/img/next.png"/></div>
+            </a>
+            <a href="javascript:;" class="divin clearfix phone">
+                <div class="imgDiv fl xq_phone"><img src="../../public/img/iconPhone.png"/></div>
+                <p class="fl color333" id="telephone"></p>
+                <div class="arrow fr"><img src="../../public/img/next.png"/></div>
+            </a>
+        </div>
+    </section>
+    <!-- 组织介绍 -->
+    <section class="bz_xq_jieshao">
+        <p class="xq_js_title color000 clearfix"><i class="jieshao fl"></i><span class="fl">组织介绍</span></p>
+        <div class="xq_js_content xq_back">
+            <p class="color000" id="description"></p>
+        </div>        
+    </section>
+    
+</body>
+</html>
+<!--<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>-->
+<!--<script type="text/javascript" src="js/footerChange.js"></script>-->

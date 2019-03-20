@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>青年之家</title>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/hd_footerNav.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/young_family/young_family.css" />
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    
+    <script type="text/javascript" src="../../public/vendor/touch_slide/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <!--公共底部栏-->
+    <script type="text/javascript" src="../../public/js/young_family/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/YoungFamilyApi.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/young_family/young_family.js"></script>
+</head>
+<body class="bodyPB">
+    <!-- 搜索框 -->
+    <section class="searchBox clearfix">
+        <a href="search.html">
+            <input type="text" id="searchText" class="fl fz26" placeholder="搜索站点、服务" style="width: 100%;">
+        </a>
+    </section>
+
+    <!--地图banner-->
+    <section class="bannerBox banner" id="banner">
+
+        <!-- <a href="station_map.html">
+             <img alt="" src="../../public/img/qnzjYdd.png" style="width: 100%;">
+         </a>-->
+
+        <div class="hd"  style="position: absolute; right: 1rem; bottom: 0.5rem; z-index: 99;">
+            <ul>
+
+            </ul>
+        </div>
+        <div class="bd" id="head-banner">
+            <ul class="clearfix">
+            </ul>
+        </div>
+    </section>
+    
+    
+    
+
+    <!-- 站点分类列表 -->
+    <section class="lists bgcWhite mb20" style="display: none;">
+        <ul class="clearfix" id="recommendStations">
+            <!--站点分类-->
+        </ul>
+    </section>
+
+    <!-- 服务站点 附近 -->
+    <section class="nearbySite bgcWhite mb20" id="nearbySite">
+        <!--<h2 class="title fz28 color000 p_0_30">您附近的服务站点</h2>-->
+        <h2 class="title fz28 color000 p_0_30"><a href="view_list.html?type=1" class="disB" style="background: url(../../public/img/next.png) no-repeat right center; background-size: auto 40%;">您附近的服务站点</a></h2>
+        <div class="content pl_30">
+            <!--附近的服务站点列表-->
+        </div>
+    </section>
+
+    <!-- 人气服务站点 -->
+    <section class="nearbySite bgcWhite" id="popularityStation">
+        <h2 class="title fz28 color000 p_0_30"><a href="view_list.html?type=2" class="disB" style="background: url(../../public/img/next.png) no-repeat right center; background-size: auto 40%;">人气服务站点</a></h2>
+        <div class="content pl_30">
+            <!--人气服务站点列表-->
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "rows": [
+    {"value": "1", "name": "贫困助学"},
+    {"value": "2", "name": "重症救助"},
+    {"value": "3", "name": "灾害救助"},
+    {"value": "4", "name": "志愿服务"},
+    {"value": "5", "name": "残障帮助"},
+    {"value": "6" , "name": "微心愿"},
+    {"value": "7" , "name": "其他"}
+  ],
+  "total": 6,
+  "status": "OK"
+}

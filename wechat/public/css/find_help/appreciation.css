@@ -1,0 +1,50 @@
+body{padding-bottom:2.3rem;}
+.overflow_h{overflow: hidden;}
+.fl { float: left; }
+.fr { float: right; }
+.disB { display: block; }
+.disIB { display: inline-block; }
+.color000 { color: #000; }
+.color333 { color: #333; }
+.color666 { color: #666; }
+.color999 { color: #999; }
+.colorfff { color: #fff; }
+.color2185cf { color: #2185cf; }
+.bgcWhite { background-color: #fff; }
+.bgc2185cf { background-color: #2185cf; }
+.fz24 { font-size: 0.48rem; }
+.fz26 { font-size: 0.52rem; }
+.fz28 { font-size: 0.56rem; }
+.fz30 { font-size: 0.6rem; }
+.fz32 { font-size: 0.64rem; }
+.fz34 { font-size: 0.68rem; }
+.fz36 { font-size: 0.72rem; }
+.fz38 { font-size: 0.76rem; }
+.fz40 { font-size: 0.8rem; }
+.fz42 { font-size: 0.84rem; }
+.fz44 { font-size: 0.88rem; }
+.fz46 { font-size: 0.92rem; }
+.p_0_30 { padding: 0 0.6rem; }
+.pl_30 { padding-left: 0.6rem; }
+.pr_30 { padding-right: 0.6rem; }
+.mb20 { margin-bottom: 0.4rem; }
+.bodyPB { padding-bottom: 2.24rem; }
+.lineH78 { line-height: 1.56rem; }
+.borderBotPub{border-bottom:1px solid #e8e8e8;}
+
+/*对话框*/
+section.talk{padding: 0.3rem 0.6rem 0;margin-bottom: 4rem;}
+section.talk textarea{border:1px solid #eee;width: 100%;box-sizing: border-box;height: 8rem;background: url(../../img/pinglunIcon.png) no-repeat 0.4rem 0.4rem;background-size: 0.54rem;padding-left: 1.4rem;padding-top: 0.4rem;}
+section.talk textarea.focus{padding:0.4rem;background:transparent;}
+
+/* 评分 */
+section.pf{padding: 0 0.3rem;}
+section.pf .tit{padding: 0 0.3rem;border-bottom: 1px solid #eee;line-height: 1.4rem;}
+section.pf .scoreBox{border-bottom: 1px solid #eee;padding: 1rem 0.3rem;}
+section.pf .scoreBox ul li{float: left;width: 20%;}
+section.pf .scoreBox ul li span{padding: 0 0.2rem;display: block;}
+section.pf .scoreBox ul li span em{width: 80%;height:1.84rem;background: url(../../img/scoreStar02.png) no-repeat;background-size: 100%;display: block;margin: 0 auto;}
+section.pf .scoreBox ul li span em.cur{background-image: url(../../img/scoreStarCur.png);}
+
+/* 发表按钮〃 */
+a.appearNow{height: 2rem;line-height: 2rem;text-align: center;background-color: #4694c5;position: fixed;width:100%;left: 0;bottom: 0;}

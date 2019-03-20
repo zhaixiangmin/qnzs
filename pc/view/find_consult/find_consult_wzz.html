@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>青年之声-问组织</title>
+    <meta http-equiv= "X-UA-Compatible" content = "IE=edge,chrome=1"/>
+     <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/findConsult.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_consult/webupload_main.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/custom/page.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+    
+</head>
+<body class="bodyPt96">
+
+<!--插入公共头部-->
+    <!-- 类型选项 -->
+    <div class="zhuanjia bgcWhite">
+        <div class="w1200 clearfix">
+            <div class="listBox clearfix type">
+                <span class="spanTit color999 fl">类型：</span>
+                <div class="listDiv clearfix" id="category">
+                    <!--<a href="javascript:getQuestionsByParams();" class="option cur" lang="-1">全部</a>-->
+                    <a data-type=""  class="option cur">全部</a>
+                    <a data-type="1" class="option">省级团委</a>
+                    <a data-type="2"  class="option">地市团委</a>
+                    <a data-type="3" class="option">高校团委</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 搜索 -->
+    <div class="w1200 clearfix">
+        <div class="secondSearch zhdIndex fr" style="margin-top:0;padding-top: 25px;">
+            <img src="../../public/img/secSeaIcon.png" class="fl seaIcon">
+            <input id="searchKeyWord" type="text" value="" placeholder="请输入关键字！" class="font14 fl">
+            <a href="javascript:;" id="searchQuestion" class="font14 colorfff conBgc01 fl disB">搜索</a>
+        </div>
+    </div>
+    <!-- 列表内容 -->
+    <div class="zuzhiList pageBoxList" style="padding-top: 28px;">
+        <ul class="clearfix zuzhiList_ul" id="quesList">
+            <!--插入组织列表-->
+        </ul>
+    </div>
+    <!-- 组织列表弹窗 -->
+    <div class="bg_black">
+        <div class="list_tanchuang">
+            <div class="list_tanchuang_t conBgc01 clearfix">
+                <span class="name font14 fl">向<em class=" colorfff" id="exp_title"></em>提问</span>
+                <span class="delete fr"></span>
+            </div>
+
+            <div class="list_tanchuang_b bgcWhite clearfix">
+                <div class="content_l fl">
+                    <div class="huati_fenlei clearfix">
+                        <label for="quesCategory" class="fnt14 color333 ">话题分类</label>
+                        <select name="" id="quesCategory" class="color999 fenlei_box border01">
+                            <!--<option value="">所有</option>-->
+                            <!--<option value="">广州</option>-->
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="quesTitle" class="fnt14 color333">您的问题</label>
+                        <input type="text" id="quesTitle" placeholder="(5-49个字)" class="border01" />
+                    </div>
+                    <div class="wenti_shuoming clearfix">
+                        <span class="fnt14 color333 fl right_txt">问题说明</span>
+                        <!--<textarea id="editorArea" class="color999 border01 fl" placeholder="请输入"></textarea>-->
+                        <textarea id="editorContent" class="border01 fl" placeholder="请输入问题描述"></textarea>
+                        <!--<div id="editor" style="width: 650px; display: inline-block;"></div>-->
+                    </div>
+                <!-- 上传图片 -->
+                    <div class="imgMain clearfix uploading">
+                        <div class="imgL clearfix">
+                            <div class="uploading_l fl">
+                                <p class="font14 color333">上传图片</p>
+                                <p class="font12 color999 uploading_num">(最多8张)</p>
+                            </div>
+                            <div id="wrapper" class="fl">
+                                <div id="container">
+                                    <div id="uploader">
+                                        <div class="queueList">
+                                            <div id="dndArea" class="placeholder">
+                                                <div id="filePicker"></div>
+                                                <p>或将照片拖到这里，单次最多可选8张</p>
+                                            </div>
+                                        </div>
+                                        <div class="statusBar" style="display:none;">
+                                            <div class="progress">
+                                                <span class="text">0%</span>
+                                                <span class="percentage"></span>
+                                            </div><div class="info"></div>
+                                            <div class="btns">
+                                                <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="imgUrl" style="display: none;"></div>
+                    <a href="javascript:;" id="ask_org_tiwen_btn" class="sure conBgc01 colorfff font14">确认</a>
+                </div>
+
+                <!-- 专家信息 -->
+                <div class="content_r fr">
+                    <div class="zhuanjia_head">
+                        <img id="exp_photoUrl" src="" alt="" />
+                    </div>
+                    <h3 class="color000 font16" id="exp_realName"></h3>
+                    <p class="font14 color999" id="exp_profession"></p>
+                    <!-- <p>020-56564646</p>
+                    <p> 广州市越秀区寺贝通津一号大院</p> -->
+                    <div class="clearfix zhuanjia_box">
+                        <span class="fl zhuanjia_box_l borderR01">
+                            <p class="font22 color000" id="exp_replyCount"></p>
+                            <p class="font12 color000">已解答问题</p>
+                        </span>
+                        <span class="fl zhuanjia_box_l borderR01">
+                            <p class="font22 color000" id="exp_attentionCount"></p>
+                            <p class="font12 color000">关注</p>
+                        </span>
+                    </div>
+                    <button id="chakan" class="chakan conBgc01 colorfff font14">进入组织</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+     <!-- 底部 -->
+    <!--插入公共底部-->
+</body>
+</html>
+<script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+<script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+<!--对话框-->
+<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+<script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+<script type="text/javascript" src="../../public/js/module/FindConsultApi.js"></script>
+<script type="text/javascript" src="../../public/js/find_consult/find_consult_wzz.js"></script>
+<script type="text/javascript" src="../../public/js/find_consult/questionList.js"></script>
+<!--分页 js-->
+<script type="text/javascript" src="../../public/custom/page.js"></script>
+<!--公共头部和底部-->
+<script type="text/javascript" src="../../public/custom/common.js"></script>
+<script type="text/javascript" src="../../public/vendor/webuploader/webuploader.js"></script>
+<script type="text/javascript" src="../../public/vendor/webuploader/upload.js"></script>

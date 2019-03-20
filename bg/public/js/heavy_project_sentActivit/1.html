@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.8.3.min.js"></script>
+	</head>
+	<body>
+	   <input class="uploadFileBtn" id="up_file" name="up_file" multiple="multiple" onchange="javascript:uploadFile();" type="file">
+		
+	</body>
+	<script src="uploadFile.js"></script>
+</html>
+   <script type="text/javascript">
+		var oid = '001';
+		var dg_activity;
+		var ctx = '//www.12355.net';
+
+	</script>
+<script>
+	
+	
+	//附件上传
+function uploadFile(){
+	$('#pickFileBtnNext').html("上传中......");
+	var dir  = 'activityFile';
+	var fileList =  document.getElementById("up_file").files;
+	$.ajaxFileUpload({
+        url: ctx+'/file_upload', //用于文件上传的服务器端请求地址
+        secureuri: false, //是否需要安全协议，一般设置为false
+        fileElementId: 'up_file', //文件上传域的ID
+        dataType: 'JSON', //返回值类型 一般设置为
+        success: function (data, status){
+        	data = JSON.parse(data);
+        	if(data.error == 0){
+    		    //alert("上传成功");
+    		    $('input[name="fileUrl"]').val(data.url);
+    		    $('#pickFileBtnNext').html("上传结束");
+        	}
+        },
+        error: function (data, status, e)//服务器响应失败处理函数
+        {
+            alert(e);
+        }
+	});
+	
+}
+</script>

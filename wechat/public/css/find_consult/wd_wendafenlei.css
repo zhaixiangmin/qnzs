@@ -1,0 +1,21 @@
+.list {
+  background-color: #fff;
+  padding-top: 0.3rem;
+}
+.list ul li {
+  float: left;
+  width: 20%;
+}
+.list ul li a {
+  text-align: center;
+  padding-top: 0.3rem;
+  display: block;
+}
+.list ul li a img {
+  width: 1.6rem;
+  margin: 0 auto;
+}
+.list ul li a h6 {
+  line-height: 1.04rem;
+  font-size: 0.48rem;
+}

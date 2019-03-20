@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>广东青年之声后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link href="../../public/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../public/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/icon.css" />
+</head>
+<body>
+<div class="col-sm-12">
+    <!--数据过滤strat-->
+    <div class="datafilter">
+        <div class="search">
+            <form id="" method="post">
+                <div class="form-group sz_height">
+                    <label class="col-sm-1">关键词</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="userkeyWord">
+                    </div>
+                    <label class="col-sm-1">显示状态</label>
+                    <div class="col-sm-2">
+                        <select class="form-control" id="isUser">
+                            <option value="">全部</option>
+                            <option value="1">正常</option>
+                            <option value="0">禁用</option>
+                        </select>
+
+                    </div>
+
+                    <div class="col-sm-2">
+                        <button type="button" class="btn btn-warning btn-sm" id="searchBtn"><span class="glyphicon glyphicon-search"></span>查询</button> <button type="button" class="btn btn-info btn-sm" id="clearBtn"><span class="glyphicon glyphicon-refresh"></span>清空</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--数据过滤end-->
+    <div style="clear:both"></div>
+    <div class="border clearfix">
+        <ul class="nav navbar-nav" id="toolbar">
+            <li class="active" id="category_add"><a href="#" ><span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#user-add">新增</span></a></li>
+            <li id="category_edit"><a href="#" onclick="updateIofn()"><span class="glyphicon glyphicon-pencil" data-toggle="modal">编辑</span></a></li>
+            <li id="category_enable"><a href="#" onclick="userStart()"><span class="glyphicon glyphicon-play" data-toggle="modal" >启用</span></a></li>
+            <li id="category_disable"><a href="#" onclick="userStopt()"><span class="glyphicon glyphicon-ban-circle" data-toggle="modal" >禁用</span></a></li>
+            <li id="category_delete"><a href="#" id="seCategoryDelete"><span class="glyphicon glyphicon-trash">删除</span></a></li>
+        </ul>
+    </div>
+
+
+    <!--列表展示start-->
+    <table id="mytb" ></table>
+</div>
+
+
+<!-- 新增框（Modal） -->
+<div class="modal fade" id="user-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" >
+                    新增图片
+                </h4>
+            </div>
+            <div class="modal-body s-height">
+                <form method="get" class="form-horizontal" id="fm_serviceCategoryAdd">
+
+                    　
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">类别名称:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control easyui-validatebox"
+                                   data-options="required:true" id="sortName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">类别介绍:</label>
+                        <div class="col-sm-7">
+                            <textarea name="" cols="1" rows="3" class="form-control" id="descriName"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">显示状态:</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="isUseName">
+                                <option value="1">正常</option>
+                                <option value="0">禁用</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">类型:</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="typeName">
+                                <option value="1">找咨询</option>
+                                <option value="2">高校</option>
+                                <option value="3">线下服务</option>
+                                <option value="5">找帮助</option>
+                                <option value="4">其他</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="clear:both"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">显示顺序:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control easyui-validatebox" required="true" id="orderIdName">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">上传图片:</label>
+                        <!--<div class="col-sm-7">-->
+                            <!--<img id="preview" height="100" border="0" title="" src="images/a4.png" />-->
+                            <!--<div class="btn upload">建议尺寸(1900px*380px)<input type="file" onclick="uploadImage()" name="image_file" class="upload_pic" onChange="fileSelected('preview','image_file');" />-->
+                                <!--<input style="display: none;" id="file" name="file" type="file">-->
+                            <!--</div>-->
+                            <!--<input type="text" id="imagePath" class="form-control">-->
+                        <!--</div>-->
+                        <!--华丽的分割线-->
+                        <div class="col-sm-7" style="overflow: hidden">
+                            <div id="imgDiv">
+                                <img id="photoUrlName" src=''>
+                            </div>
+                            <div class="btn upload">建议尺寸(1900px*380px)</div>
+                            <div class="btn_file">
+                                <span class="upto_image">选择图片上传</span>
+                                <input type="file" name="file" id="file" onchange="selectImage(this);"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default" data-dismiss="modal" id="addInfo">确定
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    取消
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!-- 新增框（Modal）end -->
+<!-- 编辑框（Modal） -->
+<div class="modal fade" id="user-editor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    修改图片
+                </h4>
+            </div>
+            <div class="modal-body s-height">
+                <form method="get" class="form-horizontal">
+
+                    　<div class="form-group">
+                    <label class="col-sm-2 control-label">类别名称:</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control easyui-validatebox" data-options="required:true" id="sortName_update">
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">类别介绍:</label>
+                        <div class="col-sm-7">
+                            <textarea name="" cols="1" rows="3" class="form-control" id="descriName_update"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">显示状态:</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="isUseName_update">
+                                <option value="1">正常</option>
+                                <option value="0">禁用</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">类型:</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="typeName_update">
+                                <option>请选择</option>
+                                <option value="1">找咨询</option>
+                                <option value="2">高校</option>
+                                <option value="3">线下服务</option>
+                                <option value="5">找帮助</option>
+                                <option value="4">其他</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="clear:both"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">显示顺序:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control easyui-validatebox" data-options="required:true" id="orderIdName_update">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">上传图片:</label>
+                        <!--<div class="col-sm-7">-->
+                            <!--<img id="preview" height="100" border="0" title="" src="images/a4.png" />-->
+                            <!--<div class="btn upload">建议尺寸(1900px*380px)<input type="file" name="image_file" id="image_file" class="upload_pic" onChange="fileSelected('preview','image_file');" /></div>-->
+                            <!--<input type="text" class="form-control">-->
+                        <!--</div>-->
+                        <div id="imgDiv_update">
+                            <img id="photoUrlName_update" src=''>
+                        </div>
+                        <div class="btn btn-info btn_file">
+                            <span class="upto_image">从本地电脑选择图片上传</span>
+                            <input type="file" name="file" id="file_update" onchange="selectImage_update(this);" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="updateInfoBtn">确定
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    取消
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!-- 编辑框（Modal）end -->
+<!-- 启用框（Modal） -->
+<div class="modal fade" id="user-start" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    warning
+                </h4>
+            </div>
+            <div class="modal-body">
+                您确认要启动该项目?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" id="userStartBtn">
+                    确定
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- 启用框（Modal）end -->
+
+<!-- 禁用框（Modal） -->
+<div class="modal fade" id="user-stop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    warning
+                </h4>
+            </div>
+            <div class="modal-body">
+                你确定要禁用本项目吗？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" id="userStoptBtn" class="btn btn-primary">
+                    确定
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- 禁用框（Modal）end -->
+
+<!--- 分配角色 --end--->
+<script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+<!--<script type="text/javascript" src="vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>-->
+<script src="../../public/vendor/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+<script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+<script type="text/javascript" src="../../public/js/module/FindConsultApi.js"></script>
+<script src="../../public/js/module/Utils.js"></script>
+<script type="text/javascript" src="../../public/js/find_consult/serviceCategory.js"></script>
+<!--ajax-->
+<!--<script type="text/javascript" src="../../js/request-ajax/ajax.js"></script>-->
+<!--图片上传-->
+<!--<script type="text/javascript" src="js/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>-->
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+</body>
+</html>
+
+
+
+
+

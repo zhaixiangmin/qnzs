@@ -1,0 +1,213 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	 <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="../../public/css/heavy_project/common_style.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project/pcProjectShow.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/layer/layer.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/layer/laypage.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+    <script src=bigDataUrl+"/browser/0110/crossdomain.js" type="text/javascript"></script><!---- 安全连接---->
+	<script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/layer/layer.js"></script>
+    <script type="text/javascript" src="../../public/vendor/layer/laypage.js"></script>
+    <!--引入头部 --->
+     <!--<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>-->
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+	<script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    
+    <script type="text/javascript" src="../../public/custom/common.js"></script>
+    <!--引入头部 end --->
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+	
+</head>
+<body>
+
+
+<!--<link rel="stylesheet" type="text/css" href="../../public/pcCss/common/login.css" />-->
+<link rel="stylesheet" type="text/css" href="../../public/pcCss/common/stationNav.css" />
+<!--<script type="text/javascript" src="../../public/pcJs/common/login.js"></script>
+<script type="text/javascript" src="../../public/pcJs/common/stationNav.js"></script>
+<script src="https://www.izyz.org.cn/browser/0110/crossdomain.js" type="text/javascript"></script>-->
+
+
+
+
+
+<header>
+<div class="topBlock poFix">
+
+    
+    <!--Navigation station分站导航-->
+	<div class="popup" style="display:none;z-index:9999">
+		<span class="triangle-up"></span>
+		<dl>
+			<dt>地市</dt>
+			<dd>
+				<span class="citylist" id="cityOrgList"> 
+					
+				</span>
+			</dd>
+			<dt><nobr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高校
+			<div class="orgslistorder_btn" style="line-height:30px;">
+        		<input class="orgslistorder_button inputfoucs" id="keyWordOrg" placeholder="请输入关键字"  maxlength="10" 
+        			onfocus="$(this).css('border','1px solid #ff8814')" onblur="$(this).css('border','1px solid #eee')"/>
+        		<div class="orgslistorder_Iconsearch"></div>
+        		<a href="javascript:void(0);" id="keyWordOrgBtn" class="orgslistorder_searchbtn"/>搜索</a>
+    		</div>
+			<span style="margin-left:73px;">
+				<a href="#" class="gxOrgListL"><img alt="" src="../../public/pcImages/bannerbtnl.png" style="display:inline-block; vertical-align: middle;">&nbsp;&nbsp;</a>
+				<a href="#" class="gxOrgListR">&nbsp;&nbsp;<img alt="" src="../../public/pcImages/bannerbtnr.png" style="display:inline-block; vertical-align: middle;"></a></span>
+			</nobr></dt>
+			<dd>
+				<span class="citylist" id="gxOrgList">
+					
+				</span>
+			</dd>
+		</dl>
+	</div>
+	<!--Navigation station over-->
+
+<style>
+.linkul{padding:0 35px;}
+.linkul li{margin-right:35px !important;}
+.linkul li a{display:block;}
+.linkul li a img{margin:0 auto;}
+</style>
+	<!-- 登录弹出框 -->
+    <div class="dark02 darkLogin"></div>
+    <!-- 登录弹出框 -->
+
+</header>
+<!-- 内容板块 -->
+<div class="yulan w1200">
+    <div class="yulan_box ">
+        <header class="head">
+            <h2 class="color333 fnt20 m_bot30" id="p1"></h2>
+            <p class="m_bot30 pWordBreak" id="p2"></p>   
+        </header>
+        <!-- 分享按钮 -->
+        <div class="shareBox clearfix">
+        	<div class="shareBtn" style="display: none;">
+	        	<a href="javascript:;" class="btn qq"><span>分享到QQ空间</span></a>
+	        	<a href="javascript:;" class="btn wechat" style="position:relative;"><span>分享到微信</span></a>
+	        	<a href="javascript:;" class="btn weibo"><span>分享到微博</span></a>
+        	</div>
+        </div>
+        <!-- 项目简介   --> 
+        <h3 class="fnt16">简介</h3>
+        <div class="m_top20 m_bot30">
+            <p class="fnt14 line_height21 text_indent28 color333 pWordBreak" id="p3"></p>
+        </div>
+        
+        <!-- 风采展示:图片 --> 
+        <div class="img-box" style="display: none;">
+	        <h3 class="fnt16 m_top5" id="p4">风采展示</h3>
+	        <div class="m_top20 imageList" style="width: 100%;">
+	        	<!--<div class="img" style=" width: 700px; height: 400px;margin: 0 auto; padding: 0 30px;">
+	        		 <img style="display: block; width:100%; height:100% ;"   id="projectShow-img" src=""/>
+	        	</div>
+	        	<h3></h3>-->
+	        </div>
+        </div>
+        
+        <!-- 视频播放 --> 
+        <div class="youku-box" style="display: none;">
+        	<h3 class="fnt16 m_top5" id="p4">视频播放</h3>
+        	<div class="m_top20" style="width: 100%;">
+        		<div class="img" style=" width: 700px; height: 400px;margin: 0 auto; padding: 0 30px;">
+	                <iframe frameborder="0" width="700" height="400" src="" allowfullscreen></iframe>
+              		
+        		</div>
+        		<h3></h3>
+        	</div>
+        </div>
+         
+         <!-- 附件 --> 
+        <div class="file_box" >
+        </div>
+         
+        <!-- 支持按钮 -->
+        <div class="btn_support">        
+            <a id="likesProject" href="#" onclick="likesProject()" class="btn_blue ">点赞(<em id="likesNum"class="fnt14">0</em>)</a>
+        </div>  
+       <!--  评论区  -->
+       
+        <h3 class="fnt16 m_top5">评论</h3>
+       <div class="discussBox">
+       		<!-- <div class="head clearfix">
+       			<span class="tit fl">评论</span>
+       		</div> -->
+       		<div class="showBox">
+       			<div class="textareaBox">
+       				<div class="text"><textarea placeholder="说两句吧" id="comment"></textarea></div>
+       				<div class="btn clearfix">
+       					<div class="fr">
+       						<input type="submit" class="fl" id="tijiao" onclick="tijiao()" value="提交" />
+       					</div>
+       				</div>
+       			</div>
+       		</div>
+       		<div class="list" id="postList">
+<!-- 		   		 -->
+			</div>
+			<div id="page1" style="margin-top: 30px;"></div>
+       </div>
+      
+        <!-- 分享到微信弹窗 -->
+	    <div class="sharePopup">
+        	<div class="head clearfix">
+        		<h1 class="fl">分享到微信朋友圈</h1>
+        		<em class="fr close">×</em>
+        	</div>
+        	<div class="qr_code">
+        		<div id="qrCode"></div>
+        	</div>
+        	<div class="bot">
+        		<p>打开微信，点击底部的“发现”，使用 “扫一扫” 即可将网页分享到我的朋友圈。 </p>
+        	</div>
+       	</div>
+    </div>
+</div>
+	<!-- 右浮窗：返回顶部 -->
+ 	<!--<div class="fuchuang conBgc01">
+     	<div class="back colorfff font14"><span class="font14">返回顶部</span></div>
+ 	</div>-->
+	
+	<!-- 站长统计 -->
+	<div style="display:none">
+	    <script src="https://s95.cnzz.com/stat.php?id=1258031328&web_id=1258031328" language="JavaScript"></script>
+	</div>
+</body>
+ <script src="../../public/js/heavy_project/projectShow/projectShow.js"></script>
+</html>
+<script>
+
+/* 点击出现二维码 */
+$('.shareBox .wechat').click(function(){
+	$('.sharePopup').show();
+});
+$('.sharePopup .close').click(function(){
+	$('.sharePopup').hide();
+});
+
+/* 点击分享到微博 */
+$('.shareBox .weibo').click(function(){
+	window.open('//v.t.sina.com.cn/share/share.php?title='+ projectName +':'+projectIntro.substring(0, 42)+'...&url=' + encodeCurrentUrl);	
+});
+/* 点击分享到QQ空间 */
+$('.shareBox .qq').click(function(){
+	window.open(qzoneUrl);
+});
+
+	
+</script>
+
+

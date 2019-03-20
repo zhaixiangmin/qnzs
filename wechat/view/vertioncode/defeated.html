@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>账号申诉失败</title>
+				<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	 <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/register/register.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/login-register/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+
+	<script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+	<!--对话框-->
+	<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+	<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+	<style type="text/css">
+		.padding{padding: 1rem 0.5rem 0  0.5rem;}
+		.zhangdeli{font-size: 0.64rem;line-height: 0.8rem;}
+		
+	</style>
+	</head>
+	<body>
+		<section class="padding">
+			<div class="">
+				
+		   <p class="zhangdeli">你的原手机号<span class="phone_txt"></span>申诉失败,你可重新填写资料进行再次申诉，或用新手机号重新注册新的广东青年之声账号。</p>
+		   
+		 
+			</div>
+			
+		</section>
+	</body>
+</html>
+<script src="../../public/js/module/Utils.js"></script>
+<script>
+	
+	//获取ul传过来的id
+var mobile =Utils.getQueryString("mobile")
+//var s = mobile.slice(0,mobile.length-4);
+
+$('.phone_txt').html(mobile);
+	
+</script>

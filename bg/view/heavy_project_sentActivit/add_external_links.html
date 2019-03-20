@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>重磅项目-后台管理-发布外链项目</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project_sentActivit/zbxm_CMS_index.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/easyui/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/heavy_project_sentActivit/zbxm_CMS_detail.css" />
+    <!--日期插件---->
+    <link rel="stylesheet" id=cal_style type="text/css" href="../../public/vendor/flatpickr/flatpickr.min.css">
+	<style type="text/css">
+		.fl{float: left;}
+		.topTalk #wrapper{margin:10px 0;width:525px;}
+       #filePicker>div[id]{width:168px !important;height:44px !important;top:20px !important;left:50% !important;margin-left:-84px;}
+      #uploader .filelist li{width:80px;height:80px;margin:0 5px 10px 0;}
+        #uploader .filelist li p.imgWrap{width:80px;height:80px;}
+         #uploader .placeholder{min-height:188px;padding-top:108px;background-position:center 43px;}
+	</style>
+    <!-- 第1页 -->
+    <div class="inner_box box1">
+    	<input id="activity_id" type="hidden"/>
+        <!-- 活动类型 -->
+        <div class="leixing clearfix mar_bo30">
+            <label for="" class="font14 color333 fl">活动类型</label>
+            <select name="" id="activityType" class="color333 fl">
+                <option value="赛事">赛事</option>
+                <option value="评选">评选</option>
+                <option value="培训">培训</option>
+                <option value="其他">其他</option>
+            </select>
+            <input id="activityTypeOther" type="text" class="fl moldInp" style="display:none" maxlength="6"/>
+        </div>
+
+        <!-- 活动名称  <button id='zhu' >测试</button>-->
+        <div class="mingcheng clearfix mar_bo30">
+            <label for="" class="font14 color333 fl">活动名称</label>
+            <input id="activityName" placeholder="请输入活动名称" type="text" class="fl" maxlength="100"/>
+        </div>
+
+
+        <!-- banner板块 -->
+        <div class="banner clearfix mar_b30 htBlock">
+            <h3 class="fl font14 color333">banner</h3>
+            <div class="fl">
+                <div class="key_box">
+                	<a href="javascript:;" class="key add">添加</a>
+                	<a href="javascript:;" class="key confirm" style="display:none" style="display:none">确定</a>
+                	<a href="javascript:;" class="key check" style="display:none">查看/编辑</a>
+                	<span class="font12 color2185cf" id="banner_size_span">建议尺寸（1200px * 437px）</span>
+                </div>
+                <div class="upload mar_t20 pad_30 bgcgrey"  style="display:none">
+                    <div style="position: relative;">
+                        <!--<img src="resources/pcImages/000.png" alt="" class="banner_img"/> -->
+                
+                        <a href="javascript:;"style="position: absolute;z-index: 44;" class="key up"><input type="file" name="image_file" id="Updatefile" class="upload_btn" onChange="fileSelected('preview2','image_file1');" />上传</a>
+                        <img id="preview2" style="width: 260px;height: 100%;position: absolute;z-index: 1;" class="pic" height="100" border="0" title="" src="../../public/images/zbxm_logo.png" />
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 报名时间 -->
+        <div class="baoming clearfix mar_bo30">
+            <label for="" class="font14 color333 fl">报名时间</label>
+            <input id="beginTime1" class="fl easyui-datetimebox" style="height: 34px;width: 150px;"> </input>
+            <span id="" style="text-align: center;line-height: 40px;padding: 0px;margin:0px;display: inline-block;">
+            </span>
+            <input id="endTime1" class="fl easyui-datetimebox" style="height: 34px;width: 150px;"> </input>
+        </div>
+
+        <!-- 投票时间 -->
+        <div class="toupiao clearfix mar_bo30">
+            <label for="" class="font14 color333 fl">投票时间</label>
+            <input id="beginTime2" class="fl easyui-datetimebox" style="height: 34px;width: 150px;"> </input>
+             <span id="" style="text-align: center;line-height: 40px;padding: 0px;margin:0px;display: inline-block;">
+             </span>
+            <input id="endTime2" class="fl easyui-datetimebox" style="height: 34px;width: 150px;"> </input>
+        </div>
+
+        <!-- PC端外部链接 -->
+        <div class="mingcheng clearfix mar_bo30">
+            <label for="" class="font14 color333 fl">PC端外链</label>
+            <input id="externalLinksPc" placeholder="请输入PC端外链网址" type="text" class="fl" maxlength="200"/>
+        </div>
+        
+        <!-- 移动端外部链接 -->
+        <div class="mingcheng clearfix mar_bo30">
+            <label for="" class="font14 color333 fl">移动端外链</label>
+            <input id="externalLinksWc" placeholder="请输入移动端外链网址" type="text" class="fl" maxlength="200"/>
+        </div>
+        
+        <!-- 按钮 -->
+        <div class="btn_box">
+             <div class="clearfix">
+				<a id="save_activity" href="javascript:;" onclick="saveActivity()" class="conBgc01 font16 colorfff fl">确认发布</a>
+                <a onclick="cancelSave()" href="javascript:;" class="cancel font16 colorfff fl">取消</a>
+             </div>
+        </div> 
+    </div>
+
+</body>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js" ></script>
+	<script src="../../public/js/heavy_project_sentActivit/common_external_add_edit.js"></script>
+    
+    <!---图片上传插件---->
+    <!--<script src="../../public/vendor/jqueryfileupload/jquery-3.2.1.min.js"></script>-->
+    <script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jqueryfileupload/jquery.iframe-transport.js"></script>
+    <script src="../../public/js/heavy_project_sentActivit/add_external_links.js"></script>
+    
+</html>
+

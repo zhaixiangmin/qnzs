@@ -1,0 +1,76 @@
+{
+  "rows": [
+    {
+      "name": "金平区",
+      "fullName": "金平区",
+      "disabled": false,
+      "oid": "JPQNZS",
+      "sort": 4001,
+      "type": 1,
+      "parentId": "SHANTOU",
+      "did": "440500"
+    },
+    {
+      "name": "龙湖区",
+      "fullName": "龙湖区",
+      "disabled": false,
+      "oid": "LHQQNZS",
+      "sort": 4002,
+      "type": 1,
+      "parentId": "SHANTOU",
+      "did": "440500"
+    },
+    {
+      "name": "澄海区",
+      "fullName": "澄海区",
+      "disabled": false,
+      "oid": "CHQQNZS",
+      "sort": 4003,
+      "type": 1,
+      "parentId": "SHANTOU",
+      "did": "440500"
+    },
+    {
+      "name": "濠江区",
+      "fullName": "濠江区",
+      "disabled": false,
+      "oid": "HJQNZS",
+      "sort": 4004,
+      "type": 1,
+      "parentId": "SHANTOU",
+      "did": "440500"
+    },
+    {
+      "name": "潮阳区",
+      "fullName": "潮阳区",
+      "disabled": false,
+      "oid": "CYQNZS",
+      "sort": 4005,
+      "type": 1,
+      "parentId": "SHANTOU",
+      "did": "440500"
+    },
+    {
+      "name": "潮南区",
+      "fullName": "潮南区",
+      "disabled": false,
+      "oid": "CNQNZS",
+      "sort": 4006,
+      "type": 1,
+      "parentId": "SHANTOU",
+      "did": "440500"
+    },
+    {
+      "name": "南澳县",
+      "fullName": "南澳县",
+      "disabled": false,
+      "oid": "NAQNZS",
+      "sort": 4007,
+      "type": 1,
+      "parentId": "SHANTOU",
+      "did": "440500"
+    }
+  ],
+  "total": "7",
+  "status": "OK"
+}

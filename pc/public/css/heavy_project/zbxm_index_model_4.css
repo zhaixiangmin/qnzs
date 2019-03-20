@@ -1,0 +1,86 @@
+body{background-color: #eee;}
+.padding_0_30{padding:0 30px;}
+.bgc_white{background-color: #fff;}
+.margin_b_30{margin-bottom:30px;}
+/* 头部 */
+.header_box{background-color: #333;}
+.header_box .logo{margin-right:140px;}
+.header_box .logo a{background-image: url(../../img/zbxm_logo_4.png);}
+.header_box .nav_li a{color:#fff;}
+.header_box .nav_li:hover a,
+.header_box .nav_li.cur a{background-color: #1bce8d;}
+.header_box_r .homepage{background-image: url(../../img/zbxm_homepage2.png);}
+.header_box_r .login{background-image: url(../../img/zbxm_login2.png);}
+/* banner */
+.banner_box{height:400px;position: relative;background-size:cover;margin-bottom:40px;}
+.banner_box .rolling_box{position: absolute;bottom:20px;width:100%;}
+.banner_box .rolling_list_box{width:auto;}
+.banner_box .rolling_box .item{margin-right:20px;height:50px;line-height:50px;background-color:rgba(0,0,0,.1);border-radius:25px;float: left;/* width:470px; */}
+.banner_box .rolling_box .item_con{padding:10px 30px 10px 25px;line-height:30px;height:30px;}
+/* .banner_box .rolling_box .item_con>*{overflow: hidden;white-space:nowrap;text-overflow:ellipsis;} */
+.banner_box .rolling_box .pic_box{width:30px;height:30px;overflow:hidden;border-radius:50%;}
+.banner_box .rolling_box .pic{width:100%;height:100%;}
+.banner_box .rolling_box .user_name{margin:0 10px 0 20px;color:#fff;/* width:16%; */}
+.banner_box .rolling_box .user_do{font-size:14px;font-weight: bold;color:#333;margin-right:20px;/* width:55%; */}
+.banner_box .rolling_box .time{color:#fff;}
+/* 各板块共用样式 */
+.section_box .content_title_box{margin-bottom:30px;padding-top:27px;}
+.section_box .content_title_box .content_title{font-size:18px;color:#1bce8d;line-height:24px;height:24px;padding-left:34px;}
+.section_box .content_title_box .more_btn{width:auto;line-height:24px;height:24px;color:#333;font-weight: bold;border:none;}
+.more_btn:hover{background-color:transparent;color:#999 !important;}
+/* 活动介绍以及报名要求 */
+.intro_require_box .con_left{width:643px;background-color: #fff;height:300px;}
+.intro_require_box .con_left .content_title{background-image: url(../../img/zbxmIndex4IntroIcon.png);}
+.intro_require_box .con_left .pic_box{width:260px;height:188px;overflow: hidden;}
+.intro_require_box .con_left .right_txt{width:347px;}
+.intro_require_box .con_left .right_txt p{color:#333;line-height:24px;margin-top:-6px;}
+.intro_require_box .con_right{background-color: #fff;width:412px;height:300px;}
+.intro_require_box .con_right .content_title{background-image: url(../../img/zbxmIndex4SignIcon.png);}
+.intro_require_box .con_right .item{margin-bottom:30px;background:url(../../imgliuchengGray.png) no-repeat left center;background-size:4px;}
+.intro_require_box .con_right .item:last-child{margin-bottom:0;}
+.intro_require_box .con_right .item_con{display: block;line-height:12px;height:12px;color:#333;padding-left:28px;}
+/* 评选流程 */
+.selection_process.section_box{padding-bottom:0;margin-top:0;}
+.selection_process .content,
+.participator_work .content{background-color: #fff;}
+.selection_process.section_box .content_title,
+.participator_work.section_box .content_title,
+.sponsor_partner_contact .sp_pa .content_title{background-image: url(../../img/zbxm_pxlc_icon_3.png);}
+.selection_process .content_b{text-align: center;font-size:0;padding-bottom:30px;}
+.section_box.selection_process .content_b_list{display:inline-block;}
+.selection_process.section_box .item{float: left;width:202px;height:278px;border-radius:80px 0 80px 0;margin-right:30px;}
+.section_box.selection_process .item_con{font-size:12px;}
+.section_box.selection_process .item_con .process_date{line-height:20px;width:100%;padding:0 22px;box-sizing:border-box;}
+.section_box.selection_process .item_con .year{width:40px;line-height:20px;height:20px;border-radius:10px;background-color: #ccc;text-align: center;}
+/* 参赛者作品 */
+.participator_work .work_show_box{width:auto;padding:0 15px;}
+.participator_work .work_show_box .work_list{height:540px; text-align: center;}
+.participator_work .work_show_box .item{margin:0 15px 30px;background-color: #eee;}
+.participator_work .work_show_box .item_con{height:240px;width:204px;}
+.participator_work .work_show_box .work_vote{background-color: #eee;height:117px;}
+.participator_work .content_title_box .more_btn{background-color:transparent;}
+.participator_work .select_title.cur{background-color: #1bce8d;}
+.participator_work .work_show_box .work_pic_box{padding:15px 15px 0;height:108px;}
+.participator_work .work_show_box .work_vote .project_name{padding-top:12px;}
+.participator_work .work_show_box .work_vote .txt{font-size:12px;line-height:22px;}
+.participator_work .work_show_box .work_vote .applicant{margin-bottom:10px;}
+.participator_work .work_show_box .work_vote .vote_btn:hover{background-color: #1bce8d;}
+/* 赞助商、合作伙伴、联系电话  */
+.sponsor_partner_contact{margin-bottom:98px;}
+.sponsor_partner_contact .sp_pa{width:703px;}
+.sponsor_partner_contact .sp_pa .con_list{padding:0 25px;}
+.sponsor_partner_contact .sp_pa .con_list .item{float: left;margin:0 5px 15px;}
+.sponsor_partner_contact .sp_pa_con{padding-bottom:15px;}
+.sponsor_partner_contact .contact_phone{width:468px;height:120px;font-weight: bold;color:#ff8814;background:#fff url(../../img/phone.png) no-repeat 60px center;}
+.sponsor_partner_contact .contact_phone .con{padding-left:154px;padding-top:25px;}
+.sponsor_partner_contact .contact_phone .title{font-size:18px;line-height:30px;}
+.sponsor_partner_contact .contact_phone .phone_number{font-size:30px;line-height:36px;}
+
+/*重磅项目四—参赛团队页面*/
+.pageNumBox{padding-top:33px;}
+.pageNumBox .pageNumCon .pageNum a.cur{background-color:#1bce8d;color:#fff;border-color:#1bce8d;}
+
+/*重磅项目四—项目详情页面*/
+.dynamic_box{margin-top:30px !important;}
+.dynamic_box .content .content_title{font-size:18px !important; line-height: 35px; height: 35px; color:#1bce8d !important;font-weight: bold;background:none !important;margin-bottom: 20px; padding-left:0px !important;}
+.dynamic_box .content .content_box,.requirement_box .content .baoming_box,.pingxuan .content .pingxuan_box,.reward .content .reward_box{border:none !important;}

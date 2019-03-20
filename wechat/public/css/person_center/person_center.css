@@ -1,0 +1,168 @@
+body {
+    background: #ebebeb;
+}
+
+.box {}
+.box .img_box {
+    display: block;
+    margin-bottom: 1.2rem;
+    padding: 0.6rem 1.2rem 0.6rem 0.6rem;
+    background: url(../../img/next.png) no-repeat right 0.6rem center #fff;
+    background-size: 0.28rem auto;
+    overflow: hidden;
+}
+.box .img_box .img_content {
+    float: left;
+    width: 2.4rem;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    text-align: center;
+    font-size: 0;
+    background: #ebebeb;
+}
+.box .img_box .img_content img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+    display: inline;
+}
+.box .img_box .info {
+    margin-left: 0.4rem;
+    float: left;
+}
+.box .img_box .name {
+    line-height: 1.5rem;
+    font-size: 0.6rem;
+    color: #333;
+}
+.box .img_box .type {
+    line-height: 0.9rem;
+    font-size: 0.48rem;
+    color: #999;
+}
+
+.list {
+    margin-bottom: 2.3rem;
+    line-height: 1.2rem;
+    font-size: 0.6rem;
+}
+.list .more_item {
+    margin-bottom: 0.6rem;
+    background: #ebebeb;
+}
+.list .more_item .first_item {
+    padding: 0.2rem 1.2rem 0.2rem 0.6rem;
+    background: url("../../img/downArrow.png") no-repeat right 0.6rem center #fff;
+    background-size: 0.48rem;
+}
+.list .more_item.active .first_item {
+    background-image: url("../../img/up.png");
+}
+
+.list .more_item .first_item .icon_item {
+    padding-left: 1.2rem;
+    background: url("../../img/wodecanyu.png") no-repeat left center;
+    background-size: 0.8rem;
+}
+.list .more_item.publish .first_item .icon_item {
+    background-image: url("../../img/wodefabu.png");
+}
+.list .more_item.comment .first_item .icon_item {
+    background-image: url("../../img/tiwen.png");
+}
+.list .more_item.focus .first_item .icon_item {
+    background-image: url("../../img/guanzhu.png");
+}
+.list .more_item.collection .first_item .icon_item {
+    background-image: url("../../img/wodeshoucang.png");
+}
+.list .more_item .second_item {
+    margin-top: 1px;
+    background: #fff;
+    overflow: hidden;
+}
+.list .more_item .second_item a {
+    padding-top: 1.7rem;
+    padding-bottom: 0.3rem;
+    float: left;
+    width: 25%;
+    line-height: 1rem;
+    text-align: center;
+    font-size: 0.48rem;
+    color: #333;
+    background: url("../../img/botIcon02_blue.png") no-repeat center top 0.8rem;
+    background-size: auto 0.9rem;
+}
+.list .more_item .second_item a.heavy {
+    background-image: url("../../img/zbxmIcon.png");
+}
+.list .more_item .second_item a.consult {
+    background-image: url("../../img/zixunIcon.png");
+}
+.list .more_item .second_item a.help {
+    background-image: url("../../img/qiuzhuIcon.png");
+}
+.list .more_item .second_item a.offline_service {
+    background-image: url("../../img/xxfwIcon.png");
+}
+.list .more_item .second_item a.host {
+    background-image: url("../../img/host.png");
+}
+
+
+.list .item {
+    display: block;
+    margin-bottom: 1px;
+    padding: 0.2rem 1.2rem 0.2rem 0.6rem;
+    background: url("../../img/next.png") no-repeat right 0.6rem center #fff;
+    background-size: 0.28rem auto;
+}
+.list .item .icon_item {
+    padding-left: 1.2rem;
+    background: url("../../img/wodexiaoxi.png") no-repeat left center;
+    background-size: 0.8rem;
+}
+.list .item.activity .icon_item {
+    background-image: url("../../img/act_publish.png");
+}
+.list .item.roast .icon_item {
+    background-image: url("../../img/wodetiwen.png");
+}
+.list .item.second_lesson .icon_item {
+    background-image: url("../../img/my_2nd_class.png");
+}
+.list .item.one .icon_item {
+    background-image: url("../../img/wodeNavIcon9.png");
+}
+.list .item.tutor .icon_item {
+    background-image: url("../../img/apply_teacher.png");
+}
+.list .item.switch .icon_item {
+    background-image: url("../../img/administrator.png");
+}
+.list .item.league .icon_item {
+    background-image: url("../../img/league-badge.png");
+}
+
+
+
+
+/* 底部导航 */
+.morebtn { line-height: 1.32rem; text-align: center; font-size: 0.48rem; height: 1.32rem; background-color: #fff; }
+footer { position: fixed; width: 100%; background-color: #333333; left: 0; bottom: 0; z-index: 500; }
+footer ul li { width: 20%; float: left; }
+footer ul li.cur { background-color: #2185cf; }
+footer ul li a { display: block; text-align: center; }
+footer ul li a .imgDiv { text-align: center; width: 100%; height: 1.24rem; background: url(../../img/botIcon01.png) no-repeat; background-size: 0.9rem; }
+footer ul li:nth-of-type(1) a .imgDiv { background-position: center 0.48rem; }
+footer ul li:nth-of-type(2) a .imgDiv { background-position: center 0.36rem; background-image: url(../../img/botIcon02.png); background-size: 0.84rem; }
+footer ul li:nth-of-type(3) a .imgDiv { background-position: center 0.36rem; background-image: url(../../img/botIcon03.png); }
+footer ul li:nth-of-type(4) a .imgDiv { background-position: center 0.4rem; background-image: url(../../img/botIcon04.png); }
+footer ul li:nth-of-type(5) a .imgDiv { background-position: center 0.36rem; background-size: 0.66rem; background-image: url(../../img/botIcon05.png); }
+footer ul li:nth-of-type(1).cur a .imgDiv { background-image: url(../../img/botIcon01_cur.png); }
+footer ul li:nth-of-type(2).cur a .imgDiv { background-image: url(../../img/botIcon02_cur.png); }
+footer ul li:nth-of-type(3).cur a .imgDiv { background-image: url(../../img/botIcon03_cur.png); }
+footer ul li:nth-of-type(4).cur a .imgDiv { background-image: url(../../img/botIcon04_cur.png); }
+footer ul li:nth-of-type(5).cur a .imgDiv { background-image: url(../../img/botIcon05_cur.png); }
+footer ul li a h6 { color: #fff; font-size: 0.48rem; padding-bottom: 0.24rem; padding-top: 0.16rem; }
+

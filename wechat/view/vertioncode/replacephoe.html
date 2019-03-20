@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>替换手机号</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	 <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/login-register/register/register.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/login-register/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js"></script>
+
+	<script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+	<!--对话框-->
+	<script type="text/javascript" src="../../public/custom/dialog.js"></script>
+	<script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+	<script src="../../public/js/ajax/ajax2.js"></script>
+	
+	<style type="text/css">
+		.padd_box{padding: 4.2rem 0.6rem 0 0.6rem;}
+		.htgih{width:30%;height: 1.2rem;line-height: 1.2rem;display: inline-block;font-size: 0.62rem;}
+		.set_pawwd{margin-bottom: 0.4rem;padding-bottom: 0.4rem;}
+		#newpaserd,#suerpaserd {width: 65%;height: 1.2rem;line-height: 1.2rem;display: inline-block;padding-left: 0.32rem;font-size:0.64rem;
+color: #999999;}
+		#suernumber{width: 50%;height: 1.2rem;line-height: 1.2rem;display: inline-block;padding-left: 0.32rem;font-size:0.64rem;
+color: #999999;}
+		.showtexte{width: 10%;height: 1.2rem;line-height: 1.2rem;display: inline-block;font-size: 0.48rem;text-align: center;color: rgb(0, 0, 204)}
+		.suergur{width: 90%;height: 2rem;line-height: 2rem;color: white;background-color: #2185CF;font-size: 0.72rem;margin: 1.6rem auto;text-align: center;border-radius:1rem}
+		.shownumber{display: inline-block;width: 33%;height: 1.2rem;line-height: 1.2rem;color: white;background-color: #169BD5;font-size:0.48rem;text-align: center;border-radius: 0.2rem;}
+		.tendeder{display: block;width: 100%;font-size: 0.56rem;color: #2185CF;height: 0.56rem;height: 0.56rem;text-align: right;}
+	</style>
+	</head>
+	<body>
+		
+		<section class="padd_box">
+			
+			<div class="set_pawwd">
+				<input type="text" id="newpaserd" class="newphone"  placeholder="请输入新的手机号">
+			</div>
+			
+	        <div class="set_pawwd">
+				<input type="text" id="suerpaserd"   class="imgcode" placeholder="请输入图片验证码"><img id="imagesyanz" onclick="changeModel()"  class="htgih"  src="" alt="验证码">
+			</div>
+			
+			<div class="set_pawwd">
+				<input type="text" id="suernumber" class="infocode" placeholder="请输入短信验证码"><span class="shownumber msgCode"  style="float: right;" onclick="sendYanzhengCode()">获取验证码</span>
+			</div>
+			<!--<a href="notcode.html" class="tendeder">收不到验证码，点击这里</a>-->
+			<p class="suergur">确定</p>
+			
+		</section>
+	</body>
+</html>
+<script src="../../public/js/vertioncode/replacephoe.js"></script>

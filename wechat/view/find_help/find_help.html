@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <!-- No Less! -->
+    <title>找帮助-首页</title>
+
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/hd_footerNav.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/find_help/find_help.css" />
+    <script type="text/javascript">
+        !function(n){var e=n.document,t=e.documentElement,i=750,d=i/50,o="orientationchange"in n?"orientationchange":"resize",a=function(){var n=t.clientWidth||320;n>750&&(n=750),t.style.fontSize=n/d+"px"};e.addEventListener&&(n.addEventListener(o,a,!1),e.addEventListener("DOMContentLoaded",a,!1))}(window);
+    </script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/vendor/touch_slide/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Qnzs.js"></script>
+    <!--<script type="text/javascript" src="../../public/js/ajax/ajax2.js"></script>-->
+    <!--公共底部栏-->
+    <script type="text/javascript" src="../../public/custom/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FindHelpApi.js"></script>
+    <script type="text/javascript" src="../../public/js/find_help/find_help.js"></script>
+
+</head>
+<body class="bodyPB">
+    <section class="searchBox clearfix">
+       <input type="text" id="searchText" class="fl fz26" placeholder="搜索帮助" style="width:100%;" />
+        <a href="javascript:;" class="fr disB fz26 colorfff" id="submit_search" style="display: none;">搜索</a>
+    </section>
+    <section class="banner" id="banner">
+        <div class="hd" style="display:none;"><ul></ul></div>
+        <div class="bd">
+            <ul>
+                <!--<li><a href="javascript:;" class="disB"><img src="../../public/img/banner.png"/></a></li>-->
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- 菜单导航 -->
+    <section class="menu mb20 bgcWhite">
+        <ul class="clearfix">
+            <li class="fl">
+                <a href="find_help_list.html?helpType=贫困助学" class="disB color000 fz28">
+                    <img src="../../public/img/zhuxue.png"/>
+                    <h6 class="fz28">贫困助学</h6>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="find_help_list.html?helpType=重症救助" class="disB color000 fz28">
+                    <img src="../../public/img/zhongbingjiuzhu.png"/>
+                    <h6 class="fz28">重症救助</h6>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="find_help_list.html?helpType=灾害救助" class="disB color000 fz28">
+                    <img src="../../public/img/zaihaijiuzhu.png"/>
+                    <h6 class="fz28">灾害救助</h6>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="find_help_list.html?helpType=志愿服务" class="disB color000 fz28">
+                    <img src="../../public/img/izhiyuan_2.png"/>
+                    <h6 class="fz28">志愿服务</h6>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="classification.html" class="disB color000 fz28">
+                    <img src="../../public/img/zhaowendaMenu05.png" />
+                    <h6 class="fz28">更多</h6>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- 人人为我，我为人人 -->
+    <section class="helpEachOther clearfix bgcWhite mb20">
+        <a href="find_help_list.html?auditStatus=1" class="disB fl">
+            <div>
+                <div class="content color333 fz30 disIB" >我要帮TA</div>
+            </div>
+        </a>
+        <a href="organization_list.html" class="disB fl">
+            <div class="content color333 fz30 disIB">我要求助</div>
+        </a>
+    </section>
+    <!-- 求助中\已解决\经典案例 -->
+    <section class="bgcWhite mb20 case">
+        <div class="title_box p_0_30 lineH78 fz28 clearfix">
+            <span class="cur fl title_item">求助中</span>
+            <span class="color000 fl title_item">已解决</span>
+            <em class="fr disB" id="arrow_icon_find_help"></em>
+        </div>
+        <!-- content01 -->
+        <div class="content content01 pl_30">
+            
+        </div>
+        <!-- content02 -->
+        <div class="content content02 pl_30">
+            
+        </div>
+    </section>
+    <!-- 推荐组织 -->
+    <section class="tuijianzuzhi bgcWhite">
+        <div class="title p_0_30 lineH78 fz28 clearfix">推荐组织<em class="fr disB" id="arrow_icon_organization"></em></div>
+        <!--推荐组织列表-->
+    </section>
+
+</body>
+</html>

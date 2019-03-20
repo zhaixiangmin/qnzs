@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>广东青年之声后台理</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <link rel="stylesheet" type="text/css" href="public/css/common/style.css">
+      <link rel="stylesheet" type="text/css" href="public/css/common/houtai.css">
+      <link rel="stylesheet" type="text/css" href="public/css/common/menuleft.css">
+      <link rel="stylesheet" type="text/css" href="public/vendor/bootstrap/bootstrap.min.css"/>
+      <link rel="stylesheet" type="text/css" href="public/css/common/check.css"/>
+     
+       <script src="public/vendor/jquery/jquery-1.8.3.min.js"></script>
+       <script src="public/js/ajax/ajax2.js"></script>
+       <script type="text/javascript" src="public/js/module/Qnzs.js">
+     	
+     </script>
+     <!--<script src="js/request-ajax/index.js"></script>--> 
+
+</head>
+<body style="overflow-y:hidden;">
+
+    <div class="container-fluid" id="content">
+ 
+   <!-- left start -->
+   <div id="left" style="overflow-y: scroll;">
+   <div style="height:65px; color:#fff; width: 65px;margin: 0 auto" class="orange_ment"><!--<img src="" alt=""/ width="100%" height="100%" style="display: block;">--></div>
+   <!-- menu start -->
+   <div class="menu">
+	  <ul>
+        <li><a href="javascript:void(0)">应用支持平台管理</a>
+                <ul class="sub_menu" style="display:block">
+                     <li><a class="J_menuItem" href="view/organization/Organization-management.html" target="mainFrame" data-index="2"><span class="glyphicon glyphicon-file"></span>组织管理</a></li>
+                     <li><a class="J_menuItem" href="view/role/role.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>角色管理</a></li>
+                     <li><a class="J_menuItem" href="view/menu/menu.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>菜单管理</a></li>
+                     <li><a class="J_menuItem" href="view/user/user.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>用户管理</a></li>
+                   <!--  <li><a class="J_menuItem" href="日志管理.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>日志管理</a></li>-->
+                     <li><a class="J_menuItem" href="view/banner/banner.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>首页banna管理</a></li>
+                     <li><a class="J_menuItem" href="view/expert/expert.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>专家管理</a></li>
+                     <li><a class="J_menuItem" href="view/offline_service_station/offline_service_station.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>线下服务站管理</a></li>
+                     <li><a class="J_menuItem" href="view/findConsult/service_category.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>服务类别管理</a></li>
+                     <li><a class="J_menuItem" href="view/findConsult/service_question.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>在线问题管理</a></li>
+                    <li><a class="J_menuItem" href="view/findConsult/service_answer.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>在线回答管理</a></li>
+                    <!-- <li><a class="J_menuItem" href="创投项目管理.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>创投项目管理</a></li>-->
+                     <li><a class="J_menuItem" href="view/find_active/management_activitie.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>找活动管理</a></li>
+                     <li><a class="J_menuItem" href="view/find_active/PosterActive.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>活动海报管理</a></li>
+                     <li><a class="J_menuItem" href="view/find_help/find_help.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>找帮助管理</a></li>
+                     <li><a class="J_menuItem" href="view/find_active/classify_activit.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>找活动分类</a></li>
+                     <li><a class="J_menuItem" href="view/find_active/Class_Teaching.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>第二课堂类型管理</a></li>
+                  <!--   <li><a class="J_menuItem" href="view/find_active/Resultsdetail.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>第二课堂成绩明细</a></li>-->
+                     <li><a class="J_menuItem" href="view/find_active/StudentMentag.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>第二课堂活动管理</a></li>
+                    <!-- <li><a class="J_menuItem" href="view/find_active/PersonneleMent.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>第二课堂报名人员管理</a></li>-->
+                     <li><a class="J_menuItem" href="view/find_active/StudentInfo.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>第二课堂学生信息管理</a></li>
+                     <li><a class="J_menuItem" href="view/find_active/StatisticsActive.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>找活动统计</a></li>
+                     <li><a class="J_menuItem" href="view/offline_service/offline_service.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>线下服务管理</a></li>
+                    <!-- <li><a class="J_menuItem" href="举报管理.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>举报管理</a></li>-->
+                     <li><a class="J_menuItem" href="view/heavy_project/heavy_project.html" target="mainFrame" data-index="2"><span class="glyphicon glyphicon-file"></span>重磅项目管理</a></li>
+
+                     
+                     <li><a class="J_menuItem" href="view/heavy_project/heavy_project_partake.html" target="mainFrame" data-index="2"><span class="glyphicon glyphicon-file"></span>重磅项目参与者管理</a></li>
+                </ul>
+        </li>
+          <!--<li><a href="javascript:void(0)">青年惠</a>
+                <ul class="sub_menu">
+                     <li><a class="J_menuItem" href="奖品管理.html" target="mainFrame" data-index="2"><span class="glyphicon glyphicon-file"></span>奖品管理</a></li>
+                     <li><a class="J_menuItem" href="获奖信息管理.html" target="mainFrame" data-index="3"><span class="glyphicon glyphicon-file"></span>获奖信息管理</a></li>
+                </ul>
+         </li>-->
+		
+	  </ul>
+   </div>
+   <!-- menu end -->
+   </div>
+   <!-- left end -->
+
+   	
+  
+   <!-- right start --> 
+   <div class="right">
+    <div style="height:70px; background-color:#f2f2f2; position:relative;">
+        <div class="return" style="width: 500px;">
+           <ul>
+               <li><a href="#shop"><span class="glyphicon glyphicon-home">返回首页</span></a></li>
+               <li id="userBtn1"><a href="#shop"><span class="glyphicon glyphicon-user" data-toggle="modal" data-target="#user-login">登录</span></a></li>
+               <li><a href="#shop"><span class="glyphicon glyphicon-edit" data-toggle="modal" data-target="#user-add">修改密码</span></a></li>
+               <li><a href="#shop"><span class="glyphicon glyphicon-off">退出</span></a></li>
+           </ul>
+        </div>
+    </div>
+        <!-- topbar start --> 
+        <div id="topbar">
+           <div class="topbar_left">
+             <div class="ad-top-comment" >  
+                 <div class="ad-sub-nav-box content-tabs" >
+                 <a href="javascript:;" class="scm jian-a sub-sel pre j_tabBg J_tabLeft"></a>
+                     <div class="ad-sub-wraper page-tabs J_menuTabs" >
+                        <ul class="ad-sub-list page-tabs-content">
+                           <li class="active J_menuTab" data-id="welcome.html">首页</li>        
+                        </ul>
+                     </div>
+                <a href="javascript:;" class="scm jian-a next j_tabBg J_tabRight"></a>
+                 </div>
+            </div>
+          </div>
+       </div>
+        <!-- topbar end --> 
+        
+        <!-- iframe start -->  
+          <div class="ad-main-comment J_mainContent" id="ad-iframe">
+                <iframe class="J_iframe" name="mainFrame" width="100%" height="100%" src="view/index/welcome.html" frameborder="0" data-id="welcome.html" seamless></iframe>
+          </div>
+        <!-- iframe start -->        
+     </div>
+   <!-- right end --> 
+</div>
+<!-- 新增框（Modal） -->
+<div class="modal fade" id="user-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					密码修改
+				</h4>
+			</div>
+			<div class="modal-body">
+		    <form method="get" class="form-horizontal">
+                 　
+                   <div class="form-group">
+                        <label class="col-sm-2 control-label">原密码:</label>
+                        <div class="col-sm-6">
+                              <input type="text" class="form-control">
+                        </div>  
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">新密码:</label>
+                        <div class="col-sm-6">
+                              <input type="text" class="form-control">
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">确认密码:</label>
+                       <div class="col-sm-6">
+                              <input type="text" class="form-control">
+                        </div> 
+                    </div>
+                </form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 新增框（Modal）end -->
+
+
+
+<!---- 登录模板------->
+
+<div class="modal fade" id="user-login" tabindex="-1" data-target="bs-example-modal-sm" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					用户登录
+				</h4>
+			</div>
+			<div class="modal-body">
+		    <form method="get" class="form-horizontal">
+                 　
+                   <div class="form-group">
+                        <label class="col-sm-3 control-label"><span id="checkRedFly">*</span>登录名：</label>
+                        <div class="col-sm-5">
+                              <input type="text" class="form-control" id="index-login-userName">
+                        </div>  
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><span id="checkRedFly">*</span>登录密码：</label>
+                        <div class="col-sm-5">
+                              <input type="text" class="form-control" id="index-login-userPad">
+                        </div> 
+                    </div>
+                    
+                </form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-warning" data-dismiss="modal"><span class="glyphicon glyphicon-remove" >取消</span>
+				</button>
+				<button type="button" class="btn btn-info" id="indexloginBtn1">
+				<span class="glyphicon glyphicon-remove">登录</span>
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- 新增框（Modal）end -->
+
+
+<script src="public/vendor/bootstrap/bootstrap.min.js"></script>
+<script src="public/js/contabs.js"></script>
+
+
+<script>
+    $('.menu ul li').click(function(){
+	  $(this).children().show().parent().siblings().children().next().hide();
+    })
+	$('.menu .sub_menu li a').click(function(){
+		$(this).css("color","#5bc0de").parent().siblings().children().css("color","#a6a6a6");
+	})
+	
+	
+	
+	$('#indexloginBtn1').click(function(){
+	  
+	var userId= $('#index-login-userName').val();
+	var userPad= $('#index-login-userPad').val();
+
+	obj.ajax('/pc/account/login',{'mobile':userId,'password':userPad},
+	
+	function(data){
+		
+		 	alert(data.msg);
+		if(data.status=='ERROR'){
+           	
+           }else{
+           		$('#user-login').modal('hide');
+           	alert('登录成功！');
+           }
+           
+	},function(){console.log('登录失败！')});
+	
+})
+	
+	$(function(){
+		
+		$.ajax({
+			type: "get",
+			url: Qnzs.path + "/commons/getSessionAccount",
+			dataType: "JSON",
+			success: function(data) {
+				var data=data.account;
+				
+			$('.return ul').prepend('<li><a href="#shop"><span class="glyphicon glyphicon-globe">'+data.orgName+'</span></a></li>')	
+			$('.orange_ment').append('<img src="'+data.photoUrl+'" alt=""/ width="100%" height="100%" style="display: block; border-radius: 50%;">')	
+			}
+			
+	})
+	})
+	
+	
+	
+	
+</script>
+</body>
+</html>

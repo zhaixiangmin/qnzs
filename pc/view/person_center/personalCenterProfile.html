@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv= "X-UA-Compatible" content = "IE=edge,chrome=1"/>
+    <title>个人中心-个人资料</title>
+     <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/person_center/personalCenterProfile.css" />
+     <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+    <script src="" type="text/javascript" id="js1"></script><!---- 安全连接---->
+    <script> 
+      document.getElementById('js1').src = bigDataUrl+'/browser/0110/crossdomain.js';
+      
+    </script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <script type="text/javascript" src="../../public/vendor/jquery/jqueryUi-v1.10.4.js"></script>
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script src="//open.web.meitu.com/sources/xiuxiu.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+    <script type="text/javascript" src="../../public/js/personCenter/personalCenterProfile.js"></script>
+    
+    
+    <style>
+    	object {
+    		position: absolute;
+    		left: 40%;
+    		top: 100px;
+    		display: none;
+    	}
+    	.select select{float: left;border:1px solid #ccc;margin-right: 15px;}
+    	.fl{float: left;}
+    	.register_main_container{background-color: #fff;}
+
+.register_main_container .item_common .right_input,
+.select{border:1px solid #ccc;padding:0 12px;width:272px;line-height:33px;height:33px;}
+#imagesyanz{width: 120px;height: 40px;display: block;float: left;vertical-align: middle;cursor: pointer;}
+	</style>
+    </style>
+    
+</head>
+<body>
+    <!-- 基本信息 -->
+    <div class="basic_info_box info_common_box bgcWhite">
+        <div class="container">
+            <h1 class="top_title color2185cf">基本信息</h1>
+            <div class="common_item_box clearfix">
+                <span class="left_title fl">昵称</span>
+                <div class="right_box">
+                    <input type="text" id="realname" class="right_input right_txt"  maxlength="11" />
+                </div>
+            </div>
+            <div class="clearfix common_item_box upload_user_pic">
+                 <span class="left_title fl">头像</span>
+                 <div class="right_box clearfix">
+                     <div class="user_pic fl">
+    
+                          <img id="user_head_img" class="pic" height="100" border="0" title="" src="public/img/act06.png" />
+                     </div>
+                     <div class="pic_upload fl">
+                         <a href="javascript:;" class="upload_btn_box">
+                            <div id="upload2">上传头像</div>
+                            <!--<input type="file" name="image_file" id="Updatefile" class="upload_btn" onChange="fileSelected('preview2','image_file1');" />-->
+                             <!--<input type="file" class="upload_btn" />-->
+                           <!--<div class="btn upload">建议尺寸(1900px*380px)<input type="file" name="image_file" id="Updatefile" class="upload_pic" onChange="fileSelected('preview2','image_file1');" /></div>-->
+                            
+                         </a>
+                     </div>
+                 </div>
+            </div>
+            <div class="common_item_box clearfix">
+                 <span class="left_title fl">用户类型</span>
+                 <div class="right_box">
+                    <p class="right_txt"><span id="userType">个人用户<span></p>
+                </div>
+            </div>
+            <div class="common_item_box clearfix">
+                 <span class="left_title fl">所属地区</span>
+                <div class="" style="width: 500px;">
+                       
+                        <select  class="select fl" id="oidType" onchange="oidType(this)" style="width: 100px;">
+                                    <option value="-1">请选择</option>
+                                    <option value="1">地市</option>
+                                    <option value="2">高校</option>
+                  	    </select>
+                  	    <!--2级-->
+                         <select id="cityOid" class="select fl"  name="cityOid" onchange="oidCity(this)" style="width: 110px;">
+		                 </select>
+	                 	<select id="shcoolOid" class="select fl"  name="shcoolOid"  onchange="oidSchool(this)" style="width: 110px;">
+	                 	</select>
+		                 <!--3级-->
+                         <select id="areaOid" class="select fl"  onchange="quxuan(this)" style="width: 100px;">
+								<option value="-1">--区/县--</option>
+			             </select>
+	                    <select id="classOid"  class="select fl"  onchange="quxuan(this)" style="width: 100px;">
+								<option value="-1">--分院--</option>
+			            </select>
+                        <span id="spa8" class="spa spa8"></span>
+                    </div>
+            </div>
+            
+            <!--<div class="common_item_box clearfix">
+                 <span class="left_title fl">登录账号</span>
+                 <div class="right_box">
+                    <p class="right_txt" id="loginName">zjc123</p>
+                </div>
+            </div>-->
+            <div class="common_item_box clearfix">
+                 <span class="left_title fl">电子邮箱</span>
+                 <div class="right_box">
+                    <p class="right_txt" id='email'>566556+5+</p>
+                </div>
+            </div>
+            <div class="common_item_box clearfix phone_num_item">
+                <span class="left_title fl">手机号码</span>
+                <div class="right_box clearfix">
+                    <p class="right_txt fl" id="mobile">13568989898</p>
+                    <em class="fl revise_btn color2185cf">修改</em>
+                </div>
+            </div>
+            <!--<div class="common_item_box clearfix password_item">
+                <span class="left_title fl">登录密码</span>
+                <div class="right_box">
+                    <input type="password" id="password" class="right_input right_txt fl" value="1235689" />
+                    <em class="fl revise_btn color2185cf">修改</em>
+                </div>
+            </div>-->
+        </div>
+    </div>
+     <!-- 详细信息 -->
+    <div class="detailed_info_box info_common_box bgcWhite">
+        <div class="container">
+            <h1 class="top_title color2185cf">详细信息</h1>
+            <div class="common_item_box clearfix">
+                <span class="left_title fl">性别</span>
+                <div class="right_box">
+                    <div class="right_txt">
+                        <span class="fl"><label for="male" class="sex_select"><em><input id="male" type="radio" name="sex" value="1"/></em>男</label></span>
+                        <span class="fl"><label for="female" class="sex_select"><em><input id="female" type="radio" name="sex" value="2"/></em>女</label></span>
+                        <span class="fl"><label for="secret" class="sex_select"><em><input id="secret" type="radio" name="sex" value="3" /></em>保密</label></span>
+                    </div>
+                </div>
+            </div>
+            <div class="common_item_box clearfix">
+                <span class="left_title fl">联系地址</span>
+                <div class="right_box">
+                    <input type="type" id="address" class="right_input right_txt" value="" />
+                </div>
+            </div>
+            <div class="common_item_box clearfix personal_tag">
+                <span class="left_title fl">个人标签</span>
+                <div class="right_box">
+                    <ul class="tag_list clearfix">
+                    </ul>
+                </div>
+            </div>
+            <div class="common_item_box clearfix self_description">
+                <span class="left_title fl">自我描述</span>
+                <div class="right_box">
+                    <textarea id="description" class="right_input" maxlength="300"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="save_btn bgcWhite">
+        <a href="javascript:;" id="savBtn" class="btn">保存</a>
+    </div>
+   
+       
+    <!-- 弹窗 -->
+    <div class="revise_popup color000" id="mao" >
+        <div class="popup_container phone_num_revise">
+            <h1 class="title colorfff">修改手机号</h1>
+            <div class="container_body">
+                <div class="write_box">
+                    <h2 class="color333 body_title">请输入您的新手机号，并进行短信验证</h2>
+                    <div class="common_box clearfix">
+                        <span class="left_title fl">新手机号</span>
+                        <div class="right_box">
+                            <input type="text" id="newphone"  class="right_input right_txt" />
+                            <p class="prompt yes">此手机号可使用</p>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="common_box clearfix">
+                        <span class="left_title fl">图片验证码</span>
+                        <div class="right_box">
+                            <input type="text" id="verification"  class="right_input right_txt" style="width: 160px;display: block;float:left;"/>
+                              <img id="imagesyanz" onclick="changeModel()" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="common_box clearfix identity_code">
+                        <span class="left_title fl">短信验证码</span>
+                        <div class="right_box clearfix">
+                            <input type="text"  id="yangzheng_code"  class="right_input right_txt fl" />
+                            <span onclick="sendYanzhengCode()"  style="background: #c8c8c8;" class="get_code fl" style="width: 115px;"><em>点击获取</em></span>
+                           
+                        
+                        </div>
+                    </div>
+                    <div class="btn_box clearfix">
+                        <a href="javascript:;" class="btn make_sure">确定</a>
+                        <a href="javascript:;" class="btn cancel">取消</a>
+                    </div>
+                </div>
+                <div class="success_box">
+                    <p>请等待........</p>
+                    <p>3秒后返回个人信息页，<a href="../../index.html" class="link">立即跳转</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="popup_container password_revise">
+            <h1 class="title colorfff">修改密码</h1>
+            <div class="container_body">
+                <div class="write_box">
+                    <div class="common_box clearfix">
+                        <span class="left_title fl">原密码</span>
+                        <div class="right_box">
+                            <input type="text" class="right_input right_txt" />
+                        </div>
+                    </div>
+                    <div class="common_box clearfix">
+                        <span class="left_title fl">新密码</span>
+                        <div class="right_box clearfix">
+                            <input type="text" class="right_input right_txt" />
+                        </div>
+                    </div>
+                    <div class="common_box clearfix">
+                        <span class="left_title fl">确认新密码</span>
+                        <div class="right_box clearfix">
+                            <input type="text" class="right_input right_txt" />
+                        </div>
+                    </div>
+                    <div class="btn_box clearfix">
+                        <a href="javascript:;" class="btn make_sure">修改密码</a>
+                        <a href="javascript:;" class="btn cancel">取消</a>
+                    </div>
+                </div>
+                <div class="success_box">
+                    <p>请等待........</p>
+                    <p>3秒后返回个人信息页，<a href="../../index.html" class="link">立即跳转</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="askBoxUpload" style="" ></div>
+    	<!-- 美图秀秀遮罩层以及窗口  end-->
+	
+	<div class="askBox askBoxUpload" style=" width: 648px; height: 468px;display: none;">
+		<span class="closed"></span>
+		<div class="askBox_H" style="width: 648px;">
+			<h3>上传头像</h3>
+		</div>
+		<div class="dark darkUpload"></div>
+	</div>
+</body>
+
+   <script type="text/javascript" src="../../public/js/common/user-linkage-2.js"></script>    
+
+   
+</html>
+<script>
+
+		/*点击修改手机号、密码*/
+    $('.phone_num_item .revise_btn').click(function(event) {
+
+    	 $('.prompt').html('');  //清空提示
+    	 
+    	
+        $('.revise_popup').show().children('.phone_num_revise').show();
+        
+        
+        var xmlhttp;
+   
+			xmlhttp=new XMLHttpRequest();
+			//xmlHttp = createXMLHttpRequest();
+			xmlhttp.open("GET",Qnzs.path+"/pc/account/updateMobileValidCode",true);
+			xmlhttp.setRequestHeader("POWERED-BY-MENGXIANHUI", "Approve");  
+			xmlhttp.setRequestHeader("Content-Type", "application/xml"); 
+			xmlhttp.withCredentials = true;
+			xmlhttp.responseType = "blob";
+			xmlhttp.onload = function(){
+			    console.log(this);
+			    if (this.status == 200) {
+			        var blob = this.response;
+			        var img = document.getElementById("imagesyanz");
+			        img.onload = function(e) {
+			            window.URL.revokeObjectURL(img.src); 
+			        };
+			        img.src = window.URL.createObjectURL(blob);
+			        
+			        
+			    }
+			}
+			xmlhttp.send();
+        
+        
+    });
+  
+
+
+		
+function  changeModel(){
+		
+var xmlhttp;
+   
+xmlhttp=new XMLHttpRequest();
+//xmlHttp = createXMLHttpRequest();
+xmlhttp.open("GET",Qnzs.path+"/pc/account/updateMobileValidCode",true);
+xmlhttp.setRequestHeader("POWERED-BY-MENGXIANHUI", "Approve");  
+xmlhttp.setRequestHeader("Content-Type", "application/xml"); 
+xmlhttp.withCredentials = true;
+xmlhttp.responseType = "blob";
+xmlhttp.onload = function(){
+    console.log(this);
+    if (this.status == 200) {
+        var blob = this.response;
+        var img = document.getElementById("imagesyanz");
+        img.onload = function(e) {
+            window.URL.revokeObjectURL(img.src); 
+        };
+        img.src = window.URL.createObjectURL(blob);
+        
+        
+    }
+}
+xmlhttp.send();
+		
+	}
+	
+	
+	
+	/*********************************************************  修改手机号    **************************************************/
+	
+	
+	
+   
+    //判断手机号是否已经注册
+    $('#newphone').blur(function(){
+    	if($(this).is("#newphone")){            //手机号判断
+				var ph=/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/
+				if($("#newphone").val()!=""){
+				if(!(ph.test($("#newphone").val()))){
+					$('.prompt').text("亲，请输入正确手机号");
+					
+					$(this).css("border","1px solid #BD362F");
+				    $('.get_code').css('background','#c8c8c8');//验证码高亮
+					 Code_flay =false;  
+					return false;
+				}else if(ph){
+					$(".spa2").text("");
+					// 验证手机号是否注册
+					obj.ajax('/commons/checkMobile',{'mobile':$('#newphone').val()},function(data){
+			            console.log(data);
+			            if(data.status == 'OK'){
+			            	 $('.prompt').html('亲，请此手机号可以使用！');
+			            	 $('.get_code').css('background','#2185cf');//验证码高亮
+			            	 	Code_flay =true;  
+			            }else{
+			            	$('.prompt').html('亲，手机号已经注册，请换个手机号码吧！');
+			            	
+			            	 Code_flay =false;  
+			            	
+			            }
+			        },function(data){})
+					return true;
+				}
+				}else{
+					$(".spa2").text("");
+		    }
+		}
+    	
+	});
+    //聚焦提示
+    $('#newphone').focus(function(){
+    	if($(this).is("#newphone")){
+    	$('.prompt').text("11位手机号码").css("color","#aaa")
+    	$(this).css("border","1px solid #aaa")
+    	}
+    });
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//发送验证码
+	    Code_flay =true;  
+	function sendYanzhengCode(){
+		   var PhoneSecur=$('#newphone').val();
+		   
+		   
+		   if(!PhoneSecur){
+    $.alert('新手机号码不能为空!')
+			      	return;
+		   	
+		   	
+		   }
+		
+		
+		  var validCode= $("#verification").val();
+			          if(!validCode){
+
+    $.alert('图片验证码不能为空!')
+			      	return;
+			         }
+	  
+		if(Code_flay ==true){
+       	    Code_flay =false;
+	        obj.ajax('/bg/account/updatePhoneSecurityCodea',{'phone':$('#newphone').val(),'updateMobileValidCode':$("#verification").val()},function(data){
+				
+				console.log(data);
+				if(data.status =='ERROR'){
+    $.alert('图片验证码错误，请重新输入!');
+				   
+				    
+				   $('.prompt').html('亲，验证码在发送失败！');
+				}
+				if(data.status =='OK'){
+    $.alert(data.msg);
+				   $('.prompt').html('亲，验证码在发送成功！');
+				   
+				    $('.get_code').css('display','none');
+			        $('.get_code').css({'display':'block','font-size':'14px'});   
+			        $('.get_code').html('(<em>60</em>)秒后可以重发');
+			    
+			        var  time =setInterval(function(){
+				    	$('.get_code em').html($('.get_code em').html()-1);
+				    	if($('.get_code em').html()<=0){
+				    		$('.get_code').css('background','#c8c8c8');//验证码高亮
+				    		   Code_flay =true ;  //重新打开锁
+				    		  clearInterval(time);
+				    		  $('.get_code').html('重发验证码');
+				    	}
+			   	    },1000);
+				   
+				   
+				   
+				}
+			},function(data){})
+	        
+		   
+	    }  
+		
+	}
+	/******     获取用户id        ******/
+	obj.ajax('/commons/getSessionAccount',{},function(data){
+    	console.log(data)
+    	if(data.account.username){
+    		
+    		username =data.account.username;
+    	}
+    },function(data){});
+    
+	
+	/******* 手机号提交修改  ********/
+	$('.make_sure').click(function(){
+		
+	   var 	copy_newphone =$('#newphone').val();
+		
+	    if($('#newphone').val() !=''&&$('#yangzheng_code').val()!=''){
+	    	obj.ajax('/bg/account/updatePhoone',{'username':username ,'phone':$('#newphone').val(),'code':$('#yangzheng_code').val()},function(data){
+		  	  	if(data.status == 'OK'){
+		  	  		$('.cancel').click();  //隐藏修改手机号框
+		        	$('#newphone').val('')      //清空
+		        	$('#yangzheng_code').val('') //清空
+		        	 $('.prompt').html('');  //清空提示
+$.alert(data.msg);
+		        	$('#mobile').html(copy_newphone)
+		       }else {
+		       	    $('.cancel').click();  //隐藏修改手机号框
+		        	$('#newphone').val('')      //清空
+		        	$('#yangzheng_code').val('') //清空
+		        	$('.prompt').html('');  //清空提示
+                $.alert(data.msg);
+		       }
+	    	},function(data){});
+	    }else {
+             $.alert('亲，手机号和验证码不能为空！');
+	    }
+	})
+	
+</script>

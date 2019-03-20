@@ -1,0 +1,8 @@
+/* 顶部 */
+.head_link{width:100%;background:#2185cf;padding:0.4rem 0;}
+.head_link .head_box a{display:inline-block;}
+.head_link .head_box{height:0.72rem;line-height:0.72rem;padding:0 0.68rem;}
+.head_link .head_logo{background:url(../../img/head_logo.png) no-repeat;background-size:2.8rem;height:0.72rem;width:3.4rem;border-right: 1px solid #91b9d6;text-align: center;}
+.head_title{font-size:0.48rem;width: 5.8rem;color:#fff;margin-left:0.4rem;}
+.head_edit{font-size:0.48rem;width: 1.2rem;color:#fff;margin-left:0.4rem;}
+/* 顶部 end */

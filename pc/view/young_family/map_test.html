@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>map_test</title>
+     <link rel="shortcut icon" href="../../public/img/zbxm_main_list/favicon.ico" type="image/x-icon" />
+    <style>
+        body, html, #allmap{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+    </style>
+    <script type="text/javascript" src="../../public/js/common/bigDataUrl.js" ></script>
+    
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=ggGhWZ8zW5mGMOYCohgWNRER5m76Hxfz"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/module/Qnzs.js"></script>
+    <script type="text/javascript" src="../../public/js/ajax/ajax.js"></script>
+     <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+</head>
+<body>
+<div>百度地图</div>
+<input type="text" placeholder="请输入搜索点" id="coordinate"><span id="search">搜索</span>
+<div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+//    百度地图API功能
+        var map = new BMap.Map("allmap");
+        map.centerAndZoom('广州', 12);
+        map.enableScrollWheelZoom(); // 启用滚轮放大缩小，默认禁用
+        map.enableContinuousZoom(); // ?? 启用连续缩放效果，默认禁用
+        map.enableKeyboard(); // 启用键盘操作，默认禁用。键盘的上、下、左、右键可连续移动地图。同时按下其中两个键可使地图进行对角移动。PgUp、PgDn、Home和End键会使地图平移其1/2的大小。+、-键会使地图放大或缩小一级
+
+//    单击获取点击的经纬度
+        map.addEventListener('click', function (e) {
+            console.log(e.point.lng + ',' + e.point.lat);
+        });
+
+        $('#search').click(function () {
+            var coordinate = $('#coordinate').val();
+            console.log('coordinate', coordinate);
+//            创建地址解析器实例
+            var myGeo = new BMap.Geocoder();
+            myGeo.getPoint(coordinate, function (point) {
+                if (point) {
+                    map.centerAndZoom(point, 16); // 定位
+                    map.addOverlay(new BMap.Marker(point)); // 添加红色覆盖物
+                } else {
+                    console.log('您选择地址没有解析到结果！')
+                }
+            })
+        });
+    });
+</script>

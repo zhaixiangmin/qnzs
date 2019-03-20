@@ -1,0 +1,52 @@
+{
+  "rows": [
+    {
+      "hpId": "1",
+      "title": "测试标题1",
+      "helpContent": "帮助详情1",
+      "createTime": "2017-06-01",
+      "auditStatus": "1",
+      "acquirerRealName": "测试受理方1",
+      "helpType": "帮助类型1",
+      "countPost": "1",
+      "imgUrl": "https://wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/qnzs/image/20161220/20161220115457_41f4dcd38584c8ae4b1cc3f61a1f1282ea.jpg"
+    },
+    {
+      "hpId": "2",
+      "title": "测试标题2",
+      "helpContent": "帮助详情3",
+      "createTime": "2017-06-02",
+      "auditStatus": "2",
+      "acquirerRealName": "测试受理方2",
+      "helpType": "帮助类型2",
+      "countPost": "2",
+      "imgUrl": "https://wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/qnzs/image/20161220/20161220115457_41f4dcd38584c8ae4b1cc3f61a1f1282ea.jpg"
+    },
+    {
+      "hpId": "3",
+      "title": "测试标题3",
+      "helpContent": "帮助详情3",
+      "createTime": "3017-06-03",
+      "auditStatus": "3",
+      "acquirerRealName": "测试受理方3",
+      "helpType": "帮助类型3",
+      "countPost": "3",
+      "imgUrl": "https://wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/qnzs/image/20161220/20161220115457_41f4dcd38584c8ae4b1cc3f61a1f1282ea.jpg"
+    },
+    {
+      "hpId": "4",
+      "title": "测试标题4",
+      "helpContent": "帮助详情4",
+      "createTime": "2047-06-04",
+      "auditStatus": "4",
+      "acquirerRealName": "测试受理方4",
+      "helpType": "帮助类型4",
+      "countPost": "4",
+      "imgUrl": "https://wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/qnzs/image/20161220/20161220115457_41f4dcd38584c8ae4b1cc3f61a1f1282ea.jpg"
+    }
+  ],
+  "status": "1",
+  "msg": "测试错误信息",
+  "totalPage": "11",
+  "totalRecord": "53"
+}

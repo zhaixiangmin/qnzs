@@ -1,0 +1,69 @@
+
+/* ---找帮助----  No Less
+- ---*/
+
+
+/* ----菜单导航 -----
+-----*/
+section.menu ul li{width: 20%;}
+section.menu ul li a{text-align: center;padding:0.6rem 0 0.24rem;}
+section.menu ul li img{width: 1.6rem;margin: 0 auto;}
+section.menu ul li h6{line-height: 1.52rem;}
+
+/* ---人人为我，我为人人---
+----- */
+section.helpEachOther>a{width:50%;text-align: center;padding: 0.4rem 0;}
+section.helpEachOther>a:first-child>div{border-right: 1px solid #e8e8e8;}
+section.helpEachOther>a .content{padding-left: 2.4rem;background:url(../../img/zbzIcon06.png) no-repeat left center;background-size: 2rem;line-height: 2rem;}
+section.helpEachOther>a:last-child .content{background-image: url(../../img/zbzIcon07.png);}
+
+/* ---推荐组织----
+------------------ */
+section.tuijianzuzhi .content .item .right .score{height: 0.44rem;line-height: 0.44rem;padding: 0.3rem 0;}
+section.tuijianzuzhi .content .item .right .score span{color:#ff8814;}
+section.tuijianzuzhi .content .item .right .score  li{background: url(../../img/star_2.png) no-repeat;width: 0.46rem;background-size: 100%;height: 0.44rem;margin-right: 0.06rem;}
+section.tuijianzuzhi .content .item .right .score  li.cur{background-image: url(../../img/star_1.png);}
+section.tuijianzuzhi .content .item .right .botTxt span{width: 70%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+
+/*找帮助评论*/
+section.explain {
+    padding: 0.4rem 0.6rem;
+    margin-bottom: 0.8rem;
+}
+section.explain textarea {
+    font-size: 0.48rem;
+    width: 100%;
+    height: 11.56rem;
+}
+.qz_tijiao {
+    padding: 0 0.6rem;
+    margin-bottom: 1.2rem;
+}
+.qz_tijiao a {
+    display: block;
+    text-align: center;
+    line-height: 1.6rem;
+    color: #fff;
+    font-size: 0.68rem;
+    background-color: #2185cf;
+    border-radius: 0.6rem;
+}
+
+/*头部banner*/
+#banner{ position: relative; }
+#banner .hd{ position: absolute; right:1rem; bottom:0.5rem; z-index:99; }
+#banner .hd li{ float:left; width:0.4rem; height:0.1rem; border-radius:0.2rem; background-color: #d1d6df; text-indent: 999px; overflow: hidden; margin:0 0.2rem; }
+#banner .hd li.on{ background-color: #2185cf; width:0.6rem; }
+#banner .bd ul li a {
+    width: 15rem;
+    height: 5.625rem;
+    line-height: 5.625rem;
+    font-size: 0;
+    text-align: center;
+}
+#banner .bd ul li a img {
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
